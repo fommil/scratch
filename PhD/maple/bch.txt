@@ -1,0 +1,64 @@
+#with(Commutator):
+# Function for the K's
+ K:=proc(N)
+   option remember:
+   local z:
+ # Return the Nth value of K. All odd values will be 0.
+   return (convert(taylor(z/(1-exp(-z))-z/2-1,z=0,N+2),polynom)
+          -convert(taylor(z/(1-exp(-z))-z/2-1,z=0,N),polynom))/z^N:
+ end:
+# Function for the k's
+ getks:=proc(Q,M)
+   option remember:
+ # return Q positive non-zero integers adding to give M
+   local k, fd:
+   if (Q > M) then
+     printf("Error in getks(%d,%d): Q > M", Q, M): return STOP:
+   else
+     fd := fopen("/tmp/samuel.addfactM", WRITE):
+     fprintf(fd,"%d\n",M):
+     fclose(fd):
+     fd := fopen("/tmp/samuel.addfactQ", WRITE):
+     fprintf(fd,"%d\n",Q):
+     fclose(fd):
+     system("/Users/samuel/Documents/phd/cd Doc c/addfact-wrapper.sh > /tmp/samuel.maple"):
+     read "/tmp/samuel.maple":
+     return h:
+   end if:
+ end:
+# Function for the Baker-Campbell-Hausdorff Formula
+ BCH:=proc(N)
+   option remember:
+   local i, j, k, P, L, m, n, maxP:
+ #  printf("DEBUG: N = %d\n",N):
+   if (N < 1) then
+     printf("Error in BCH(%d): N < 1", N):
+     return STOP:
+   elif (N = 1) then
+     return (A+B):
+   else
+     L:=0:
+     maxP:=trunc((N-1)/2):
+       for P from 1 to maxP do
+ #        printf("DEBUG: N = %d, P from 1 to %d\n",N,maxP):
+         k:=getks((2*P),N-1):
+         n:=0:
+         for i from 1 to binomial(N-2,2*P-1) do
+ #          printf("DEBUG: N = %d, i from 1 to %d\n",N,binomial(N-2,2*P-1)):
+           m:=A+B:
+           for j from 2*P by -1 to 1 do
+ #            printf("DEBUG: N = %d, 2P = %d, i = %d, j = %d, k[i, j] = %d\n",N,2*P,i,j,k[i,j]):
+             m:=c(BCH(k[i,j]),m):
+ #            printf("DEBUG: %a\n",m):
+           end do:
+         n:=n+m:
+         end do:
+         L:=L+K(2*P)*n:
+       end do:
+     return (c(A-B,BCH(N-1))/2 + L)/N:
+   end if:
+ end proc:
+
+ for i from 1 to maxorder do
+   C[i] := BCH(i);
+ end do:

@@ -1,0 +1,310 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+%\usepackage{epsfig}
+%\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\setlength\arraycolsep{2pt}
+%\setlength\tabcolsep{5pt}
+%=====================================================%
+% Begin Equation
+\newcommand{\be}{\begin{equation}}
+% End Equation
+\newcommand{\ee}{\end{equation}}
+% Begin Equation Array
+\newcommand{\bea}{\begin{eqnarray}}
+% End Equation Array
+\newcommand{\eea}{\end{eqnarray}}
+% Partial Derivative (in math mode)
+\newcommand{\pd}{\partial}
+% Left Bracket (in math mode)
+\newcommand{\lb}{\left(}
+% Right Bracket (in math mode)
+\newcommand{\rb}{\right)}
+% Commutator Bracket (in math mode)
+\newcommand{\cb}[2]{\left[ #1 , #2 \right]}
+% Anti-Commutator Bracket (in math mode)
+\newcommand{\acb}[2]{\left[ #1 , #2 \right]_+}
+% EQuatioN reference
+\newcommand{\eqn}[1]{(\ref{#1})}
+% 2x2 MATrix (in math mode)
+\newcommand{\mat}[4]{
+        \left[\begin{array}{cc}
+        #1 & #2 \\
+        #3 & #4\end{array}\right]}
+% 3x3, a BIGger MATrix (in math mode). NOTE: 9 is max number of args.
+%\newcommand{\bigmat}[9]{
+%       \left[\begin{array}{cccc}
+%       #1  & #2  & #3 \\
+%       #4  & #5  & #6 \\
+%       #7  & #8  & #9 \end{array}\right]}
+% 2D VECTor (in math mode)
+\newcommand{\vect}[2]{
+        \left[\begin{array}{c} #1 \\ #2 \end{array}\right]}
+%=====================================================%
+%                 DOCUMENT BEGINS                     %
+%=====================================================%
+\begin{document}
+\section{Light-Cone Quantisation of a Free Particle on the Nappi-Witten Plane
+Wave Metric}
+\label{sec:NW}
+The WZW model studied in \cite{nw} presents a homogeneous four dimensional
+Lorentz-signature space-time, which may be interpreted as a four dimensional
+monochromatic plane wave. The metric of this plane-wave may be expressed in
+`semi-Brinkman' coordinates (see Appendix \ref{sec:NW:appendix}) as
+\be
+ \label{eq:NW:Brinkmann:withb}
+ ds^2 = 2dx^+dx^- + \lb b - \frac{\vec{z}^2}{4}\rb(dx^+)^2 + d\vec{z}^2
+\ee
+\subsection{Blau-O'Loughlin (Killing Vector) Approach}
+\label{sec:NW:BO}
+The $b$ in \eqn{eq:NW:Brinkmann:withb} may be ignored in the context of the
+treatment given by \cite{bo}, which generalises the metric to a Cahen-Wallach
+metric of the following form in Brinkman coordinates
+\be
+ \label{eq:NW:BO:Brinkmann}
+ ds^2 = 2dx^+dx^- + A_{ij}z^iz^j(dx^+)^2 + d\vec{z}^2
+\ee
+with
+\be
+ \label{eq:NW:BO:Brinkmann:A}
+ A = -\frac{1}{4} \mat{1}{0}{0}{1}
+\ee
+This metric has the obvious Killing vectors
+\bea
+ \label{eq:NW:BO:Z}
+ Z=\pd_{x^-} \equiv \pd_{-}\\
+ \label{eq:NW:BO:X}
+ X=\pd_{x^+}\equiv \pd_{+}
+\eea
+There are also four extra Killing vectors, denoted $X^{(1)}$, $X^{(2)}$,
+$X^{\prime(1)}$ and $X^{\prime(2)}$, each given by solutions to
+\be
+ \label{eq:NW:BO:XJ}
+ X^{(J)} = c_i^{(J)}\pd_i - \dot{c}_i^{(J)}z^i\pd_-
+\ee
+where $\pd_i$ is used as shorthand for $\pd_{z^i}$ and over-dots represent
+derivatives with respect to $x^+$. The $c$'s are solutions to
+\be
+ \label{eq:NW:BO:c1}
+ \ddot{c}_i(x^+)=A_{ij}c_j(x^+)=-\frac{1}{4}\delta_{ij}c_j(x^+)
+\ee
+Labelling two such solutions with $c^{(J)}$ and a further two $c^{\prime(J)}$, we
+impose the extra condition at $x^+=0$
+\bea
+ \label{eq:NW:BO:c2}
+ c_i^{(k)}(0)=&\delta_{ij} \qquad \dot{c}_i^{(k)}(0)&=0 \nonumber \\
+ c_i^{\prime(k)}(0)=&0          \qquad \dot{c}_i^{\prime(k)}(0)& =\delta_{ij}
+\eea
+Suitable solutions to \eqn{eq:NW:BO:c1} and \eqn{eq:NW:BO:c2} are
+\bea
+ \label{eq:NW:BO:c3}
+ c^{(1)}=&\vect{\cos{\frac{x^+}{2}}}{0}
+ \qquad c^{(2)}&=\vect{0}{\cos{\frac{x^+}{2}}} \nonumber \\
+ c^{\prime(1)}=&\vect{2\sin{\frac{x^+}{2}}}{0}
+ \qquad c^{\prime(2)}&=\vect{0}{2\sin{\frac{x^+}{2}}}
+\eea
+At this point, it is enlightening to note that we may recover the Rosen form of
+the metric (See Appendix \ref{sec:NW:appendix}) by
+\be
+ \label{eq:NW:BO:Rosen:C}
+ C_{ik}=c_j^{(J_i)}c_j^{(J_k)}
+\ee
+and the choice of $c^{(J_1)}=c^{(1)}+\frac{1}{2}c^{\prime(2)}$ and $c^{(J_2)}=c^{(2)}-\frac{1}{2}c^{\prime(1)}$.
+We summarise with all six Killing vectors (note that \cite{nw} predicts a
+seventh)
+\bea
+\label{eq:NW:BO:Killing}
+ &&Z = \pd_{-} \nonumber \\
+ &&X = \pd_{+} \nonumber \\
+ &&X^{(1)}=\cos{\lb\frac{x^+}{2}\rb}\pd_1+
+         \sin{\lb\frac{x^+}{2}\rb}z^1\pd_- \nonumber \\
+ &&X^{(2)}=\cos{\lb\frac{x^+}{2}\rb}\pd_2+
+         \sin{\lb\frac{x^+}{2}\rb}z^2\pd_- \nonumber \\
+ &&X^{\prime(1)}=2\sin{\lb\frac{x^+}{2}\rb}\pd_1-
+          \cos{\lb\frac{x^+}{2}\rb}z^1\pd_- \nonumber \\
+ &&X^{\prime(2)}=2\sin{\lb\frac{x^+}{2}\rb}\pd_2-
+          \cos{\lb\frac{x^+}{2}\rb}z^2\pd_-
+\eea
+exhibiting the harmonic oscillator algebra
+\bea
+ \label{eq:NW:BO:algebra}
+ \cb{X^{(k)}}{X^{(l)}}&=&\cb{X^{\prime(k)}}{X^{\prime(l)}}=0 \nonumber \\
+ \cb{X^{(k)}}{Z}&=&\cb{X^{\prime(k)}}{Z}=0 \nonumber \\
+ \cb{X^{(k)}}{X^{\prime(l)}}&=&-\delta^{kl}Z \nonumber \\
+ \cb{X}{X^{(k)}}&=&-\delta^k_lX^{\prime(l)} \nonumber \\
+ \cb{X}{X^{\prime(k)}}&=&X^{(k)} \nonumber \\
+ \cb{X}{Z}&=&0
+\eea
+After re-introducing $b$ via a simple translation, the Lagrangian for the
+metric is
+\be
+ \label{eq:NW:BO:Lagrangian}
+ L=\dot{x}^+\dot{x}^-
+ +\frac{1}{2}\lb b-\frac{\vec{z}^2}{4}\rb\lb\dot{x}^+\rb^2 +\frac{\vec{z}^2}{2}
+\ee
+and evidently, the light-cone momentum
+\be
+ \label{eq:NW:BO:P-}
+ P_-=\frac{\pd L}{\pd \dot{x}^-}=\dot{x}^+=1
+\ee
+is conserved. We impose the constraint $L=0$ for a massless particle, giving the
+equation of motion for $x^-$
+\be
+ \label{eq:NW:BO:EOMx-}
+ \dot{x}^-
+ +\frac{1}{2}\lb b-\frac{\vec{z}^2}{4}\rb\lb\dot{x}^+\rb^2+\frac{\vec{z}^2}{2}=0
+\ee
+Associated with the Killing vector $X$ is the conserved quantity
+\be
+ \label{eq:NW:BO:QX}
+ Q(X)=\left. \frac{\pd L}{\pd \dot{x}^+} \right|_{\dot{x}^+=1}
+     =P_+=\dot{x}^-+\lb b-\frac{\vec{z}^2}{4}\rb
+\ee
+substituting for $\dot{x}^-$ from \eqn{eq:NW:BO:EOMx-} and adopting the notation
+$p^i=\dot{z}^i$ gives
+\be
+ \label{eq:NW:BO:P+}
+ P_+=\frac{b}{2}-\frac{1}{2}\lb \vec{p}^2 + \frac{\vec{z}^2}{4} \rb
+\ee
+which is a trivial time-independent harmonic oscillator with an additional
+ground state energy. In the point-particle case this conserved quantity is
+simply the Hamiltonian of the system.
+
+\subsection{Klein-Gordon Approach}
+\label{sec:NW:KG}
+The inverted matrix $g^{\mu\nu}$ can be expressed as
+\be
+ \label{eq:NW:KG:gmunu}
+ g^{\mu\nu}=
+        \left[\begin{array}{cccc}
+        0 & 1 & 0 & 0 \\
+        1 & \frac{\vec{z}^2}{4}-b & 0 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1
+        \end{array}\right]
+\ee
+which gives the result of
+\be
+ \label{eq:NW:KG:KG}
+ \lb g^{\mu\nu}\pd_\mu\pd_\nu\rb \phi =
+ \left\{ 2\pd_+\pd_- +\lb
+ \frac{\vec{z}^2}{4}-b\rb\pd_-^2+\pd_{\vec{z}}^2\right\}\phi
+\ee
+A change of basis to the momentum representation
+\be
+ \label{eq:NW:KG:momentum}
+ \phi\lb x^+,x^-,\vec{z}\rb
+  =\int_{-\infty}^\infty RP_- e^{i p_- x^-}\psi\lb x^+,p_-,\vec{z}\rb
+\ee
+yields
+\be
+ \label{eq:NW:KG:KGmom1}
+ \lb g^{\mu\nu}\pd_\mu\pd_\nu\rb \phi =\int_{-\infty}^\infty dp_- e^{i p_- x^-}\left\{
+ \pd_{\vec{z}}^2+\lb b-\frac{\vec{z}^2}{4}\rb p_-^2
+ +2ip_-\pd_+\right\}\psi\lb x^+,p_-,\vec{z}\rb
+\ee
+so that we may say
+\be
+ \label{eq:NW:KG:KGmom2}
+ \left\{\pd_{\vec{z}}^2+\lb b-\frac{\vec{z}^2}{4}\rb p_-^2+2ip_-\pd_+\right\}
+ \psi\lb x^+,p_-,\vec{z}\rb=0
+\ee
+Introducing the parameter $\tau=\frac{x^+}{p_-}$ so that
+$\pd_\tau=p_-\pd_+$, we obtain
+\be
+ \label{eq:NW:KG:KGSHO}
+ -i\frac{\pd \psi\lb \tau,p_-,\vec{z}\rb}{\pd \tau}=
+ \left\{ \frac{b}{2} - \frac{1}{2}\lb
+ \frac{\vec{z}^2p_-^2}{4} - \pd_{\vec{z}}^2 \rb\right\}
+ \psi\lb \tau,p_-,\vec{z}\rb
+\ee
+which agrees with \eqn{eq:NW:BO:P+} as a time-independent harmonic
+oscillator with an added ground state energy.
+%=====================================================%
+\appendix
+\section{Rosen to Brinkman}
+\label{sec:NW:appendix}
+The Nappi-Witten metric \cite{nw} may exhibit a translational symmetry in $v$.
+Using the translation $v \rightarrow v - \frac{b}{2}u$, we effectively set $b=0$
+with the option of re-introducing it later on.
+\be
+ \label{eq:NW:appendix:b=0}
+  ds^2 = 2dudv + (dy^1)^2 + (dy^2)^2 + 2dy^1dy^2 \cos{u}
+\ee
+allowing the metric to be expressed in Rosen coordinates
+\be
+ \label{eq:NW:appendix:Rosen}
+ ds^2 = 2dudv + C_{ij}dy^idy^j
+\ee
+with
+\be
+ \label{eq:NW:appendix:Rosen:C}
+ C =  \mat{   1   }{\cos{u}}
+          {\cos{u}}{   1   }
+\ee
+In order to make the transformation into Brinkman coordinates, we require the
+inverse vielbein $Q$ of $C$ such that
+\bea
+ \label{eq:NW:appendix:Rosen:Velbein1}
+ C_{ij}Q_{\phantom{i}k}^iQ_{\phantom{j}l}^j &=& \delta_{kl} \\
+ \label{eq:NW:appendix:Rosen:Velbein2}
+ C_{ij}\dot{Q}_{\phantom{i}k}^iQ_{\phantom{j}l}^j
+  &=& C_{ij}Q_{\phantom{i}k}^i\dot{Q}_{\phantom{j}l}^j
+\eea
+A satisfactory $Q$ is
+\be
+ \label{eq:NW:appendix:Rosen:Q}
+ Q = \frac{1}{2}\mat{\sec{\frac{u}{2}}}{ \csc{\frac{u}{2}}}
+                    {\sec{\frac{u}{2}}}{-\csc{\frac{u}{2}}}
+\ee
+which, using the relation
+\be
+ \label{eq:NW:appendix:Rosen:A}
+  A_{kl}=-\frac{d(C_{ij}\dot{Q}_{\phantom{j}k}^j)}{du}Q_{\phantom{j}l}^j
+\ee
+gives the metric in Brinkman coordinates as
+\be
+ \label{eq:NW:appendix:Brinkmann}
+ ds^2 = 2dx^+dx^- + A_{ij}z^iz^j(dx^+)^2 + d\vec{z}^2
+\ee
+with
+\be
+ \label{eq:NW:appendix:Brinkmann:A}
+ A = -\frac{1}{4} \mat{1}{0}{0}{1}
+\ee
+or, explicitly as
+\be
+ \label{eq:NW:appendix:Brinkmann:explicit}
+ ds^2 = 2dx^+dx^- - \frac{\vec{z}^2}{4}(dx^+)^2 + d\vec{z}^2
+\ee
+The $z^i$ label the transverse coordinates, $d\vec{z}^2$ being the flat metric
+on the transverse space. $x^+$ can be viewed as the `time' coordinate. The
+relations between Brinkmann and Rosen coordinate labels are
+\bea
+ \label{eq:NW:appendix:Rosen:u}
+ u &=& x^+ \\
+ \label{eq:NW:appendix:Rosen:v}
+ v &=& x^- - \frac{1}{2}C_{ij}\dot{Q}_{\phantom{i}k}^iQ_{\phantom{j}l}^jz^kz^l\\
+   &=& x^- - \frac{1}{4}\tan{\lb\frac{u}{2}\rb}\lb z^1\rb^2
+       +\frac{1}{4}\cot{\lb\frac{u}{2}\rb}\lb z^2\rb^2 \nonumber \\
+ \label{eq:NW:appendix:Rosen:y}
+ y^i &=& Q_{\phantom{i}j}^iz^j\\
+ y^1 &=& \frac{1}{2}\left\{\sec{\lb\frac{u}{2}\rb}z^1
+         +\csc{\lb\frac{u}{2}\rb}z^2\right\} \nonumber \\
+ y^2 &=& \frac{1}{2}\left\{\sec{\lb\frac{u}{2}\rb}z^1
+         -\csc{\lb\frac{u}{2}\rb}z^2\right\} \nonumber
+\eea
+From this, we can see that the translation to re-introduce $b$, namely
+$v\rightarrow v+\frac{b}{2}u$ is equivalent to $x^-\rightarrow x^-+\frac{b}{2}x^+$, giving
+\be
+ \label{eq:NW:appendix:Brinkmann:withb}
+ ds^2 = 2dx^+dx^- + \lb b - \frac{\vec{z}^2}{4}\rb(dx^+)^2 + d\vec{z}^2
+\ee
+%=====================================================%
+\begin{thebibliography}{100}
+        \bibitem{nw} C. R. Nappi, E. Witten, {\it Phys. Rev.} {\bf L71} 3751
+                        (1993); {\it hep-th/9310112}
+        \bibitem{bo} M. Blau, M. O'Loughlin, {\it hep-th/0212135}
+\end{thebibliography}
+Typeset in $\LaTeXe$ using Emacs on GNU/Linux.
+\end{document}

@@ -1,0 +1,57 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "x1:=u/2;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%#x1G,$*&\"\"#!\"\"%\"uG\"\"\"F*" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 29 "x2:=v-1/4*(y1^2+y2^2)*sin(u);" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#>%#x2G,&%\"vG\"\"\"*&#F'\"\"%F'*&,&*$)%#y1G\"\"#F'
+F'*$)%#y2GF0F'F'F'-%$sinG6#%\"uGF'F'!\"\"" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 16 "z1:=y1*sin(u/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>%#z1G*&%#y1G\"\"\"-%$sinG6#,$*&\"\"#!\"\"%\"uGF'F'F'" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "z2:=y2*sin(u/2);" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%#z2G*&%#y2G\"\"\"-%$sinG6#,$*&\"\"#!\"\"%\"uGF'F'F'
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "dx1:=diff(x1,u)*du;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$dx1G,$*&\"\"#!\"\"%#duG\"\"\"F*" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 71 "dx2:=diff(x2,u)*du + diff(x
+2,v)*dv + diff(x2,y1)*dy1 + diff(x2,y2)*dy2;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%$dx2G,**&#\"\"\"\"\"%F(*(,&*$)%#y1G\"\"#F(F(*$)%#y2GF
+/F(F(F(-%$cosG6#%\"uGF(%#duGF(F(!\"\"%#dvGF(*&#F(F/F(*(F.F(-%$sinGF5F(
+%$dy1GF(F(F8*&#F(F/F(*(F2F(F=F(%$dy2GF(F(F8" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 37 "dz1:=diff(z1,u)*du + diff(z1,y1)*dy1;" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#>%$dz1G,&*&#\"\"\"\"\"#F(*(%#y1GF(-%$cosG6#,$*&
+F)!\"\"%\"uGF(F(F(%#duGF(F(F(*&-%$sinGF.F(%$dy1GF(F(" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 37 "dz2:=diff(z2,u)*du + diff(z2,y2)*dy2;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$dz2G,&*&#\"\"\"\"\"#F(*(%#y2GF(-%$c
+osG6#,$*&F)!\"\"%\"uGF(F(F(%#duGF(F(F(*&-%$sinGF.F(%$dy2GF(F(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 65 "coeff(simplify(2*dx1*dx2-(z1
+^2+z2^2)/4*dx1^2+(dz1^2+dz2^2)),dy2);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#,&*&#\"\"\"\"\"#F&*(%#duGF&%#y2GF&-%$sinG6#%\"uGF&F&!\"\"**F*F&-%$c
+osG6#,$*&F'F/F.F&F&F&F)F&-F,F3F&F&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 55 "simplify(coeff(coeff(coeff(-dx1*dz1*dz2,du),dy1),dy2)
+);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&#\"\"\"\"\"#!\"\"*&#F%F&F%*$)-
+%$cosG6#,$*&F&F'%\"uGF%F%F&F%F%F%" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 65 "simplify(coeff(coeff(coeff(-cot(x1)^2*dx1*dz1*dz2,du)
+,dy1),dy2));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$**\"\"#\"\"\"-%$cosG
+6#,$*&F%!\"\"%\"uGF&F&\"\"%,&F&F,*$)F'F%F&F&F&,&F&F,*$)-F(6#F-F%F&F&F,
+F," }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "simplify(cot(x1)*(x1*
+dz1+x1*dz2));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"%F&**-
+%$sinG6#%\"uGF&F,F&,**(%#y1GF&-%$cosG6#,$*&\"\"#!\"\"F,F&F&F&%#duGF&F&
+*(F5F&-F*F2F&%$dy1GF&F&*(%#y2GF&F0F&F7F&F&*(F5F&F9F&%$dy2GF&F&F&,&-F1F
++F&F&F6F6F&F6" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 246 "algsubs((
+1-cos(u/2)^2)*dy^2=sin(u/2)^2*dy^2,algsubs((1+cos(u))*du^2*y^2=2*cos(u
+/2)^2*du^2*y^2,simplify(algsubs(dy1^2+dy2^2=dy^2,algsubs(cos(u/2)*sin(
+u/2)*2=sin(u),algsubs(y1^2+y2^2=y^2,simplify(-dx1^2*z1^2-dx1^2*z2^2+2*
+dx1*dx2+dz1^2+dz2^2)))))));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&*&)-%
+$sinG6#,$*&\"\"#!\"\"%\"uG\"\"\"F.F+F.)%#dyGF+F.F.*&%#duGF.%#dvGF.F." 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "simplify(-2/sin(x1)*dz1*d
+x1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"#F&*(,&*(%#y1GF
+&-%$cosG6#,$*&F'!\"\"%\"uGF&F&F&%#duGF&F&*(F'F&-%$sinGF.F&%$dy1GF&F&F&
+F3F&F5F1F&F1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK 
+"15 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 
+1 }

@@ -1,0 +1,223 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{amsmath,amsfonts,amssymb,bbold}
+\usepackage[latin1]{inputenc}
+\setlength{\parindent}{0pt}
+\setlength\arraycolsep{2pt}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% these break the label viewing in preview-latex
+%\usepackage[notref, notcite]{shoasaqwkeys}
+%\usepackage{showlabels}
+
+%% Local defines
+\def\P{{\sf P}} \def\K{{\sf K}} \def\J{{\sf J}} \def\T{{\sf FIXME}}
+\def\d{\partial}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\let\S\Sphere
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\DeclareMathOperator{\weyl}{{\cal W}}
+\DeclareMathOperator{\real}{{\mathbb R}}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\re}{Re}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\1}{\mathbb{1}}
+
+\begin{document}
+%\tableofcontents
+\section{Conjugacy Classes in the $\NW_6$ Space-Time}
+Classically symmetric D-branes are classified by the (twisted) conjugacy classes
+of the 6 dimensional Nappi-Witten group.
+\begin{equation}
+  \label{eq:twistedconjugacy}
+  C^r(g_0)=\{\omega(g)g_0g^{-1}|g\in {\cal N}\}
+\end{equation}
+In the case of normal conjugacy classes, $\omega$ is simply the identity.
+However for the twisted conjugacy classes, it is the automorphism corresponding
+to $(M,\varepsilon)$
+\begin{eqnarray}
+  \label{eq:automorphism}
+  \omega(g)=g(Mu,\varepsilon\theta, \varepsilon t)=
+  \begin{cases}
+    g(Su, \theta, t) & \text{if $\varepsilon=1$}\\
+    g(S\bar u, -\theta, -t) & \text{if $\varepsilon=-1$}
+  \end{cases}
+\end{eqnarray}
+where $S\in\SU(2)$. We attempt to note the group $G^\omega$ for each twisted
+conjugacy class, defined by
+\begin{equation}
+  \label{eq:Gomega}
+  G^\omega:=\{g\in G|\omega(g)=g\}
+\end{equation}
+The metric and SUGRA fields in each case are given by
+\begin{eqnarray}
+  \label{eq:G}
+  ds^2&=&|du'|^2-\frac i2 (\bar udu-ud\bar u)d\theta-2d\theta dt\\
+  \label{eq:H}
+  H&=&id\theta\wedge du\wedge d\bar u\\
+  \label{eq:B}
+  B&=&i\theta du\wedge du'
+\end{eqnarray}
+
+\subsection{Conjugacy Classes}
+There are three untwisted conjugacy classes. In each case, due to the trivial
+nature of $\omega=\1$, $G^\omega=G$.
+\subsubsection{a)}
+\begin{eqnarray}
+  \label{eq:a}
+  \theta_0&=&0\\\nonumber
+  u'&=&e^{-i\theta}u_0\qquad\qquad\theta'=0\qquad t'=t_0-\im(\bar{u_0}e^{i\theta}u)\\\nonumber
+  du'&=&-iu_0e^{-i\theta}d\theta\qquad d\theta'=0\qquad dt'=fd\theta+gdu\\\nonumber
+  ds^2_a&=&u_0\bar{u_0}d\theta^2
+\end{eqnarray}
+which has a degenerate metric and cannot be straightforwardly interpreted as a
+D-brane.
+
+\subsubsection{b)}
+\begin{eqnarray}
+  \label{eq:b}
+  \theta&=&\pi\\\nonumber
+  u'&=&2u+e^{-i\theta}u_0\qquad\qquad\theta'=\pi\qquad t'=t_0\\\nonumber
+  du'&=&2du-iu_0e^{-i\theta}d\theta\qquad d\theta'=0\qquad dt'=0\\\nonumber
+  ds^2_b&=&|du'|^2\\\nonumber
+  B_b&=&i\pi du'\wedge d\bar u'
+\end{eqnarray}
+Which may be interpreted as euclidean D3-branes.
+
+\subsubsection{c)}
+\begin{eqnarray}
+  \label{eq:c}
+  \theta&\neq&0,\pi\\\nonumber
+  u'&=&u_0\qquad \theta'=\theta_0\qquad t'=t_0-\frac
+  12\im(\bar{u_0}e^{i\theta}(1+e^{-i\theta_0}))\\\nonumber
+  du'&=&0\qquad d\theta'=0\qquad dt'=fd\theta\\\nonumber
+  ds^2_c&=&|du'|^2\\\nonumber
+  B_c&=&i\theta_0 du'\wedge d\bar u'
+\end{eqnarray}
+Which may be interpreted as euclidean D3-branes. (However they do not seem to
+make any sense in terms of a coordinate change as both $u'$ and $\theta'$ are
+constant).
+
+\subsection{Twisted Conjugacy Classes}
+\subsubsection{d)}
+\begin{eqnarray}
+  \label{eq:d}
+  \varepsilon=1\qquad u_0=0\qquad u=0\\\nonumber
+  u'=0\qquad \theta'=\theta_0\qquad t'=t_0\\\nonumber
+  du'=0\qquad d\theta'=0\qquad dt'=0
+\end{eqnarray}
+by the argument that the stabiliser is $g(0,\theta,t)$ it is claimed that the
+sub-manifold is $g(u,0,0)$ which is a euclidean D3-brane.
+
+\subsubsection{e)}
+\begin{equation}
+  \label{eq:e}
+  \varepsilon=1\qquad u_0=0\qquad e^{i2\theta_0}\neq 1
+\end{equation}
+Euclidean D-String via more stabiliser arguments.
+
+\subsubsection{f)}
+\begin{eqnarray}
+  \label{eq:f}
+  \varepsilon&=&1\qquad u_0\neq 0\\\nonumber
+  u'&=&\phi^{-1}(1-S)+(1+e^{-i\theta})u_0\qquad \theta=\theta_0\qquad t'=?
+  \\\nonumber
+  ds^2_f&=&|du'|^2\\\nonumber
+  B_f&=&i\theta_0 du'\wedge d\bar u'
+\end{eqnarray}
+Stabiliser arguments again to say these are Euclidean D3-branes.
+
+\subsubsection{g)}
+\begin{eqnarray}
+  \label{eq:g}
+  \varepsilon&=&1\qquad S\neq\1\qquad e^{i\theta}=1\qquad u\in ker
+  \phi\\\nonumber
+  \bar u e^{i\theta_0}u_0&=&ue^{-i\theta_0}\bar{u_0}\\\nonumber
+  \im[u_0^1+u_0^2]&=&0\\\nonumber
+  \im[u^1+u^2]&=&0 \qquad or\qquad \re[u^1+u^2]=0
+  \\\nonumber
+  ds^2_g&=&|du'|^2
+\end{eqnarray}
+not forgetting the restriction on $u$.
+\begin{eqnarray*}
+  \label{eq:g:u}
+  u'&=&Su+e^{-i\theta}u_0-e^{-i\theta_0}\\
+  &=&e^{-i\theta}u_0\\
+  du'&=&=-ie^{-i\theta}u_0d\theta
+\end{eqnarray*}
+which might imply the metric is degenerate (it seems i can either leave it as it
+is which is a D3-brane $|du'|^2$, or convert to $\theta$ coordinates, which
+implies a degenerate $fd\theta^2$ metric.)
+
+\subsubsection{h)}
+5D, degenerate metric.
+
+\subsubsection{i)}
+\begin{eqnarray}
+  \label{eq:i}
+  \varepsilon&=&1\qquad \text{$\phi$ not maximal}\\\nonumber
+  du'&=&fd\theta
+\end{eqnarray}
+again, like g) with regards degeneracy.
+
+\subsubsection{$G^\omega$ so far}
+For all the previous twisted conjugacy classes, the group $G^\omega$ is given by
+the group for which
+\begin{equation}
+  \label{eq:Gomega:1}
+  g(Su,\theta,t)=g(u,\theta,t)
+\end{equation}
+since $S$ is not in general $=\1$, this means
+\begin{equation}
+  \label{eq:Gomega:2}
+  G^\omega=\{(0,\theta,t)|t,\theta\in\real\}
+\end{equation}
+
+\subsubsection{j)}
+$\varepsilon=-1$, space filling D5-branes
+
+\subsubsection{k)}
+$\varepsilon=-1$, lorentzian D3-branes
+
+\subsubsection{$G^\omega$ for j) and k)}
+For j) and k), the automorphism is different. In order to find $G^\omega$ we
+require the group where
+\begin{equation}
+  \label{eq:Gomega:3}
+  g(S\bar u,-\theta,-t)=g(u,\theta,t)
+\end{equation}
+which is empty unless $S=\1$, in which case
+\begin{equation}
+  \label{eq:Gomega:4}
+  G^\omega=\{(u,0,0)|u\in\real^2\}
+\end{equation}
+or $S=-\1$, in which case
+\begin{equation}
+  \label{eq:Gomega:5}
+  G^\omega=\{(u,0,0)|u\in i\real^2\}
+\end{equation}
+
+\begin{thebibliography}{99}
+\bibitem{Figueroa-OFarrill:1999ie}
+  J.~M.~Figueroa-O'Farrill and S.~Stanciu,
+  ``More D-branes in the Nappi-Witten background,''
+  JHEP {\bf 0001} (2000) 024
+  [arXiv:hep-th/9909164].
+  %%CITATION = HEP-TH 9909164;%%
+
+\bibitem{Nappi:1993ie}
+  C.~R.~Nappi and E.~Witten,
+  ``A WZW model based on a nonsemisimple group,''
+  Phys.\ Rev.\ Lett.\  {\bf 71} (1993) 3751
+  [arXiv:hep-th/9310112].
+  %%CITATION = HEP-TH 9310112;%%
+
+\end{thebibliography}
+\end{document}
+
+% This is for Emacs
+%%% Local Variables:
+%%% TeX-command-default: "LaTeX"
+%%% TeX-command-Show: "View"
+%%% End:

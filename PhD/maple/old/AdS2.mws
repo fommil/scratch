@@ -1,0 +1,81 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 78 "G:=l*alpha*Matrix(2,[\n[cosh(lambda
+)^2,0],\n[0,-cosh(lambda)^2*cosh(omega)^2]]);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"GG*(%\"lG\"\"\"%&alphaGF'-%'RTABLEG6%\"*7n%o8-%'MAT
+RIXG6#7$7$*$)-%%coshG6#%'lambdaG\"\"#F'\"\"!7$F9,$*&F3F')-F56#%&omegaG
+F8F'!\"\"%'MatrixGF'" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 100 "F:
+=simplify(l*alpha/2*Matrix(2,[\n[0,sinh(2*lambda)*cosh(omega)],\n[-sin
+h(2*lambda)*cosh(omega),0]]));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"
+FG-%'RTABLEG6%\"*78wO\"-%'MATRIXG6#7$7$\"\"!,$*&#\"\"\"\"\"#F2**%\"lGF
+2%&alphaGF2-%%sinhG6#,$*&F3F2%'lambdaGF2F2F2-%%coshG6#%&omegaGF2F2F27$
+,$*&#F2F3F2F4F2!\"\"F.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 23 "Finv:=MatrixInverse(F);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%
+FinvG-%'RTABLEG6%\"*#4bs8-%'MATRIXG6#7$7$\"\"!,$*,\"\"#\"\"\"%\"lG!\"
+\"%&alphaGF4-%%sinhG6#,$*&F1F2%'lambdaGF2F2F4-%%coshG6#%&omegaGF4F47$,
+$*,F1F2F3F4F5F4F6F4F<F4F2F.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 44 "Fhat:=simplify(1/(2*Pi*alpha)*(F-G.Finv.G));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%FhatG-%'RTABLEG6%\"*#HDw8-%'MATRIXG
+6#7$7$\"\"!,$*&#\"\"\"\"\"%F2*,%\"lGF2-%%coshG6#%&omegaGF2,(*$)-F76#,$
+*&\"\"#F2%'lambdaGF2F2FAF2F2F2!\"\"*&F3F2)-F76#FBF3F2FCF2%#PiGFC-%%sin
+hGF>FCF2F27$,$*&#F2F3F2F4F2FCF.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 20 "MatrixInverse(Fhat);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#-%'RTABLEG6%\"*7ciR\"-%'MATRIXG6#7$7$\"\"!,$*.\"\"%\"\"\"%\"lG!\"\"
+-%%coshG6#%&omegaGF2,(*$)-F46#,$*&\"\"#F0%'lambdaGF0F0F>F0F0F0F2*&F/F0
+)-F46#F?F/F0F2F2%#PiGF0-%%sinhGF;F0F27$,$*.F/F0F1F2F3F2F7F2FDF0FEF0F0F
+,%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 33 "simplifier:=l
+*cosh(omega)/(4*Pi);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+simplifierG
+,$*&#\"\"\"\"\"%F(*(%\"lGF(-%%coshG6#%&omegaGF(%#PiG!\"\"F(F(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 37 "Theta:=simplify(MatrixInvers
+e(Fhat));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&ThetaG-%'RTABLEG6%\"*[
+>gM\"-%'MATRIXG6#7$7$\"\"!,$*.\"\"%\"\"\"%\"lG!\"\"-%%coshG6#%&omegaGF
+4,(*$)-F66#,$*&\"\"#F2%'lambdaGF2F2F@F2F2F2F4*&F1F2)-F66#FAF1F2F4F4%#P
+iGF2-%%sinhGF=F2F47$,$*.F1F2F3F4F5F4F9F4FFF2FGF2F2F.%'MatrixG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "simplify(l*cosh(omega)*Theta
+['1,2']/Pi);" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#*&-%%sinhG6#,$*&\"\"#\"\"\"%'lambdaGF*F*F*-%%coshG6#F
++!\"#" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "9 0 0
+" 31 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
+{RTABLE_HANDLES 136846712 136761312 137255092 137625292 139625612 
+134601948 }{RTABLE 
+M7R0
+I6RTABLE_SAVE/136846712X,%)anythingG6"6"[gl!"%!!!#%"#"#*$-%%coshG6#%'lambdaG""#
+""!F-,$*&F(F,-F)6#%&omegaGF,!""F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/136761312X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$**%"lG"""%&alphaGF+
+-%%sinhG6#,$%'lambdaG""#F+-%%coshG6#%&omegaGF+#!""F2,$F)#F+F2F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/137255092X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$**%"lG!""%&alphaGF+
+-%%sinhG6#,$%'lambdaG""#F+-%%coshG6#%&omegaGF+F2,$F)!"#F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/137625292X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*,%"lG"""-%%coshG6#
+%&omegaGF+,(*$-F-6#,$%'lambdaG""#F6F+!""F+*$-F-6#F5""%!"%F+%#PiGF7-%%sinhGF3F7#
+F7F;,$F)#F+F;F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/139625612X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*,%"lG!""-%%coshG6#
+%&omegaGF+,(*$-F-6#,$%'lambdaG""#F6"""F+F7*$-F-6#F5""%!"%F+%#PiGF7-%%sinhGF3F7F
+;,$F)F<F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/134601948X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*,%"lG!""-%%coshG6#
+%&omegaGF+,(*$-F-6#,$%'lambdaG""#F6"""F+F7*$-F-6#F5""%!"%F+%#PiGF7-%%sinhGF3F7F
+;,$F)F<F'F&
+}
+

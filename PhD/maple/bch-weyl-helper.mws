@@ -1,0 +1,44 @@
+{VERSION 6 0 "IBM INTEL LINUX" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart;with(Commuta
+tor):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 52 "maxorder:=12:read \+
+\"/home/samuel/work/maple/bch.txt\";" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 31 "constants:=constants, K, alpha:" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 52 "c(x,y):=-alpha*2*K;c(x,z):=alpha*x;c(y,z):=-a
+lpha*y;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"xG%\"yG,$
+*(\"\"#\"\"\"%&alphaGF-%\"KGF-!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>-%'VECTORG6#7$%\"xG%\"zG*&%&alphaG\"\"\"F(F," }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>-%'VECTORG6#7$%\"yG%\"zG,$*&%&alphaG\"\"\"F(F-!\"\"" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "A:=I*(p1*x+p2*y):B:=I*(z*p
+3):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 53 "constants:=constants
+, k1, k2, k3, k4, p1, p2, p3, p4:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 44 "for i from 1 to maxorder do\n   C[i];\nend do:" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 54 "a:=0:for i from 1 to maxorde
+r do\n   a:=a+C[i]:\nend do:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 13 "a:=expand(a):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 70 "NWsu
+bs:=\{p1=p[1],p2=p[2],p3=p[3],p4=p[4],x=x[1],y=x[2],z=x[3],K=x[4]\}:" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "exponent:=simplify(subs(N
+Wsubs,a)):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "Phi:=proc(x,y
+)\n(exp(x*y)-1)/x;\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 74 "Theta:=proc(x,y)\n  1/2+(exp(x*y)-1-y*x*exp(x*y))/(exp(x*y)-1)^2
+;\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 37 "G[1]:=I*p[1
+]/Phi(-I*alpha*p[3],beta):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+36 "G[2]:=I*p[2]/Phi(I*alpha*p[3],beta):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 13 "G[3]:=I*p[3]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 50 "G[4]:=-2*alpha*p[1]*p[2]*Theta(I*alpha*p[3],beta):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 289 "for xindex from 1 to 4 do\nanalyti
+c:=subs(beta=1,convert(series(G[xindex],beta,maxorder+1),polynom)):\nm
+aple:=coeff(exponent,x[xindex]):\ndifference:=simplify(maple-analytic)
+:\nif (difference <> 0) then\n print(xindex,\"FAILED\");\n print(diffe
+rence);\nelse\n print(xindex,\"passed\");\nend if:\nend do:" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6$\"\"\"Q'passed6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6$\"\"#Q'passed6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$\"
+\"$Q'passed6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$\"\"%Q'passed6\"" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "1 0 0" 37 }
+{VIEWOPTS 1 1 0 3 2 1804 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

@@ -1,0 +1,127 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 53 "#U1:=R*(cos(u/2+Omega^2*v/2) + cos(
+u/2-Omega^2*v/2));" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "#dU1:
+=simplify(diff(U1,u)*du+diff(U1,v)*dv+diff(U1,y1)*dy1+diff(U1,y2)*dy2)
+;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 80 "#U2:=R*(cos(Omega*y1)*
+sin(u/2+Omega^2*v/2)+cosh(Omega*y2)*sin(u/2-Omega^2*v/2));" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "#dU2:=simplify(diff(U2,u)*du+diff(U
+2,v)*dv+diff(U2,y1)*dy1+diff(U2,y2)*dy2);" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 61 "#V1:=R*((cos(u/2+Omega^2*v/2)-cos(u/2-Omega^2*v/2))
+/Omega^2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "#dV1:=simplif
+y(diff(V1,u)*du+diff(V1,v)*dv+diff(V1,y1)*dy1+diff(V1,y2)*dy2);" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 90 "#V2:=R*((cos(Omega*y1)*sin(u
+/2+Omega^2*v/2)-cosh(Omega*y2)*sin(u/2-Omega^2*v/2))/Omega^2);" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "#dV2:=simplify(diff(V2,u)*du
++diff(V2,v)*dv+diff(V2,y1)*dy1+diff(V2,y2)*dy2);" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 53 "#Y1:=R*((sinh(Omega*y2)*sin(u/2-Omega^2*v/2))
+/Omega);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "#dY1:=simplify(
+diff(Y1,u)*du+diff(Y1,v)*dv+diff(Y1,y1)*dy1+diff(Y1,y2)*dy2);" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 52 "#Y2:=R*((sin(Omega*y1)*sin(u
+/2+Omega^2*v/2))/Omega);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 
+"#dY2:=simplify(diff(Y2,u)*du+diff(Y2,v)*dv+diff(Y2,y1)*dy1+diff(Y2,y2
+)*dy2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 63 "#ds^2=simplify(l
+imit(dU1*dV1+dU2*dV2+dY1*dY1+dY2*dY2,Omega=0));" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 7 "# Rosen" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 23 "psi:=1/2*(u+Omega^2*v);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$
+psiG,&*&\"\"#!\"\"%\"uG\"\"\"F**(F'F(%&OmegaGF'%\"vGF*F*" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 81 "#dpsi:=simplify(diff(psi,u)*du+diff
+(psi,v)*dv+diff(psi,y1)*dy1+diff(psi,y2)*dy2);" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 23 "tau:=1/2*(u-Omega^2*v);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%$tauG,&*&\"\"#!\"\"%\"uG\"\"\"F**(F'F(%&OmegaGF'%\"vG
+F*F(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 81 "#dtau:=simplify(dif
+f(tau,u)*du+diff(tau,v)*dv+diff(tau,y1)*dy1+diff(tau,y2)*dy2);" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "theta:=Omega*y1;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%&thetaG*(%&OmegaG\"\"\"%#z1GF'-%$cscG6#*&%
+#muGF'%#x1GF'F'" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 91 "#dtheta:
+=simplify(diff(theta,u)*du+diff(theta,v)*dv+diff(theta,y1)*dy1+diff(th
+eta,y2)*dy2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "beta:=Omeg
+a*y2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%betaG**%&OmegaG\"\"\"%#z2G
+F'-%$cscG6#*&%#muGF'%#x1GF'F'^#F'F'" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 86 "#dbeta:=simplify(diff(beta,u)*du+diff(beta,v)*dv+diff
+(beta,y1)*dy1+diff(beta,y2)*dy2);" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 135 "#G:=limit(simplify(R^2*(dpsi^2 + sin(psi)^2*dtheta^2
+ - dtau^2 + #sin(tau)^2*(cosh(beta)^2/(sinh(beta)^2-1))*dbeta^2))/Omeg
+a^2,Omega=0);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "# Brinkman
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "u := mu*2*x1;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"uG,$*(\"\"#\"\"\"%#muGF(%#x1GF(F(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 49 "v:=x2/mu + z1^2*cot(x1*mu)/2
+ + z2^2*cot(x1*mu)/2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"vG,(*&%#x
+2G\"\"\"%#muG!\"\"F(*&#F(\"\"#F(*&)%#z1GF-F(-%$cotG6#*&F)F(%#x1GF(F(F(
+F(*&F,F(*&)%#z2GF-F(F1F(F(F(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 18 "y1:=z1*csc(x1*mu);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#y1G*&%#
+z1G\"\"\"-%$cscG6#*&%#muGF'%#x1GF'F'" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 20 "y2:=I*z2*csc(x1*mu);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#>%#y2G*(%#z2G\"\"\"-%$cscG6#*&%#muGF'%#x1GF'F'^#F'F'" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 75 "#du:=simplify(diff(u,x1)*dx1+diff(u
+,x2)*dx2+diff(u,z1)*dz1+diff(u,z2)*dz2);" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 75 "#dv:=simplify(diff(v,x1)*dx1+diff(v,x2)*dx2+diff(v,z1
+)*dz1+diff(v,z2)*dz2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 80 "#
+dy1:=simplify(diff(y1,x1)*dx1+diff(y1,x2)*dx2+diff(y1,z1)*dz1+diff(y1,
+z2)*dz2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 80 "#dy2:=simplify
+(diff(y2,x1)*dx1+diff(y2,x2)*dx2+diff(y2,z1)*dz1+diff(y2,z2)*dz2);" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 13 "#simplify(G);" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 84 "dpsi:=simplify(diff(psi,x1)*dx1+dif
+f(psi,x2)*dx2+diff(psi,z1)*dz1+diff(psi,z2)*dz2);" }}{PARA 12 "" 1 "" 
+{XPPMATH 20 "6#>%%dpsiG,$*&#\"\"\"\"\"%F(*&,2*(F)F()%#muG\"\"#F(%$dx1G
+F(!\"\"**F-F(F0F()%&OmegaGF/F()%#z1GF/F(F(*,F-F(F0F(F3F(F5F()-%$cotG6#
+*&F.F(%#x1GF(F/F(F(**F-F(F0F(F3F()%#z2GF/F(F(*,F-F(F0F(F3F(F?F(F8F(F(*
+(F/F(F3F(%$dx2GF(F1*.F/F(F3F(F6F(F9F(%$dz1GF(F.F(F1*.F/F(F3F(F@F(F9F(%
+$dz2GF(F.F(F1F(F.F1F(F1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 84 "
+dtau:=simplify(diff(tau,x1)*dx1+diff(tau,x2)*dx2+diff(tau,z1)*dz1+diff
+(tau,z2)*dz2);" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#>%%dtauG,$*&#\"\"\"
+\"\"%F(*&,2*(F)F()%#muG\"\"#F(%$dx1GF(F(**F-F(F0F()%&OmegaGF/F()%#z1GF
+/F(F(*,F-F(F0F(F2F(F4F()-%$cotG6#*&F.F(%#x1GF(F/F(F(**F-F(F0F(F2F()%#z
+2GF/F(F(*,F-F(F0F(F2F(F>F(F7F(F(*(F/F(F2F(%$dx2GF(!\"\"*.F/F(F2F(F5F(F
+8F(%$dz1GF(F.F(FC*.F/F(F2F(F?F(F8F(%$dz2GF(F.F(FCF(F.FCF(F(" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 94 "dtheta:=simplify(diff(theta,
+x1)*dx1+diff(theta,x2)*dx2+diff(theta,z1)*dz1+diff(theta,z2)*dz2);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'dthetaG*(%&OmegaG\"\"\",&**%#z1GF'-
+%$cosG6#*&%#muGF'%#x1GF'F'F/F'%$dx1GF'F'*&%$dz1GF'-%$sinGF-F'!\"\"F',&
+F'F6*$)F+\"\"#F'F'F6" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 89 "dbeta:=simplify(diff(beta,x1)*dx1+diff(beta,x2)*
+dx2+diff(beta,z1)*dz1+diff(beta,z2)*dz2);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%&dbetaG**%&OmegaG\"\"\",&**%#z2GF'-%$cosG6#*&%#muGF'%
+#x1GF'F'F/F'%$dx1GF'F'*&%$dz2GF'-%$sinGF-F'!\"\"F',&F'F6*$)F+\"\"#F'F'
+F6^#F'F'" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 141 "s:=simplify(limit(R^2 * (dpsi^2 + sin(psi)^2 * dthet
+a^2 - dtau^2 + sin(tau)^2 * (cosh(beta)^2/(sinh(beta)^2-1)) * dbeta^2)
+/Omega^2,Omega=0));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"sG,$*&)%\"R
+G\"\"#\"\"\",,*()%#muGF)F*)%$dx1GF)F*)%#z2GF)F*F**(F-F*F/F*)%#z1GF)F*F
+**$)%$dz1GF)F*!\"\"*$)%$dz2GF)F*F9*(F)F*F0F*%$dx2GF*F9F*F9" }}}{EXCHG 
+}{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }
+{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 100 "#rosenmetric:=simpl
+ify(R^2*du*dv-R^2*dy1^2*cos(1/2*u)^2+R^2*dy1^2-R^2*dy2^2+R^2*dy2^2*cos
+(1/2*u)^2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "#s-rosenmetr
+ic;" }}}{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "psi;
+tau;theta;beta;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&*&%#muG\"\"\"%#x1
+GF&F&*&#F&\"\"#F&*&)%&OmegaGF*F&,(*&%#x2GF&F%!\"\"F&*&F)F&*&)%#z1GF*F&
+-%$cotG6#F$F&F&F&*&F)F&*&)%#z2GF*F&F6F&F&F&F&F&F&" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,&*&%#muG\"\"\"%#x1GF&F&*&#F&\"\"#F&*&)%&OmegaGF*F&,(*&
+%#x2GF&F%!\"\"F&*&#F&F*F&*&)%#z1GF*F&-%$cotG6#F$F&F&F&*&F3F&*&)%#z2GF*
+F&F7F&F&F&F&F&F1" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#*(%&OmegaG\"\"\"%#
+z1GF%-%$cscG6#*&%#muGF%%#x1GF%F%" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#**
+%&OmegaG\"\"\"%#z2GF%-%$cscG6#*&%#muGF%%#x1GF%F%^#F%F%" }}}{EXCHG }
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 66 "mu*x1+1/2*Omega^2*(x2/mu+1/2
+*z1^2*cot(mu*x1)+1/2*z2^2*cot(mu*x1));" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#,&*&%#muG\"\"\"%#x1GF&F&*&#F&\"\"#F&*&)%&OmegaGF*F&,(*&%#x2GF&F%
+!\"\"F&*&F)F&*&)%#z1GF*F&-%$cotG6#F$F&F&F&*&F)F&*&)%#z2GF*F&F6F&F&F&F&
+F&F&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 66 "mu*x1-1/2*Omega^2*(
+x2/mu+1/2*z1^2*cot(mu*x1)+1/2*z2^2*cot(mu*x1));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,&*&%#muG\"\"\"%#x1GF&F&*&#F&\"\"#F&*&)%&OmegaGF*F&,(*&
+%#x2GF&F%!\"\"F&*&#F&F*F&*&)%#z1GF*F&-%$cotG6#F$F&F&F&*&F3F&*&)%#z2GF*
+F&F7F&F&F&F&F&F1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "Omega*z
+1*csc(mu*x1);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#*(%&OmegaG\"\"\"%#z1G
+F%-%$cscG6#*&%#muGF%%#x1GF%F%" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 22 "Omega*z2*csc(mu*x1)*I;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#**%&Om
+egaG\"\"\"%#z2GF%-%$cscG6#*&%#muGF%%#x1GF%F%^#F%F%" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG }}{MARK "34 0 0" 0 }{VIEWOPTS 1 
+1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

@@ -1,0 +1,35 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 68 "a:=-Y1/2*sin((U+V)/2)+I*Y2/2*sin((U
+-V)/2) + Y1*Y2*(sin(U)+U*cos(U));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%\"aG,(*&#\"\"\"\"\"#F(*&%#Y1GF(-%$sinG6#,&*&F)!\"\"%\"UGF(F(*&F)F1%\"
+VGF(F(F(F(F1*(^##F(F)F(%#Y2GF(-F-6#,&*&F)F1F2F(F(*&F)F1F4F(F1F(F(*(F+F
+(F8F(,&-F-6#F2F(*&F2F(-%$cosGFAF(F(F(F(" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 42 "b:=-Y1/2*sin((U+V)/2)-I*Y2/2*sin((U-V)/2);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"bG,&*&#\"\"\"\"\"#F(*&%#Y1GF(-%$sinG6#,&
+*&F)!\"\"%\"UGF(F(*&F)F1%\"VGF(F(F(F(F1*(^##F1F)F(%#Y2GF(-F-6#,&*&F)F1
+F2F(F(*&F)F1F4F(F1F(F(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "c
+:=-cos((U+V)/2)+Y2*U*sin(U);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"cG
+,&-%$cosG6#,&*&\"\"#!\"\"%\"UG\"\"\"F.*&F+F,%\"VGF.F.F,*(%#Y2GF.F-F.-%
+$sinG6#F-F.F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "d:=I*cos((
+U-V)/2)+Y1*U*sin(U);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"dG,&*&-%$c
+osG6#,&*&\"\"#!\"\"%\"UG\"\"\"F/*&F,F-%\"VGF/F-F/^#F/F/F/*(%#Y1GF/F.F/
+-%$sinG6#F.F/F/" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "simplify
+(diff(a,V)-diff(b,U));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "simplify(diff(c,U)-diff(a,Y1
+));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%$sinG6#,&*&\"\"#!\"\"%\"UG\"
+\"\"F+*&F(F)%\"VGF+F+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "si
+mplify(diff(d,U)-diff(a,Y2));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#*&^#!
+\"\"\"\"\"-%$sinG6#,&*&\"\"#F%%\"UGF&F&*&F,F%%\"VGF&F%F&" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "simplify(diff(d,Y1)-diff(c,Y2));" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}
+{MARK "9 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 
+33 1 1 }

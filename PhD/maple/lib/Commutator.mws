@@ -1,0 +1,142 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{CSTYLE "" -1 23 "Courier" 1 10 0 0 0 0 0 0 0 0 0 0 3 0 0 1 }{PSTYLE "
+Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }0 
+0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "
+" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 
+0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 421 "Commutator := module()\noption `Co
+pyright (c) 2000 Waterloo Maple Inc. All rights reserved.`;\nexport in
+it, c, commutator, `&*`;\nlocal ConvertAmpStar, PrintC, ConvertC, Expa
+ndAmpStar, ExpandC,\nSimplifyC, LessThan, AmpStar, NondistributiveC;\n
+\ninit := proc()\nglobal\n`print/c`, `convert/c`, `convert/&*`, `conve
+rt/listtoc`,\n`expand/&*`, `expand/c`, `simplify/c`;\n\n`print/c` := e
+val( PrintC );\n`convert/c` := eval( ConvertC );\n" }{TEXT -1 0 "" }
+{TEXT -1 17 "convert list to c" }{MPLTEXT 1 0 1341 "\n`convert/listtoc
+` := eval( commutator );\n`convert/&*` := eval( ConvertAmpStar );\n`ex
+pand/c` := eval( ExpandC );\n`expand/&*` := eval( ExpandAmpStar );\n`s
+implify/c` := eval( SimplifyC );\nend proc;\n\nc := proc(x, y)\nlocal \+
+r, s, t, i;\noption `Copyright (c) 1992 by the University of Waterloo.
+ All rights reserved.`;\n\nif x = y then\n0;\nelif type( x, '`*`' ) th
+en\ns, t := selectremove( 'type', x, 'constant' );\ns * c(t, y);\nelif
+ type( y, '`*`' ) then\ns, t := selectremove( 'type', y, 'constant' );
+\ns * c(x, t);\nelif type( x, 'constant' ) or type( y, 'constant' ) th
+en\n0;\nelse\nif type( x, '`+`' ) then\nc(x, y) := map( c, x, y );\nel
+if type( y, '`+`' ) then\nc(x, y) := -map( c, y, x );\nelif LessThan(y
+, x) then\nc(x, y) := -c( y, x );\nelif type( y, 'specfunc'('anything'
+, 'c') ) and LessThan(x, op(1, y)) then\nc(x, y) := c(op(1, y), c(x, o
+p(2, y))) - c(op(2, y), c(x, op(1, y)));\nelse\nc(x, y) := 'c'(x, y);
+\nend if;\nend if;\nend proc;\n\ncommutator := proc(f)\noption `Copyri
+ght (c) 1990 by the University of Waterloo. All rights reserved.`;\n\n
+if type( f, ['anything', 'anything'] ) then\nc( procname( f[1] ), proc
+name( f[2] ) );\nelif type( f, \{'atomic', 'list'\} ) then\nf;\nelse\n
+map( procname, f );\nend if;\nend proc;\n\n`&*` := proc()\nlocal C, CT
+, d, j, k, t, x;\noption remember, system,\n`Copyright (c) 1992 by the
+ University of Waterloo. All rights reserved.`;\n" }{TEXT -1 57 "simpl
+ifications of &* -- non-commutatorive multiplication" }{MPLTEXT 1 0 1 
+"\n" }{TEXT -1 56 "pull out constants and flatten nested &*'s (associa
+tive)" }{MPLTEXT 1 0 581 "\n\nif type( [args], 'list'('And'('name', 'N
+ot'('constant'))) ) then\n'`&*`'(args);\nelse\nt := NULL;\nC := 1;\n\n
+for x in [args] do\nif type( x, 'constant' ) then\nC := C*x;\nelif typ
+e( x, 'name' ) then\nt := t, x;\nelif type( x, '`*`' ) then\nCT, d := \+
+selectremove( 'type', x, 'constant' );\n\nC := C*CT;\n\nif type( d, 's
+pecfunc'('anything', '`&*`') ) then\nt := t, op(d);\nelse\nt := t, d;
+\nend if;\nelif type( x, 'specfunc'('anything', '`&*`') ) then\nt := t
+, op(x);\nelse\nt := t, x;\nend if;\nend do;\n\nif t = NULL then\nC;\n
+elif nops([t]) = 1 then\nC * t;\nelse\nC * '`&*`'( t );\nend if;\nend \+
+if;\nend proc;\n\n" }{TEXT -1 17 "Printing Routines" }{MPLTEXT 1 0 96 
+"\n\nPrintC := proc(x, y)\noption `Copyright (c) 1997 by Waterloo Mapl
+e Inc. All rights reserved.`;\n" }{TEXT -1 130 "This used to be [x, y]
+, which causes a problem since [a, b] + [a, c] now automatically simpl
+ifies to [2a, b+c], which is incorrect" }{MPLTEXT 1 0 27 "\n'VECTOR'( \+
+[x, y] );\nend;\n\n" }{TEXT -1 19 "Conversion Routines" }{MPLTEXT 1 0 
+40 "\n\nConvertAmpStar := proc(f)\nlocal x, y;\n" }{TEXT -1 54 "recurs
+ively apply the rule c(x, y) ==> x &* y - y &* x" }{MPLTEXT 1 0 364 "
+\noption `Copyright (c) 1992 by the University of Waterloo. All rights
+ reserved.`;\n\nif type( f, 'ratpoly' ) then\nf;\nelif type( f, 'specf
+unc'('anything', 'c') ) then\nx := convert( op( 1, f ), '`&*`' );\ny :
+= convert( op( 2, f ), '`&*`' );\nx &* y - y &* x\nelif type( f, 'atom
+ic' ) then\nf;\nelse\nmap( procname, f );\nend if;\nend proc;\n\nConve
+rtC := proc(f)\nlocal k, n, t;\n" }{TEXT -1 60 "express f (sum of prod
+ucts &* of symbols) in commutator form" }{MPLTEXT 1 0 1 "\n" }{TEXT 
+-1 77 "caveats: if f cannot be expressed in commutator form, the resul
+t is erroneous" }{MPLTEXT 1 0 329 "\noption `Copyright (c) 1992 by the
+ University of Waterloo. All rights reserved.`;\n\nif type( f, 'specfu
+nc'('anything', '`&*`') ) then\nn := nops(f);\nt := c( op(n-1, f), op(
+n, f) );\n\nfor k from n-2 by -1 to 1 do\nt := c(op(k, f), t);\nend do
+;\n\nt / n;\nelif type( f, \{'`*`', '`+`'\} ) then\nmap( procname, f )
+;\nelse\nf;\nend if;\nend proc;\n\n" }{TEXT -1 18 "Expansion Routines
+" }{MPLTEXT 1 0 346 "\n\nExpandC := proc(x,y)\nlocal a, b;\noption `Co
+pyright (c) 1992 by the University of Waterloo. All rights reserved.`;
+\n\na := expand(x);\nb := expand(y);\n\nif type( a, '`+`' ) then\nexpa
+nd( map( c, 'a', 'b' ) );\nelif type( b, '`+`' ) then\n-map( c, 'b', '
+a' );\nelse\nc( a, b );\nend if;\nend proc;\n\nExpandAmpStar := proc(x
+, y)\nlocal a, b, i, j, k, s, t, z;\n" }{TEXT -1 45 "expand out x &* y
+ &* ... as a sum of products" }{MPLTEXT 1 0 402 "\noption `Copyright (
+c) 1992 by the University of Waterloo. All rights reserved.`;\n\nif ty
+pe( [args], 'list'('name') ) then\n'`&*`'(args);\nelse\na := expand( x
+ );\n\nif nargs = 2 then\nb := expand(y);\nelif nargs > 2 then\nb := e
+xpand( `&*`(args[2..nargs]) );\nend if;\n\na := `if`( type( a, '`+`' )
+, [op(a)], [a] );\nb := `if`( type( b, '`+`' ), [op(b)], [b] );\n\nadd
+( add( i &* j, j=b ), i=a );\nend if;\nend proc;\n\n" }{TEXT -1 23 "Si
+mplification Routines" }{MPLTEXT 1 0 63 "\n\nSimplifyC := proc()\nloca
+l cs, i, j, k, n, f, r, s, t, x, II;\n" }{TEXT -1 41 "simplify: 1. c(x
+,y) + c(x,z) ==> c(x,y+z)" }{MPLTEXT 1 0 1 "\n" }{TEXT -1 31 "2. c(x,z
+) + c(y,z) ==> c(x+y,z)" }{MPLTEXT 1 0 603 "\noption `Copyright (c) 19
+92 by the University of Waterloo. All rights reserved.`;\n\nf := args[
+1];\n\nif type( f, 'ratpoly' ) then\nf;\nelif not type( f, '`+`' ) the
+n\nmap( procname, f );\nelse\nf := subs( c = NondistributiveC, f );\n
+\ncs := proc()\nlocal f;\noption `Copyright (c) 1992 by the University
+ of Waterloo. All rights reserved.`;\n\nif type( args[1], '`+`' ) then
+\nf := \{op(args[1])\};\nelse\nf := \{args[1]\};\nend if;\n\nf := map(
+ proc(f)\nif type( f, '`*`' ) then\nop(f);\nelse\nf;\nend if\nend proc
+, f );\n\nmap( proc(f)\nif type( f, 'specfunc'('anything', 'Nondistrib
+utiveC' ) ) then\nf\nend if;\nend proc, f );\nend proc;\n\n" }{TEXT 
+-1 59 "Apply to f the rule a c(x,z) + b c(y,z) ==> c(a x + b y, z)" }
+{MPLTEXT 1 0 421 "\ns := [coeffs( f, cs(f), 't' )];\nt := [t];\nr := t
+able();\n\nf := 0;\nn := nops(s);\n\nfor i to n do\nx := t[i];\n\nif t
+[i] = 1 then\nf := s[i];\nnext;\nelse\nx := op(2,x);\nend if;\n\nif as
+signed(r[x]) then\nnext;\nelse\nr[x] := s[i] * op(1,t[i]);\nend if;\n
+\nfor j from i+1 to n do\nif x = op(2,t[j]) then\nr[x] := r[x] + s[j]*
+op(1,t[j])\nend if;\nend do;\nend do;\n\nII := map( op, [indices(r)] )
+;\nf := f + add( NondistributiveC(r[k],k), k=II );\n\n" }{TEXT -1 63 "
+Now apply to f the rule a c(x,y) + b c(x,z) ==> c(x, a y + b z)" }
+{MPLTEXT 1 0 478 "\ns := [coeffs( f, cs(f), 't' )];\nt := [t];\nr := t
+able();\n\nf := 0;\nn := nops(s);\n\nfor i to n do\nx := t[i];\n\nif t
+[i] = 1 then\nf := s[i];\nnext;\nelse\nx := op(1,x);\nend if;\n\nif as
+signed(r[x]) then\nnext;\nelse\nr[x] := s[i] * op(2,t[i]);\nend if;\n
+\nfor j from i+1 to n do\nif x = op(1,t[j]) then\nr[x] := r[x] + s[j] \+
+* op(2,t[j]);\nend if;\nend do;\nend do;\n\nII := map( op, [indices(r)
+] );\n\nf := f + add( NondistributiveC(k, r[k]), k=II );\n\nsubs( Nond
+istributiveC = c, f );\nend if;\nend proc;\n\n" }{TEXT -1 24 "Internal
+ Helper Routines" }{MPLTEXT 1 0 146 "\n\nNondistributiveC := proc(x,y)
+\nlocal s, t, i;\noption remember, system, `Copyright (c) 1992 by the \+
+University of Waterloo. All rights reserved.`;\n" }{TEXT -1 24 "not to
+ distribute over +" }{MPLTEXT 1 0 407 "\n\nif x = y then\n0;\nelif typ
+e( x, '`*`' ) then\ns, t := selectremove( 'type', x, 'constant' );\n\n
+s * procname( t, y );\nelif type( y, '`*`' ) then\ns, t := selectremov
+e( 'type', y, 'constant' );\n\ns * procname( x, t );\nelif type( x, 'c
+onstant' ) or type( y, 'constant' ) then\n0;\nelif LessThan(y,x) then
+\n-procname( y, x );\nelse\n'procname'( x, y );\nend if;\nend proc;\n
+\nLessThan := proc(x, y)\nlocal s, t, commutator;\n" }{TEXT -1 25 "ord
+ering for commutators:" }{MPLTEXT 1 0 1 "\n" }{TEXT -1 46 "of nested c
+ommutators (ties broken by address)" }{MPLTEXT 1 0 298 "\noption `Copy
+right (c) 1992 by the University of Waterloo. All rights reserved.`;\n
+\ns := length( subs( c = commutator, x ) ) - length(x);\nt := length( \+
+subs( c = commutator, y ) ) - length(y);\n\nif s < t then\ntrue;\nelif
+ s > t then\nfalse;\nelse\naddressof(x) < addressof(y);\nend if;\nend \+
+proc;\nend module:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 42 "libna
+me:=\"/home/samuel/maple/lib\",libname;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%(libnameG6$Q7/home/samuel/maple/lib6\"Q//opt/maple/libF'" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 58 "march('create',\"/home/samue
+l/maple/lib/Commutator.lib\",1);" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 22 "savelib('Commutator');" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 17 "with(Commutator);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+7&%#&*G%\"cG%+commutatorG%%initG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 7 "c(a,b);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'VECTORG6
+#7$%\"aG%\"bG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{PARA 
+0 "" 0 "" {TEXT 23 0 "" }}}{MARK "7 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 
+1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

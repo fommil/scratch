@@ -1,0 +1,1390 @@
+\chapter{Lie Branes of $\NW_6$}
+\label{liebranes}
+\section{Noncommutative Branes in $\NW_6$}
+\label{NCBranes}
+In this section and the next we will identify which {\it symmetric} D-branes of
+the six-dimensional Nappi-Witten spacetime $\NW_6$ support a noncommutative
+worldvolume geometry. After identifying all supergravity fields living on the
+respective worldvolumes, we will proceed to quantise the classical geometries
+using standard techniques \cite{Schom1}. A potential obstruction to this
+procedure is that, as in any curved string background, a non-vanishing $H$-flux
+can lead to non-associative deformations of worldvolume algebras typically
+giving rise to variants of quantum group algebras that are deformations of
+standard noncommutative geometries for which there is no general notion of
+quantisation.
+
+In certain semi-classical limits the NS-flux vanishes, $H=0$, such as in the
+conformal field theory description based on a compact group $\mathcal{G}$ in the
+limit of infinite Kac-Moody level $k\to\infty$ \cite{ARS1}. Such limits
+correspond to field theory limits of the string theory whereby the Neveu-Schwarz
+$B$-field (or more precisely the gauge invariant two-form \eqref{inv2forms})
+induces a symplectic structure on the brane worldvolume, which can be quantised
+in principle. In our situation we can identify $k=\theta^{-2}$, and the
+semi-classical limit corresponds to the limit in which the plane wave approaches
+flat spacetime. Such limits will always arise for the branes that we encounter
+in this thesis.
+
+We will support our characterisations by comparison with known results from the
+boundary conformal field theory of the Nappi-Witten model \cite{DK2,Hikida1}. In
+this section we deal with branes described by conjugacy classes of the
+Nappi-Witten group $\mathcal{N}_6$. Generally, for the ordinary conjugacy
+classes ($\omega=\1$ in the notation of \eqref{Dtwistconj}), the worldvolumes
+inherit a natural symplectic form via the exponential map from the usual
+Kirillov-Kostant form on coadjoint orbits, which coincides with the symplectic
+structure induced by the $B$-field when $H=0$. The conjugacy classes, given as
+orbits of the adjoint action of the Lie group $\mathcal{G}$ on itself, are then
+identified with representations of $\mathfrak{g}$, obtained from quantisation of
+coadjoint orbits, via the non-degenerate invariant bilinear form
+$\langle\cdot,\cdot\rangle$ on $\mathfrak{g}$. If $V_g$ is an irreducible module
+over the Lie algebra $\mathfrak{g}$ corresponding to the D-brane
+$D=\mathcal{C}_g:=\mathcal{C}_g^{\1}$, then the noncommutative algebra of
+functions on the worldvolume is given by \cite{ARS1}
+\begin{equation}
+  \label{NCalgconjclass}
+  \mathcal{A}(\mathcal{C}_g)={\rm End}(V_g)
+\end{equation}
+The worldvolume algebra \eqref{NCalgconjclass} carries a natural (adjoint)
+action of the group $\mathcal{G}$. In the present case we will find that these
+quantised conjugacy classes carry a noncommutative geometry which is completely
+analogous to that carried by D3-branes in flat space $\E^4$ with a uniform
+magnetic field on their worldvolume \cite{DNek1,SW1,Sz1,Sz2}, as expected from
+the harmonic oscillator character of dynamics in Nappi-Witten spacetime
+described at length in Section \ref{NWPW}. We shall also find an interesting
+class of commutative null branes whose quantum geometry generically differs
+significantly from that of the classical conjugacy classes, due to a transverse
+${\rm U}(2)$ rotational symmetry of the $\NW_6$ background.
+
+\subsection{General Construction}
+\label{GenConstrUntwist}
+
+It will prove convenient to introduce the doublet $(\underline{\P}^\pm)^\top :=
+(\P^\pm,\Q ^\pm)$ of generators and write Brinkman coordinates on
+$\mathcal{N}_6$ as
+\begin{equation}
+  \label{NW6globalcoords}
+  g(x^+,x^-,\mz,\overline{\mz})=e^{\frac\theta2x^+\J}
+  e^{\mz^\top\underline{\P}^++\overline{\mz}^\top\underline{\P}^-}
+  e^{\frac\theta2x^+\J}
+  e^{\theta^{-1}x^-\T}
+\end{equation}
+In these coordinates one can work out the adjoint action
+\begin{equation*}
+  {\rm Ad}_{g(x^+,x^-,\mz,\overline{\mz})}g(x^+_0,x^-_0,\mz_0, \overline{\mz}_0)
+\end{equation*}
+corresponding to a fixed point $(x_0^+,x_0^-,\mz_0)\in\NW_6$ \cite{FS1,SF1}, and
+the conjugacy classes can be written explicitly as the submanifolds
+\begin{eqnarray}
+  \nn
+  \mathcal{C}_{(x_0^+,x^-_0,\mz_0)}&=&
+  \Biggl\{\Bigl(x^+_0,
+  x^-_0-\frac\theta2 |\mz|^2\sin\theta x^+_0+\theta{\rm Im}\left[
+    \mz_0^\top \overline{\mz} e^{\frac{i\theta}2x^+}
+    \cos\frac{\theta x_0^+}2\right],\\
+  &&\qquad e^{ i\theta x^+}\mz_0-2 i
+  \sin\frac{\theta x_0^+}2e^{\frac{ i\theta}2x^+}\mz
+  \Bigr)\Biggm| \genfrac{}{}{0pt}{}{x^+\in\S^1}{\mz\in\C^2}\Biggr\}
+  \label{conjclassgen}
+\end{eqnarray}
+where we have used periodicity to restrict the light-cone time coordinate to
+$x^+,x^+_0\in\S^1=\R/2\pi\theta^{-1}\Z$. The null planes $x^+=x_0^+$
+are thus invariants of the conjugacy classes and can be used to distinguish the
+different D-submanifolds of $\NW_6$. There are two types of euclidean branes
+generically associated to these conjugacy classes that we shall now proceed to
+describe in detail. In each case we first describe the classical geometry, and
+then proceed to quantise the orbits.
+
+\subsection{Null Branes}
+\label{Null}
+We begin with the ``degenerate'' cases where $x_0^+=0$.
+
+When $\mz_0={\mbf0}$, the conjugacy class \eqref{conjclassgen} corresponds to a
+D-instanton sitting at the point $(0,x_0^-,\mbf0)\in\NW_6$. When
+$\mz_0^\top:=(z_0,w_0)\neq\mbf0$ we denote the conjugacy classes by
+$\mathcal{C}_{|z_0|,|w_0|}:=\mathcal{C}_{(0,x_0^-,\mz_0)}$. Since
+$\mathcal{C}_{|z_0|,|w_0|}=\{(0,x^-, e^{ i\theta\,x^+}\,\mz_0|
+x^-\in\R,x^+\in\S^1\}\cong\R\times\S^1$, the resulting object may be
+thought of as a cylindrical brane extended along the null light-cone direction
+$x^-$ with fixed radii $|z_0|,|w_0|$ in the two transverse planes
+$(z_0,w_0)\in\C^2$, and will therefore be refered to as a ``null'' brane.
+However, the quantisation of the classical worldvolume will generally turn out
+to depend crucially on the radii. We can understand this dependence
+heuristically as follows. Generally, the Cahen-Wallach metric
+\eqref{NW6metricBrink} possesses an ${\rm SO}(4)$ rotational symmetry of its
+transverse space $\mz\in\C^2\cong\R^4$, which is broken to ${\rm U}(2)$
+by the Neveu-Schwarz background \eqref{NW6Bfield}. When $|z_0|=0$ or $|w_0|=0$,
+one has $\mathcal{C}_{|z_0|,0}\cong\mathcal{C}_{0,|w_0|}\cong\R\times\S^1$.
+However, when both $|z_0|$ and $|w_0|$ are non-zero, we may use this ${\rm
+  U}(2)$ symmetry to rotate $w_0\mapsto e^{ i\phi}\,w_0$ at fixed $z_0$ by an
+arbitrary phase. In this case the cylindrical brane is parametrised effectively
+by two independent periodic coordinates, and one has
+\begin{eqnarray}
+  \label{cylnullbrane}
+  \mathcal{C}_{|z_0|,|w_0|}&=&\left\{(0,x^-,e^{ i\theta x^+}z_0,  e^{ i\theta y^+}
+    w_0) \bigm| x^-\in\R, x^+, y^+ \in\S^1\right\} \nn\\
+  &\cong&
+  \begin{cases}
+      {\rm point} &z_0=w_0=0 \\
+      \R\times\S^1\times\S^1 &z_0,w_0\neq0 \\
+      \R\times\S^1 &{\rm otherwise}
+    \end{cases}
+\end{eqnarray}
+In each case it carries a degenerate metric
+\begin{equation}
+  \label{degmetricnull}
+  d s_6^2\bigm|_{\mathcal{C}_{|z_0|,|w_0|}}=\theta^2 |z_0|^2\left( d
+    x^+\right)^2+\theta^2 |w_0|^2\left( d y^+\right)^2
+\end{equation}
+Such a brane generically has no straightforward interpretation as a D-brane, as
+the corresponding Dirac-Born-Infeld action is ill-defined. Nevertheless, it will
+play a role in our ensuing analysis and so we shall analyse it in some detail.
+
+When $\mz_0\neq{\mbf0}$, the centraliser of
+\begin{equation*}
+  g_0:=g(0,x^-_0, \mz_0,\overline{\mz}_0)
+\end{equation*}
+is the subgroup of $\mathcal{N}_6$ parametrised as the submanifold
+\begin{equation}
+  \label{nullcentr}
+  \mathcal{Z}_{|z_0|,|w_0|}=\left\{(0 , x^- , \mz)\bigm|
+  {\rm Im}\mz_0^\top \overline{\mz}=0\right\}\cong\R^4
+\end{equation}
+with a degenerate metric, while $\mathcal{Z}_{0,0}\cong\mathcal{N}_6$. The
+Neveu-Schwarz fields vanish on the brane,
+\begin{equation}
+  \label{H6B6null0}
+  H_6\bigm|_{\mathcal{C}_{|z_0|,|w_0|}}=
+  B_6\bigm|_{\mathcal{C}_{|z_0|,|w_0|}}=0
+\end{equation}
+while an elementary calculation using \eqref{NW4algdef}, \eqref{NW4innerprod},
+\eqref{NW4CMform} and \eqref{nullcentr} shows that the Abelian gauge field
+fluxes \eqref{2formfamily} also vanish on the null brane worldvolume,
+\begin{equation}
+  \label{nullF60}
+  F^{(\zeta)}_6\bigm|_{\mathcal{C}_{|z_0|,|w_0|}}=0
+\end{equation}
+for any $\zeta=\theta^{-1} x^- \T+\mz^\top \underline{\P}^++ \overline{\mz}^{
+  \top} \underline{\P}^-$ in the tangent space to the centraliser
+\eqref{nullcentr}. This suggests that these conjugacy classes should describe
+{\it commutative} branes. Since the $H$-field vanishes on the null branes, we
+can use the standard coadjoint orbit method as discussed earlier.
+
+\subsubsection{Quantisation}
+Let us now describe the algebra of functions \eqref{NCalgconjclass} on the null
+brane worldvolume. The Lie algebra $\mathfrak{n}_6$ has three types of unitary
+irreducible representations $\mathcal{D}^{p^+,p^-}:U(\mathfrak{n}_6)\to{\rm
+  End}(V^{p^+,p^-})$ labelled by light-cone momenta $p^\pm\in\R$
+\cite{BAKZ1,CFS1,KK1}. On each module $V^{p^+,p^-}$, elements of the centre of
+the universal enveloping algebra $U(\mathfrak{n}_6)$ are proportional to the
+identity operator $\1$. In particular, the central element $\T$ acts as
+\begin{equation}
+  \label{Tirrepgen}
+  \mathcal{D}^{p^+,p^-}(\T)= i\theta p^+ \1
+\end{equation}
+According to \eqref{utaudef}, the modules corresponding to the null branes live
+in the class $V^{0,p^-}_{\alpha,\beta}$, $\alpha,\beta\in[0,\infty)$ of
+continuous representations with $p^+=0$. In this case, in addition to $\T$ there
+are two other Casimir operators corresponding to the quadratic elements $\P^+
+\P^-$ and $\Q^+ \Q^-$ of $U(\mathfrak{n}_6)$ with the eigenvalues
+\begin{equation}
+  \label{otherCasimirs}
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\P^+ \P^-\right)=-\alpha^2 \1 \ , ~~
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\Q^+ \Q^-\right)=-\beta^2 \1 \ .
+\end{equation}
+
+As a separable Hilbert space, the module $V^{0,p^-}_{\alpha,\beta}$ may be
+expressed as the linear span
+\begin{equation}
+  \label{contrepbasis}
+  V^{0,p^-}_{\alpha,\beta}=\bigoplus_{n,m\in\Z}\C\cdot
+  \left|^n_\alpha {}^m_\beta ; p^-\right\rangle
+\end{equation}
+with the non-trivial actions of the generators of $\mathfrak{n}_6$
+given by
+\begin{eqnarray}
+  \label{contrepactions}
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\P^\pm\right)
+  \bigl| {}^{nm}_{\alpha\beta} ; p^-\bigr\rangle
+  &=& i\alpha \bigl| {}^{n\mp1}_\alpha {}^m_\beta ; p^-\bigr\rangle \\\nn
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\Q^\pm\right)
+  \bigl| {}^{nm}_{\alpha\beta} ; p^-\bigr\rangle
+  &=& i\beta \bigl| {}^n_\alpha {}^{m\mp1}_\beta ; p^-\bigr\rangle \\\nn
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\bigl(\J 
+  \bigr)\bigl| {}^{nm}_{\alpha\beta} ; p^-\bigr\rangle
+  &=& i\left(\theta^{-1} p^--n-m\right) \bigl| {}^n_\alpha {}^m_\beta
+  ; p^-\bigr\rangle
+\end{eqnarray}
+The inner product is defined such that the basis \eqref{contrepbasis} is
+orthonormal,
+\begin{equation}
+  \label{contreportho}
+  \bigl\langle {}^n_\alpha {}^m_\beta ; p^-\bigm| 
+  {}^{n'}_\alpha {}^{m'}_\beta ; p^-\bigr\rangle=
+  \delta_{nn'} \delta_{mm'}
+\end{equation}
+These representations have no highest or lowest weight states. Note that
+shifting the labels $n$ or $m$ by $1$ gives an equivalent representation
+\begin{equation}
+  \label{contrepinequiv}
+  V^{0,p^-}_{\alpha,\beta}\cong V^{0,p^-+\theta}_{\alpha,\beta}
+\end{equation}
+In other words, only the representations $V^{0,p^-}_{\alpha,\beta}$ with
+$p^-\in[0,\theta)$ are inequivalent. This is analogous to the periodicity
+constraint imposed on the light-cone coordinate $x^+$ in \eqref{conjclassgen}.
+
+Among these representations is the trivial one-dimensional representation
+$V_{0,0}^{0,0}$ which corresponds to the D-instantons found above. To
+generically associate them with the null brane worldvolumes obtained before, we
+use the correspondence between Casimir elements and class functions on the
+group, which are respectively constant in irreducible representations and on
+conjugacy classes. Note that the geodesics in $\NW_6$ obey $p^+=\dot x^+$ and
+$p^-=\dot x^--\frac{\theta^2}4 |\mz|^2 p^+$ (c.f. \eqref{masslessLag}). At $p^+=0$,
+we may thereby identify the parameters $\alpha$ and $\beta$ with the radii
+$|z_0|$ and $|w_0|$ in the two transverse planes $(z_0,w_0)$, while $p^-$ is
+identified with a fixed value of the light-cone position $x^-$. The quantised
+algebra of functions on the conjugacy class \eqref{cylnullbrane} is thus given
+by
+\begin{equation}
+  \label{quantalgnullbrane}
+  \mathcal{A}\left(\mathcal{C}_{|z_0|,|w_0|}\right)=
+  {\rm End}\bigl(V_{|z_0|,|w_0|}^{0,p^-}\bigr)
+\end{equation}
+where a generic element $\hat f\in{\rm End}(V_{\alpha,\beta}^{0,p^-})$ is a
+complex linear combination
+\begin{equation}
+  \label{contreplincomb}
+  \hat
+  f=\sum_{n,m,n',m'\in\Z}f_{n,m;n',m'}\bigm| {}^n_\alpha {}^m_\beta
+  ; p^-\bigr\rangle\bigl\langle {}^{n'}_\alpha {}^{m'}_\beta
+  ; p^-\bigr|
+\end{equation}
+In this context, we may appropriately regard the conjugacy class
+\eqref{cylnullbrane} as the worldvolume of a symmetric D$p$-brane with
+$p=-1,1,0$ and volume element \eqref{degmetricnull}. Because of
+\eqref{contrepinequiv}, in the quantum geometry the light-cone position is
+restricted to a finite interval $x^-\in[0,\theta)$.
+
+This identification can be better understood by introducing the coherent states
+\begin{equation}
+  \label{contrepcohstates}
+  \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-
+  \bigr\rangle:=\sum_{n,m\in\Z}
+   e^{ i n \theta x^++ i m \theta y^+}\bigl| {}^n_\alpha {}^m_\beta
+  ; p^-\bigr\rangle \qquad\qquad x^+,y^+\in\S^1
+\end{equation}
+on which the non-trivial symmetry generators are represented as differential
+operators
+\begin{eqnarray}
+  \label{contrepcohactions}
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\P^\pm\right)
+  \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-\bigr\rangle
+  &=& i\alpha e^{\pm i\theta x^+} \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta
+  ; p^-\bigr\rangle \\\nn
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\left(\Q^\pm\right)
+  \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-\bigr\rangle
+  &=& i\beta~ e^{\pm i\theta y^+} \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta
+  ; p^-\bigr\rangle \\ \nn
+  \mathcal{D}^{0,p^-}_{\alpha,\beta}\bigl(\J \bigr)\bigl| 
+  {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-\bigr\rangle
+  &=& i\theta^{-1} \left(p^--\frac\partial{\partial x^+}-
+      \frac\partial{\partial y^+}\right) \bigl| {}^{x^+}_\alpha 
+  {}^{y^+}_\beta ; p^-\bigr\rangle
+\end{eqnarray}
+The conjugate state to \eqref{contrepcohstates} is given by
+\begin{equation}
+  \label{contrepconjstate}
+  \bigl\langle {}^{x^+}_\alpha {}^{y^+}_\beta\bigr|=\sum_{n,m\in\Z}
+  e^{- i n \theta x^+- i
+    m \theta y^+}~\bigl\langle {}^n_\alpha {}^m_\beta ; p^-\bigr|
+\end{equation}
+so that the inner product is
+\begin{equation}
+  \label{contrepinnerprod}
+  \bigl\langle {}^{x_1^+}_\alpha {}^{y_1^+}_\beta ; p^-
+  \bigm|{}^{x_2^+}_\alpha {}^{y_2^+}_\beta ; p^-\bigr\rangle=\delta\left(
+    x_1^+-x_2^+\right) \delta\left(y_1^+-y_2^+\right)
+\end{equation}
+while the resolution of unity is
+\begin{equation}
+  \label{contrepresunity}
+  \1 = \theta^2 \int\limits_0^{2\pi \theta^{-1}}\frac{ d x^+}{2\pi}
+  \int\limits_0^{2\pi \theta^{-1}}\frac{ d y^+}{2\pi}
+  \bigl| {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-\bigr\rangle\bigl
+  \langle {}^{x^+}_\alpha {}^{y^+}_\beta ; p^-\bigr|
+\end{equation}
+Thus the states \eqref{contrepcohstates} form an over-complete basis for the
+Fock space $V^{0,p^-}_{\alpha,\beta}$. The metric and Kirillov-Kostant
+symplectic two-form on the orbit can be computed as the matrix elements
+\eqref{contrepcohstates} of the operators
+\begin{equation*}
+  |\mathcal{D}_{|z_0|,|w_0|}^{0,p^-}(g^{-1} d g)|^2 
+\end{equation*}
+and
+\begin{equation*}
+  \mathcal{D}_{|z_0|,|w_0|}^{0,p^-}([g^{-1} d g , g^{-1} d g])
+\end{equation*}
+respectively. They coincide with those computed above as the pull-backs of the
+Nappi-Witten geometry to the conjugacy classes \eqref{cylnullbrane}.
+
+We may now attempt to view the worldvolume algebra \eqref{quantalgnullbrane} as
+a deformation of the classical algebra of functions on the conjugacy class
+\eqref{cylnullbrane}. On the null hyperplanes $x^-={\rm constant}$, we define an
+isomorphism of underlying vector spaces
+\begin{equation}
+  \label{Deltanullbranes}
+  \Delta : {\rm C}^\infty\left(\mathcal{C}_{|z_0|,|w_0|}
+  \right)\longrightarrow{\rm End}\bigl(V_{|z_0|,|w_0|}^{0,p^-}\bigr)
+\end{equation}
+in the following manner. Decomposing any smooth function $f\in{\rm
+  C}^\infty(\mathcal{C}_{|z_0|,|w_0|})$ as a Fourier series over
+the torus $\S^1\times\S^1$ given by
+\begin{equation}
+  \label{Fourierfnull}
+  f\left(x^+,y^+\right)=\sum_{n,m\in\Z}f_{n,m}~ e^{ i n \theta x^+
+    + i m \theta y^+}
+\end{equation}
+we write
+\begin{equation}
+  \label{hatfDeltanull}
+  \hat f=\Delta(f):=\sum_{n,m\in\Z}f_{n,m}
+  \Bigl(\frac1{ i|z_0|} \mathcal{D}^{0,p^-}_{|z_0|,|w_0|}
+  \bigl(\P^{\varepsilon(n)}\bigr)\Bigr)^{|n|} \Bigl(
+  \frac1{ i|w_0|} \mathcal{D}^{0,p^-}_{|z_0|,|w_0|}
+  \bigl(\Q^{\varepsilon(m)}\bigr)\Bigr)^{|m|}
+\end{equation}
+where the label $\varepsilon(n)=\pm$ corresponds to the sign of
+$n\in\Z$. The inverse map is given by
+\begin{eqnarray}
+  \label{invDeltanull}
+  f\left(x^+,y^+\right)&:=&\Delta^{-1}\bigl(\hat f \bigr)\left(x^+,y^+
+  \right)\\\nn
+  &=&\theta^2 \int\limits_0^{2\pi \theta^{-1}}\frac{ d\tilde x^+}{2\pi}
+  \int\limits_0^{2\pi \theta^{-1}}\frac{ d\tilde y^+}{2\pi}
+  \bigl\langle {}^{\tilde x^+}_{|z_0|} {}^{\tilde y^+}_{|w_0|} 
+  ; p^-\bigr|\hat f\bigl| {}^{x^+}_{|z_0|} {}^{y^+}_{|w_0|} ;
+  p^-\bigr\rangle
+\end{eqnarray}
+As expected, from \eqref{contrepcohactions} one finds that the functions
+corresponding to the generators of $\mathfrak{n}_6$ on $V_{|z_0|,|w_0|}^{0,p^-}$
+coincide with the coordinates of the conjugacy classes \eqref{cylnullbrane},
+\begin{eqnarray}
+  \label{nullfnsgens}
+  \Delta^{-1}\Bigl(\mathcal{D}^{0,p^-}_{|z_0|,|w_0|}\left(\P^\pm\right)
+  \Bigr)\left(x^+,y^+\right)&=& i|z_0|~ e^{\pm i \theta x^+} \\\nn
+  \Delta^{-1}\Bigl(\mathcal{D}^{0,p^-}_{|z_0|,|w_0|}\left(\Q^\pm\right)
+  \Bigr)\left(x^+,y^+\right)&=& i|w_0|~ e^{\pm i \theta y^+} \\\nn
+  \Delta^{-1}\Bigl(\mathcal{D}^{0,p^-}_{|z_0|,|w_0|}\bigl(\J \bigr)
+  \Bigr)\left(x^+,y^+\right)&=& i\theta^{-1} p^-
+\end{eqnarray}
+Generically, the classical conjugacy class \eqref{conjclassgen} in this case
+corresponds to the diagonal subspace $x^+=y^+$ of the space spanned by the
+coherent states \eqref{contrepcohstates}.
+
+Since the operator \eqref{hatfDeltanull} is diagonal in the basis
+\eqref{contrepcohstates} with eigenvalue $f(x^+,y^+)$, we easily establish that
+in this case the map \eqref{Deltanullbranes} is in fact an {\it algebra}
+isomorphism. Namely, the product of two operators $\hat f$ and $\hat g$ on
+$V_{|z_0|,|w_0|}^{0,p^-}$ corresponds to the pointwise multiplication of the
+associated functions on $\mathcal{C}_{|z_0|,|w_0|}$,
+\begin{equation}
+  \label{commprodnull}
+  \Delta^{-1}\bigl(\hat f \hat g \bigr)\left(x^+,y^+\right)=
+  f\left(x^+,y^+\right) g\left(x^+,y^+\right)
+\end{equation}
+Thus the worldvolume algebra \eqref{quantalgnullbrane} in the present case
+describes a {\it commutative} geometry on the null branes, in agreement with the
+classical analysis. This is also in accord with the fact that the $p^+=0$ sector
+of the dynamics in Nappi-Witten spacetime does not feel the harmonic oscillator
+potential of Section \ref{Dynamics}, and thereby describes free motion in the
+transverse space.
+
+\subsection{D3-Branes}
+\label{CGED3B}
+
+Let us now turn to the somewhat more interesting cases with $x_0^+\neq0$,
+whereby the classical worldvolume geometries are nondegenerate.
+
+In this case the conjugacy class \eqref{conjclassgen} can be written after a
+trivial coordinate redefinition as
+\begin{equation}
+  \label{conjpieucl4}
+  \mathcal{C}_{(x_0^+,x_0^-,\mz_0)}=
+  \bigl\{(x_0^+ , x_0^-+\frac\theta4 \left(|\mz_0|^2-|\mz' |^2
+  \right) \cot\frac{\theta x_0^+}2 , \mz' )\bigm|\mz'
+  \in\C^2\bigr\}\cong\E^4
+\end{equation}
+It may be labelled as $\mathcal{C}_{x_0^+,\chi^{ }_0}$, with
+$\chi_0:=x_0^-+\frac\theta4 |\mz_0|^2 \cot\frac{\theta x_0^+}2$, so that the
+corresponding branes have four-dimensional worldvolumes located at
+\begin{equation}
+  \label{E4branesloc}
+  x^+=x_0^+ \qquad\qquad\qquad x^-=\chi^{ }_0-\frac{\theta}4 |\mz|^2 \cot\frac{\theta
+    x_0^+}2
+\end{equation}
+The worldvolume metric is non-degenerate and given by
+\begin{equation}
+  \label{metricpieucl4}
+  d s_6^2\bigm|{}_{\mathcal{C}_{x_0^+,\chi_0}}=| d\mz|^2
+\end{equation}
+so that in this case the conjugacy classes are wrapped by flat euclidean
+D3-branes. The NS fields on the worldvolume are given by flat space forms
+\begin{eqnarray}
+  \label{NSconj}
+  H_6\bigl|_{\mathcal{C}_{x_0^+,\chi_0}}&=&0 \\
+  \label{NSconjB6}
+  B_6\bigl|_{\mathcal{C}_{x_0^+,\chi_0}}&=&-2 i\theta 
+  x_0^+ d\overline{\mz}^{ \top}\wedge d\mz
+\end{eqnarray}
+The vanishing of the $H$-flux again means that we can apply standard
+semi-classical quantisation techniques to these D-branes.
+
+If $x_0^+=\frac\pi\theta$ then these branes, like the null branes, are
+associated with the conjugate points of the Rosen plane wave geometry defined by
+\eqref{Rosen} through \eqref{Cumatrix}. In this case the conjugacy class
+$\mathcal{C}_{x_0^-}:=\mathcal{C}_{(\frac\pi\theta,x_0^-,\mz_0)}$ is a
+four-plane labelled by the fixed light-cone position $x^-=x_0^-$. When
+$x_0^+\neq0,\frac\pi\theta$, the brane worldvolume is a paraboloid corresponding
+to a point-like object travelling at the speed of light while simultaneously
+expanding or contracting in a three-sphere in the transverse space $\mz\in\C^2$
+according to \eqref{E4branesloc}. Since these branes lie in the set of
+conjugate-free points, we may analyse them using the Penrose-G\"uven limit of
+Section \ref{ApplNW}, which yields a non-vanishing gauge invariant two-form
+field via pull-back of \eqref{NW6tildegaugeinv} to the conjugacy classes as
+\begin{equation}
+  \label{E4F6PGL}
+  \mathcal{F}_{x_0^+}:=\mathcal{F}_6\bigl|_{\mathcal{C}_{x_0^+,\chi_0}}
+  =- i\cot\frac{\theta x_0^+}2 d\overline{\mz}^{ \top}\wedge d\mz
+\end{equation}
+Thus these D-branes are expected to carry a noncommutative geometry for
+$x_0^+\neq0,\frac\pi\theta$. Extrapolating \eqref{E4F6PGL} to $x_0^+=\frac\pi\theta$
+shows that the conjugacy classes $\mathcal{C}_{x_0^-}$ are expected to support a
+commutative worldvolume geometry like the null branes, despite their
+non-vanishing $B$-field.
+
+The Penrose-G\"uven limit can also be used to understand the physical origin of
+the euclidean D3-branes. They may be described through the commuting isometric
+embedding diagram
+\begin{equation}
+  \label{E4commdiag}
+  \begin{CD}
+   @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath^{ \prime}  $}@AAA
+@AAA\text{$\widetilde{\imath}^{ \prime}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL$^{ \prime}$}>> \E^4\\
+   @.
+  \end{CD}
+\end{equation}
+where the primes indicate that the limit is taken along a null geodesic which
+does {\it not} pass through the $\AdS_2\times\S^2$ brane worldvolume, i.e. the
+embeddings $\imath^{ \prime}$ and $\widetilde{\imath}^{ \prime}$ are defined by
+the constant time slices $\tau,\phi={\rm constant}$ and $x^+={\rm constant}$,
+respectively. Thus the resulting geometry is not of plane wave type. The brane
+on the left-hand side of \eqref{E4commdiag} originates as a flat D3-brane
+connected orthogonally to a distant NS5/F1 black string by a stretched $(p,q)$
+string \cite{BP1}, the origin of the worldvolume flux \eqref{E4F6PGL}. As the
+$(p,q)$ string pulls the flat D3-brane, it deforms its worldvolume geometry,
+leading to an $\AdS_2\times\S^2$ brane in the near-horizon region of the black
+string. The Penrose-G\"uven limit in \eqref{E4commdiag} pulls the deformed
+branes away into the asymptotically flat region of the black string,
+decompactifying it as $R\to\infty$ onto the flat euclidean D3-brane on the
+right-hand side of the isometric embedding diagram. However, since the diagram
+commutes, the standard fuzzy geometry of the $\AdS_2\times\S^2$ brane induces,
+through the usual scaling limit \cite{CMS1}, a Moyal type noncommutative
+geometry on the instantonic $\E^4$ brane. This argument is consistent with
+the fact that the (modified) Penrose-G\"uven limit is also a map between
+symmetric D-branes. We shall now substantiate this physical picture through
+explicit computation of the quantised worldvolume geometry.
+
+\subsubsection{Quantisation}
+To describe the algebra of functions \eqref{NCalgconjclass} on the D3-brane
+worldvolume, we start with the irreducible representations
+$\mathcal{D}^{p^+,p^-}:U(\mathfrak{n}_6)\to{\rm End}(V^{p^+,p^-})$ having
+$p^+>0$. In addition to \eqref{Tirrepgen}, the quadratic Casimir element ${\sf
+  C}_6=2 \J \T+\frac12 [( \Pu^+)^\top \Pu^-+( \Pu^-)^\top \Pu^+]$ acts as a
+scalar operator
+\begin{equation}
+  \label{C6irrep}
+  \mathcal{D}^{p^+,p^-}(\C_6)=-2p^+ \left(p^-+\theta\right) \1
+\end{equation}
+This operator is positive for all $p^-\in(-\infty,-\theta)$. As a separable Hilbert
+space, the module $V^{p^+,p^-}$ may be exhibited as the linear span
+\begin{equation}
+  \label{Vhighestex}
+  V^{p^+,p^-}=\bigoplus_{n,m\in\N_0}\C\cdot\bigl|n,m;p^+,p^-
+  \bigr\rangle
+\end{equation}
+with the non-trivial actions of the Nappi-Witten generators given by
+\begin{eqnarray}
+  \label{highestactions}
+  \mcDp\left(\P^+\right)\bigl|n,m;p^+,p^-\bigr\rangle&=&
+  2 i\theta p^+ n \bigl|n-1,m;p^+,p^-\bigr\rangle\\\nn
+  \mcDp\left(\P^-\right)\bigl|n,m;p^+,p^-\bigr\rangle&=&
+  i\bigl|n+1,m;p^+,p^-\bigr\rangle \\\nn
+  \mcDp\left(\Q^+\right)\bigl|n,m;p^+,p^-\bigr\rangle&=&
+  2 i\theta p^+ m \bigl|n,m-1;p^+,p^-\bigr\rangle \\\nn
+  \mcDp\left(\Q^-\right)\bigl|n,m;p^+,p^-\bigr\rangle&=&
+  i\bigl|n,m+1;p^+,p^-\bigr\rangle \\\nn
+  \mcDp\bigl(\J \bigr)\bigl|n,m;p^+,p^-\bigr\rangle&=&
+  i\left(\theta^{-1} p^--n-m\right)
+  \bigl|n,m;p^+,p^-\bigr\rangle
+\end{eqnarray}
+The inner product on the basis \eqref{Vhighestex} is
+\begin{equation}
+  \label{highestortho}
+  \bigl\langle n,m;p^+,p^-\bigm|n',m';p^+,p^-\bigr\rangle=
+  \left(2\theta p^+\right)^{n+m} n! m! \delta_{nn'} \delta_{mm'}
+\end{equation}
+This representation admits a highest weight state $|0,0;p^+,p^-\rangle$ on which
+$- i\mcDp(\J)$ has weight $\theta^{-1} p^-$.
+
+To associate these representations with euclidean D3-brane worldvolumes, we note
+that the constraint on the light-cone position in \eqref{E4branesloc} can be
+written in the semi-classical limit $\theta\to0$ as
+\begin{equation}
+  \label{semiclasspos}
+  2x_0^+ x^-+|\mz|^2=2x_0^+ \chi_0
+\end{equation}
+The relation \eqref{semiclasspos} agrees with the Casimir eigenvalue constraint
+\eqref{C6irrep} under the identifications of the light-cone time $x_0^+$ with
+momentum $p^+$ as before and the class variable $\chi_0$ with $p^-+\theta$. We will
+soon identify the worldvolume coordinates $\mz\in\C^2$ with the operators
+$\mcDp( \Pu^+)$. Thus the quantised algebra of functions on the conjugacy class
+is given by
+\begin{equation}
+  \label{quantalgD3}
+  \mathcal{A}\bigl(\mathcal{C}_{x_0^+,\chi_0}\bigr)=
+  {\rm End}\bigl(V^{p^+,p^-}\bigr)
+\end{equation}
+where a generic element $\hat f\in{\rm End}(V^{p^+,p^-})$ is a complex
+linear combination
+\begin{equation}
+  \label{genlincombD3}
+  \hat f=\sum_{n,m,n',m'\in\N_0}f_{n,m;n',m'} \bigl|n,m;p^+,p^-
+  \bigr\rangle\bigl\langle n',m';p^+,p^-\bigr|
+\end{equation}
+
+As before, it is convenient to work in the conventional coherent state basis of
+the Fock module $V^{p^+,p^-}$ defined for $\mz^\top=(z,w)\in\C^2$ by
+\begin{equation}
+  \label{D3cohstates}
+  \bigl|\mz;p^+,p^-\bigr\rangle:= e^{-\mz^\top \Pu^-}
+  \bigl|0,0;p^+,p^-\bigr\rangle=\sum_{n,m\in\N_0}
+  \frac{z^n w^m}{ i^{n+m} n! m!} \bigl|n,m;p^+,p^-
+  \bigr\rangle
+\end{equation}
+on which the non-trivial symmetry generators are represented by differential
+operators
+\begin{eqnarray}
+  \label{symactioncohD3}
+  \mcDp\left( \Pu^+\right)\bigl|\mz;p^+,p^-\bigr\rangle&=&
+  2\theta p^+ \mz \bigl|\mz;p^+,p^-\bigr\rangle\\\nn
+  \mcDp\left( \Pu^-\right)\bigl|\mz;p^+,p^-\bigr\rangle&=&
+  -\bfd\bigl|\mz;p^+,p^-\bigr\rangle \\\nn
+  \mcDp\bigl(\J \bigr)\bigl|\mz;p^+,p^-\bigr\rangle&=&
+  i\left(\theta^{-1} p^--\mz^\top \bfd\right)
+  \bigl|\mz;p^+,p^-\bigr\rangle
+\end{eqnarray}
+with $\bfd^\top:=(\frac\partial{\partial z},\frac\partial{\partial
+  w})$. The conjugate state to \eqref{D3cohstates} is given by
+\begin{equation}
+  \label{conjD3cohstates}
+  \bigl\langle\mz;p^+,p^-\bigr|=\bigl\langle0,0;p^+,p^-\bigr|
+  e^{\overline{\mz}{}^{ \top} \Pu^+}
+\end{equation}
+so that the inner product of coherent states is
+\begin{equation}
+  \label{innprodcohD3}
+  \bigl\langle\mz;p^+,p^-\bigm|\mz';p^+,p^-\bigr\rangle=
+  e^{2\theta p^+ \overline{\mz}{}^{ \top} \mz'}
+\end{equation}
+while their completeness relation is
+\begin{equation}
+  \label{D3complrel}
+  \1 = \left(2\theta p^+\right)^2 \int\limits_{\C^2}
+  d\varrho\left(\mz,\overline{\mz} \right)  e^{-2\theta p^+ |\mz|^2} 
+  \bigl|\mz;p^+,p^-\bigr\rangle\bigl\langle\mz;p^+,p^-\bigr|
+\end{equation}
+where $ d\varrho(\mz,\overline{\mz} )=\frac1{\pi^2} | d z\wedge
+d\overline{z}\wedge d w\wedge d\overline{w} |$ is the standard flat measure on
+$\E^4\cong\C^2$. We will now use these states to describe the
+worldvolume algebra \eqref{quantalgD3} as a deformation of the classical algebra
+of functions on the conjugacy class $\mathcal{C}_{x_0^+,\chi_0}$.
+
+For this, we construct an isomorphism of underlying vector spaces
+\begin{equation}
+  \label{Deltastar}
+  \Delta_* : {\rm C}^\infty\bigl(\mathcal{C}_{x_0^+,\chi_0}\bigr)
+  \longrightarrow {\rm End}\bigl(V^{p^+,p^-}\bigr)
+\end{equation}
+by expanding any smooth function $f\in{\rm C}^\infty
+(\mathcal{C}_{x_0^+,\chi_0})$ as a Taylor series over $\C^2$ given by
+\begin{equation}
+  \label{TaylorD3}
+  f\left(\mz,\overline{\mz} \right)=\sum_{n,m,n',m'\in\N_0}f_{n,m;n',m'} 
+  z^n w^m \overline{z}{}^{ n'} \overline{w}^{ m'}
+\end{equation}
+and defining
+\begin{eqnarray}
+  \label{DeltafD3}
+  \hat f = \Delta_*(f)&:=&\sum_{n,m,n',m'\in\N_0} \frac{f_{n,m;n',m'}}
+  {\left(2\theta p^+\right)^{n+m+n'+m'}} \mcDp\left(\P^-\right)^{n'} 
+  \mcDp\left(\Q^-\right)^{m'}\nn\\ &&\times \mcDp\left(\P^+\right)^{n} 
+  \mcDp\left(\Q^+\right)^{m}
+\end{eqnarray}
+The inverse map is provided by the normalised matrix elements of
+operators as
+\begin{equation}
+  \label{DeltainvD3}
+  f\left(\mz,\overline{\mz} \right):=\Delta_*^{-1}\bigl(\hat f 
+  \bigr)\left(\mz,\overline{\mz} \right)= e^{-2\theta p^+ |\mz|^2} 
+  \bigl\langle\mz;p^+,p^-\bigl| \hat f \bigr|\mz;p^+,p^-\bigr\rangle
+\end{equation}
+As before, the functions corresponding to the generators of the
+Nappi-Witten algebra $\mathfrak{n}_6$ coincide with the coordinates of
+the conjugacy classes $\mathcal{C}_{x_0^+,\chi_0}$,
+\begin{eqnarray}
+  \label{DeltainvD3gens}
+  \Delta_*^{-1}\Bigl(\mcDp\left( \Pu^+\right)\Bigr)\left(\mz,
+    \overline{\mz} \right)&=&2\theta p^+ \mz \\\nn
+  \Delta_*^{-1}\Bigl(\mcDp\left( \Pu^-\right)\Bigr)\left(\mz,
+    \overline{\mz} \right)&=&2\theta p^+ \overline{\mz} \\\nn
+  \Delta_*^{-1}\Bigl(\mcDp\bigl(\J \bigr)\Bigr)\left(\mz,
+    \overline{\mz} \right)&=&
+  i\left(\theta^{-1} p^--2\theta p^+ |\mz|^2\right)
+\end{eqnarray}
+
+The map \eqref{Deltastar} in this case is {\it not} an algebra homomorphism and
+it can be used to deform the pointwise multiplication of functions in the
+algebra ${\rm C}^\infty(\mathcal{C}_{x_0^+,\chi_0})$, giving an associative
+$\ast$-product defined by
+\begin{eqnarray}
+  \label{D3stardef}
+  (f*g)\left(\mz,\overline{\mz} \right)&:=&
+  \Delta_*^{-1}\bigl(\hat f \hat g \bigr)
+  \left(\mz,\overline{\mz} \right) =  e^{-2\theta p^+ |\mz|^2} 
+  \bigl\langle\mz;p^+,p^-\bigl| \hat f \hat g \bigr|\mz;p^+,p^-
+  \bigr\rangle\nn\\ &=&\left(2\theta p^+\right)^2 
+  \int\limits_{\C^2} d\varrho\left(\mz',\overline{\mz}{}^{ \prime} 
+  \right)  e^{-2\theta p^+ (|\mz'|^2+|\mz|^2)}\nn\\
+  &&\times \bigl\langle\mz;p^+,p^-
+  \bigl| \hat f \bigr|\mz';p^+,p^-\bigr\rangle \bigl\langle
+  \mz';p^+,p^-\bigl| \hat g \bigr|\mz;p^+,p^-\bigr\rangle
+\end{eqnarray}
+We can express this $\ast$-product more explicitly in terms of a bi-differential
+operator acting on ${\rm C}^\infty(\mathcal{C}_{x_0^+,\chi_0})\otimes{\rm
+  C}^\infty(\mathcal{C}_{x_0^+,\chi_0})\to{\rm
+  C}^\infty(\mathcal{C}_{x_0^+,\chi_0})$ by writing the normalised matrix
+elements in \eqref{D3stardef} using translation operators as \cite{APS1}
+\begin{eqnarray}
+  \label{matrixelttransl}
+  e^{-\mz^\top \bfd'}  e^{\mz^{\prime \top} \bfd}
+  f\left(\mz,\overline{\mz} \right)&=& e^{-\mz^\top \bfd'}
+  \frac{\bigl\langle\mz;p^+,p^-
+    \bigl| \hat f \bigr|\mz+\mz';p^+,p^-\bigr\rangle}{
+    \bigl\langle\mz;p^+,p^-\bigm|\mz+\mz';p^+,p^-\bigr\rangle}\\\nn
+  &=&
+  \frac{\bigl\langle\mz;p^+,p^-
+    \bigl| \hat f \bigr|\mz';p^+,p^-\bigr\rangle}{
+    \bigl\langle\mz;p^+,p^-\bigm|\mz';p^+,p^-\bigr\rangle}
+\end{eqnarray}
+The translation operator $ e^{-\mz^\top \bfd'} e^{\mz^{\prime \top} \bfd}$,
+acting on $\mz'$-independent functions, can be expressed as a normal ordered
+exponential $\NO \exp(\mz'-\mz)^\top \overrightarrow{\bfd} \NO$ with
+derivatives ordered to the right in each monomial of the Taylor series expansion
+of the exponential function. In this way we may write the $\ast$-product
+\eqref{D3stardef} as
+\begin{eqnarray}
+  \nn
+  (f*g)\left(\mz,\overline{\mz} \right)&=&\left(2\theta p^+\right)^2 
+  \int\limits_{\C^2} d\varrho\left(\mz',\overline{\mz}{}^{ \prime} 
+  \right) f\left(\mz,\overline{\mz} \right) \NO \exp
+  \overleftarrow{\bfd}{}^{ \top} \left(\mz'-\mz\right) \NO\\
+  &&\times  e^{-2\theta p^+ |\mz'-\mz|^2} \NO \exp\left(
+    \overline{\mz}{}^{ \prime}-\overline{\mz} \right)^\top 
+  \overrightarrow{\overline{\bfd}} \NO g\left(\mz,\overline{\mz} \right)
+  \label{D3starform}
+\end{eqnarray}
+and performing the Gaussian integral in \eqref{D3starform} leads to our final
+form
+\begin{equation}
+  \label{D3starfinal}
+  (f*g)\left(\mz,\overline{\mz} \right)=f\left(\mz,
+    \overline{\mz} \right) \exp\Bigl(\frac1{2\theta p^+}
+  \overleftarrow{\bfd}{}^{ \top} \overrightarrow{\overline{\bfd}}
+  \Bigr) g\left(\mz,\overline{\mz} \right)
+\end{equation}
+
+The $\ast$-product \eqref{D3starfinal} is the Voros product \cite{Voros1} on
+four-dimensional noncommutative euclidean space $\E_\Theta^4$ corresponding
+to the Poisson bi-vector
+\begin{equation}
+  \label{NCparD3}
+  \Theta=-\frac i{2\theta p^+} \overline{\bfd}{}^{ \top}
+  \wedge\bfd
+\end{equation}
+whose components are proportional to the inverse of the magnetic field (or
+equivalently harmonic oscillator frequency) $\omega=\frac12 \theta p^+$ in the
+effective particle dynamics in Nappi-Witten spacetime described in Section
+\ref{Dynamics}. This product is {\it not} the same as the standard Moyal product
+\begin{equation}
+  \label{MoyalD3def}
+  (f\star g)\left(\mz,\overline{\mz} \right):=f\left(\mz,
+    \overline{\mz} \right) \exp\left[\frac1{4\theta p^+}
+    \Bigl(\overleftarrow{\bfd}{}^{ \top} \overrightarrow{\overline{\bfd}}
+    -\overleftarrow{\overline{\bfd}}{}^{ \top} 
+    \overrightarrow{\bfd} \Bigr)\right] g\left(\mz,\overline{\mz} \right)
+\end{equation}
+which arises from Weyl operator ordering, rather than the normal ordering
+prescription employed in \eqref{DeltafD3}. Although different, these two
+products are cohomologically {\it equivalent} \cite{Voros1}, because the
+invertible differential operator $\mathcal{T}:=\exp\frac1{4\theta p^+} |\bfd|^2$
+gives an algebra isomorphism $\mathcal{T}:({\rm
+  C}^\infty(\mathcal{C}_{x_0^+,\chi_0}) , \star)\to({\rm
+  C}^\infty(\mathcal{C}_{x_0^+,\chi_0}) , *)$, i.e. $\mathcal{T}(f\star
+g)=\mathcal{T}(f)*\mathcal{T}(g) \forall f,g\in{\rm
+  C}^\infty(\mathcal{C}_{x_0^+,\chi_0})$.
+
+Finally, to deal with the geometry in the case $p^+<0$, we construct a
+lowest-weight module $\widetilde{V}^{p^+,p^-}$ which defines the representation
+conjugate to $V^{p^+,-p^-}$ above by interchanging the roles of the generators
+$\Pu^+\leftrightarrow\Pu^-$ and replacing the generators $\J,\T$ with their
+reflections $-\J,-\T$. The two representations have the same quadratic Casimir
+eigenvalue \eqref{C6irrep} and are dual to each other as
+\begin{equation}
+  \label{dualreps}
+  \widetilde{V}^{p^+,p^-} \cong \bigl(V^{p^+,p^-}\bigr)^*
+\end{equation}
+The $\star$-product is generically given as \eqref{D3starfinal} or
+\eqref{MoyalD3def} with $p^+$ replaced by $|p^+|$, and the worldvolume algebra
+\eqref{quantalgD3} is canonically isomorphic as a vector space to
+\begin{equation}
+  \label{quantalgD3duals}
+  \mathcal{A}\bigl(\mathcal{C}_{x_0^+,\chi_0}\bigr)=V^{p^+,p^-}
+  \otimes\widetilde{V}^{p^+,p^-} \qquad\qquad p^+>0
+\end{equation}
+The $\mathcal{N}_6$-module structure is then determined by the Clebsch-Gordan
+decomposition of \eqref{quantalgD3duals} into the irreducible continuous
+representations of the Nappi-Witten algebra as
+\begin{equation}
+  \label{D3module}
+  \mathcal{A}\bigl(\mathcal{C}_{x_0^+,\chi_0}\bigr)=
+  \hspace{4pt}\int\limits_0^\infty
+  \hspace{-15.6pt}\bigodot\hspace{-19pt}\mbf-\hspace{-4pt}\mbf-\hspace{4pt}
+  d\alpha \alpha
+  \hspace{4pt}\int\limits_0^\infty
+  \hspace{-15.6pt}\bigodot\hspace{-19pt}\mbf-\hspace{-4pt}\mbf-\hspace{4pt}
+  d\beta \beta  V_{\alpha,\beta}^{0,0}
+\end{equation}
+The organisation of the quantised worldvolume algebra into irreducible
+representations associated with null branes owes to the fact that the isometry
+generators of the noncommutative D3-branes in $\NW_6$ are given by the Killing
+vectors $P^\pm$, $Q^\pm$ and $J+\overline{J}$ in \eqref{6CWKilling},
+\ref{extraHKilling} with $T=0$, corresponding to translations in each transverse
+plane $z,w\in\C$ along with simultaneous rotations of the two planes.
+These isometries generate the subgroup \eqref{S5subgp} which coincides with the
+group ${\rm Inn}(\mathfrak{n}_6)$ of inner automorphisms of the Nappi-Witten Lie
+algebra. The symmetric untwisted D3-brane breaks the generic rotational symmetry
+${\rm U}(2)={\rm SU}(2)\times{\rm U}(1)$ to ${\rm U}(1)\cong{\rm SO}(2)$,
+leaving the overall isometry subgroup \eqref{S5subgp} which is precisely the
+symmetry group of noncommutative euclidean space in four dimensions with equal
+magnetic fields through each parallel plane \cite{AlVaz1,CMNTV1}. Thus the
+embedding of flat branes into $\NW_6$ realises explicitly the usual breaking of
+${\rm ISO}(4)$ invariance in passing to the noncommutative space
+$\E_\Theta^4$.
+
+\subsection{Open String Description}
+\label{D3OSD}
+Let us now compare the semi-classical results obtained above with the
+predictions from the open string dynamics on the NS supported D-branes in the
+Seiberg-Witten decoupling limit. Generally, let $G$ be the closed string metric
+on a D-brane and $\mathcal{F}=B+F$ the gauge-invariant two-form which we assume
+is non-degenerate. Whenever $ d(\mathcal{F}-G \mathcal{F}^{-1} G)=0$, the
+momentum of an open string attached to the D-brane is small in the low-energy
+limit \cite{HY1}. This is just the requirement $H=0$ of a vanishing NS flux in
+the limit of large $B$-field. The strings are then very short and see only a
+small portion of the worldvolume, which is approximately flat. The same
+expressions that apply to flat backgrounds can thereby be applied in these
+instances \cite{ARS1,HY1}. In particular, the noncommutativity parameters and
+the open string metric may be computed from the usual Seiberg-Witten formulas
+\cite{SW1}
+\begin{eqnarray}
+  \label{SWThetagen}
+  \Theta&=&\frac1{\mathcal{F}-G \mathcal{F}^{-1} G} = -\frac1{G+\mathcal{F}}
+  \mathcal{F} \frac1{G-\mathcal{F}}
+  \\\label{SWopenmetgen}
+  G_{\rm o}&=&G-\mathcal{F} G^{-1} \mathcal{F}
+\end{eqnarray}
+For the flat euclidean D3-branes of the previous subsection, we substitute
+\eqref{metricpieucl4} and \eqref{E4F6PGL} in \eqref{SWThetagen} to get the
+bi-vector
+\begin{equation}
+  \label{ThetaD3}
+  \Theta=-\frac i{(\mathcal{F}_{x_0^+})_{z \overline{z}}+
+    (\mathcal{F}_{x_0^+})^{-1}_{z \overline{z}}}
+  \overline{\bfd}{}^{ \top}\wedge\bfd=
+  -\frac i2 \sin\theta x_0^+ \overline{\bfd}^{ \top}
+  \wedge\bfd
+\end{equation}
+This does not agree with \eqref{NCparD3} in the limit $\theta\to0$, as one would
+have naively expected, but the reason for the discrepancy is simple. The
+semi-classical analysis of the previous subsection is strictly speaking valid
+only in the limit of large $B$-field, for which the formula \eqref{SWThetagen}
+reduces to $\Theta=B^{-1}$ and coincides with \eqref{NCparD3} on the D3-branes.
+This is equivalent to the zero-slope field theory limit ($\alpha'\to0$) of the
+open string dynamics, and it yields the Kirillov-Kostant Poisson bi-vector on
+the coadjoint orbits corresponding to the symplectic two-form $B$. This
+situation is characteristic of branes in curved backgrounds \cite{ARS1,HY1}, and
+we will regard the $\theta\to0$ limit of \eqref{ThetaD3}, for which
+$\Theta=-\frac{ i\theta p^+}2 \overline{\bfd}^{ \top}\wedge\bfd$, as ``dual'' to
+the field theoretic quantity \eqref{NCparD3} with respect to the inner product
+$\langle \cdot , \cdot \rangle$ on $\mathfrak{n}_6$.
+
+In \cite{Halliday:2005zt} we find the intrinsic ${\rm SU}(2)$ symmetry of the NS
+background implies long strings, of light-cone momenta $p^+>1$, can move freely
+in the two transverse planes to the Nappi-Witten pp-wave and correspond to
+spectral-flowed null brane states \cite{BAKZ1}. The long strings in $\NW_6$ thus
+correspond to fundamental string states. The spectral flow of long string states
+also implies that the strong NS-field limit gives a flat space theory
+\cite{DAK1}, just like the semiclassical limit.
+
+\section{Twisted Noncommutative Branes in $\NW_6$}
+\label{TwistedNCBranes}
+The quantisation of twisted conjugacy classes is more intricate \cite{AFQS1}.
+The $\omega$-twisted D-branes in the Lie group $\mathcal{G}$ are labelled by
+representations of the invariant subgroup
+\begin{equation}
+  \label{Gomegagen}
+  \mathcal{G}^\omega:=\bigl\{g\in\mathcal{G} \bigm| \omega(g)=g
+  \bigr\}
+\end{equation}
+In a neighbourhood of the identity of $\mathcal G$, a twisted conjugacy class
+$\mathcal{C}_g^\omega$ may be regarded as a fibration
+\begin{equation}
+  \label{conjfibre}
+  \begin{CD}
+   @.\\
+    \breve{\mathcal C}_g        @>>> \mathcal{C}_g^\omega\\
+    @.    @VVV\\ @.
+     \mathcal{G} / \mathcal{G}^\omega  \\
+   @.
+  \end{CD}
+\end{equation}
+where $\breve{\mathcal C}_g$ is an ordinary conjugacy class of
+$\mathcal{G}^\omega$ and $\mathcal{G}^\omega$ acts on $\mathcal{G}$ by right
+multiplication. In particular, $\breve{\mathcal C}_g$ can be identified with a
+coadjoint orbit of the subgroup \eqref{Gomegagen}, with the standard linear
+Poisson structure coinciding with that induced by pull-back
+$B|_{\mathcal{G}^\omega}$ of the Neveu-Schwarz $B$-field when $H=0$.
+Semiclassically, after quantisation $\mathcal{C}_g^\omega=\mathcal{G}
+\times_{\mathcal{G}^\omega}\breve{\mathcal C}_g$ becomes a trivial bundle with
+noncommutative fibers labelled by irreducible modules $\breve{V}_g^\omega$ over
+the group $\mathcal{G}^\omega$ but with a classical base space $\mathcal{G} /
+\mathcal{G}^\omega$ \cite{AFQS1}. The associative noncommutative algebra of
+functions on the worldvolume in this case is thus given by
+\begin{equation}
+  \label{NCtwistalg}
+  \mathcal{A}\left(\mathcal{C}_g^\omega\right)=\Bigl({\rm C}^\infty\bigl(
+  \mathcal{G}\bigr)\otimes{\rm End}\bigl(\breve{V}_g^\omega\bigr)
+  \Bigr)^{\mathcal{G}^\omega}
+\end{equation}
+where the superscript denotes the $\mathcal{G}^\omega$-invariant part and
+$\mathcal{G}^\omega$ acts on ${\rm C}^\infty(\mathcal{G})$ through the induced
+derivative action of right isometries of $\mathcal{G}$. Again, the worldvolume
+algebra \eqref{NCtwistalg} carries a natural action of the group $\mathcal{G}$,
+now through the induced action on ${\rm C}^\infty(\mathcal{G})$ by right
+isometries.
+
+If $\omega=\1$, then $\mathcal{G}^\omega=\mathcal{G}$ and \eqref{NCtwistalg}
+reduces to the definition \eqref{NCalgconjclass}. If the module
+$\breve{V}_g^\omega$ is one-dimensional (e.g. the trivial representation of
+$\mathcal{G}^\omega$), then ${\rm End}(\breve{V}_g^\omega)\cong\C$ and the
+algebra \eqref{NCtwistalg} becomes the commutative algebra of functions
+$\mathcal{A}(\mathcal{C}_g^\omega)\cong{\rm C}^\infty(\mathcal{G} /
+\mathcal{G}^\omega)$ on $\mathcal{G}$ invariant under the action of the subgroup
+$\mathcal{G}^\omega\subset\mathcal{G}$ by right isometries. It is this latter
+situation that we shall discover in the present case. All twisted D-branes in
+$\NW_6$ support {\it commutative} worldvolume geometries, given by the algebra
+of functions on the classical twisted conjugacy class, consistent with the
+remarks made in Section \ref{DiagNW}. This result will be supported by the fact
+that all twisted branes have vanishing NS flux $H=0$, so that again
+semi-classical quantisation applies. However, for certain lorentzian D-branes
+that we shall encounter, there are some important subtleties hidden in the
+structure of the worldvolume two-form fields that are invisible in the field
+theoretic analysis outlined here.
+
+\subsection{General Construction}
+\label{GenConstrTwist}
+The group of outer automorphisms of the Lie algebra $\mathfrak{n}_6$ is given by
+${\rm Out}(\mathfrak{n}_6)=\Z_2\ltimes{\rm SU}(2) / \Z_2$ \cite{SF1}, where
+the ${\rm SU}(2)$ factor is the transverse space rotational symmetry described
+in the previous section. There are thus two families of outer automorphisms
+$\omega_\pm^S$ parametrised by a matrix
+\begin{equation}
+  \label{SU2matrixouter}
+  S=\begin{pmatrix}a&b\\-\overline{b}&\overline{a}\end{pmatrix} \in 
+  {\rm SU}(2)
+\end{equation}
+with $a,b\in\C$ obeying $|a|^2+|b|^2=1$ and with the identification
+$S\sim-S$. Corresponding to the identity element of $\Z_2$, the automorphism
+$\omega_+^S$ acts on a group element \eqref{NW6globalcoords} via a rotation in
+the transverse space as
+\begin{equation}
+  \label{omegapdef}
+  \omega_+^S(g)=g\left(x^+,x^-,S\mz,\overline{S} \overline{\mz} \right)
+\end{equation}
+with $S\neq\1$ (or else the automorphism is trivial). As a consequence, the
+invariant subgroup \eqref{Gomegagen} in this case is given by
+\begin{equation}
+  \label{invsubgpp}
+  \mathcal{N}_6^{ \omega_+^S} = \bigl\{g\left(x^+,x^-,\mbf0,\mbf0\right)
+  \in\mathcal{N}_6 \bigm| x^\pm\in\R\bigr\} \cong \R^2
+\end{equation}
+This is the two-dimensional abelian group of translations of the light-cone in
+$\NW_6$, and its irreducible representations are all one-dimensional. Thus the
+quantised worldvolume algebra \eqref{NCtwistalg} in this case is
+$\mathcal{A}(\mathcal{C}_g^{\omega_+^S})\cong{\rm C}^\infty(\E^4)$
+corresponding to {\it commutative} euclidean D3-branes. We shall explicitly
+construct these branes in what follows, showing that the group \eqref{invsubgpp}
+is isomorphic to the stabiliser of the twisted conjugacy class and hence its
+points (corresponding to its conjugacy classes) label the locations of the
+various D3-branes in $\NW_6$. This characterisation is consistent with the fact
+that only the (trivial) one-dimensional subspace of $V^{p^+,p^-}$ spanned by the
+ground state vector $|0,0;p^+,p^-\rangle$ is invariant under the action of the
+automorphism \eqref{omegapdef}.
+
+The other class of automorphisms $\omega_-^S$ combines the transverse space
+rotations with the non-trivial element of $\Z_2$ which acts by charge
+conjugation on the generators of $\mathfrak{n}_6$ to give
+\begin{equation}
+  \label{omegamdef}
+  \omega_-^S(g)=g\left(-x^+,-x^-,S \overline{\mz},\overline{S} \mz \right)
+\end{equation}
+It defines an isomorphism $V^{p^+,p^-}\leftrightarrow\widetilde{V}{}^{p^+,p^-}$
+on irreducible representations. The invariant subgroup \eqref{Gomegagen} in this
+case is determined by the equation $S \overline{\mz}=\mz$ for
+$\mz\in\C^2$. The only solution of this equation is $\mz=\mbf0$, unless
+the parameter $b$ in \eqref{SU2matrixouter} is purely imaginary in which case
+the subgroup reduces to the two-dimensional abelian group generated by the
+elements
+\begin{equation}
+  \label{2Dabgp}
+  \P_S=a \P^++\P^-+b \Q^+ \qquad\qquad
+  \Q_S=\overline{a} \Q^++\Q^-+b \P^+
+\end{equation}
+Thus
+\begin{equation}
+  \label{invsubgp}
+  \mathcal{N}_6^{ \omega_-^S} = \bigl\{g\left(0,0,\mz,\overline{\mz} \right)
+  \in\mathcal{N}_6 \bigm| \mz=S \overline{\mz}\in\C^2\bigr\} \cong
+  \begin{cases}
+    \R^2  &b\in i\R\\
+    \{\1\}  &{\rm otherwise}
+  \end{cases}
+\end{equation}
+is again always an abelian group (of transverse space translations) with only
+one-dimensional irreducible representations, corresponding to commutative
+worldvolume geometries \eqref{NCtwistalg}. As we show explicitly below, the
+first instance corresponds to a class of commutative, Lorentzian D3-branes
+wrapping $\CW_4$ $\subset$ $\NW_6$, i.e.
+$\mathcal{A}(\mathcal{C}_g^{\omega_-^S})$ $\cong$ ${\rm C}^\infty(\CW_4)$, with
+the points of \eqref{invsubgp} again parametrising the locations of the branes
+in $\NW_6$. The second case represents a family of commutative, spacetime
+filling lorentzian D5-branes each isometric to $\CW_6$, i.e.
+$\mathcal{A}(\mathcal{C}_g^{\omega_-^S})$ $\cong$ ${\rm
+  C}^\infty(\mathcal{N}_6)$. These results are consistent with the fact that
+only the self-dual null brane modules $V_{\alpha,\beta}^{0,0}$ and
+$V_{\alpha,\beta}^{0,\frac\theta2}$ are invariant under the action of the
+automorphism \eqref{omegamdef}.
+
+As in Section \ref{GenConstrUntwist}, one can now straightforwardly work out the
+twisted adjoint actions ${\rm Ad}^{\omega_\pm^S}_{g(x^+,x^-,\mz,\overline{\mz}
+  )} g(x^+_0,x^-_0,\mz_0, \overline{\mz}_0)$ corresponding to a fixed point
+$(x_0^+,x_0^-,\mz_0)\in\NW_6$ \cite{FS1,SF1}. For the automorphism
+\eqref{omegapdef} the twisted conjugacy classes can be written explicitly as the
+submanifolds
+\begin{eqnarray}
+  \label{conjclassgenp}
+  \mathcal{C}^{\omega_+^S}_{(x_0^+,x^-_0,\mz_0)}&=&
+  \Bigl\{\bigl(x^+_0 , x^-_0+\frac\theta2
+    {\rm Im}\bigl[\overline{\mz}_0^{ \top} ( e^{-\frac{ i\theta}2 x_0^+}
+    S+ e^{\frac{ i\theta}2 x_0^+} \1)\mz  e^{-\frac{ i\theta}2 x^+}\\\nn
+    &&\qquad\qquad\qquad\qquad+\frac12 \mz^\top
+    ( e^{- i\theta x_0^+} S- e^{ i\theta x_0^+} \1)
+    \overline{\mz} \bigr] ,\\\nn
+  &&\qquad e^{\frac{ i\theta}2 (x^+-x_0^+)} (S- e^{ i\theta x_0^+} \1)\mz+
+      e^{ i\theta x^+} \mz_0 \bigr) \biggm| x^+\in\S^1 , \mz\in\C^2\Bigr\}
+\end{eqnarray}
+Again $x_0^+$ is an orbit invariant, and the corresponding branes are
+thus euclidean. In fact, except for the nature of their noncommutative
+worldvolume geometry, these branes are completely analogous to the
+branes described in the previous section. For the automorphism
+\eqref{omegamdef}) one finds instead the submanifolds
+\begin{eqnarray}
+  \label{conjclassgenm}
+  \mathcal{C}^{\omega_-^S}_{(x_0^+,x^-_0,\mz_0)}&=&
+  \Bigl\{\bigl(x^+_0+2x^+ , x^-_0+2x^--\theta
+  {\rm Im}\bigl[\overline{\mz}{}_0^{ \top} \mz  e^{\frac{ i\theta}2 
+    (x_0^++x^+)}\\\nn
+  &&\qquad\qquad\qquad\qquad\qquad\qquad\qquad-( \overline{\mz}{}_0^{ \top}+
+  e^{\frac{ i\theta}2 (x^++x_0^+)} \overline{\mz}^{ \top}) S
+  \overline{\mz}  e^{\frac{ i\theta}2 (x^++x_0^+)}
+  \bigr], \\\nn
+  &&\qquad\mz_0-S \overline{\mz}  e^{-\frac{ i\theta}2 (x^++x_0^+)}+\mz 
+  e^{\frac{ i\theta}2 (x^++x_0^+)}\bigr) \biggm|
+  x^+\in\S^1 , x^-\in\R , \mz\in\C^2\Bigr\}
+\end{eqnarray}
+wrapped by lorentzian branes. We will now briefly describe the
+supergravity fields supported by each of these classes of branes.
+
+\subsection{Euclidean D3-Branes}
+\label{EuclD3Twist}
+The geometry of the twisted conjugacy classes \eqref{conjclassgenp} is
+determined by the complex map on $\C^2\to\C^2$ defined by
+\begin{equation}
+  \label{complexmapeucl}
+  \mz':= e^{\frac{ i\theta}2 (x^+-x_0^+)} \left(S- e^{ i\theta x_0^+} \1
+  \right)\mz+ e^{ i\theta x^+} \mz_0
+\end{equation}
+Whenever the $2\times2$ matrix $S- e^{ i\theta x_0^+} \1$ is invertible, this map
+defines an isomorphism of linear spaces and one has
+$\mathcal{C}^{\omega_+^S}_{(x_0^+,x^-_0,\mz_0)}\cong\E^4$ with the same
+worldvolume fields as in \eqref{metricpieucl4} and \eqref{NSconj}, the
+$x^+$-dependence of \eqref{conjclassgenp} cancelling out. However, although
+they are qualitatively the same as the euclidean D3-branes of Section
+\ref{CGED3B}, the worldvolume two-forms on these branes are different. The
+stabiliser of the twisted conjugacy class in this case is parametrised as the
+cylindrical submanifold
+\begin{equation}
+  \label{stabE4twist}
+  \mathcal{Z}^{\omega_+^S}_{(x_0^+,x^-_0,\mz_0)}=\Biggl\{
+      \left(x^+,x^-, e^{\frac{ i\theta}2 (x_0^+-x^+)} 
+      (1- e^{ i\theta x^+}) (S- e^{ i\theta x_0^+} 
+      \1)^{  -1}\mz_0\right) \Biggm|
+      \genfrac{}{}{0pt}{}{x^+\in\S^1}{x^-\in\R}
+      \Biggr\}
+\end{equation}
+from which we may compute the abelian gauge field fluxes \eqref{2formfamily} to
+be
+\begin{equation}
+  \label{E4F6twist}
+  F^{(\zeta)}_6\bigm|_{\mathcal{C}^{\omega_+^S}_{(x_0^+,x^-_0,\mz_0)}}=
+  2 i x_0^+  d\overline{\mz}{}^{ \top}\wedge d\mz
+\end{equation}
+Thus the gauge-invariant two-forms $\mathcal{F}_6^{(\zeta)}$ vanish on these
+twisted conjugacy classes, leading to the anticipated commutative worldvolume
+geometry.
+
+We can also understand the origin of these branes through the Penrose-G\"uven
+limit of Section \ref{ApplNW} by considering the commuting isometric embedding
+diagram
+\begin{equation}
+  \label{E4commdiagH2}
+  \begin{CD}
+   @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath^{ \prime}  $}@AAA
+@AAA\text{$\widetilde{\imath}^{ \prime}$}\\
+           \Hyp^2\times\S^2    @>\text{PGL$^{ \prime}$}>> \E^4\\
+   @.
+  \end{CD}
+\end{equation}
+analogous to \eqref{E4commdiag}. The hyperbolic plane $\Hyp^2$ is wrapped by
+symmetric instantonic D-strings in $\AdS_3$ \cite{Stanciu3}, corresponding to
+conjugacy classes of the group ${\rm SU}(1,1)$, and it is obtained from the
+intersection of the three-dimensional hyperboloid \eqref{AdS3quadric} with the
+affine hyperplane $x^1=\tau=0$. Now the pull-back of the $B$-field
+\eqref{AdS3S3Bfield} to the $\Hyp^2$ worldvolume vanishes, leading to a
+vanishing gauge-invariant two-form.
+
+\subsection{Spacetime Filling D5-Branes}
+\label{LorD5}
+Let us now examine the twisted conjugacy classes \eqref{conjclassgenm}. By
+defining $y^+:=x_0^++2x^+$ and $\mw:= e^{\frac{ i\theta}4 (y^++x_0^+)} \mz$ we may
+express them as the submanifolds
+\begin{equation}
+  \label{conjmrew}
+  \mathcal{C}_{\mz_0}^S=\left.\left\{(y^+,y^-,\mz_0-S \overline{\mw}+\mw) 
+    \right| y^+\in\S^1 , y^-\in\R , \mw\in\C^2\right\}
+\end{equation}
+The geometry of the twisted conjugacy class \eqref{conjmrew} is
+thereby determined by the {\it real} linear transformation on
+$\R^4\to\R^4$ defined by
+\begin{equation}
+  \label{reallinmapm}
+  \mw':=S \overline{\mw}-\mw
+\end{equation}
+whose determinant is straightforwardly worked out to be $4({\rm Re} b)^2$. As
+long as the parameter $b$ in \eqref{SU2matrixouter} has a non-zero real part,
+the map \eqref{reallinmapm} is a linear isomorphism and we can write the induced
+geometry in terms of the new transverse space coordinates $\mw'\in\C^2$.
+After an irrelevant shift, the pull-back of the plane wave metric
+\eqref{NW6metricBrink} to the twisted conjugacy class \eqref{conjmrew} is given
+by
+\begin{equation}
+  \label{D5metricpull}
+  d s_6^2\bigm|_{\mathcal{C}_{\mz_0}^S}=2  d y^+  d y^-+\left| d
+    \mw' \right|^2-\frac{\theta^2}4 \left|\mw' 
+  \right|^2 \left( d y^+\right)^2
+\end{equation}
+and the corresponding worldvolumes are therefore wrapped by spacetime
+filling D-branes isometric to $\CW_6$. From the identity
+\begin{equation}
+  \label{dwidentity}
+  d\overline{\mw}{}^{ \prime \top}\wedge d\mw'= d\overline{\mw}{}^{ \top}
+  \wedge\left(\1-\overline{S}{}^{ \top} S\right)  d\mw
+\end{equation}
+and the unitarity of the matrix $S\in{\rm SU}(2)$ it follows that the pull-back
+of the NS background \eqref{NW6Bfield} is trivial,
+\begin{equation}
+  \label{D5Bpull}
+  H_6\bigm|_{\mathcal{C}_{\mz_0}^S} = 0 = 
+  B_6\bigm|_{\mathcal{C}_{\mz_0}^S}
+\end{equation}
+Furthermore, since the corresponding stabiliser in this case is euclidean,
+having $x^+=0$, it is elementary to see that the pull-backs of the
+gauge-invariant two-forms also vanish,
+\begin{equation}
+  \label{D5F6pull}
+  \mathcal{F}^{(\zeta)}_6\bigm|_{\mathcal{C}_{\mz_0}^S} = 0
+\end{equation}
+In perfect agreement with the general analysis of Section \ref{GenConstrTwist},
+these D5-branes thus all carry commutative worldvolume geometries.
+
+As described in Section \ref{ApplNW}, these D-branes originate through the
+Penrose limit of D5-branes isometric to $\AdS_3\times\S^3$. The latter do {\it
+  not} correspond to symmetric D-branes of the ${\rm SU}(1,1)\times{\rm SU}(2)$
+group and, unlike the symmetric D5-branes obtained here which are spacetime
+filling branes of the six-dimensional plane wave, they do not fill the whole
+$\AdS_3\times\S^3$ target space. They wrap only a three-dimensional submanifold
+of the $\S^3$ component given by the complement in $\S^3$ of the disjoint union
+of two circles \cite{Stanciu3}. While the Penrose limit de-compactifies the
+branes to spacetime filling ones, the Neveu-Schwarz background vanishes due to
+the non-trivial embedding $\imath$ represented through the isometric embedding
+diagram
+\begin{equation}
+  \label{CW6commdiag}
+  \begin{CD}
+   @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}   @AAA @AAA\text{$\widetilde{\imath}$} \\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \CW_6\\
+   @.
+  \end{CD}
+\end{equation}
+with $\widetilde{\imath}$ constructed as above.
+
+\subsection{Lorentzian D3-Branes}
+\label{LorD3}
+We now describe the situations wherein the linear maps defined above are not of
+maximal rank, beginning with \eqref{reallinmapm}. In this case the parameter
+$b\in i\R$ is purely imaginary, and the map has real rank $2$ so that the
+variable $\mw^{\prime \top}=(w_1',w_2')$ lives in a one-dimensional complex
+subspace of $\C^2$. When ${\rm Re} a=a=1$, one has $b=0$ and $\mw'\in
+i\R^2$. Defining $z\in\C$ by $z:=2 {\rm Im} w_1+2 i {\rm Im} w_2$, it
+follows that $|\mw' |=|z|$ and the metric \eqref{D5metricpull} coincides with
+the usual Cahen-Wallach geometry \eqref{NW4metricBrink} of $\CW_4$. When ${\rm
+  Re} a<1$, we may coordinatise the twisted conjugacy class \eqref{conjmrew} by
+$\mw\in\R^2$. Then by defining
+\begin{equation}
+  \label{zD3def}
+  z:=\sqrt{2(1-{\rm Re} a)} \left(w_1- \frac b{2(1-{\rm Re} a)} 
+    w_2\right)+ i\sqrt{2(1-{\rm Re} a)- \frac{b^2} {2(1-{\rm Re} a)} } w_2
+\end{equation}
+one finds $|\mw' |=|z|$ and \eqref{D5metricpull} again reduces to the form
+\eqref{NW4metricBrink}. The identity \eqref{dwidentity} once more implies the
+vanishing \eqref{D5Bpull} of the NS background, so that the twisted conjugacy
+classes \eqref{conjmrew} are wrapped by curved lorentzian D3-branes isometric to
+$\CW_4$. All of this is in perfect harmony with the general findings of Section
+\ref{GenConstrTwist}.
+
+The $\AdS_3\times\S^3$ origin of these D3-branes is described by
+\eqref{CW4commdiag}. However, now an apparent discrepency arises. Using
+\eqref{dwidentity} and the fact that the matrix \eqref{SU2matrixouter} is
+symmetric whenever $b\in i\R$, one finds a non-vanishing pull-back of the
+worldvolume flux \eqref{NW6tildegaugeinv} given by
+\begin{equation}
+  \label{non0D3flux}
+  \mathcal{F}_6\bigm|_{\mathcal{C}_{\mz_0}^S}=- \frac{ i\theta}2  
+  \cot^2 \frac{\theta y^+}2   d y^+\wedge\left(\mz_0^\top 
+    d\overline{\mw}^{ \prime}-\overline{\mz}_0^{ \top} 
+    d\mw' \right)
+\end{equation}
+This worldvolume two-form depends on the locations of the branes in $\NW_6$, and
+it should induce a spacetime noncommutative geometry on the D3-brane
+worldvolume. However, this flux corresponds to a worldvolume {\it electric}
+field, rather than a magnetic field, and D-branes in electric backgrounds do not
+exhibit a well-defined decoupling of the massive string states. Instead of field
+theories, such backgrounds lead to noncommutative open string theories
+\cite{GMMS1,SST1} which lie beyond the scope of the semi-classical analysis at
+the beginning of this section. Such a noncommutativity agrees with the
+non-trivial boundary three-point couplings \cite{DK2} on the symmetric
+lorentzian D-membranes \cite{FS1} wrapping the pp-waves
+$\CW_3\hookrightarrow\NW_4$ defined by the volumes ${\rm Im} z={\rm constant}$
+in the above. Given the origin of the null worldvolume flux \eqref{non0D3flux}
+from Section \ref{ApplNW} and the mechanism described after \eqref{E4commdiag},
+this noncommutative open string theory could provide a curved space analog of
+the expected flat space S-duality with $(p,q)$ strings.
+
+\subsection{D-Strings}
+\label{DStrings}
+Let us now turn to the degenerate cases of the map \eqref{complexmapeucl}. The
+vanishing of the determinant of the $2\times2$ matrix $S- e^{ i\theta x_0^+} \1$
+shows that these branes arise when the fixed light-cone time coordinate obeys
+the equation
+\begin{equation}
+  \label{nullcoordeq}
+  \cos\theta x_0^+={\rm Re} a
+\end{equation}
+Since $|a|<1$ in this case, these worldvolumes lie in the set of conjugate free
+points $x_0^+\neq0,\frac\pi\theta$ of the Rosen plane wave geometry and $S- e^{
+  i\theta x_0^+} \1$ is of complex rank $1$. Explicitly, with $\mz^\top=(z,w)$ and
+$\xi\in\C$ defined by $\xi:=b w- i(\sin\theta x_0^+-{\rm Im} a) z$, one finds
+using \eqref{nullcoordeq} that
+\begin{equation}
+  \label{Sdegexpl}
+  \left(S- e^{ i\theta x_0^+} \1\right)\mz=
+  \begin{pmatrix}
+    \xi\\[4mm]
+    \frac{ i\overline{b}}{\sin\theta x_0^+-{\rm Im} a} \xi
+  \end{pmatrix}
+\end{equation}
+If $\mz_0=(S- e^{ i\theta x_0^+} \1)\mw_0$ for some fixed $\mw_0\in\C^2$,
+then a simple coordinate redefinition in \eqref{complexmapeucl} enables us to
+parametrise the twisted conjugacy class by a single complex variable. The
+pull-back of the $\NW_6$ metric is non-degenerate and the classes in this case
+are wrapped by euclidean D1-branes. As in Section \ref{EuclD3Twist}, all
+worldvolume fields in this case are easily found to be trivial. These branes do
+not explicitly appear in the general analysis of Section \ref{GenConstrTwist},
+and like the null branes of Section \ref{Null} their quantised worldvolume
+geometry, although commutative, differs from the classical one. They can
+nevertheless be regarded as subclasses of the twisted euclidean D3-branes
+constructed in Section \ref{EuclD3Twist}. In particular, they originate from
+symmetric euclidean D-strings in $\AdS_3\times\S^3$, either wrapping
+$\Hyp^2\subset\AdS_3$ and sitting at a point in $\S^3$ or wrapping
+$\S^2\subset\S^3$ and sitting at a point in $\AdS_3$.
+
+\subsection{D-Membranes}
+\label{DMem}
+Finally, if $\mz_0\notin{\rm im}(S- e^{ i\theta x_0^+} \1)$ on
+$\C^2$, then from \eqref{complexmapeucl} it follows that the
+twisted conjugacy class \eqref{conjclassgenp} is isometric to
+$\S^1\times\E^2$. The metric $ d s_6^2$ restricts
+non-degenerately, and once again all worldvolume form fields are
+trivial. The orbits are thus wrapped by euclidean D2-branes, which can
+likewise be regarded as subclasses of the D3-branes in
+Section \ref{EuclD3Twist}. Like the spacetime filling D-branes of
+Section \ref{LorD5}, these branes do not originate from symmetric
+D-branes in $\AdS_3\times\S^3$, but rather from either of the
+trivially embedded $\AdS_3$ or $\S^3$ submanifolds.
+
+\section{The Dolan-Nappi Model}
+\label{DNModel}
+Introducing to $\NW_6$ the one-form
+\begin{equation}
+  \label{Lambdadef}
+  \Lambda:=- i\left(\theta^{-1} x_0^-+\theta x^+\right)
+  \left(\mz^\top  d\overline{\mz}-\overline{\mz}^{\top}d\mz\right)
+\end{equation}
+on the null hypersurfaces of constant $x^-=x_0^-$, we may compute the
+corresponding two-form gauge transformation of the $B$-field in
+\eqref{NW6Bfield} to get
+\begin{equation}
+  \label{B6gaugeequiv}
+  B_6^\Lambda:=B_6+ d\Lambda=- i\theta  d x^+\wedge\left(
+    \mz^\top  d\overline{\mz}-\overline{\mz}{}^{ \top}  d\mz
+  \right)+2 i\theta^{-1} x_0^-  d\overline{\mz}{}^{ \top}
+  \wedge d\mz
+\end{equation}
+With $x_0^+=0$ and restricted to the four-dimensional hypersurface defined by
+$\mz^\top=(z,0)$, the metric \eqref{NW4metricBrink} and NS potential
+\eqref{B6gaugeequiv} coincide with those of the Dolan-Nappi model \cite{DN1}
+describing a (non-symmetric) D3-brane with the complete NS-supported geometry of
+$\NW_4$.
+
+In \cite{HT1} this geometry is realised as a null Melvin twist of a flat
+commutative D3-brane with twist parameter $\frac\theta2$ (in string units
+$\alpha'=1$), leading to the Melvin universe with a boost. Despite the
+non-vanishing null NS three-form flux of $\NW_4$, it can be argued from this
+realisation that the usual flat space Seiberg-Witten formulae
+\eqref{SWThetagen}, \eqref{SWopenmetgen} hold in this closed string background
+with $F=0$ a consistent solution to the corresponding Dirac-Born-Infeld
+equations of motion. The isometry with respect to which the background is
+twisted corresponds to the R-symmetry of the D3-brane worldvolume field theory,
+which thereby becomes a non-local theory of dipoles whose length is proportional
+to the R-charge. The open string metric \eqref{SWopenmetgen} correctly captures
+the non-local dipole-like open string dynamics on the D3-brane.
+
+Extrapolating this argument to $x_0^-\neq0$ and to the full six-dimensional
+spacetime $\NW_6$, a straightforward calculation gives the Seiberg-Witten
+bi-vector \eqref{SWThetagen} with $F=0$ for the background
+\eqref{NW6metricBrink}, \eqref{B6gaugeequiv} as
+\begin{equation}
+  \label{ThetaLambda}
+  \Theta^\Lambda=- \frac{2 i\theta}{\theta^2+\left(x_0^-\right)^2}  
+  \left[\theta^2 \partial_-\wedge\left(\mz^\top \bfd-
+      \overline{\mz}{}^{ \top} \overline{\bfd} \right)+4x_0^- 
+    \bfd^\top\wedge\overline{\bfd} \right]
+\end{equation}
+while the corresponding open string metric \eqref{SWopenmetgen} is given by
+\begin{equation}
+  \label{GopenLambda}
+  G_{\rm o}^\Lambda=2  d x^+  d x^-+ \frac{\theta^2+\left(x_0^-
+    \right)^2}{\theta^2}  | d\mz|^2+2 i x_0^- \left(\mz^\top  d
+    \overline{\mz}-\overline{\mz}{}^{ \top}  d\mz\right)  d x^+
+\end{equation}
+Since \eqref{ThetaLambda} is degenerate on the whole $\NW_6$ spacetime, it does
+not define a symplectic structure. Generally, if the components of a bi-vector
+$\Theta:=\Theta^{ij} \partial_i\wedge\partial_j$ obey
+\begin{equation}
+  \label{ThetaPoissoncondn}
+  \Theta^{il} \partial_l\Theta^{jk}+\Theta^{jl} \partial_l\Theta^{ki}+
+  \Theta^{kl} \partial_l\Theta^{ij}=0
+\end{equation}
+for all $i,j,k$, then $\Theta$ defines a Poisson structure, i.e. it is a Poisson
+bi-vector and \eqref{ThetaPoissoncondn} is equivalent to the Jacobi identity for
+the corresponding Poisson brackets. If in addition $\Theta$ is invertible, then
+\eqref{ThetaPoissoncondn} is equivalent to the required closure condition $
+d(\Theta^{-1})=0$ for a symplectic two-form. It is easily checked that
+\eqref{ThetaLambda} satisfies \eqref{ThetaPoissoncondn} and hence that it
+defines a Poisson bi-vector. In the flat space limit $x_0^-\to0$ of
+\eqref{GopenLambda}, the corresponding quantisation of $\NW_6$ is given by the
+associative Kontsevich $\star$-product \cite{Kont1} in this case.
+
+The important feature of the noncommutativity parameter \eqref{ThetaLambda} is
+that it is time independent, though non-constant. If we think of the light-cone
+position $x^-$ as being dual to the Nappi-Witten generator $\J$, then the form
+of \eqref{ThetaLambda} agrees with its representation in \eqref{nullfnsgens} and
+\eqref{DeltainvD3gens}. On the other hand, the calculation of \cite{DN1}
+provides evidence for a time-dependent Poisson bi-vector in the original closed
+string background \eqref{NW6Bfield}. To make this precise, however, one would
+require a detailed understanding of the worldvolume stabilising flux on the
+$\NW_6$ brane, which is difficult to determine for non-symmetric D-branes. The
+noncommutativity parameter and open string metric in the decoupling limit of
+D5-branes in Nappi-Witten spacetime $\NW_6$ are thereby presently given by
+\eqref{ThetaLambda} and \eqref{GopenLambda}. In particular, at the special value
+$x_0^-=\theta$ and with the rescaling $\mz\to\sqrt{2/\theta \tau} \mz$, the metric
+\eqref{GopenLambda} becomes that of $\CW_6$ in global coordinates analogous to
+\eqref{NW4metricNW}, while the non-vanishing Poisson brackets corresponding to
+\eqref{ThetaLambda} read
+\begin{eqnarray}
+  \label{Poissonspecial}
+  \left\{z_a, \overline{z}_b\right\}&=&2 i\theta \tau \delta_{ab}\\\nn
+  \left\{x^-, z_a\right\}&=&- i\theta z_a\\\nn
+  \left\{x^-, \overline{z}_a\right\}&=& i\theta \overline{z}_a
+\end{eqnarray}
+for $a,b=1,2$. The Poisson algebra thereby coincides with the Nappi-Witten Lie
+algebra $\mathfrak{n}_6$ in this case and the metric on the branes with the
+standard curved geometry of the pp-wave. In the semi-classical flat space limit
+$\theta\to0$, the quantisation of the brackets \eqref{Poissonspecial} thereby
+yields a noncommutative worldvolume geometry on D5-branes wrapping $\NW_6$ which
+can be associated with a quantisation of $\mathfrak{n}_6$ (or more precisely of
+its dual $\mathfrak{n}_6^*$).
+
+With a slight abuse of notation, we will denote the central coordinate $\tau$ as
+the plane wave time coordinate $x^+$. Our semi-classical quantisation will then
+be valid in the small time limit $x^+\to0$.
+
+%%% Local Variables: 
+%%% TeX-command-default: "LaTeX"
+%%% TeX-master: "main.tex"
+%%% End:

@@ -1,0 +1,26 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 9 "#U=X0+X5;" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 9 "#V=X0-X5;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 20 "with(LinearAlgebra):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+145 "B:=Matrix(6,[\n[a,a,a,a,a,a],\n[a,a,-3*U/2+V/2,a,a,X2],\n[a,3*U/2
+-V/2,a,a,a,-X1],\n[a,a,a,a,X3-2*U,-X4],\n[a,a,a,-X3+2*U,a,X3],\n[a,-X2
+,X1,X4,-X3,a]]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"BG-%'RTABLEG6%
+\"(C!f>-%'MATRIXG6#7(7(%\"aGF.F.F.F.F.7(F.F.,&*(\"\"$\"\"\"\"\"#!\"\"%
+\"UGF3F5*&F4F5%\"VGF3F3F.F.%#X2G7(F.,&*(F2F3F4F5F6F3F3*&F4F5F8F3F5F.F.
+F.,$%#X1GF57(F.F.F.F.,&%#X3GF3*&F4F3F6F3F5,$%#X4GF57(F.F.F.,&FBF5*&F4F
+3F6F3F3F.FB7(F.,$F9F5F?FE,$FBF5F.%'MatrixG" }}}{EXCHG }{EXCHG }{EXCHG 
+}{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 16 "#Determinant(B):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 27 "Binverse:=MatrixInverse(B):" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 19 "bottom:=B+Binverse:" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 27 "top:=MatrixInverse(bottom):" }}}{EXCHG }{EXCHG }
+{EXCHG }{EXCHG }{EXCHG }{EXCHG }}{MARK "16 0 0" 27 }{VIEWOPTS 1 1 0 1 
+1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

@@ -1,0 +1,275 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold}
+\usepackage[latin1]{inputenc}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\DeclareMathOperator{\NW}{NW}
+\let\S\Sphere
+
+\begin{document}
+\section{The Noncommutativity Parameter of $\NW_4$ as a Penrose-Güven Limit
+of $\AdS_3 \times \S^3$... NOT!}
+\label{sec:pg}
+Calculating the non-commutativity parameter, $\Theta$, for a general space-time
+has been documented \cite{stncg,ho} for the case when the background NS-NS field
+$H$ is zero (this is true of all flat metrics). For space-times with non-zero
+$H$, the calculation is not so straightforward; attempts to generalise the
+technique to curved backgrounds have been summarised in \cite{lbcb}, but fail
+for non-compact manifolds. These complications manifest themselves when
+calculating $\Theta$ for the open string version of the $\NW_4$ WZW model
+developed in \cite{nw}. A calculation has been attempted in \cite{dn}, but is
+however approximate.
+
+As the $\NW_4$ space-time can be viewed as a Cahan-Wallach space \cite{cw}, it
+will therefore arise as a Penrose limit \cite{pl} of some other metrics. The
+most notable example is that of $\AdS_2 \times \S^2$ studied in \cite{plms,
+  plsbd}. A six-dimensional analogy of the $\NW_4$ space-time also arises as a
+Penrose limit of $\AdS_3 \times \S^3$ \cite{pllbnwb}. The Penrose limit was
+extended by Güven \cite{pgltd} in order to apply to supergravity fields (we
+will refer to this limit as the PGL for brevity). It is hoped that the limit
+also extends to $\Theta$, as we observe the remarkable fact that $H$ is zero on
+$\AdS_2 \times \S^2$.
+
+\subsection{$\AdS_3 \times \S^3$}
+\label{sec:pg:ads3xs3}
+Combining the studies of $\AdS_3$ and $\S^3$ in \cite{ads3,s3} respectively, we
+may write the metric and supergravity fields of $\AdS_3 \times \S^3$ as a direct
+sum:
+\begin{eqnarray}
+  \label{eq:pg:ads3xs3:G}
+  G &=& \alpha' k \left(
+    d\phi^2 - d\tau^2 + \sin^2{\tau}\left[ \frac{dr^2}{1+r^2} + (1+r^2)d\beta^2
+    \right] \right.\\ \nonumber
+  &&\left. + \sin^2{\phi} \left[ \frac{d\chi^2}{1-\chi^2} +
+    (1-\chi^2)d\theta^2\right]\right)\\
+  \label{eq:pg:ads3xs3:H}
+  H &=& -2\alpha' k \left( \cos^2{\tau}d\tau\wedge dr\wedge d\beta +
+  \sin^2{\phi}d\phi\wedge d\chi\wedge d\theta\right)\\
+  \label{eq:pg:ads3xs3:B}
+  B &=& -\frac{\alpha' k}{2}\left( \left(\sin{2\tau}+2 \tau\right)dr\wedge d\beta
+  + \left( \sin{2\phi}- 2\phi\right)d\chi\wedge d\theta\right)\\
+  \label{eq:pg:ads3xs3:F}
+  F &=& \alpha' n\left( dr\wedge d\beta + d\chi\wedge d\theta\right)
+\end{eqnarray}
+where $k$ is an integer related to the radius of the space by $R^2=k\alpha'$.
+$n$ is the `magnetic monopole' number ($0<n<k$). It is the flux $F$ which is
+quantised, not the invariant quantity ${\cal F}=B+F$.
+
+From $\AdS_3 \times \S^3$, we may arrive at $\NW_4$ from two paths:
+\begin{equation}
+  \label{eq:pg:ads3xs3:diagram}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3 @>\text{PGL}>> \NW_6\\
+    @AAA          @AAA\\
+    \AdS_2 \times \S^2 @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+the first being via $\NW_6$, and the other being through $\AdS_2\times
+\S^2$. Each path requires a Penrose limit and finding an embedding.
+
+\subsubsection{$\AdS_3 \times \S^3 \rightarrow \NW_6 \rightarrow \NW_4$}
+Performing the Penrose limit from $\AdS_3\times \S^3$ to $\NW_6$ is achieved by
+redefining our coordinates
+\begin{eqnarray}
+  \label{eq:pg:ads3xs3:pl}
+  \tau = \frac{U-V}{2} &\qquad& \phi=\frac{U+V}{2} \\ \nonumber
+  r=Y^1 \quad \beta=Y^2 &\quad& \chi=Y^3 \quad \theta=Y^4
+\end{eqnarray}
+and scaling $U=u$, $V=\Omega^2v$, $Y^i=\Omega y^i$ sending $\Omega\rightarrow 0$
+and $k\rightarrow \infty$ such that $\Omega^2 k = 1$.
+In practise the PGL is achieved by finding a suitable gauge such that
+$B_{ui}=0$, i.e. that there are no ``time'' components in the supergravity potentials.
+This condition is already satisfied as there are no $d\tau$ or $d\phi$
+components in $B$. We arrive at
+\begin{eqnarray}
+  \label{eq:pg:nw6:G}
+  \widetilde{G} &=& \alpha' \left( dudv + \sin^2{\left(\frac{u}{2}\right)}{d\vec{y}}^2\right)\\
+  \label{eq:pg:nw6:H}
+  \widetilde{H} &=& - \alpha' \left(\sin^2{\left(\frac{u}{2}\right)} du\wedge dy^3\wedge dy^4
+    + \cos^2{\left(\frac{u}{2}\right)} du\wedge dy^1\wedge dy^2\right)\\
+  \label{eq:pg:nw6:B}
+  \widetilde{B} &=& - \frac{\alpha'}{2}\left(\left(u-\sin{u}\right)dy^1\wedge dy^2 -
+  \left(u-\sin{u}\right) dy^3\wedge dy^4\right)\\
+  \label{eq:pg:nw6:F}
+  \widetilde{F} &=& \alpha' n \left( dy^1\wedge dy^2 + dy^3\wedge dy^4\right)
+\end{eqnarray}
+in Rosen coordinates. By changing to Brinkman coordinates given by
+\begin{equation}
+  \label{eq:pg:nw6:brinkman}
+  u=2x^- \qquad v=x^+ + \frac{\cot{x^-}}{2}\vec{z}^2 \qquad
+  y^i=\frac{z^i}{\sin{x^-}}
+\end{equation}
+and dropping the dependence on the $z^{1,2}$ coordinates, we recover $\NW_4$.
+\begin{eqnarray}
+  \label{eq:pg:nw6:nw4:G}
+  \widetilde{G} &=& \alpha' \left(2dx^-dx^+ + \frac{\vec{z}^2}{4}{dx^-}^2 + {d\vec{z}}^2\right)\\
+  \label{eq:pg:nw6:nw4:H}
+  \widetilde{H} &=& -2\alpha' dx^-\wedge dz^1\wedge dz^2\\
+  \label{eq:pg:nw6:nw4:B}
+  \widetilde{B} &=& -2\alpha' x^-dz^1\wedge dz^2\\
+  \label{eq:pg:nw6:nw4:F}
+  \widetilde{F} &=& \frac{\alpha'  n}{\sin^3{x^-}}\left(z^2\cos{x^-} dx^-\wedge dz^1
+    \right.\\ \nonumber
+  &&\left. + z^1\cos{x^-} dx^-\wedge dz^2 + \sin{x^-}dz^1\wedge dz^2\right)
+\end{eqnarray}
+
+\subsubsection{$\AdS_3 \times \S^3 \rightarrow \AdS_2 \times \S^2 \rightarrow
+  \NW_4$}
+We create the $\AdS_2 \times \S^2$ sub-manifold by fixing the length of
+the $\tau$ and $\phi$ coordinates. We then perform the Penrose limit given by
+the redefinition
+\begin{eqnarray}
+  \label{eq:pg:ads2xs2:pl}
+  r = \frac{U-V}{2} &\qquad& \chi=\frac{U+V}{2} \\ \nonumber
+  \beta=Y^1 &\qquad& \theta=Y^2
+\end{eqnarray}
+and using the same scaling as in the $\AdS_3 \times \S^3$ case. Due to the fixing
+of $\tau$ and $\phi$, the $H$ field trivially goes to zero. Which we may use to
+our advantage in calculating Poisson brackets between the coordinates, using the
+technique outlined in \cite{ho}.
+\begin{equation}
+  \label{eq:pg:ads2xs2:poisson}
+  check these
+\end{equation}
+After another suitable change to Brinkman coordinates, similar to
+(\ref{eq:pg:nw6:brinkman}), we arrive at the $\NW_4$ metric, but unfortunately
+neither $H$ nor $B$
+\begin{eqnarray}
+  \label{eq:pg:ads2xs2:nw4:G}
+  \widetilde{G} &=& \alpha'' k \left(2dx^-dx^+ + \frac{\vec{z}^2}{4}{dx^-}^2 + {d\vec{z}}^2\right)\\
+  \label{eq:pg:ads2xs2:nw4:H}
+  \widetilde{H} &=& d\widetilde{B} = 0\\
+  \label{eq:pg:ads2xs2:nw4:F}
+  \widetilde{F} &=& \frac{2\alpha' n}{\sin{x^-}}\left( dx^-\wedge dz^1 + dx^-\wedge
+  dz^2\right)
+\end{eqnarray}
+It should also be noted that we obtain a different flux, $\widetilde{F}$, in
+(\ref{eq:pg:ads2xs2:nw4:F}) than we do in (\ref{eq:pg:nw6:nw4:F}).
+
+We may be able to understand why the forms (\ref{eq:pg:ads2xs2:nw4:H},
+\ref{eq:pg:nw6:nw4:H}) do not agree, by following the coordinates from
+$\AdS_3\times\S^3$ through to $\NW_4$. For the path $\AdS_3\times\S^3
+\rightarrow \NW_6 \rightarrow \NW_4$, we may summarise the coordinate change
+which induces the PGL by
+\begin{eqnarray}
+  \label{eq:pg:broken:nw6}
+  \tau = \frac{u-\Omega^2v}{2} &\qquad& \phi=\frac{u+\Omega^2 v}{2}\\ \nonumber
+  r=\Omega y^1 \quad \beta=\Omega y^2 &\quad& \chi=\Omega y^3 \quad
+  \theta=\Omega y^4
+\end{eqnarray}
+setting $y^1$, $y^2$ constant. Similarly for $\AdS_3\times\S^3\rightarrow
+\AdS_2\times\S^2\rightarrow\NW_4$ we may use the same coordinate change, but
+instead setting $r$, $\chi$ ($y^1$, $y^3$) constant. It is obvious that
+these two paths to $\NW_4$ are not equivalent at this level of the coordinates,
+possibly having an adverse effect on the forms which is to be investigated further.
+
+\subsection{$\mathbb{R}^1\times\S^3\rightarrow\NW_4$}
+\label{eq:pg:rxs3}
+A similar path to $\NW_4$ via a Penrose limit has been studied in
+\cite{kiritsis}, starting from an initial space-time of $\mathbb{R}^1 \times
+\S^3$ ($\mathbb{R}^1$ generating the time coordinate). We may view this
+space as a subspace of $\AdS_3\times\S^3$ and construct a new diagram, which we
+suspect to be commutative with respect to the forms.
+\begin{equation}
+  \label{eq:pg:rxs3:diagram}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3 @>\text{PGL}>> \NW_6\\
+    @AAA          @AAA\\
+    \mathbb{R}^1\times\S^3 @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+We choose a different parametrisation than in the previous section
+(\ref{eq:pg:ads3xs3:G},\ref{eq:pg:ads3xs3:H},\ref{eq:pg:ads3xs3:B}) and write
+the metric and associated forms as
+\begin{eqnarray}
+  \label{eq:pg:rxs3:ads3xs3:G}
+  G &=& \frac{\alpha' k}{4}\left(
+    {d\phi_1}^2 + {d\phi_2}^2 - {d\phi_3}^2 + {d\phi_4}^2 +
+    {d\phi_5}^2 + {d\phi_6}^2 \right.\\ \nonumber
+    &&\left.+ 2\sinh{\phi_1}d\phi_2 d\phi_3
+    +  2\cos{\phi_4}d\phi_5 d\phi_6 \right)\\
+  \label{eq:pg:rxs3:ads3xs3:H}
+  H &=& -\frac{\alpha' k}{4}\left(
+    \cosh{\phi_1}d\phi_1 \wedge d\phi_2 \wedge d\phi_3
+    + \sin{\phi_4}d\phi_4 \wedge d\phi_5 \wedge d\phi_6
+    \right)\\
+  \label{eq:pg:rxs3:ads3xs3:B}
+  B &=& -\frac{\alpha' k}{4}\left(
+    \sinh{\phi_1}d\phi_2 \wedge d\phi_3
+    -\cos{\phi_4} d\phi_5 \wedge d\phi_6
+  \right)
+\end{eqnarray}
+the $\phi_{1,2,3}$ coming from $\AdS_3$ and the $\phi_{4,5,6}$ coming from
+$\S^3$. We obtain $\mathbb{R}^1\times\S^3$ simply by setting $\phi_{1,2}$
+constant.
+
+This time, we may summarise both Penrose limits in the same way. We apply a
+change of coordinates
+\begin{eqnarray}
+  \label{eq:pg:rxs3:coord}
+  \phi_3 = 2t            &\qquad& \phi_4 = 2r \\ \nonumber
+  \phi_5 = \alpha + \varphi &\qquad& \phi_6 = \alpha - \varphi
+\end{eqnarray}
+and then scale
+\begin{eqnarray}
+  \label{eq:pg:rxs3:pl}
+  \alpha = \Omega^2 v - \frac{u}{2} &\qquad& t = \Omega^2 v + \frac{u}{2} \\ \nonumber
+  r = \Omega \rho &\qquad& \phi_i = \Omega \theta_i
+\end{eqnarray}
+where $i=1,2$. We send $\Omega\rightarrow 0$ and $k\rightarrow \infty$ such that
+$\Omega^2 k = 1$. From here on, we set $\alpha'=1$. The two PGLs of
+(\ref{eq:pg:rxs3:diagram}) are equivalent at the level of the coordinates as we
+initially set $\phi_{1,2}$ constant for the path through
+$\mathbb{R}^1\times\S^3$ whereas we set $\theta_{1,2}$ constant for the path
+through $\NW_6$, which is essentially the same restriction. We obtain the metric
+and associated forms on $NW_4$ as
+\begin{eqnarray}
+  \label{eq:pg:rxs3:nw4:G}
+  G &=& -dudv - \frac{\rho^2}{4}du^2 +d\rho^2 + \rho^2 d\varphi^2 \\
+  \label{eq:pg:rxs3:nw4:H}
+  H &=& -\rho d\rho \wedge du \wedge d\varphi \\
+  \label{eq:pg:rxs3:nw4:B}
+  B &=& - \frac{\rho^2}{2}du \wedge d\varphi
+\end{eqnarray}
+
+\begin{thebibliography}{100}
+\bibitem{stncg} N. Seiberg, E. Witten, ``String Theory and Noncommutative
+  Geometry'', \textit{JHEP} \textbf{9909} (1999) 032, \textit{hep-th/9908142}
+\bibitem{ho} Pei-Ming Ho, Yu-Ting Yeh, ``Noncommutative D-Brane in
+  Non-Constant NS-NS B Field Background'', \textit{Phys. Rev.}
+  \textbf{L85} (2000) 5523, \textit{hep-th/0005159}
+\bibitem{lbcb} V. Schomerus, ``Lectures on Branes in Curved Backgrounds'',
+  \textit{Class. Quant. Grav.}, \textbf{19} (2002) 5781, \textit{hep-th/0209241}
+\bibitem{nw} C. R. Nappi, E. Witten, ``A WZW model based on a non-semi-simple
+  group'', \textit{Phys. Rev.} \textbf{L71} (1993) 3751, \textit{hep-th/9310112}
+\bibitem{dn} L. Dolan, C. R. Nappi, ``Noncommutativity in a Time-Dependent
+  Background'', \textit{Phys. Lett.} \textbf{B551} (2003) 369-377,
+  \textit{hep-th/0210030}
+\bibitem{cw} M. Cahen, N. Wallach, ``Lorentzian Symmetric Spaces'',
+  \textit{Bull. Am. Math. Soc.} \textbf{76} (1970) 585-591
+\bibitem{pl} R. Penrose, ``Any Space-Time has a Plane Wave as a Limit'',
+  \textit{Differential Geometry and Relativity}, Reidel, Dordrecht (1976)
+  271-275
+\bibitem{plms} M. Blau, J. Figueroa-O'Farrill, C. Hull, G.  Papadopoulos,
+  ``Penrose limits and maximal supersymmetry'', \textit{Class. Quant. Grav.}
+  \textbf{19} (2002) 19, \textit{hep-th/0201081}
+\bibitem{plsbd} M. Blau, J. Figueroa-O'Farrill, G. Papadopoulos, \textit{Class.
+    Quant. Grav} \textbf{19} (2002) 4753, \textit{hep-th/0202111}
+\bibitem{pllbnwb} S. Stanciu, J. Figueroa-O'Farrill, ``Penrose limits of Lie
+  Branes and a Nappi-Witten braneworld'', \textit{JHEP} \textbf{0306} (2003)
+  025, \textit{hep-th/0303212}
+\bibitem{pgltd} R. Güven, ``Plane Wave Limits and T-Duality'', \textit{Phys.
+    Lett.} \textbf{B482} (2000) 255-263, \textit{hep-th/0005061}
+\bibitem{ads3} C. Bachas, M. Petropoulos, ``Anti-de-Sitter D-branes'',
+  \textit{JHEP} \textbf{0102} (2001) 025, \textit{hep-th/0012234}
+\bibitem{s3} C. Bachas, M. Douglas, C. Schweigert, ``Flux
+  Stabilization of D-branes'', \textit{JHEP} \textbf{0005} (2000) 048,
+  \textit{hep-th/0003037}
+\bibitem{kiritsis} G. D'Appollonio, E. Kiritsis, ``String interactions in
+  gravitational wave backgrounds'', \textit{hep-th/0305081}
+\end{thebibliography}
+\end{document}

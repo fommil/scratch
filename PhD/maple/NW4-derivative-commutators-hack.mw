@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Worksheet><Version major="6" minor="1"/><View-Properties><Zoom percentage="100"/></View-Properties><Styles><Layout alignment="left" bullet="none" name="Warning"/><Layout alignment="left" bullet="none" firstindent="0.0" leftmargin="0.0" linebreak="space" linespacing="0.0" name="Normal" rightmargin="0.0" spaceabove="0.0" spacebelow="0.0"/><Layout alignment="centred" bullet="none" linespacing="0.5" name="Maple Output"/><Font background="[0,0,0]" bold="true" executable="true" family="Monospaced" foreground="[255,0,0]" name="Maple Input" opaque="false" size="12"/><Font background="[0,0,0]" family="Monospaced" foreground="[0,0,255]" name="Warning" opaque="false" readonly="true" size="12"/><Font background="[0,0,0]" family="Times New Roman" foreground="[0,0,255]" name="2D Output" opaque="false" readonly="true" size="12"/></Styles><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">restart;</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">#with(tensor):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">blanktensor3 := proc(min, max, tensor)
+  local i, j, k;
+  description "zero all components of a 3D tensor/array":
+  for i from min to max do
+    for j from min to max do
+      for k from min to max do
+         if (tensor[i,j,k] &lt;&gt; 0) then
+           tensor[i,j,k]:=0;
+         end if;
+       end do;
+     end do;
+  end do;
+end proc: </Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">printtensor3 := proc(min, max, tensor)
+  local i, j, k;
+  description "print non-zero components of a 3D tensor/array":
+  for i from min to max do
+    for j from min to max do
+      for k from min to max do
+         if (tensor[i,j,k] &lt;&gt; 0) then
+           print([i,j,k]= tensor[i,j,k]);
+         end if;
+       end do;
+     end do;
+  end do;
+end proc: </Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C:=array(skew23,1..4,1..4,1..4);</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+SSJDRzYiLUkmYXJyYXlHSSpwcm90ZWN0ZWRHRig2J0knc2tldzIzR0YlOyIiIiIiJUYrRis3Ig==</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">blanktensor3(1,4,C);</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C[1,1,3]:=-1;</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkiQ0c2IjYlIiIiRigiIiQhIiI=</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C[2,2,3]:=1;</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkiQ0c2IjYlIiIjRigiIiQiIiI=</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C[4,1,2]:=2;</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkiQ0c2IjYlIiIlIiIiIiIjRio=</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">#printtensor3(1,4,C);</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">rho:=array(1..4,1..4,1..4);</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+SSRyaG9HNiItSSZhcnJheUdJKnByb3RlY3RlZEdGKDYmOyIiIiIiJUYqRio3Ig==</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">alleqns:=0: for lambda from 1 to 4 do
+for mu from 1 to 4 do
+for nu from 1 to 4 do
+  alleqns:=alleqns,rho[lambda,mu,nu]-rho[lambda,nu,mu]=C[lambda,mu,nu];
+end do;end do;end do;
+for lambda from 1 to 4 do
+for mu from 1 to 4 do
+for sigma from 1 to 4 do
+for k from 1 to 4 do
+  alleqns:= alleqns, rho[lambda,mu,1]*rho[1,k,sigma]
+          +rho[lambda,mu,2]*rho[2,k,sigma]
+          +rho[lambda,mu,3]*rho[3,k,sigma]
+          +rho[lambda,mu,4]*rho[4,k,sigma]
+          -rho[lambda,k,1]*rho[1,mu,sigma]
+          -rho[lambda,k,2]*rho[2,mu,sigma]
+          -rho[lambda,k,3]*rho[3,mu,sigma]
+          -rho[lambda,k,4]*rho[4,mu,sigma]
+         = C[1,mu,k]*rho[lambda,1,sigma]
+          +C[2,mu,k]*rho[lambda,2,sigma]
+          +C[3,mu,k]*rho[lambda,3,sigma]
+          +C[4,mu,k]*rho[lambda,4,sigma];
+end do;end do;end do;end do;</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">#alleqns;</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">solns:=solvefor(alleqns);</Text-field></Input><Output><Text-field layout="Warning" style="Warning">Warning,  computation interrupted</Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input"/></Input></Group><Text-field/></Worksheet>

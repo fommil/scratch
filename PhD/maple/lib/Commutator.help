@@ -1,0 +1,49 @@
+Commutator package
+******************
+ 
+     HELP FOR : commutat - commutator package
+ 
+          c, expand/c, convert/c, simplify/c, &*, expand/&*, convert/&*
+ 
+          Definition : the commutator  c(x,y)  =  x y - y x
+       where multiplication here is non-commutative.  This package provides
+       for the manipulation and simplification of commutators, expanding
+       commutators in terms of &* (Maple's non-commutative multiplication
+       operator), and converting an expression in terms of &* to commutator
+       form.  The following identities are applied automatically:
+ 
+          c(y,x) = - c(x,y)
+          c(x,x) = 0  for all x
+          c(k,x) = 0  for any constant k
+          c(x+y,z) = c(x,y) + c(y,z)
+          c(k*x,y) = k*c(x,y)  for any constant k .
+ 
+          A canonical form for commutators is obtained by applying the
+       following two rules given the ordering:  order by number of nested
+       commutators, and break ties by address of object.
+ 
+          c(y,x) ==> -c(x,y) iff x < y
+          c(x,c(y,z)) ==> c(y,c(x,z)) - c(z,c(x,y)) iff x < y .
+ 
+       In particular, this form recognizes the Jacobi identity:
+ 
+          c(x,c(y,z)) + c(y,c(z,x)) + c(z,c(x,y)) = 0 .
+ 
+       Commutators can be expressed in terms of &* as in
+ 
+          convert( c(x,(y,z)), `&*` );
+ 
+                  - &*(y, z, x) - &*(x, z, y) + &*(z, y, x) + &*(x, y, z)
+ 
+       Or converted back in terms of c
+ 
+          convert(",c);
+ 
+                    c(y, c(x, z)) - c(z, c(x, y))
+ 
+       N.B. If the expression being converted to a commutator cannot be
+       expressed as a commutator, the result returned will be pure nonsense.
+       The utility routine commutat can be used to display commutators
+       as a list of lists syntax.
+ 
+       This package must first be loaded via readlib(commutat):

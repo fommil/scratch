@@ -1,0 +1,27 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 123 "B:=Matrix(6,[\n[0,-X2,X1,0,0,0],\n
+[X2,0,X0,0,0,0],\n[-X1,-X0,0,0,0,0],\n[0,0,0,0,X3,-X4],\n[0,0,0,-X3,0,
+X5],\n[0,0,0,X4,-X5,0]]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"BG-%'
+RTABLEG6%\"(%o8\\-%'MATRIXG6#7(7(\"\"!,$%#X2G!\"\"%#X1GF.F.F.7(F0F.%#X
+0GF.F.F.7(,$F2F1,$F4F1F.F.F.F.7(F.F.F.F.%#X3G,$%#X4GF17(F.F.F.,$F9F1F.
+%#X5G7(F.F.F.F;,$F>F1F.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 15 "Determinant(B);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"
+\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "#Binverse:=MatrixInv
+erse(B):" }}}{EXCHG }{EXCHG }{EXCHG }}{MARK "4 0 0" 0 }{VIEWOPTS 1 1 
+0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 4913684
+ }{RTABLE 
+M7R0
+I4RTABLE_SAVE/4913684X,%)anythingG6"6"[gl!"%!!!#E"'"'""!%#X2G,$%#X1G!""F'F'F',$
+F(F+F',$%#X0GF+F'F'F'F*F.F'F'F'F'F'F'F'F',$%#X3GF+%#X4GF'F'F'F0F',$%#X5GF+F'F'F
+',$F1F+F3F'F&
+}
+

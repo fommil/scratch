@@ -1,0 +1,79 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" 0 3 1 
+{CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 4 0 0 
+0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "
+" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }1 0 0 
+-1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 17 "with(Commutator):" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 52 "constants:=constants,B1,B2,B3,B4,B5,B6,B7
+,B8,B9,B10;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%*constantsG63%&falseG
+%&gammaG%)infinityG%%trueG%(CatalanG%%FAILG%#PiG%#B1G%#B2G%#B3G%#B4G%#
+B5G%#B6G%#B7G%#B8G%#B9G%$B10G" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 36 "B:=[B1,B2,B3,B4,B5,B6,B7,B8,B9,B10];" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%\"BG7,%#B1G%#B2G%#B3G%#B4G%#B5G%#B6G%#B7G%#B8G%#B9G%$
+B10G" }}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 20 "Function for the K's" }}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 248 "K:=proc(N)\n  option rememb
+er:\n  local z:\n# Return the Nth value of K. All odd values will be 0
+.\n#  return (convert(taylor(z/(1-exp(-z))-z/2-1,z=0,N+2),polynom)\n# \+
+        -convert(taylor(z/(1-exp(-z))-z/2-1,z=0,N),polynom))/z^N:\n   \+
+return B[N];\nend:" }{TEXT -1 0 "" }}}}{SECT 0 {PARA 3 "" 0 "" {TEXT 
+-1 20 "Function for the k's" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+501 "getks:=proc(Q,M)\n  option remember:\n# return Q positive non-zer
+o integers adding to give M\n  local k, fd:\n  if (Q > M) then\n    pr
+intf(\"Error in getks(%d,%d): Q > M\", Q, M): return STOP:\n  else\n  \+
+  fd := fopen(\"/tmp/samuel.addfactM\", WRITE):\n    fprintf(fd,\"%d\\
+n\",M):\n    fclose(fd):\n    fd := fopen(\"/tmp/samuel.addfactQ\", WR
+ITE):\n    fprintf(fd,\"%d\\n\",Q):\n    fclose(fd):\n    system(\"/ho
+me/samuel/c/addfact-wrapper.sh > /tmp/samuel.maple\"):\n    read \"/tm
+p/samuel.maple\":\n    return h:\n  end if:\nend:" }}}}{SECT 0 {PARA 
+3 "" 0 "" {TEXT -1 49 "Function for the Baker-Campbell-Hausdorff Formu
+la" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 880 "BCH:=proc(N)\n  optio
+n remember:\n  local i, j, k, P, L, m, n, maxP:\n#  printf(\"DEBUG: N \+
+= %d\\n\",N):\n  if (N < 1) then\n    printf(\"Error in BCH(%d): N < 1
+\", N):\n    return STOP:\n  elif (N = 1) then\n    return (X+Y):\n  e
+lse\n    L:=0:\n    maxP:=trunc((N-1)/2):\n      for P from 1 to maxP \+
+do\n#        printf(\"DEBUG: N = %d, P from 1 to %d\\n\",N,maxP):\n   \+
+     k:=getks((2*P),N-1):\n        n:=0:\n        for i from 1 to bino
+mial(N-2,2*P-1) do\n#          printf(\"DEBUG: N = %d, i from 1 to %d
+\\n\",N,binomial(N-2,2*P-1)):\n          m:=X+Y:\n          for j from
+ 2*P by -1 to 1 do\n#            printf(\"DEBUG: N = %d, 2P = %d, i = \+
+%d, j = %d, k[i, j] = %d\\n\",N,2*P,i,j,k[i,j]):\n            m:=c(BCH
+(k[i,j]),m):\n#            printf(\"DEBUG: %a\\n\",m):\n          end \+
+do:\n        n:=n+m:\n        end do:\n        L:=L+K(2*P)*n:\n      e
+nd do:\n    return (c(X-Y,BCH(N-1))/2 + L)/N:\n  end if:\nend proc:" }
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "maxorder:=6:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 54 "for i from 1 to maxorder do\n   C[i
+] := BCH(i);\nend do:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 58 "bc
+h:=0:for i from 1 to maxorder do\n  bch:=bch+C[i]\nend do:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 102 "expand(subs(\{B1=b[1],B2=b[2],B3=b
+[3],B4=b[4],B5=b[5],B6=b[6],B7=b[7],B8=b[8],B9=b[9],B10=b[10]\},bch));
+" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#,^r*&#\"\"\"\"\"#F&-%'VECTORG6#7$%
+\"YG%\"XGF&!\"\"*&#F&\"#7F&-F)6#7$F,F(F&F&*&#F&\"#'*F&-F)6#7$F,F2F&F.*
+&#F&\"$g*F&-F)6#7$F,F8F&F&*&#F&\"&?:\"F&-F)6#7$F,F>F&F.*&#F&\"$?$F&-F)
+6#7$F-F8F&F.*&#F&\"%?>F&-F)6#7$F-FJF&F.*&#F&\"#[F&-F)6#7$F-F2F&F&*&#F&
+\"%!G\"F&-F)6#7$F(FVF&F.*&#F&\"%!)GF&-F)6#7$F-F>F&F&*&#F&\"%/BF&-F)6#7
+$F(F8F&F&*&#F&FIF&-F)6#7$F-FVF&F&*&FjnF&-F)6#7$F-FgoF&F&*&#F&F1F&-F)6#
+7$F-F(F&F.*&#F&F7F&-F)6#7$F-F`pF&F.*&#F&\"%SQF&-F)6#7$F(FepF&F&*&FjnF&
+-F)6#7$F2F`pF&F&*&#F&F=F&-F)6#7$F-FepF&F.*&#F&FCF&-F)6#7$F-FdqF&F.*&F<
+F&-F)6#7$F(F`pF&F&*&#F&\"$![F&-F)6#7$F(F2F&F.*&#\"\"(\"$S#F&*&&%\"bG6#
+F'F&FgoF&F&F&*&#FhrFirF&*&F[sF&FJF&F&F.*&#\"#6FirF&*&F[sF&F]rF&F&F.*&#
+\"\"$\"#SF&*&F[sF&FcrF&F&F.*&#FhrFirF&*&F[sF&F>F&F&F.*&#F&\"\")F&*&F[s
+F&FepF&F&F&*&#F&\"\"%F&*&F[sF&FVF&F&F&*&F^tF&*&F[sF&F8F&F&F&*&FgrF&*&F
+[sF&FdqF&F&F&*&#F&F7F&*&F[sF&FboF&F&F&*&#F&FirF&*&F[sF&FDF&F&F&*&#F&FU
+F&*&)F[sF'F&FiqF&F&F.*&#F&F1F&*&FbuF&F[pF&F&F.*&#F&\"#;F&*&FbuF&F[qF&F
+&F.*&#F&F_tF&*&FbuF&FPF&F&F.*&#FgsFhuF&*&FbuF&FfnF&F&F.*&F0F&*&FbuF&F_
+qF&F&F&*&#F&F1F&*&FbuF&F\\oF&F&F.*&#\"\"&FUF&*&FbuF&FboF&F&F.*&#F&FUF&
+*&FbuF&FDF&F&F.*&F0F&*&&F\\s6#FctF&FiqF&F&F&*&#F&FgsF&*&F^wF&F[pF&F&F&
+*&FbtF&*&F^wF&F[qF&F&F&*&#F&F'F&*&F^wF&FPF&F&F&*&#FgsFctF&*&F^wF&FfnF&
+F&F&*&#F&FgsF&*&F^wF&F_qF&F&F.*&FawF&*&F^wF&F\\oF&F&F&*&#FgvF1F&*&F^wF
+&FboF&F&F&*&F0F&*&F^wF&FDF&F&F&*&F]uF&*&F[sF&FiqF&F&F&*&#F&F7F&*&F[sF&
+F[qF&F&F.*&#F&\"$?\"F&*&F[sF&FPF&F&F.*&#F&\"#!)F&*&F[sF&FfnF&F&F.*&#F&
+\"#IF&*&F[sF&F_qF&F&F&F,F&F-F&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}}}{MARK "10 1 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }

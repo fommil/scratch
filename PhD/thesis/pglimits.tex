@@ -1,0 +1,706 @@
+\chapter{Penrose-G\"uven Limits and Isometric Embeddings}
+\label{pglimits}
+\section{The Penrose-G\"{u}ven Plane Wave Limit}
+In \cite{Penrose1}, Penrose showed that any Lorentzian spacetime has a limiting
+spacetime which is a plane wave. This limit can be thought of as a ``first order
+approximation'' along a null geodesic. The limiting spacetime depends on the
+choice of null geodesic, and hence any spacetime can have more than one Penrose
+limit.
+
+Let $(M,G)$ be a $d$-dimensional lorentzian spacetime. We can always introduce
+local Penrose coordinates $(U,V,\mbf Y)$, $\mbf Y^\top=(Y^i)\in\R^{d-2}$ in the
+neighbourhood of a segment of a null geodesic $\gamma\subset M$ which contains
+no conjugate points, whereby the metric assumes the form \cite{LP1}
+\begin{equation}
+  \label{GPenrose}
+  G = \left(2dU + \alpha dV + \beta_i dY^i \right)dV + C_{ij} dY^i dY^j
+\end{equation}
+where $\alpha$, $\beta_i$ and $C_{ij}$ are functions of the coordinates and
+$C_{ij}$ is a symmetric positive-definite matrix. This coordinate system breaks
+down when $\det C=0$, signalling the existence of a conjugate point. This
+coordinate system has the advantage that a null geodesic congruence is singled
+out by constant $V$ and $Y^i$, with $U$ being an affine parameter along
+these geodesics. The geodesic $\gamma(U)$ is the one at $V=Y^i=0$.
+ 
+In string backgrounds one also has to consider generic supergravity $p$-form
+gauge potentials $A$ with $(p+1)$-form field strengths $F=dA$ in order to
+compensate non-trivial spacetime curvature effects. The G\"uven extension of the
+Penrose limit to general supergravity fields shows that any supergravity
+background has plane wave limits which are also supergravity backgrounds
+\cite{Guven1}. It requires the local temporal gauge choice
+\begin{equation}
+  \label{PGgaugechoice}
+  A_{Ui_1\cdots i_{p-1}}=0
+\end{equation}
+in order to ensure well-defined potentials in the limit. With this
+gauge choice, which can always be achieved via a gauge transformation
+$A\mapsto A+d\Lambda$ leaving the flux $F$ invariant, we can write
+general potentials and field strengths in the neighbourhood of a null
+geodesic $\gamma$ on $M$ as
+\begin{eqnarray}
+  \label{Anull}
+  A &=& a_{i_1 \ldots i_p} dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+b_{i_1\ldots i_p} dY^{i_1}\wedge\ldots\wedge dY^{i_p}\\ \nonumber
+  &&+c_{i_1\ldots i_p} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-2}} \\
+  \label{Fnull}
+  F &=& \left( \frac{\partial b_{i_1 \ldots i_{p+1}}}{\partial U}
+  \right) dU\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}} \\ \nonumber
+  &&+ d_{i_1 \ldots i_{p+1}} dY^{i_1}\wedge\ldots\wedge dY^{i_{p+1}} \\ \nonumber
+  &&+ e_{i_1 \ldots i_{p+1}} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+ f_{i_1 \ldots i_{p+1}} dV\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}}  
+\end{eqnarray}
+where $a$, $b$, $c$, $d$, $e$ and $f$ are functions of the coordinates. The
+Penrose-G\"uven limit starts with the one-parameter family of local
+diffeomorphisms $\psi_\lambda:M\to M$, $\lambda\in\R$ defined by a rescaling
+of the Penrose coordinates as
+\begin{equation}
+  \label{psiOmegadef}
+  \psi_\lambda(U,V,\mbf Y)=(u,\lambda^2v,\lambda\mbf y)
+\end{equation}
+One then defines new fields which are related to the original ones by a
+diffeomorphism, a rescaling, and (in the case of potentials) possibly a gauge
+transformation, by the well-defined limits
+\begin{eqnarray}
+  \label{PGlimitsdef}
+  \widetilde{G}&=&\lim_{\lambda\to0}\lambda^{-2}\psi^*_\lambda G \\\nn
+  \widetilde{A}&=&\lim_{\lambda\to0}\lambda^{-p}\psi^*_\lambda A \\\nn
+  \widetilde{F}&=&\lim_{\lambda\to0}\lambda^{-p}\psi^*_\lambda F
+\end{eqnarray}
+
+Due to \eqref{psiOmegadef}, the only functions in \eqref{GPenrose},
+\eqref{Anull} and \eqref{Fnull} which survive this limit are
+$C_{ij}(u)=C_{ij}(U,0,\mbf0)$, $b_{i_1\cdots i_p}(u)=b_{i_1\cdots
+  i_p}(U,0,\mbf0)$ and $c_{i_1\cdots i_{p-2}}(u)=c_{i_1\cdots
+  i_{p-2}}(U,0,\mbf0)$, which are just the pull-backs of the tensor fields $C$,
+$b$ and $c$ to the null geodesic $\gamma$. Explicitly, we obtain a pp-wave
+metric and supergravity fields in Rosen coordinates $(u,v,\mbf y)$ \cite{Rosen1}
+as
+\begin{eqnarray}
+  \label{GPGlim}
+  \widetilde{G}&=& 2dudv + C_{ij}(u)dy^i dy^j \\
+  \label{APGlim}
+  \widetilde{A}&=& b_{i_1\ldots i_p}(u)dy^{i_1}
+  \wedge\ldots\wedge dy^{i_p} \\ \nonumber
+  &&+c_{i_1\ldots i_p}(u) du\wedge
+  dv\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_{p-2}}\\
+  \label{FPGlim}
+  \widetilde{F}&=&\frac{\partial b_{i_1\ldots i_{p+1}}(u)}{\partial u}
+  du\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_p}
+\end{eqnarray}
+The physical effect of this limit is to blow up a neighbourhood of the null
+geodesic $\gamma$, giving the local background as seen by an observer moving at
+the speed of light in $M$. It can be thought of as an infinite volume limit. We
+may set $c_{i_1\cdots i_{p-2}}(u)=0$ in \eqref{APGlim} via the local gauge
+transformation
+\begin{eqnarray}
+  \label{APGcset0}
+  \widetilde{A} &\longmapsto& \widetilde{A}+d\widetilde{\Lambda}\\\nn
+  \widetilde{\Lambda}&=&-\left(\mbox{$\int^u$}d u'~c_{i_1\cdots
+      i_{p-2}}(u')\right)~d v\wedge d y^{i_1}\wedge\cdots\wedge
+  d y^{i_{p-2}}
+\end{eqnarray}
+
+\section{Isometric Embedding Diagrams}
+It is possible to generate a commutative isometric embedding diagram, whereby
+isometric embeddings are denoted by vertical arrows and Penrose-G\"{u}ven limits
+(PGL) by horizontal arrows:
+\begin{equation}
+  \label{isomembdiag}
+  \begin{CD}
+    @.\\
+    M @>\text{PGL}>>                      \widetilde{M}\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    N @>\text{PGL}>>                      \widetilde{N}\\
+    @.
+  \end{CD}
+\end{equation}
+In order to ensure that the metric and fields commute in such a diagram (i.e.
+that $M\rightarrow \widetilde{M} \rightarrow \widetilde{N}$ yields the same
+result as $M\rightarrow N\rightarrow\widetilde{N}$), we must place some
+restrictions on the kind of embeddings $\imath$, $\widetilde{\imath}$ we can
+use.
+
+We are interested in smooth, local isometric embeddings $\imath:W\subset
+N\hookrightarrow M$ of a Lorentzian manifold $(N,g)$, also possibly supported by
+non-trivial $p$-form fields, from an open subset $W$ of $N$ onto a sub-manifold
+of $M$ in codimension $m\geq0$. Thus we require that $\imath:W\to\imath(W)$ be a
+diffeomorphism in the induced ${\rm C}^\infty$ structure, and that the
+derivative map $d\imath_x:T_xN\to T_{\imath(x)}M$ be one-to-one for all $x\in
+W$. The Lorentzian metric $g$ of $N$ is related to that of $M$ through the
+pull-back
+\begin{equation}
+  \label{gNpullback}
+  g_x(\cdot, \cdot)=G_{\imath(x)}(d\imath(\cdot), d\imath(\cdot))
+\end{equation}
+on $T_xW\otimes T_xW\to\R$, and $p$-form fields $a$ on $N$ are similarly
+related to those on $M$ by
+\begin{equation}
+  \label{aNpullback}
+  a_x(\cdot,\ldots,\cdot)=A_{\imath(x)} (d\imath(\cdot),\ldots,d\imath(\cdot))
+\end{equation}
+on $\otimes^pT_xW\to\R$. In what follows we will usually write $\imath(N)$
+for the projection.
+
+We shall examine situations in which the Penrose-G\"uven limit will
+simultaneously induce the Penrose-G\"uven limits of the ambient spacetime and of
+the embedded submanifold. This automatically restricts the types of possible
+embeddings. We will simplify matters somewhat by taking the Penrose-G\"uven
+limit of $(N,g)$ along the same null geodesic $\gamma$ as that used on $(M,G)$.
+The embedded submanifold $\imath(N)$ is then the intersection of $M$ with the
+hypersurface $Y^i=0$, $\forall i\in{\mathcal I}:=\{j_1,\dots,j_m\}$. With the
+additional requirement that the metric $G$ restricts non-degenerately on
+$\imath(N)$, there is an orthogonal tangent space decomposition
+\begin{equation}
+  \label{taudecomp}
+  T_xM=T_xN\oplus T_xN^\perp
+\end{equation}
+With $\d_i$ the elements of a local basis of tangent vectors dual to the
+one-forms $d Y^i$ in an open neighbourhood of $x\in M$. The fibres of the normal
+bundle $TN^\perp\to\imath(N)$ over the embedding are given by
+$T_xN^\perp=\{\xi^\perp\in T_xM~|~G(\d_i,\xi^\perp)=0$, $\forall
+i\notin{\mathcal I}\}$.
+
+Suppose now that we are given another local isometric embedding
+$\widetilde{\imath}:\widetilde{W}\subset\widetilde{N}\hookrightarrow
+\widetilde{M}$ of lorentzian manifolds $(\widetilde{N},\widetilde{g})$ and
+$(\widetilde{M},\widetilde{G})$, again possibly in the presence of other
+supergravity fields. We are interested in the conditions under which the
+isometric embedding diagram \eqref{isomembdiag} commutes. Such a commutative
+diagram can only be written down under very exact symmetry constraints on the
+geodesic restrictions of the transverse plane metric $C_{ij}$ of
+\eqref{GPenrose} and supergravity tensor field $b_{i_1\cdots i_p}$ of
+\eqref{Anull} in the directions normal to the embeddings $\imath(N)\subset M$
+and $\widetilde{\imath}(\widetilde{N})\subset\widetilde{M}$.
+
+To formulate these symmetry requirements, let
+$\widetilde{\imath}(\widetilde{N})$ be realised as the intersection of
+$\widetilde{M}$ with the hypersurface $y^i=0$, $\forall i\in\widetilde{\mathcal
+  I}:=\{\tilde j_1,\dots,\tilde j_m\}$. This realisation of the isometric
+embedding on the right-hand side of \eqref{isomembdiag} is dictated by the
+embedding on the left-hand side and the Penrose limit.
+
+Consider the submanifold, also denoted $\widetilde{N}$, defined by the
+intersection of $M$ with the hypersurface $Y^i=0$, $\forall
+i\in\widetilde{\mathcal I}$. Denoting the normal bundle fibres as $T_{\tilde
+  x}\widetilde{N}^{\perp}:=\{\tilde\xi^\perp\in T_{\tilde
+  x}M~|~G(\d_i,\tilde\xi^\perp)=0$, $\forall i\notin\widetilde{\mathcal I}\}$
+for $\tilde x\in\widetilde{W}$, there is an orthogonal tangent space
+decomposition
+\begin{equation}
+  \label{tautildedecomp}
+  T_{\tilde x}M=T_{\tilde x}\widetilde{N}\oplus T_{\tilde x}
+  \widetilde{N}^{\perp}
+\end{equation}
+analogous to \eqref{taudecomp}. Along the light-like null geodesic $\gamma$,
+where $x=\tilde x=(U,0,\mbf0)$, we fix $p$ tangent vectors
+$X,X_1,\dots,X_{p-1}\in T_{(U,0,\mbf0)}M$, and use the Lorentzian metric and
+$p$-form gauge potentials to define the linear transformations
+\begin{eqnarray}
+  \label{Gelinmap}
+  G_{(U,0,\mbf0)}(X,\cdot):T_{(U,0,\mbf0)}M&\longrightarrow&
+  T_{(U,0,\mbf0)}M \\
+  \label{Aelinmap}
+  A_{(U,0,\mbf0)}(X_1,\dots,X_{p-1},\cdot):T_{(U,0,\mbf0)}M&
+  \longrightarrow&T_{(U,0,\mbf0)}M
+\end{eqnarray}
+
+The isometric embedding diagram \eqref{isomembdiag} then commutes if, for every
+collection of tangent vectors $X,X_1,\dots,X_{p-1}\in T_{(U,0,\mbf0)}M$, the
+restrictions of the linear maps \eqref{Gelinmap} and \eqref{Aelinmap} to the
+corresponding orthogonal projections in \eqref{taudecomp} and
+\eqref{tautildedecomp} agree
+\begin{eqnarray}
+  \label{Ccommcond}
+  \bigl.C_{(U,0,\mbf0)}(X,\cdot)\bigr|_{T_{(U,0,\mbf0)}N^\perp}&=&
+  \bigl.C_{(U,0,\mbf0)}(X,\cdot)\bigr|_{T_{(U,0,\mbf0)}
+    \widetilde{N}^{\perp}} \\
+  \label{bcommcond}
+  \bigl.b_{(U,0,\mbf0)}(X_1,\ldots,X_{p-1},\cdot)
+  \bigr|_{T_{(U,0,\mbf0)}N^\perp}&=&
+  \bigl.b_{(U,0,\mbf0)}(X_1,\ldots,X_{p-1},\cdot)\bigr|_{T_{(U,0,\mbf0)}
+    \widetilde{N}^{\perp}}
+\end{eqnarray}
+in the following sense. The normal subspaces $T_{(U,0,\mbf0)}N^\perp$ and
+$T_{(U,0,\mbf0)}\widetilde{N}^{\perp}$ of $T_{(U,0,\mbf0)}M$ are non-canonically
+isomorphic as vector spaces. Fixing one such isomorphism, there is then a
+one-to-one correspondence between normal vectors $\xi^\perp\in
+T_{(U,0,\mbf0)}N^\perp$ and $\tilde\xi^\perp\in
+T_{(U,0,\mbf0)}\widetilde{N}^{\perp}$, under which we require the transverse
+plane metric and $p$-form fields to coincide
+\begin{equation*}
+  C_{(U,0,\mbf0)}(X,\xi^\perp)=C_{(U,0,\mbf0)}(X,\tilde\xi^\perp)  
+\end{equation*}
+and
+\begin{equation*}
+  b_{(U,0,\mbf0)}(X_1,\ldots,X_{p-1},\xi^\perp)=b_{(U,0,\mbf0)} (X_1,\ldots,X_{p-1},\tilde\xi^\perp)
+\end{equation*}
+These symmetry conditions together ensure that the same supergravity fields are
+induced on $\widetilde{\imath}(\widetilde{N})$ along the two different paths of
+the diagram \eqref{isomembdiag}, i.e. that the Penrose-G\"uven limit of $M$,
+along the null geodesic described above, induces simultaneously the
+Penrose-G\"uven limit of $N$. We stress that \eqref{Ccommcond} and
+\eqref{bcommcond} are required to simultaneously hold under only a single
+isomorphism of $m$-dimensional vector spaces, and in all there are
+$\frac12m(m+1)$ such commuting isometric embedding diagrams that can potentially
+be constructed for appropriate plane wave profiles.
+
+These symmetry conditions are essentially just the simple statement that the
+restrictions of the embeddings $\imath$ and $\widetilde{\imath}$ to the null
+geodesic $\gamma(U)$ are equivalent. Nevertheless, there are many examples
+whereby the Penrose limit of the metric carries through in \eqref{isomembdiag},
+but not the G\"uven extension to generic $p$-form supergravity fields, i.e.
+\eqref{Ccommcond} can hold with \eqref{bcommcond} being violated. Conversely,
+there can be exotic isometric embeddings whereby the transverse metric violates
+the requirement \eqref{Ccommcond}, leading to target spacetimes with distinct
+pp-wave profiles induced by the Penrose limit of essentially the same lorentzian
+structure. An interesting example of this would be a situation wherein the
+metric is not preserved, but the other supergravity $p$-form fields are.
+
+\section{Hpp-Wave Limits}
+\label{PGLNW}
+Let us now specialise the analysis of the previous section to a broad class of
+examples that are important to the analysis that follows. Consider a real,
+connected Lie group $\mathcal{G}$ possessing a bi-invariant metric. On the Lie
+algebra $\mathfrak g$ of $\mathcal{G}$, this induces an invariant,
+non-degenerate inner product
+$\langle\cdot,\cdot\rangle:\mathfrak{g}\times\mathfrak{g}\to\R$. We
+will also write $\mathcal{G}$ for the group manifold.
+
+Symmetric D-branes wrapping submanifolds $D\subset \mathcal{G}$ preserve the
+maximal (diagonal) symmetry group
+$\mathcal{G}\subset\mathcal{G}\times\overline{\mathcal G}$ allowed by conformal
+boundary conditions. They are described algebraically by twisted conjugacy
+classes of the group \cite{AS1,FFFS1,FS1,Stanciu2}. Let
+$\Omega:\mathfrak{g}\to\mathfrak{g}$ be an outer automorphism of the Lie algebra
+of $\mathcal{G}$ preserving its inner product $\langle\cdot,\cdot\rangle$, and
+let $\omega:\mathcal{G}\to \mathcal{G}$ be the corresponding Lie group
+automorphism. The map $\omega$ is an isometry of the bi-invariant metric on
+$\mathcal G$, and so it generates an orbit of any point $g\in \mathcal{G}$ under
+the twisted adjoint action of the group as $g\mapsto{\rm
+  Ad}_h^\omega(g)=hg\omega(h^{-1})$, $h\in \mathcal{G}$. We may thereby identify
+$D$ with such an orbit as
+\begin{equation}
+  \label{Dtwistconj}
+  D={\mathcal C}_g^\omega=\{hg\omega(h^{-1})|~h\in \mathcal{G}\}
+\end{equation}
+To each such $\omega$ we can associate an equivalence class of D-branes
+foliating $\mathcal{G}$.
+
+Since the metric on $\mathcal{G}$ is bi-invariant, the twisted conjugacy class
+\eqref{Dtwistconj} may be exhibited as a homogeneous space
+\begin{equation}
+  \label{twistconjhom}
+  {\mathcal C}_g^\omega=\mathcal{G}/{\mathcal Z}_g^\omega
+\end{equation}
+where ${\mathcal Z}_g^\omega\subset \mathcal{G}$ is the stabiliser subgroup of
+the point $g$ under the twisted adjoint action of $\mathcal{G}$ defined by
+\begin{equation}
+  \label{stabdef}
+  {\mathcal Z}_g^\omega=\{h\in \mathcal{G} |~hg\omega(h^{-1})=g\}
+\end{equation}
+By this homogeneity, it will always suffice to determine the geometry (and any
+$\mathcal{G}$-invariant fluxes) at a single point, as all other points are
+related by the twisted adjoint action of the group, which is an isometry. A
+natural physical assumption is that the bi-invariant metric of $\mathcal{G}$
+restricts non-degenerately to the twisted conjugacy classes
+\eqref{twistconjhom}. The normal bundle over the D-submanifold then has fibres
+given by
+\begin{equation}
+  \label{twistconjnorm}
+  (T_g\mathcal{C}_g^\omega)^\perp=T_g\mathcal{Z}_g^\omega
+\end{equation}
+with $T_g\mathcal{C}_g^\omega\cap T_g\mathcal{Z}_g^\omega=\{0\}$, so that there
+is an orthogonal direct sum decomposition of the tangent bundle of $\mathcal{G}$
+as
+\begin{equation}
+  \label{TgGdecomp}
+  T_g\mathcal{G}=T_g\mathcal{C}_g^\omega\oplus T_g\mathcal{Z}_g^\omega
+\end{equation}
+The space of normal vectors \eqref{twistconjnorm} may be identified with the Lie
+algebra of the stabiliser subgroup \eqref{stabdef} given by
+\begin{equation}
+  \label{stabLiealg}
+  \mathfrak{z}_g^\omega=\{X\in\mathfrak{g}|~g^{-1}Xg=\Omega(X)\}
+\end{equation}
+These D-submanifolds are also NS-supported with $B$-field \cite{Stanciu1}
+\begin{equation}
+  \label{Bfieldg0}
+  B_{g_0}=-\langle d hh^{-1},{\rm Ad}_g\circ\Omega(d hh^{-1})\rangle
+\end{equation}
+at $g_0=hg\omega(h^{-1})\in{\mathcal C}_g^\omega$, and they are stabilised
+against decay by the presence of a family of two-form Abelian gauge field
+strengths $F_{g_0}^{(\zeta)}= d A_{g_0}^{(\zeta)}$,
+$\zeta\in\mathfrak{z}_g^\omega$ given by \cite{BSR1}
+\begin{equation}
+  \label{2formfamily}
+  F_{g_0}^{(\zeta)}=\langle\zeta,[ d hh^{-1}, d hh^{-1}]\rangle
+\end{equation}
+If $\zeta$ is a fractional symmetric weight of $\mathcal{G}$, then the integral
+of \eqref{2formfamily} over any two-sphere in the worldvolume
+$\mathcal{C}_g^\omega$ of the D-brane is an integer multiple of $2\pi$. The
+two-forms
+\begin{equation}
+  \label{inv2forms}
+  \mathcal{F}_{g_0}^{(\zeta)}:=B_{g_0}+F_{g_0}^{(\zeta)}
+\end{equation}
+are invariant under gauge transformations $B_{g_0}\mapsto B_{g_0}+ d\Lambda$,
+$F_{g_0}^{(\zeta)}\mapsto F_{g_0}^{(\zeta)}- d\Lambda$ of the
+$B$-field. They are the gauge invariant combinations (in string units
+$\alpha'=1$) that appear in the Dirac-Born-Infeld action governing the
+target space dynamics of the D-branes.
+
+There are two ways in which the Penrose limit may be achieved within this
+setting \cite{BFP1}. In both instances it can be understood as an
+In\"on\"u-Wigner group contraction of $\mathcal{G}$ whose limit
+$\widetilde{\mathcal{G}}$ is a non-compact, non-semisimple Lie group admitting a
+bi-invariant metric. In the first case we assume $\mathcal G$ is simple and
+consider a one-parameter subgroup $\mathcal{H}\subset\mathcal{G}$, which is
+necessarily geodesic relative to the bi-invariant metric. If it is also null,
+then it gives rise to a null geodesic and hence the Penrose limit can be taken
+as prescribed in the previous subsection. In the second case we consider a
+product group $\mathcal{G}=\mathcal{G}'\times\mathcal{H}$, where $\mathcal{G}'$
+is a simple Lie group with a bi-invariant metric and $\mathcal{H}\subset
+\mathcal{G}'$ is a compact subgroup, with Lie subalgebra
+$\mathfrak{h}\subset\mathfrak{g}'$, which inherits a bi-invariant metric from
+$\mathcal{G}$ by pull-back. The product group $\mathcal{G}'\times \mathcal{H}$
+then carries the bi-invariant product metric corresponding to the bilinear form
+$\langle\cdot,\cdot\rangle\oplus (-\langle\cdot,\cdot\rangle|_{\mathfrak{h}})$
+on $\mathfrak{g}'\oplus\mathfrak{h}$. The submanifold $\mathcal{H}\subset
+\mathcal{H}\times\mathcal{H}\subset\mathcal{G}'\times \mathcal{H}$ given by the
+diagonal embedding is a Lie subgroup, and hence it is totally geodesic and
+maximally isotropic. The (generalised) Penrose limit of
+$\mathcal{G}'\times\mathcal{H}$ along $\mathcal{H}$ thereby yields a
+non-semisimple Lie group with a bi-invariant metric. The related group
+contraction can also be understood as an infinite volume limit along the compact
+directions of $\mathcal{G}'\times \mathcal{H}$, giving a semi-classical picture
+of the string dynamics in this background.
+
+We may now attempt to specialise the isometric embedding diagram
+\eqref{isomembdiag} to the diagram
+\begin{equation}
+  \label{twistconjembdiag}
+  \begin{CD}
+   @.\\
+    \mathcal{G} @>\text{PGL}>>                      \widetilde{\mathcal{G}}\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \mathcal{C}_g^\omega @>\text{PGL}>> \mathcal{C}_{\tilde g}^{\tilde\omega}\\
+   @.
+  \end{CD}
+\end{equation}
+specifying the Penrose-G\"uven limit between twisted D-branes. We have used the
+fact that the Penrose limit of a maximally symmetric space is again a maximally
+symmetric space \cite{BFP1}, so that the Penrose-G\"uven isometric embedding
+diagrams preserve the symmetry of the embedded spaces and symmetric D-branes map
+onto symmetric D-branes in the limit. To formulate the symmetry conditions
+\eqref{Ccommcond} and \eqref{bcommcond} within this algebraic setting, we
+restrict to the stabiliser algebra \eqref{stabLiealg}. For any $h\in\mathcal{H}$
+and any Lie algebra element $X\in\mathfrak{g}$, the isometric embedding diagram
+\eqref{twistconjembdiag} then commutes if and only if
+\begin{eqnarray}
+  \label{innprodtwistcomm}
+  \langle X,\cdot\rangle|_{\mathfrak{z}_h^\omega}&=&
+  \langle X,\cdot\rangle|_{\mathfrak{z}_h^{\tilde\omega}}\\
+  \label{Bfieldtwistcomm}
+  B_{h_0}(X,\cdot)|_{\mathfrak{z}_h^\omega}&=&
+  B_{h_0}(X,\cdot)|_{\mathfrak{z}_h^{\tilde\omega}}\\
+  \label{Ftwistcomm}
+  F^{(\zeta)}_{h_0}(X,\cdot)|_{\mathfrak{z}_h^\omega}
+  &=&F^{(\zeta)}_{h_0}(X,\cdot)|_{\mathfrak{z}_h^{\tilde\omega}}
+\end{eqnarray}
+with the analogous restrictions on higher-degree $p$-form fields.
+
+\subsection{$\NW$ Limits}
+\label{ApplNW}
+We will now apply these considerations to examine the possible D-embeddings of
+Nappi-Witten spacetimes. We start with the six-dimensional Lorentzian manifold
+$M=\AdS_3\times\Sphere^3$ describing the near horizon geometry of a bound state
+of fundamental strings and NS5-branes \cite{GKS1}, equivalent to a
+two-dimensional superconformal field theory corresponding to the IR limit of the
+dynamics of parallel D1-branes and D5-branes. This identification requires that
+both factors share a common radius of curvature $R$. We can embed
+$\AdS_3\times\Sphere^3$ in the pseudo-euclidean space $\E^{2,6}$ as the
+intersection of the two quadrics
+\begin{eqnarray}
+  \label{AdS3quadric}
+  \left(x^0\right)^2+\left(x^1\right)^2-\left(x^2\right)^2-\left(x^3\right)^2
+  &=&R\\
+  \label{S3quadric}
+  \left(x^4\right)^2+\left(x^5\right)^2+\left(x^6\right)^2+\left(x^7\right)^2
+  &=&R
+\end{eqnarray}
+with the induced metric. An explicit parametrisation is given by
+\begin{eqnarray}
+  \label{AdS3S3param}
+  x^0&=R\sqrt{1+r^2}\cos\tau\cosh\beta \qquad &x^4=R\cos\phi \\\nn
+  x^1&=R\sin\tau \qquad\qquad\qquad\qquad &x^5=R\chi\sin\phi\sin\psi \\\nn
+  x^2&=R\sqrt{1+r^2}\cos\tau\sinh\beta \qquad
+  &x^6=R\sqrt{1-\chi^2}\sin\phi\sin\psi \\\nn
+  x^3&=Rr\cos\tau \qquad\qquad\qquad\qquad &x^7=R\sin\phi\cos\psi
+\end{eqnarray}
+In these coordinates the metric, NS-NS $B$-field and three-form flux on
+$\AdS_3\times\Sphere^3$ are given by
+\begin{eqnarray}
+  \label{AdS3S3metric}
+  \frac 1{R^2}G &=& - d\tau^2 + \cos^2{\tau}\left( \frac{dr^2}{1+r^2} +
+    \left(1+r^2\right)d\beta^2\right) \\ \nonumber
+  &&+d\phi^2+\sin^2{\phi}\left(\frac{d\chi^2}{1-\chi^2}+
+    \left(1-\chi^2\right)d\psi^2\right)\\
+  \label{AdS3S3flux}
+  -\frac1{2R^2}H/2 &=&
+  \cos^2{\tau} d\tau\wedge dr\wedge d\beta + \sin^2{\phi}d\phi\wedge
+  d\chi\wedge d\psi\\
+  \label{AdS3S3Bfield}
+  -\frac2{R^2}2B &=& \left(\sin{2\tau}+2\tau\right)dr\wedge d\beta
+  +\left(\sin{2\phi}-2\phi\right)d\chi\wedge d\psi
+\end{eqnarray}
+Viewing $M$ as the group manifold of the Lie group ${\rm SU}(1,1)\times{\rm
+  SU}(2)$ with its usual bi-invariant metric induced by the Cartan-Killing form,
+its embedded submanifolds wrapped by maximally symmetric D-branes are given by
+twisted conjugacy classes of the group. Here we will focus on the family of
+D3-branes which are isometric to $N=\AdS_2\times\Sphere^2$ and are given by the
+intersections of the hyperboloids \eqref{AdS3quadric} and \eqref{S3quadric} with
+the affine hyperplanes $x^3,x^5={\rm constant}$ \cite{BP1}. In this way we may
+exhibit a foliation of $\AdS_3\times\S^3$ consisting of twisted D-branes, each
+of which is isometric to $\AdS_2\times\S^2$. Within this family, the
+intersection of $\AdS_3\times\S^3$ with the hyperplane defined by $x^3=x^5=0$ is
+special for a variety of reasons. It corresponds to the fixed point set of the
+reflection isometry of $\E^{2,6}$ defined by $x^3\mapsto-x^3$,
+$x^5\mapsto-x^5$ while leaving fixed all other coordinates. This isometry
+preserves the embedding \eqref{AdS3quadric}, \eqref{S3quadric} and hence induces
+an isometry of $\AdS_3\times\S^3$. The metric \eqref{AdS3S3metric} restricts
+nondegenerately to the corresponding $\AdS_2\times\S^2$ submanifold, which is
+thereby totally geodesic and has equal radii of curvature $R$.
+
+When we consider such embedded D-submanifolds, we should also add to the list of
+supergravity fields \eqref{AdS3S3metric} through \eqref{AdS3S3Bfield}, the
+constant ${\rm U}(1)$ gauge field flux \cite{BP1,BDS1}
+\begin{equation}
+  \label{AdS3S3U1flux}
+  \frac2{R^2}F=\frac2{R^2}d A=4\pi\kappa_q d r\wedge d\beta-
+  2\pi p d\chi\wedge d\psi
+\end{equation}
+where $p\in\Z$ is the magnetic monopole number through $\S^2$, while
+$\kappa_q\in\R$ is related to the quantum number $q\in\Z$ giving the
+Dirac-Born-Infeld electric flux through $\AdS_2$. The presence of this two-form
+prevents the wrapped D3-branes from collapsing. The quantity ${\mathcal F}=B+F$
+is invariant under two-form gauge transformations of the $B$-field, but it is
+only the monopole flux and the dual Dirac-Born-Infeld electric displacement
+which are quantised. The addition of such worldvolume electric fields
+proportional to the volume form of $\AdS_2$ along with worldvolume magnetic
+fields proportional to the volume form of $\S^2$ still preserves supersymmetry.
+The sources of such fluxes are $(p,q)$ strings connecting the D3-branes to the
+NS5/F1 black string background in the near horizon region \cite{BP1}. The
+Dirac-Born-Infeld energy of the branes wrapping $\AdS_2\times\S^2$ is locally
+minimised at $(\tau,\phi)=(2\pi\kappa_q,\pi p)$ \cite{BP1,BDS1}, and at those
+values the gauge-invariant two-form is given by
+\begin{equation}
+  \label{gaugeinvAdS3S3}
+  -\frac2{R^2}\mathcal{F}=\sin2\tau d r\wedge d\beta+\sin2\phi d\chi\wedge d\psi
+\end{equation}
+
+Let us now consider the Penrose-G\"uven limit of $M$ which produces the
+six-dimen\-sional Nappi-Witten spacetime $\widetilde{M}=\NW_6$ \cite{BFP1}. As
+Lie groups, the Penrose limit can be interpreted as an In\"on\"u-Wigner group
+contraction of ${\rm SU}(1,1)\times{\rm SU}(2)$ onto $\mathcal{N}_6$ \cite{SF1}.
+Geometrically, it can be achieved along any null geodesic which has a
+non-vanishing velocity component tangent to the sphere $\S^3$. For this, we
+change coordinates in the $(\tau,\phi)$ plane
+\begin{eqnarray}
+  \label{UVAdS3S3def}
+  2\tau=U-V &\qquad& 2\phi=U+V \\ \nonumber
+  r=Y^1\quad\beta=Y^2 &\qquad& \chi=Y^3\quad\psi=Y^4
+\end{eqnarray}
+This enables us to represent the fields in \eqref{AdS3S3metric} through
+\eqref{AdS3S3Bfield} in the adapted coordinate forms \eqref{GPenrose},
+\eqref{Anull} and \eqref{Fnull}, which thereby exhibits $\frac\partial{\partial
+  U}=\frac12(\frac\partial{\partial\phi}+\frac\partial{\partial\tau})$ as the
+null geodesic vector field with $G(\frac\partial{\partial
+  U},\frac\partial{\partial U})=0$. After the Penrose-G\"uven limit, the metric
+and Neveu-Schwarz fields along the geodesic $\gamma(U)$ are given by
+\begin{eqnarray}
+  \label{NW6tildemetric}
+  \frac1{R^2}\widetilde{G}&=&2 dudv+\sin^2\frac u2d{\mbf y}^2\\
+  \label{NW6tildeflux}
+  \frac1{R^2}\widetilde{H}&=&\cos^2\frac u2du
+  \wedge dy^1\wedge dy^2-\sin^2\frac u2du\wedge dy^3\wedge d y^4\\
+  \label{NW6tildeBfield}
+  \frac4{R^2}\widetilde{B}&=&-(u+\sin u)
+  dy^1\wedge dy^2+(u-\sin u)dy^3\wedge dy^4
+\end{eqnarray}
+with ${\mbf y}^\top=(y^i)\in\R^4$. At this stage it is convenient to transform
+from Rosen coordinates to Brinkman coordinates
+\begin{equation}
+  \label{eq:ex:jose:brinkman}
+  u=2x^- \qquad v=x^+ + \frac{\cot{x^-}}{2}\vec{z}^2 \qquad
+  y^i=\frac{z^i}{\sin{x^-}}
+\end{equation}
+It is then straightforward to compute that one recovers the standard
+NS-supported geometry of $\NW_6$, with supergravity fields
+$\frac1{R^2}\widetilde{G}= d s_6^2$, $\frac1{2R^2}\widetilde{H}=H_6$ and
+$\frac2{R^2}\widetilde{B}=B_6$ given by \eqref{NW6metricBrink},
+\eqref{NW6Bfield}.
+
+The foliating hyperplanes $w=w_0\in\C$ isometrically embed $\NW_4$ in
+$\NW_6$ with its standard geometry \eqref{NW4metricBrink}, \eqref{NS2formBrink}
+and zero-point energy $b=-\frac{\theta^2}4|w_0|^2$. The Penrose-G\"uven limit of
+the worldvolume flux \eqref{AdS3S3U1flux} vanishes, $\widetilde{F}=0$, because
+it is the field strength of a ${\rm U}(1)$ gauge field. On the other hand, the
+gauge invariant two-form \eqref{gaugeinvAdS3S3} transforms as a potential under
+the Penrose-G\"uven limit and one finds
+\begin{equation}
+  \label{NW6tildegaugeinv}
+  \mathcal{F}_6:=-\frac2{R^2}\widetilde{\mathcal{F}}
+  =- i\cot\frac{\theta x^+}2\left[
+    d\overline{\mz}^{\top}\wedge d\mz+\frac\theta2\cot\frac{\theta x^+}2
+    dx^+\wedge(\mz^\top d\overline{\mz}-\overline{\mz}^{\top}d\mz)\right]
+\end{equation}
+Strictly speaking, this field is only defined on the constant time slices
+$x^+=\frac\pi\theta(2\kappa_q+p)$ of $\NW_6$ induced by the energy minimising
+configurations described above. However, with the scaling transformations
+employed in the Penrose-G\"uven limit we can take the form
+\eqref{NW6tildegaugeinv} to be valid at all times. It induces a worldvolume
+two-form $\mathcal{F}_4:=\mathcal{F}_6|_{w=w_0}$ on $\NW_4$.
+
+Let us now examine the isometric embedding of the totally geodesic
+$\AdS_2\times\S^2$ D-brane in $\AdS_3\times\S^3$, which may be defined as the
+hyperplane $Y^1=Y^3=0$. The geodetic property ensures that the Penrose limit of
+$\AdS_3$ $\times$ $\S^3$ induces that of $\AdS_2$ $\times$ $\S^2$, which yields
+the Cahen-Wallach symmetric space $\CW_4$ \cite{BFP1}. However, the G\"uven
+extension breaks down. In this case the normal bundle fibre
+$T_{(U,0,\mbf0)}N^\perp$ is locally spanned by the vector fields
+$\partial_2,\partial_4$, while $T_{(U,0,\mbf0)}\widetilde{N}^{\perp}$ is spanned
+by $\partial_3,\partial_4$. There is thus no gauge transformation such that
+\eqref{bcommcond} is satisfied. On the other hand, since the transverse plane
+metric $C_{ij}(u)=\sin^2\frac u2\delta_{ij}$ in \eqref{NW6tildemetric} is
+proportional to the identity, \eqref{Ccommcond} is trivially satisfied and so
+the Penrose limit of the $\AdS_2\times\S^2$ metric coincides with that of
+$\CW_4$.
+
+One cannot rectify this problem by choosing an alternative embedding of $\AdS_2$
+$\times$ $\S^2$ for which the $B$-field is non-vanishing, such as that with
+$\tau,\phi={\rm constant}$, however, we may still find an interesting $\CW_4$
+spacetime by using such an alternative embedding. This case corresponds with the
+minimal energy symmetric D3-branes and allows the Penrose limit of
+$\AdS_2\times\S^2$ to be taken in the adapted coordinates $U=\chi+r$,
+$V=\frac12(\chi-r)$, $Y^1=\beta$, $Y^2=\psi$. After another suitable change to
+Brinkman coordinates it leads to the anticipated $\CW_4$ geometry. However, now
+the $\CW_4$ branes carry a non-vanishing null worldvolume flux which may be
+written in Brinkman coordinates as
+\begin{equation}
+  \label{tildefluxalt}
+  \frac2{R^2}\widetilde{F}=\frac{\pi\theta}2\csc
+  \frac{\theta x^+}2\bigl[(2\kappa_q- i p)
+  dx^+\wedge dw+(2\kappa_q+ i p) dx^+\wedge d\overline{w}\bigr]
+\end{equation}
+
+\subsection{Embedding Diagrams for $\NW$ Spacetimes}
+\label{DiagNW}
+Let us now describe in more detail the two simple and obvious remedies to the
+problem which we raised in the previous Section. The first one modifies the
+embedding $\widetilde{\imath}$ on the right-hand side of the diagram
+\eqref{isomembdiag} to be the intersection of $\widetilde{M}=\NW_6$ with the
+hyperplane $y^1=y^3=0$, so that $T_{(U,0,\mbf0)}N^\perp =
+T_{(U,0,\mbf0)}\widetilde{N}^{\perp}$ and the conditions \eqref{Ccommcond},
+\eqref{bcommcond} are always trivially satisfied. Now the pull-backs of the
+Neveu-Schwarz fields \eqref{NW6tildeflux}, \eqref{NW6tildeBfield} vanish, as
+does that of the two-form \eqref{NW6tildegaugeinv}, while the pull-back of the
+metric \eqref{NW6tildemetric} is still the standard metric on $\CW_4$. This
+embedding thereby preserves the basic Cahen-Wallach structure
+$\CW_4\subset\NW_6$, and the vanishing of the other supergravity form fields on
+$\CW_4$ is indeed induced now by the Penrose-G\"uven limit from
+$\AdS_2\times\S^2$. We may thereby write the commuting embedding diagram
+\begin{equation}
+  \label{CW4commdiag}
+  \begin{CD}
+   @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath~~$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL}>> \CW_4\\
+   @.
+  \end{CD}
+\end{equation}
+which describes the Penrose-G\"uven limit between {\it commutative}, maximally
+symmetric Lorentzian D3-branes in $\AdS_3\times\S^3$ and the six-dimensional
+Nappi-Witten spacetime $\NW_6$. We may explicitly confirm that the path
+$\AdS_3\times\S^3$ $\rightarrow$ $\AdS_2\times\S^2$ $\rightarrow\CW_4$ gives
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:path2:G}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \label{eq:bpg:ex:jose:path2:fields}
+  \widetilde{H}&=&d\widetilde{B}=0
+\end{eqnarray}
+
+Due to the vanishing of the worldvolume flux and the fact that $\pi_2(\S^3)=0$,
+these D-branes can be unstable. They may shrink to zero sise completely
+corresponding to point-like D-instantons, to euclidean D-strings induced at a
+point in $\S^3$ with worldvolume geometries $\AdS_2\subset\AdS_3$, or to
+euclidean D-strings sitting at a point in $\AdS_3$ and wrapping
+$\S^2\subset\S^3$ on the left-hand side of the diagram \eqref{CW4commdiag}.
+These symmetric decay products will be generically lost in the Penrose-G\"uven
+limit, as will become evident in the ensuing sections.
+
+Alternatively, we may choose to modify the embedding $\imath$ on the left-hand
+side of the diagram \eqref{isomembdiag} to be the intersection of
+$M=\AdS_3\times\S^3$ with the hyperplane $Y^1=Y^2=0$. Again
+$T_{(U,0,\mbf0)}N^\perp = T_{(U,0,\mbf0)}\widetilde{N}^{\perp}$ and so the
+conditions \eqref{Ccommcond} and \eqref{bcommcond} are trivially satisfied. This
+hyperplane corresponds to the intersection of the hyperboloid
+\eqref{AdS3quadric} with $x^2=x^3=0$, while \eqref{S3quadric} is left unchanged.
+It thereby defines a totally geodesic embedding of $\S^{1,0}\times\S^3$ in
+$\AdS_3\times\S^3$. This does not define a twisted conjugacy class of the Lie
+group ${\rm SU}(1,1)\times{\rm SU}(2)$ and so does not correspond to a symmetric
+D-brane \cite{BP1}. Instead, it arises in the near horizon geometry of a stack
+of NS5-branes \cite{GO1}. The pull-backs of the NS--NS fields
+\eqref{AdS3S3flux}, \eqref{AdS3S3Bfield} are non-vanishing, and the null
+geodesic defined by \eqref{UVAdS3S3def} spins along an equator of the sphere
+$\S^3$. The Penrose-G\"uven limit thus induces the complete NS-supported
+geometry of $\NW_4$ \cite{DAK1}, and it can be thought of as a group contraction
+of ${\rm U}(1)\times{\rm SU}(2)$ along ${\rm U}(1)$ onto $\mathcal{N}_4$. We may
+thereby write the commuting embedding diagram
+\begin{equation}
+  \label{NW4commdiag}
+  \begin{CD}
+   @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath~~$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \S^{1,0}\times\S^3         @>\text{PGL}>> \NW_4\\
+   @.
+  \end{CD}
+\end{equation}
+describing {\it noncommutative} branes. The Lorentzian $\NW_4$ D3-brane,
+supported by non-trivial worldvolume fields, is stabilised against decay by its
+worldvolume two-form $\mathcal{F}_4=\mathcal{F}_6|_{z=0}$. One may confirm
+explicitly that the path $\AdS_3\times\S^3\rightarrow\NW_6\rightarrow\NW_4$
+yields
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:path1:G}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \label{eq:bpg:ex:jose:path1:H}
+  \widetilde{H}&=&-dx^-\wedge dz^1\wedge dz^2 \\
+  \label{eq:bpg:ex:jose:path1:B}
+  \widetilde{B}&=&-x^- dz^1\wedge dz^2
+\end{eqnarray}
+which is the Nappi-Witten WZW model.
+
+These results are all consistent with the remark made just after
+\eqref{twistconjembdiag}. The brane $\AdS_2\times\S^2$ is a symmetric
+D-submanifold of $\AdS_3\times\S^3$. As we discuss in detail in Section
+\ref{TwistedNCBranes}, $\NW_4$ is {\it not} a symmetric D-brane in $\NW_6$,
+although $\CW_4$ is. Consistently, $\S^{1,0}\times\S^3\subset\AdS_3\times\S^3$
+is not a maximally symmetric D-embedding, but rather a member of the hierarchy
+of factorising symmetry-breaking D-branes in ${\rm SU}(1,1)\times{\rm SU}(2)$
+which preserves the action of an $\R\times{\rm SU}(2)$ subgroup and is localised
+along a product of images of twisted conjugacy classes \cite{Quella1}.
+Similarly, both the $\AdS_3\times\S^3$ and $\NW_6$ branes are non-symmetric,
+while $\CW_6$ is the worldvolume of a spacetime-filling twisted D5-brane in
+$\NW_6$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

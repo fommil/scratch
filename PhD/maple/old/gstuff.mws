@@ -1,0 +1,61 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 16 "#with(difforms):" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 29 "defform(phi=0,psi=0,theta=0);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#-%(defformG6%/%$phiG\"\"!/%$psiGF(/%&thetaGF
+(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 147 "g:=Matrix(2,[\n[exp(I
+*phi + I*psi)*cos(theta),I*exp(-I*phi + I*psi)*sin(theta)],\n[I*exp(I*
+phi - I*psi)*sin(theta),exp(-I*phi - I*psi)*cos(theta)]]);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%\"gG-%'RTABLEG6%\"*gWBQ\"-%'MATRIXG6#7$7$*
+&-%$expG6#,&*&%$phiG\"\"\"^#F5F5F5*&%$psiGF5F6F5F5F5-%$cosG6#%&thetaGF
+5*(-F06#,&*&^#!\"\"F5F4F5F5F7F5F5-%$sinGF;F5F6F57$*(-F06#,&F3F5*&FBF5F
+8F5F5F5FDF5F6F5*&-F06#,&FAF5FKF5F5F9F5%'MatrixG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 26 "#simplify(Determinant(g));" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 28 "#simplify(MatrixInverse(g));" }}}{EXCHG }
+{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "#simplify(d(exp(I*ph
+i + I*psi)*cos(theta)));" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 
+"#simplify(d(I*exp(-I*phi + I*psi)*sin(theta)));" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 46 "#simplify(d(I*exp(I*phi - I*psi)*sin(theta)))
+;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 45 "#simplify(d(exp(-I*phi
+ - I*psi)*cos(theta)));" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 341 
+"dg:=Matrix(2,[\n[exp((phi+psi)*I)*(cos(theta)*d(phi)*I+cos(theta)*d(p
+si)*I-sin(theta)*d(theta)),\n exp(-I*(phi-psi))*(sin(theta)*d(phi)-sin
+(theta)*d(psi)+cos(theta)*d(theta)*I)],\n[exp((phi-psi)*I)*(-sin(theta
+)*d(phi)+sin(theta)*d(psi)+cos(theta)*d(theta)*I),\n-exp(-I*(phi+psi))
+*(cos(theta)*d(phi)*I+cos(theta)*d(psi)*I+sin(theta)*d(theta))]]);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#dgG-%'RTABLEG6%\"*SY+Q\"-%'MATRIXG6
+#7$7$*&-%$expG6#*&,&%$phiG\"\"\"%$psiGF5F5^#F5F5F5,(*(-%$cosG6#%&theta
+GF5-%\"dG6#F4F5F7F5F5*(F:F5-F?6#F6F5F7F5F5*&-%$sinGF<F5-F?F<F5!\"\"F5*
+&-F06#*&^#FHF5,&F4F5F6FHF5F5,(*&FEF5F>F5F5*&FEF5FBF5FH*(F:F5FGF5F7F5F5
+F57$*&-F06#*&FNF5F7F5F5,(FPFHFQF5FRF5F5,$*&-F06#*&FMF5F3F5F5,(F9F5FAF5
+FDF5F5FH%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "#simpl
+ify(Determinant(dg));" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 29 "#s
+implify(MatrixInverse(dg));" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG }
+{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+41 "simplify(Trace((dg.MatrixInverse(g))^3));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}
+}{EXCHG }}{MARK "0 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 138234460 138004640 }
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138234460X,%)anythingG6"6"[gl!"%!!!#%"#"#*&-%$expG6#,&*&^#"""F.%$
+phiGF.F.*&F-F.%$psiGF.F.F.-%$cosG6#%&thetaGF.*(F-F.-F)6#,&F,F.*&^#!""F.F1F.F.F.
+-%$sinGF4F.*(F-F.-F)6#,&*&F;F.F/F.F.F0F.F.F=F.*&-F)6#,&FCF.F:F.F.F2F.F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138004640X,%)anythingG6"6"[gl!"%!!!#%"#"#*&-%$expG6#*&^#"""F-,&%$
+phiGF-%$psiGF-F-F-,(*(F,F--%$cosG6#%&thetaGF--%"dG6#F/F-F-*(F,F-F3F--F86#F0F-F-
+*&-%$sinGF5F--F8F5F-!""F-*&-F)6#*&F,F-,&F/F-F0FAF-F-,(*&F>F-F7F-FA*&F>F-F;F-F-*
+(F,F-F3F-F@F-F-F-*&-F)6#*&^#FAF-FFF-F-,(FHF-FIFAFJF-F-,$*&-F)6#*&FOF-F.F-F-,(F2
+F-F:F-F=F-F-FAF&
+}
+

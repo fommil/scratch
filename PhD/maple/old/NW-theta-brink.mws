@@ -1,0 +1,65 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 62 "B:=Matrix(4,[\n[0,0,0,0],\n[0,0,0,0
+],\n[0,0,0,-x1],\n[0,0,x1,0]]):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 16 "#Determinant(B);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 
+"#MatrixInverse(B);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 58 "#sub
+blocktheta:=MatrixInverse(Matrix(2,[[0,-x1],[x1,0]]));" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 69 "Binv:=Matrix(4,[\n[0,0,0,0],\n[0,0,
+0,0],\n[0,0,0,1/x1],\n[0,0,-1/x1,0]]):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 63 "G:=Matrix(4,[\n[z^2/4,1,0,0],\n[1,0,0,0],\n[0,0,1,0],
+\n[0,0,0,1]]):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "Ginv:=Mat
+rixInverse(G):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "F:=1/(2*p
+i*alpha).(B-G.Binv.G);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"FG-%\".G
+6$*&\"\"\"F)*&%#piGF)%&alphaGF)!\"\"-%'RTABLEG6%\"*Ky'*Q\"-%'MATRIXG6#
+7&7&\"\"!F7F7F7F67&F7F7F7,&*&\"\"#F-%#x1GF)F-*&F)F)*&F;F)F<F)F-F-7&F7F
+7,&*&F;F-F<F)F)*&F)F)*&F;F)F<F)F-F)F7%'MatrixG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 21 "#F:=1/(2*pi*alpha).B;" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 82 "subblocktheta:=MatrixInverse(1/(2*pi*alpha).Matr
+ix(2,[[0,x1+1/x1],[-x1-1/x1,0]]));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+>%.subblockthetaG-%'RTABLEG6%\"*3z;R\"-%'MATRIXG6#7$7$\"\"!,$*&\"\"#\"
+\"\"-%\".G6$*&F2F2*&%#piGF2%&alphaGF2!\"\"*&,&*$)%#x1GF1F2F2F2F2F2F?F:
+F:F:7$,$*&F1F2F3F:F2F.%'MatrixG" }}}{EXCHG }{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 91 "A:=(alpha*pi^2/3)*Matrix(4,[\n[-p2/(x1^2),0,0,0],\n[p
+1/(x1^2),0,0,0],\n[0,0,0,0],\n[0,0,0,0]]):" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 31 "MatrixInverse(simplify(A+1)^2);" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#-%'RTABLEG6%\"*W>LS\"-%'MATRIXG6#7&7&,$*(\"\"*\"\"\",
+&*(%&alphaGF/)%#piG\"\"#F/%#p2GF/F/*&\"\"$F/)%#x1GF5F/!\"\"!\"#F:\"\"%
+F/\"\"!F>F>7&*,F2F/F4F5%#p1GF/,&F1F/*&\"\"'F/F9F/F;F/F0F<F/F>F>7&F>F>F
+/F>7&F>F>F>F/%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 57 "s
+implify(2*pi*alpha*MatrixInverse(simplify(A+1)^2).Binv);" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#-%'RTABLEG6%\"*go%\\8-%'MATRIXG6#7&7&\"\"!F,F,F,
+F+7&F,F,F,,$**\"\"#\"\"\"%#piGF1%&alphaGF1%#x1G!\"\"F17&F,F,,$**F0F1F2
+F1F3F1F4F5F5F,%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "
+" }}}}{MARK "16 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 138967832 139167908 
+140331944 134946860 }{RTABLE 
+M7R0
+I6RTABLE_SAVE/138967832X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'F'F'F'F'F'F'F'F'F',
+&%#x1G#"""""#*$F)!""F*F'F',&F)#F.F,F-F0F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/139167908X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*$-%".G6$*&%#piG!""
+%&alphaGF/*&,&*$%#x1G""#"""F6F6F6F4F/F/F5,$F)!"#F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/140331944X,%)anythingG6"6"[gl!"%!!!#1"%"%,$*&,&*(%&alphaG"""%#piG
+""#%#p2GF,F,*$%#x1GF.!"$!"#F1""%""**,F+F,F-F.%#p1GF,,&F*F,F0!"'F,F)F3""!F:F:F,F
+:F:F:F:F,F:F:F:F:F,F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/134946860X,%)anythingG6"6"[gl!"%!!!#1"%"%""!F'F'F'F'F'F'F'F'F'F',
+$*(%#piG"""%&alphaGF+%#x1G!""!"#F'F',$F)""#F'F&
+}
+

@@ -1,0 +1,64 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 68 "G:=k*alpha*Matrix(2,[\n[cos(psi)^2,
+0],\n[0,cos(psi)^2*sin(theta)^2]]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>%\"GG*(%\"kG\"\"\"%&alphaGF'-%'RTABLEG6%\"*glbP\"-%'MATRIXG6#7$7$*$)
+-%$cosG6#%$psiG\"\"#F'\"\"!7$F9*&F3F')-%$sinG6#%&thetaGF8F'%'MatrixGF'
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 90 "F:=simplify(k*alpha/2*M
+atrix(2,[\n[0,sin(2*psi)*sin(theta)],\n[-sin(2*psi)*sin(theta),0]]));
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"FG-%'RTABLEG6%\"*/;OQ\"-%'MATR
+IXG6#7$7$\"\"!,$*&#\"\"\"\"\"#F2**%\"kGF2%&alphaGF2-%$sinG6#,$*&F3F2%$
+psiGF2F2F2-F86#%&thetaGF2F2F27$,$*&#F2F3F2F4F2!\"\"F.%'MatrixG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 23 "Finv:=MatrixInverse(F);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%FinvG-%'RTABLEG6%\"*?\\bQ\"-%'MATRI
+XG6#7$7$\"\"!,$*,\"\"#\"\"\"%\"kG!\"\"%&alphaGF4-%$sinG6#,$*&F1F2%$psi
+GF2F2F4-F76#%&thetaGF4F47$,$*,F1F2F3F4F5F4F6F4F<F4F2F.%'MatrixG" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "Fhat:=simplify(1/(2*Pi*alpha
+)*(F-G.Finv.G));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%FhatG-%'RTABLEG
+6%\"*wYzP\"-%'MATRIXG6#7$7$\"\"!,$*&#\"\"\"\"\"%F2*,%\"kGF2-%$sinG6#%&
+thetaGF2,(F2!\"\"*$)-%$cosG6#,$*&\"\"#F2%$psiGF2F2FCF2F2*&F3F2)-F?6#FD
+F3F2F;F2%#PiGF;-F7F@F;F2F;7$,$*&#F2F3F2F4F2F2F.%'MatrixG" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 160 "Theta:=simplify(algsubs(cos(psi)^2
+-1=sin(psi)^2,algsubs(sin(2*psi)=2*sin(psi)*cos(psi),simplify(k*sin(th
+eta)*MatrixInverse(Fhat)/(4*Pi)))*4*Pi/(k*sin(theta))));" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%&ThetaG-%'RTABLEG6%\"*Oa^Q\"-%'MATRIXG6#7$7$\"
+\"!,$*.\"\"#\"\"\"%\"kG!\"\"-%$sinG6#%&thetaGF4%#PiGF2-%$cosG6#%$psiGF
+4-F6F<F2F47$,$*.F1F2F3F4F5F4F9F2F:F4F>F2F2F.%'MatrixG" }}}{EXCHG }
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG }}{MARK "8 0 0" 
+0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
+{RTABLE_HANDLES 137556560 138361604 138554920 137794676 138515436 }
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/137556560X,%)anythingG6"6"[gl!"%!!!#%"#"#*$-%$cosG6#%$psiG""#""!F
+-*&F(F,-%$sinG6#%&thetaGF,F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138361604X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$**%"kG"""%&alphaGF+
+-%$sinG6#,$%$psiG""#F+-F.6#%&thetaGF+#!""F2,$F)#F+F2F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138554920X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$**%"kG!""%&alphaGF+
+-%$sinG6#,$%$psiG""#F+-F.6#%&thetaGF+F2,$F)!"#F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/137794676X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*,%"kG"""-%$sinG6#%
+&thetaGF+,(!""F+*$-%$cosG6#,$%$psiG""#F8F+*$-F46#F7""%!"%F+%#PiGF1-F-F5F1#F+F<,
+$F)#F1F<F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138515436X,%)anythingG6"6"[gl!"%!!!#%"#"#""!,$*,%"kG!""-%$sinG6#%
+&thetaGF+%#PiG"""-%$cosG6#%$psiGF+-F-F4F1""#,$F)!"#F'F&
+}
+

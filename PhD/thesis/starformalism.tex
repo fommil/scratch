@@ -1,0 +1,2145 @@
+\chapter{$\star$-Products, Derivatives and Integrals}
+\label{star}
+
+\section{Quantisation}
+\label{NWQuant}
+Our starting point in describing the noncommutative geometry of $\NW_6$ will be
+at the algebraic level. We will consider the deformation quantisation of the
+dual $\mathfrak{n}^\vee$ to the Lie algebra $\mathfrak{n}$. Naively, one may
+think that the easiest way to carry this out is to compute $\star$-products on
+the pp-wave by taking the Penrose limits of the standard ones on $\S^3$ and
+$\AdS_3$ (or equivalently by contracting the standard quantisations of the Lie
+algebras ${\rm su}(2)$ and ${\rm sl}(2,\R)$). However, some quick calculations
+show that the induced $\star$-products obtained in this way are divergent in the
+infinite volume limit, and the reason why is simple. While the standard
+In\"on\"u-Wigner contractions hold at the level of the Lie algebras
+\cite{SF1}, they need not necessarily map the corresponding universal
+enveloping algebras, on which the quantisations are performed. This is connected
+to the phenomenon that twisted conjugacy classes of branes are not necessarily
+related by the Penrose-G\"uven limit \cite{Halliday:2005zt}. We must therefore resort to a
+more direct approach to quantising the spacetime $\NW_6$.
+
+For notational ease, we will write the algebra $\mathfrak{n}$ in the
+generic form
+\begin{equation}
+  \label{n6genform}
+  [\X_a,\X_b]= i \theta C_{ab}^{  c} \X_c  
+\end{equation}
+where $(\X_a):=\theta (\J,\T,\P^i_\pm)$ are the generators of $\mathfrak{n}$ and
+the structure constants $C_{ab}^{ c}$ can be gleamed off from \eqref{NW4algdef}.
+The algebra \eqref{n6genform} can be regarded as a formal deformation
+quantisation of the Kirillov-Kostant Poisson bracket on $\mathfrak{n}^\vee$ in
+the standard coadjoint orbit method. Let us identify $\mathfrak{n}^\vee$ as the
+vector space $\R^6$ with basis $\X_a^\vee:=\langle\X_a,-\rangle:\mfn\to\R$ dual
+to the $\X_a$. In the algebra of polynomial functions
+$\C(\mathfrak{n}^\vee)=\C(\R^6)$, we may then identify the generators $\X_a$
+themselves with the coordinate functions
+\begin{eqnarray}
+  \label{Xacoordfns}
+  \X_\J(\mx)&=&x_\T = x^-   \nn\\ \X_\T(\mx)
+  &=&x_\J = x^+   \nn\\ 
+  \X_{\P_+^i}(\mx)&=&2x_{\P_-^i} = 2\overline{z}_i  
+  \nn\\ \X_{\P_-^i}(\mx)&=&2x_{\P_+^i} = 2z_i
+\end{eqnarray}
+for any $\mx\in\mathfrak{n}^\vee$ with component $x_a$ in the $\X_a^\vee$
+direction. These functions generate the whole coordinate algebra and their
+Poisson bracket $\Theta$ is defined by
+\begin{equation}
+  \label{KKXadef}
+  \Theta(\X_a,\X_b)(\mx)=\mx\bigl([\X_a,\X_b]\bigr)
+  \qquad\qquad\forall\mx\in\mathfrak{n}^\vee  
+\end{equation}
+Therefore, when viewed as functions on $\R^6$ the Lie algebra generators have
+a Poisson bracket given by the Lie bracket, and their quantisation is provided
+by \eqref{n6genform} with deformation parameter $\theta$. We will explore
+various aspects of this quantisation and derive several (equivalent) star
+products on $\mfn^\vee$.
+
+\section{Gutt Products}
+\label{StarProds}
+The formal completion of the space of polynomials $\C(\mfn^\vee)$ is the algebra
+${\rm C}^\infty(\mathfrak{n}^\vee)$ of smooth functions on $\mathfrak{n}^\vee$.
+There is a natural way to construct a $\star$-product on the cotangent bundle
+$T^\vee\mathcal{N}\cong\mathcal{N}\times\mathfrak{n}^\vee$, which naturally
+induces an associative product on ${\rm C}^\infty(\mfn^\vee)$. This induced
+product is called the Gutt product. The Poisson bracket defined by
+\eqref{KKXadef} naturally extends to a Poisson structure
+$\Theta:\CC^\infty(\mfn^\vee)\times\CC^\infty(\mfn^\vee)\to\CC^\infty(\mfn^\vee)$
+defined by the Kirillov-Kostant bi-vector
+\begin{equation}
+  \label{KKbivector}
+  \Theta=\frac12C_{ab}^{  c} x_c \d^a\wedge\d^b
+\end{equation}
+where $\d^a:=\frac{\d}{\d x_a}$. The Gutt product constructs a quantisation of
+this Poisson structure. It is equivalent to the Kontsevich $\star$-product in
+this case \cite{Dito1}, and by construction it keeps that part of the Kontsevich
+formula which is associative \cite{Shoikhet1}. In general, within the present
+context, the Gutt and Kontsevich deformation quantisations are only identical
+for nilpotent Lie algebras.
+
+The algebra $\C(\mfn^\vee)$ of polynomial functions on the dual to the Lie
+algebra is naturally isomorphic to the symmetric tensor algebra $S(\mfn)$ of
+$\mfn$. By the Poincar\'e-Birkhoff-Witt theorem, there is a natural isomorphism
+$\Omega:S(\mfn)\to U(\mfn)$ with the universal enveloping algebra $U(\mfn)$ of
+$\mfn$. Using the above identifications, this extends to a canonical isomorphism
+\begin{equation}
+  \label{Sigmaiso}
+  \Omega : \CC^\infty\left(\R^6\right) \longrightarrow \overline{
+    U(\mfn)^\C}
+\end{equation}
+defined by specifying an ordering for the elements of the basis of monomials for
+$S(\mfn)$, where $\overline{U(\mfn)^\C}$ denotes a formal completion of
+the complexified universal enveloping algebra
+$U(\mathfrak{n})^\C:=U(\mathfrak{n})\otimes\C$. Denoting this ordering
+by $\NO-\NO$, we may write this isomorphism symbolically as
+\begin{equation}
+  \label{Sigmasymbol}
+  \Omega(x_{a_1}\cdots x_{a_n})=\NO \X_{a_1}\cdots\X_{a_n} \NO
+\end{equation}
+The original Gutt construction \cite{Gutt1} takes the isomorphism $\Omega$ on
+$S(\mfn)$ to be symmetrisation of monomials. In this case $\Omega(f)$ is usually
+called the Weyl symbol of $f\in\CC^\infty(\R^6)$ and the symmetric ordering
+$\NO-\NO$ of symbols $\Omega(f)$ is called Weyl ordering. In the following we
+shall work with three natural orderings appropriate to the algebra $\mfn$.
+
+The isomorphism \eqref{Sigmaiso} can be used to transport the algebraic
+structure on the universal enveloping algebra $U(\mfn)$ of $\mfn$ to the algebra
+of smooth functions on $\mfn^\vee\cong\R^6$ and give the $\star$-product defined
+by
+\begin{equation}
+  \label{fstargSigma}
+  f\star g:=\Omega^{-1}\bigl( \NO \Omega(f)\cdot\Omega(g) \NO
+  \bigr) \qquad\qquad f,g\in\CC^\infty\left(\R^6\right)
+\end{equation}
+The product on the right-hand side of the formula \eqref{fstargSigma} is taken
+in $U(\mfn)$, and it follows that $\star$ defines an associative, noncommutative
+product. Moreover, it represents a deformation quantisation of the
+Kirillov-Kostant Poisson structure on $\mfn^\vee$, in the sense that
+\begin{equation}
+  \label{xyPoisson}
+  [x,y]_\star:=x\star y-y\star x= i
+  \theta \Theta(x,y) \qquad\qquad x,y\in\C_{(1)}\left(\mfn^\vee\right)
+\end{equation}
+where $\C_{(1)}(\mfn^\vee)$ is the subspace of homogeneous polynomials of
+degree $1$ on $\mfn^\vee$. In particular, the Lie algebra relations
+\eqref{n6genform} are reproduced by $\star$-commutators of the coordinate
+functions as
+\begin{equation}
+  \label{xaxbstarcomm}
+  [x_a,x_b]_\star= i\theta C_{ab}^{  c} x_c
+\end{equation}
+in accordance with the Poisson brackets \eqref{Poissonspecial} and the
+definition \eqref{KKXadef}.
+
+Let us now describe how to write the $\star$-product \eqref{fstargSigma}
+explicitly in terms of a bi-differential operator $\hat{\mathcal{D}}:
+\CC^\infty(\mfn^\vee)\times\CC^\infty(\mfn^\vee)\to \CC^\infty(\mfn^\vee)$
+\cite{Kathotia1}. Using the Kirillov-Kostant Poisson structure as before, we
+identify the generators of $\mfn$ as coordinates on $\mfn^\vee$. This
+establishes, for small $s\in\R$, a one-to-one correspondence between group
+elements $ e^{s \X}$, $\X\in\mfn$ and functions $ e^{s x}$ on $\mfn^\vee$.
+Pulling back the group multiplication of elements $ e^{s \X}\in\mathcal{N}$ via
+this correspondence induces a bi-differential operator $\hat{\mathcal{D}}$
+acting on the functions $ e^{s x}$. Since these functions separate the points on
+$\mfn^\vee$, this extends to an operator on the whole of
+$\CC^\infty(\mfn^\vee)$.
+
+To apply this construction explicitly, we use the following trick
+\cite{MSSW1,BehrSyk1} which will also be useful for later considerations. By
+restricting to an appropriate Schwartz subspace of functions
+$f\in\CC^\infty(\R^6)$, we may use a Fourier representation
+\begin{equation}
+  \label{Fouriertransfdef}
+  f(\mx)=\int\limits_{\R^6}\frac{\dd\mk}{(2\pi)^6} \tilde f(\mk) 
+  e^{ i\mk\cdot\mx}
+\end{equation}
+This establishes a correspondence between (Schwartz) functions on $\mfn^\vee$ and
+elements of the complexified group $\mathcal{N}^\C:=
+\mathcal{N}\otimes\C$. The products of symbols $\Omega(f)$ may be computed
+using \eqref{Sigmasymbol}, and the $\star$-product \eqref{fstargSigma} can be
+represented in terms of a product of group elements in $\mathcal{N}^\C$ as
+\begin{equation}
+  \label{fstargFourier}
+  f\star g=\int\limits_{\R^6}\frac{\dd\mk}{(2\pi)^6} 
+  \int\limits_{\R^6}\frac{\dd\mq}{(2\pi)^6} \tilde f(\mk) 
+  \tilde g(\mq) \Omega^{-1}\left( \NO  \NO  e^{ i k^a \X_a} \NO\cdot
+    \NO  e^{ i q^a \X_a} \NO  \NO \right)
+\end{equation}
+Using the Baker-Campbell-Hausdorff formula, to be discussed below, we
+may write
+\begin{equation}
+  \label{NOproductsBCH}
+  \NO  \NO  e^{ i k^a \X_a} \NO\cdot\NO  e^{ i q^a \X_a} \NO  \NO=
+  \NO  e^{ i D^a(\mk,\mq) \X_a} \NO
+\end{equation}
+for some function $\mD=(D^a):\R^6\times\R^6\to\R^6$. This enables us to
+rewrite the $\star$-product \eqref{fstargFourier} in terms of a bi-differential
+operator $f\star g:=\hat{\mathcal{D}}(f,g)$ given explicitly by
+\begin{equation}
+  \label{fstargbidiff}
+  f\star g=f  e^{ i\mx\cdot[\mD( - i\overleftarrow{\bfd}
+    , - i\overrightarrow{\bfd} )+ i\overleftarrow{\bfd}+ i
+    \overrightarrow{\bfd} ]} g
+\end{equation}
+with $\bfd:=(\d^a)$. In particular, the $\star$-products of the coordinate
+functions themselves may be computed from the formula
+\begin{equation}
+  \label{xastarxb}
+  x_a\star x_b=\left.-\frac{\d}{\d k^a}\frac\d
+    {\d q^b} e^{ i\mD(\mk,\mq)\cdot\mx}\right|_{\mk=\mq=\mbf0}
+\end{equation}
+
+Finally, let us describe how to explicitly compute the functions $D^a(\mk,\mq)$
+in \eqref{NOproductsBCH}. For this, we consider the Dynkin form of the
+Baker-Campbell-Hausdorff formula which is given for $\X,\Y\in\mfn$ by
+\begin{equation}
+  \label{eq:BCH:define}
+  e^\X  e^\Y= e^{\mathrm{H}(\X:\Y)}
+\end{equation}
+where $\mathrm{H}(\X:\Y)=\sum_{n\geq1}\mathrm{H}_n(\X:\Y)\in\mfn$ is
+generically an infinite series whose terms may be calculated through the
+recurrence relation
+\begin{eqnarray}
+  \label{eq:BCH}
+  &&(n+1) \mathrm{H}_{n+1}(\X:\Y) = \frac 12 \bigl[\X-\Y , 
+  \mathrm{H}_n(\X:\Y)\bigr] \\\nn
+  &&\qquad\qquad+\sum_{p=1}^{\lfloor n/2\rfloor}\frac{B_{2p}}{(2p)!} 
+  \sum_{\substack{k_1,\ldots,k_{2p}> 0 \\ k_1+\ldots+k_{2p}=n }}
+  \bigl[\mathrm{H}_{k_1}(\X:\Y) , \bigl[ \ldots , \bigl[
+  \mathrm{H}_{k_{2p}}(\X:\Y) , \X+\Y\bigr]\ldots\bigr] \bigr]
+\end{eqnarray}
+with $\mathrm{H}_1(\X:\Y):=\X+\Y$. The coefficients $B_{2p}$ are the
+Bernoulli numbers which are defined by the generating function
+\begin{equation}
+  \label{eq:BCH:K}
+  \frac{s}{1- e^{-s}}-\frac s2-1=\sum_{p=1}^\infty\frac{B_{2p}}{(2p)!}
+   s^{2p}
+\end{equation}
+The first few terms of the formula \eqref{eq:BCH:define} may be written
+explicitly as
+\begin{eqnarray}
+  \label{eq:BCH:1}
+  \mathrm{H}_1(\X:\Y)&=& \X+\Y \\\nn
+  \mathrm{H}_2(\X:\Y)&=&\frac 12 \cb \X\Y \\\nn
+  \mathrm{H}_3(\X:\Y)&=&\frac 1{12} \bigl[\X , \cb \X\Y \bigr]
+  -\frac 1{12} \bigl[\Y , \cb \X\Y \bigr] \\\nn
+  \mathrm{H}_4(\X:\Y)&=& -\frac 1{24} \bigl[\Y , \bigl[\X
+   , \cb \X\Y \bigr] \bigr]
+\end{eqnarray}
+Terms in the series grow increasingly complicated due to the sum over partitions
+in \eqref{eq:BCH}, and in general there is no closed symbolic form, as in the
+case of the Moyal product based on the ordinary Heisenberg algebra, for the
+functions $D^a(\mk,\mq)$ appearing in \eqref{NOproductsBCH}. However, at least
+for certain ordering prescriptions, the solvability of the Lie algebra $\mfn$
+enables one to find explicit expressions for the $\star$-product
+\eqref{fstargbidiff} in this fashion. We will now proceed to construct three
+such products.
+
+\subsection{Time Ordering}
+\label{TOP}
+
+The simplest Gutt product is obtained by choosing a ``time ordering''
+prescription in \eqref{Sigmasymbol} whereby all factors of the time translation
+generator $\J$ occur to the far right in any monomial in $U(\mfn)$. It coincides
+precisely with the global coordinatisation \eqref{NW4coords} of the
+Cahen-Wallach spacetime, and written on elements of the complexified group
+$\mathcal{N}^\C$ it is defined by
+\begin{equation}
+  \label{eq:time:defn}
+  \Omega_*\left( e^{ i\mk\cdot\mx}\right)=
+  \NOa  e^{ i k^a \X_a} \NOa:= e^{ i(p_i^+ \P^i_+
+    +p_i^- \P^i_-)}  e^{ i j \J}  e^{ i t \T}
+\end{equation}
+where we have denoted $\mk:=(j,t,\mbp^\pm)$ with $j,t\in\R$ and
+$\mbp^\pm=\overline{\mbp^\mp}=(p_1^\pm,p_2^\pm)\in\C^2$. To calculate the
+corresponding $\star$-product $*$, we have to compute the group products
+\begin{eqnarray}
+  \label{TOgpprods}
+  \NOa  \NOa  e^{ i k^a \X_a} \NOa\cdot\NOa  e^{ i k^{\prime a} \X_a}
+  \NOa  \NOa
+\end{eqnarray}
+The simplest way to compute these products is to realise the six-dimensional Lie
+algebra $\mfn$ as a central extension of the subalgebra $\mfs={\rm so}(2)$
+$\ltimes$ $\R^4$ of the four-di\-mensional Euclidean algebra ${\rm iso}(4)$ $=$
+${\rm so}(4)$ $\ltimes$ $\R^4$ \cite{SF1,FS1}. Regarding $\R^4$ as $\C^2$ (with
+respect to a chosen complex structure), for generic $\theta\neq0$ the generators
+of $\mfn$ act on $\mw\in\C^2$ according to the affine transformations $ e^{ i j
+  \J}\cdot\mw= e^{-\theta j} \mw$ and $ e^{ i(p_i^+ \P^i_++p_i^-
+  \P^i_-)}\cdot\mw=\mw+ i\theta \mbp^-$, corresponding to a combined rotation in
+the $(12)$, $(34)$ planes and translations in $\R^4\cong\C^2$. The central
+element generates an abstract one-parameter subgroup acting as $ e^{ i t
+  \T}\cdot\mw= e^{-\theta t} \mw$ in this representation. From this action we
+can read off the group multiplication laws
+\begin{eqnarray}
+  \label{JJgpmultlaw}
+  e^{ i j \J}  e^{ i j' \J}&=& e^{ i(j+j' ) \J}
+  \\\label{JQgpmultlaw}
+  e^{ i j \J}  e^{ i(p_i^+ \P^i_++p_i^- \P^i_-)}
+  &=& e^{ i(  e^{-\theta j} p_i^+ \P^i_+ +e^{\theta j} p_i^- \P^i_-)}e^{ ij\J}
+  \\\label{QQgpmultlaw}
+  e^{ i(p_i^+ \P^i_++p_i^- \P^i_-)}e^{ i(p_i^{\prime +} \P^i_++p_i^{\prime -} \P^i_-)} 
+  &=& e^{ i[(p_i^++p_i)^{\prime +} \P^i_+ +(p_i^-+p_i)^{\prime -} \P^i_-]}
+  e^{2\theta {\rm Im}(\mbp^+\cdot\mbp^{\prime -}) \T}
+\end{eqnarray}
+where the formula \eqref{JQgpmultlaw} displays the semi-direct product nature of
+the euclidean group, while \eqref{QQgpmultlaw} displays the group cocycle of the
+projective representation of the subgroup $\mathcal S$ of ${\rm ISO}(4)$,
+arising from the central extension, which makes the translation algebra
+noncommutative and is computed from the Baker-Campbell-Hausdorff formula.
+
+Using \eqref{JJgpmultlaw} through \eqref{QQgpmultlaw} we may now compute the
+products \eqref{TOgpprods}
+\begin{eqnarray}
+  \label{TOgpprodexpl}
+  \NOa  \NOa  e^{ i k^a \X_a} \NOa\cdot\NOa  e^{ i k^{\prime a} \X_a}
+  \NOa  \NOa &=& e^{i{\bf F}^\ast\cdot\X}\\\nn
+  F^{\ast+}_i&=& p_i^++ e^{-\theta j} p_i^{\prime +}\\\nn
+  F^{\ast-}_i&=& p_i^-+ e^{\theta j} p_i^{\prime -}\\\nn
+  F^\ast_j&=& j+j'\\\nn
+  F^\ast_t&=& t+t'-\theta ( e^{\theta j} \mbp^+\cdot\mbp^{\prime -}- e^{-\theta j}
+  \mbp^-\cdot\mbp^{\prime +})
+\end{eqnarray}
+From \eqref{xastarxb} we may compute the $\star$-products between the coordinate
+functions on $\mfn^\vee$ and easily verify the commutation relations of the algebra
+$\mfn$,
+\begin{eqnarray}
+  \label{TOcoordstarprods}
+  x_a*x_a&=&(x_a)^2\\\nn
+  x_a*x^+&=&x^+*x_a = x_a x^+\\\nn
+  z_1*z_2&=&z_2*z_1 = z_1 z_2\\\nn
+  \overline{z}_1*\overline{z}_2&=&\overline{z}_2*\overline{z}_1
+  = \overline{z}_1 \overline{z}_2\\\nn
+  x^-*z_i&=&x^- z_i- i\theta z_i\\\nn
+  z_i*x^-&=&x^- z_i\\\nn
+  x^-*\overline{z}_i&=&x^- \overline{z}_i+ i\theta \overline{z}_i\\\nn
+  \overline{z}_i*x^-&=&x^- \overline{z}_i \\\nn
+  z_i*\overline{z}_i&=&z_i \overline{z}_i- i\theta x^+\\\nn
+  \overline{z}_i*z_i&=&z_i \overline{z}_i+ i\theta x^+
+\end{eqnarray}
+with $a=1,\dots,6$ and $i=1,2$.
+
+From \eqref{NOproductsBCH}, \eqref{fstargbidiff} we find the $*$-product of
+generic functions $f,g\in\CC^{\infty}(\mfn^*)$ given by
+\begin{eqnarray}
+  \label{TOstargen}
+  f*g&=&\mu\circ\exp\left[ i\theta x^+ \left( e^{- i\theta \d_-} 
+      \bfd^\top\otimes\overline{\bfd}- e^{ i\theta \d_-} 
+      {\overline{\bfd}}^{ \top}\otimes\bfd\right)\right.\\\nn
+  &&\qquad\qquad+\left.\overline{z}_i 
+    \left( e^{ i\theta \d_-}-1\right)\otimes
+    \d^i+z_i \left( e^{- i\theta \d_-}-1\right)
+    \otimes\overline{\d}^{ i}\right]f\otimes g
+\end{eqnarray}
+where $\mu(f\otimes g)=f g$ is the pointwise product. To second order
+in the deformation parameter $\theta$ we obtain
+\begin{eqnarray}
+  \label{eq:time:positionspace}
+  f\ast g&=&f g
+  - i\theta \left[
+    x^+ \left( \overline{\bfd}f\cdot\bfd g
+    -\bfd f\cdot\overline{\bfd}g\right)
+    -\overline{\mz}\cdot\d_-f \bfd g
+    +\mz\cdot\d_-f \overline{\bfd}g
+  \right]\\\nn
+  &&- \theta^2 \sum\limits_{i=1,2} \left[ 
+  \frac12 \left(x^+\right)^2 \left((\d^i)^2f 
+  ( {\overline{\d}}^{ i})^2g
+  -2{\overline{\d}}^{ i}\d^if {\overline{\d}}^{ i}\d^ig
+  +({\overline{\d}}^{ i})^2f (\d^i)^2g\right)\right.
+  \\\nn&&\qquad\qquad\quad- x^+ \left(\d^i\d_- f 
+  {\overline{\d}}^{ i}g
+  -{\overline{\d}}^{ i}\d_- f \d^ig\right)\\\nn
+&&\qquad\qquad\quad
+-x^+ \overline{z}_i \left( {\overline{\d}}^{ i}\d_- f (\d^i)^2g
+  -\d^i\d_- f {\overline{\d}}^{ i}\d^ig\right)\\
+  \nn &&\qquad\qquad\quad
+  + x^+ z_i \left( {\overline{\d}}^{ i}\d_-
+    f {\overline{\d}}^{ i}\d^ig
+  -\d^i\d_- f ( {\overline{\d}}^{ i})^2g\right)
+  -\overline{z}_i z_i \d_-^2f {\overline{\d}}^{ i}\d^ig
+  \\ \nn &&\qquad\qquad\quad
+  +\Bigl.\frac12 \left(\overline{z}_i^{ 2} \d_-^2f (\d^i)^2g
+  +\overline{z}_i \d_-^2f \d^ig
+  +z_i \d_-^2f {\overline{\d}}^{ i}g
+  +z_i^2 \d_-^2f ( {\overline{\d}}^{ i})^2g\right)
+\Bigr]\\\nn
+&& + \mathcal{O}\left(\theta^3\right)
+\end{eqnarray}
+
+\subsection{Symmetric Time Ordering}
+\label{TSOP}
+Our next Gutt product is obtained by taking a ``symmetric time ordering''
+whereby any monomial in $U(\mfn)$ is the symmetric sum over the two time
+orderings obtained by placing $\J$ to the far right and to the far left. This
+ordering is induced by the group contraction of ${\rm U}(1)\times{\rm SU}(2)$
+onto the Nappi-Witten group $\mathcal{N}_0$ \cite{DAK1}, and it thereby induces
+the coordinatisation of $\NW_4$ that is obtained from the Penrose-G\"uven limit
+of the spacetime $\S^{1,0}\times\S^3$, i.e. it coincides with the Brinkman
+coordinatisation of the Cahen-Wallach spacetime. On elements of $\mathcal{N}^\C$
+it is defined by
+\begin{equation}
+  \label{TOsymgpprods}
+  \Omega_\bullet\left( e^{ i\mk\cdot\mx}\right)=
+  \NOb  e^{ i k^a \X_a} \NOb:= e^{\frac i2 j \J} 
+  e^{ i(p_i^+ \P^i_+
+    +p_i^- \P^i_-)}  e^{\frac i2 j \J}  e^{ i t \T}
+\end{equation}
+From \eqref{JJgpmultlaw} through \eqref{QQgpmultlaw} we can again easily compute
+the required group products to get
+\begin{eqnarray}
+  \label{TOsymgpprodexpl}
+  \NOb  \NOb  e^{ i k^a \X_a} \NOb\cdot\NOb  e^{ i k^{\prime a} \X_a}
+  \NOb  \NOb &=& e^{i{\bf F}^\bullet\cdot\X}\\\nn
+  F^{\bullet+}_i&=& e^{\frac{\theta}2 j'} p_i^++
+        e^{-\frac{\theta}2 j} p_i^{\prime +}\\\nn
+  F^{\bullet-}_i&=&e^{-\frac{\theta}2 j'} p_i^-+
+        e^{\frac{\theta}2 j} p_i^{\prime -}\\\nn
+  F^\bullet_j&=&j+j'\\\nn
+  F^\bullet_t&=&t+t'-\theta e^{\frac{\theta}2 (j+j' )} 
+        \mbp^+\cdot\mbp^{\prime -}- \theta e^{-\frac{\theta}2 (j+j' )} 
+        \mbp^-\cdot\mbp^{\prime +}
+\end{eqnarray}
+With the same conventions as above, from \eqref{xastarxb} we may now compute the
+$\star$-products $\bullet$ between the coordinate functions on $\mfn^\vee$ and again
+verify the commutation relations of the algebra $\mfn$,
+\begin{eqnarray}
+  \label{TOsymcoordstarprods}
+  x_a\bullet x_a&=&(x_a)^2 \\\nn
+  x_a\bullet x^+&=&x^+\bullet x_a = x_a x^+ \\\nn
+  z_1\bullet z_2&=&z_2\bullet z_1= z_1 z_2 \\\nn
+  \overline{z}_1\bullet \overline{z}_2&=&\overline{z}_2\bullet \overline{z}_1
+        = \overline{z}_1 \overline{z}_2 \\\nn
+  x^-\bullet z_i&=&x^- z_i-\frac i2\theta z_i \\\nn
+  z_i\bullet x^-&=&x^- z_i+\frac i2\theta z_i \\\nn
+  x^-\bullet \overline{z}_i&=&x^- \overline{z}_i+\frac i2
+  \theta \overline{z}_i \\\nn
+  \overline{z}_i\bullet x^-&=&x^- \overline{z}_i
+  -\frac i2\theta \overline{z}_i \\\nn
+  z_i\bullet \overline{z}_i&=&z_i \overline{z}_i- i\theta x^+ \\\nn
+  \overline{z}_i\bullet z_i &=&z_i \overline{z}_i+ i\theta x^+
+\end{eqnarray}
+From \eqref{NOproductsBCH} through \eqref{fstargbidiff} we find for generic
+functions the formula
+\begin{eqnarray}
+  \label{TOsymstargen}
+  f\bullet g&=&\mu\circ\exp\left\{ i\theta x^+ \left( e^{-\frac{ i\theta}2
+        \d_-} \bfd^\top\otimes e^{-\frac{ i\theta}2 \d_-} 
+      \overline{\bfd}- e^{\frac{ i\theta}2 \d_-} 
+      \overline{\bfd}^{ \top}\otimes e^{\frac{ i\theta}2 \d_-} 
+      \bfd\right)\right.\\\nn
+  &&\qquad\qquad+ \overline{z}_i \left[\d^i\otimes
+    \left( e^{-\frac{ i\theta}2 \d_-}-1\right)
+    +\left( e^{\frac{ i\theta}2 \d_-}-1\right)\otimes
+    \d^i\right]\\\nn
+  &&\qquad\qquad+\left.
+    z_i \left[ \overline{\d}^{ i}\otimes
+      \left( e^{\frac{ i\theta}2 \d_-}-1\right)
+      +\left( e^{-\frac{ i\theta}2 \d_-}-1\right)
+      \otimes\overline{\d}^{ i}\right]\right\}f\otimes g
+\end{eqnarray}
+To second order in $\theta$ we obtain
+\begin{eqnarray}
+  \label{eq:symtime:positionspace}\nn
+  f\bullet g&=&f g- \frac{ i}2  \theta \left[
+  2x^+ \left( \overline{\bfd}f\cdot\bfd g
+  - \bfd f\cdot\overline{\bfd}g\right)\right.\\\nn
+  &&\qquad\qquad\quad\quad+\left.\overline{\mz}\cdot\left(\bfd f \d_- g
+  - \d_- f \bfd g\right)+ \mz\cdot\left(\d_- f \overline{\bfd}g
+   - \overline{\bfd}f \d_- g\right)\right]\\ \nn
+  &&-  \frac1{2}  \theta^2  \sum\limits_{i=1,2}  
+  \left[\left(x^+\right)^2 \left(( \overline{\d}^{ i})^2f (\d^i)^2g
+  +(\d^i)^2f ( \overline{\d}^{ i})^2g
+  -2\overline{\d}^{ i}\d^if \overline{\d}^{ i}\d^ig
+  \right)\right.\\ \nn &&\qquad
+  - x^+ \bigl(\d^if \overline{\d}^{ i}\d_- g
+  +\overline{\d}^{ i}f \d^i\d_- g
+  +\overline{\d}^{ i}\d_- f \d^ig
+  +\d^i\d_- f \overline{\d}^{ i}g\bigr)\\ \nn
+  &&\qquad
+  + x^+ \overline{z}_i \bigl( \overline{\d}^{ i}\d^if \d^i\d_- g
+  -\overline{\d}^{ i}\d_- f (\d^i)^2g
+  +\d^i\d_- f \overline{\d}^{ i}\d^ig
+  -(\d^i)^2f \overline{\d}^{ i}\d_- g\bigr)
+  \\ \nn &&\qquad
+  + x^+ z_i \left( \overline{\d}^{ i}\d^if \overline{\d}^{ i}\d_- g
+  -\d^i\d_- f ( \overline{\d}^{ i})^2g
+  +\overline{\d}^{ i}\d_- f \overline{\d}^i\d^ig
+  -( \overline{\d}^{ i})^2f \d^i\d_- g\right)\\ \nn
+  &&\qquad
+  +  \frac12  \overline{z}_i z_i \left( 
+  \overline{\d}^{ i}\d_- f \d^i\d_- g
+  +\d^i\d_- f \overline{\d}^{ i}\d_- g
+  -\d_- ^2f \overline{\d}^{ i}\d^ig
+  -\overline{\d}^{ i}\d^if \d_-^2g\right)
+  \\ \nn &&\qquad
+  +  \frac14  \overline{z}_i^{ 2} 
+  \left((\d^i)^2f \d_-^2g
+  -2\d^i\d_- f \d^i\d_- g
+  +\d_-^2f (\d^i)^2g\right)\\ \nn &&\qquad
+  +  \frac14  z_i^2 
+  \left(( \overline{\d}^{ i})^2f \d_-^2g
+  -2\overline{\d}^{ i}\d_- f \overline{\d}^{ i}\d_- g
+  +\d_-^2f ( \overline{\d}^{ i})^2g\right)
+  \\ \nn &&\qquad
+  +\Bigl. \frac14  \overline{z}_i \left(\d^if \d_-^2g
+  +\d_-^2f \d^ig\right)
+  + \frac14  z_i \left(\d_-^2f \overline{\d}^{ i}g
+  +\overline{\d}^{ i}f \d_-^2g\right)
+  \Bigr]\\\nn&&+{\mathcal O}\left(\theta^3\right)
+\end{eqnarray}
+
+\subsection{Weyl Ordering}
+\label{WOP}
+The original Gutt product \cite{Gutt1} is based on the ``Weyl ordering''
+prescription by which all monomials in $U(\mfn)$ are completely symmetrised over
+all elements of $\mfn$. On $\mathcal{N}^\C$ it is defined by
+\begin{equation}
+  \label{Weylgpprods}
+  \Omega_\star\left( e^{ i\mk\cdot\mx}\right)=
+  \NO  e^{ i k^a \X_a} \NO:= e^{ i k^a \X_a}
+\end{equation}
+While this ordering is usually thought of as the ``canonical'' ordering for the
+construction of $\star$-products, in our case it turns out to be drastically more
+complicated than the other orderings. Nevertheless, we shall present here its
+explicit construction for the sake of completeness and for later comparisons.
+
+It is an extremely arduous task to compute products of the group elements
+\eqref{Weylgpprods} directly from the Baker-Campbell-Hausdorff formula
+\eqref{eq:BCH}. Instead, we shall construct an isomorphism
+$\mathcal{G}:\overline{U(\mfn)^\C}\to \overline{U(\mfn)^\C}$ which
+sends the time-ordered product defined by \eqref{TOgpprods} into the
+Weyl-ordered product defined by \eqref{Weylgpprods}, i.e.
+\begin{equation}
+  \label{1ststudy}
+  \mathcal{G}\circ\Omega_*=\Omega_\star
+\end{equation}
+Then by defining
+$\mathcal{G}_\Omega:=\Omega_*^{-1}\circ\mathcal{G}\circ\Omega_\star$,
+the $\star$-product $\star$ associated with the Weyl ordering
+prescription \eqref{Weylgpprods} may be computed as
+\begin{equation}
+  \label{WeylTOrel}
+  f\star g=\mathcal{G}_\Omega\bigl(\mathcal{G}_\Omega^{-1}(f)*
+  \mathcal{G}_\Omega^{-1}(g)\bigr) \qquad\qquad\qquad f,g\in\CC^\infty(\mfn^\vee)
+\end{equation}
+Explicitly, if
+\begin{equation}
+  \label{1ststudyexpl}
+  \NOa  e^{ i k^a \X_a} \NOa= e^{ i G^a(\mk) \X_a}
+\end{equation}
+for some function $\mG=(G^a):\R^6\to\R^6$, then the isomorphism
+$\mathcal{G}_\Omega:\CC^\infty(\mfn^\vee)\to\CC^\infty(\mfn^\vee)$ may be represented
+as the invertible differential operator
+\begin{equation}
+  \label{Gdiffop}
+  \mathcal{G}_\Omega= e^{ i\mx\cdot[\mG(- i\mbf\d)+ i\mbf\d]}
+\end{equation}
+This relation just reflects the fact that the time-ordered and Weyl-ordered
+$\star$-products simply represent different ordering prescriptions for the same
+algebra and are therefore (cohomologically) {\it equivalent}. We will elucidate
+this property more thoroughly in section \ref{WeylSystems}. Thus once the map
+\eqref{1ststudyexpl} is known, the Weyl ordered $\star$-product $\star$ can be
+computed in terms of the time-ordered $\star$-product $*$ of Section \ref{TOP}.
+
+The functions $G^a(\mk)$ appearing in \eqref{1ststudyexpl} are readily
+calculable through the Baker-Campbell-Hausdorff formula. It is clear from
+\eqref{TOgpprods} that the coefficient of the time translation generator
+$\J\in\mfn$ is simply
+\begin{equation}
+  \label{Gj}
+  G^j(j,t,\mbp^\pm)=j
+\end{equation}
+From \eqref{eq:BCH} it is also clear that the only terms proportional to
+$\P^i_+$ come from commutators of the form $[\J,[\dots,[\J,\P^i_+] ]\dots]$, and
+gathering all terms we find
+\begin{eqnarray}
+  \label{GomzBn}
+  \sum\limits_{i=1,2}  
+  G^{p_i^+}(j,t,\mbp^\pm) \P^i_+&=&- i\sum_{n=0}^\infty
+  \frac{B_n}{n!} \bigl[ \underbrace{ i j \J , \bigl[\dots , 
+    \bigl[ i j\J}_n ,  i p_i^+ \P^i_+ \bigr] \bigr]
+  \dots\bigr]\\\nn &=&
+  p_i^+ \sum_{n=0}^\infty\frac{B_n}{n!} 
+  (-\theta j)^n \P^i_+
+\end{eqnarray}
+Since $B_0=1$, $B_1=-\frac12$ and $B_{2k+1}=0$ $\forall k\geq1$, from
+\eqref{eq:BCH:K} we thereby find
+\begin{equation}
+  \label{Gomz}
+  G^{\mbp^+}(j,t,\mbp^\pm)=\frac{\mbp^+}{\phi_\theta(j)}
+\end{equation}
+where we have introduced the function
+\begin{equation}
+  \label{phithetadef}
+  \phi_\theta(j)=\frac{1- e^{-\theta j}}{\theta j}
+\end{equation}
+obeying the identities
+\begin{eqnarray}
+  \phi_\theta(j)e^{\theta j}=\phi_{-\theta}(j) \qquad
+  \phi_\theta(j)\phi_{-\theta}(j)=-\frac2{(\theta j)^2}\bigl(1-\cos(\theta j)\bigr)
+\label{phithetaids}
+\end{eqnarray}
+In a completely analogous way one finds the coefficient of the $\P^i_-$ term to
+be given by
+\begin{equation}
+  \label{Gmz}
+  G^{\mbp^-}(j,t,\mbp^\pm)=\frac{\mbp^-}{{\phi_{-\theta}(j)}}
+\end{equation}
+Finally, the non-vanishing contributions to the central
+element $\T\in\mfn$ are given by
+\begin{eqnarray}
+  \nn
+  G^t(j,t,\mbp^\pm) \T&=&
+  t \T- i\sum_{n=1}^\infty\frac{B_{n+1}}{n!} 
+  \left(\bigl[ i p_i^+ \P^i_+ , \bigl[ 
+    \underbrace{ i j \J , \dots\bigl[ i j \J}_n ,  i p_i^- 
+    \P^i_- \bigr]\dots\bigr] \bigr]\right.\\\nn &&\qquad\qquad\qquad
+  +\left.\bigl[ i p_i^- \P^i_- , \bigl[ 
+    \underbrace{ i j \J , \dots\bigl[ i j \J}_n , 
+    i p_i^+ \P^i_+ \bigr]\dots\bigr] \bigr]\right)\\
+  \label{GtBn}
+  &=&t \T+4\theta \mbp^+\cdot\mbp^- \sum_{n=1}^\infty\frac{B_{n+1}}
+  {n!} (-\theta j)^n \T
+\end{eqnarray}
+By differentiating \eqref{GomzBn} and \eqref{phithetadef} with respect
+to $s=-\theta j$ we arrive finally at
+\begin{equation}
+  \label{Gt}
+  G^t(j,t,\mbp^\pm)=t+4\theta \mbp^+\cdot\mbp^-\gamma_\theta(j)
+\end{equation}
+where we have introduced the function
+\begin{equation}
+  \label{gammathetadef}
+  \gamma_\theta(j)=\frac12+\frac{(1+\theta j)  e^{-\theta j}-1}
+  {\left( e^{-\theta j}-1\right)^2}
+\end{equation}
+
+From \eqref{Gdiffop} we may now write down the explicit form of the
+differential operator implementing the equivalence between the
+$\star$-products $*$ and $\star$ as
+\begin{eqnarray}
+  \label{Gdiffopexpl}
+  \mathcal{G}_\Omega&=&\exp\left[-2 i\theta x^+ \overline{\bfd}
+    \cdot\bfd\left(1+\frac{2(1- i\theta \d_-) 
+        e^{ i\theta \d_-}-1}{\left( e^{ i\theta \d_-}-1
+        \right)^2}\right)\right.\\\nn
+  &&\qquad\quad+\left.
+    \overline{\mz}\cdot\bfd\left(\frac{ i\theta \d_-}
+      { e^{ i\theta \d_-}-1}-1\right)-\mz\cdot\overline{\bfd}
+    \left(\frac{ i\theta \d_-}
+      { e^{- i\theta \d_-}-1}+1\right)\right]
+\end{eqnarray}
+From \eqref{TOgpprodexpl} and \eqref{1ststudyexpl} we may readily compute the
+products of Weyl symbols with the result
+\begin{eqnarray}
+  \label{Weylgpprodexpl}
+  \NO  \NO  e^{ i k^a \X_a} \NO\cdot\NO  e^{ i k^{\prime a} \X_a}
+  \NO  \NO &=& e^{i{\bf F}^\star\cdot\X}\\\nn
+  F^{\star+}_i&=& \frac{\phi_\theta(j) p_i^++
+        e^{-\theta j}\phi_\theta(j') p_i^{ \prime +}}{\phi_\theta(j+j')}\\\nn
+  F^{\star-}_i&=& \frac{{\phi_{-\theta}(j)} p_i^-+
+    e^{\theta j}{\phi_{-\theta}(j')} p_i^{\prime -}}{\phi_{-\theta}(j+j')}\\\nn
+  F^\star_j&=& j+j'\\\nn
+  F^\star_t&=&t+t'+\theta \bigl( \phi_{-\theta}(j) 
+    \phi_{-\theta}(j' ) \mbp^+\cdot\mbp^{\prime -}-\phi_{\theta}(j) 
+    \phi_{\theta}(j' ) \mbp^-\cdot\mbp^{\prime +}\bigr)\\\nn
+    &&- 4\theta \biggl(\gamma_\theta(j+j' )
+      \bigl({\phi_{-\theta}(j)} 
+      \mbp^++ e^{\theta j} {\phi_{-\theta}(j' )} \mbp^{\prime +} \bigr)\\\nn
+    &&\qquad\quad\times\bigl( \phi_\theta(j)
+    \mbp^-+ e^{-\theta j} \phi_\theta(j' ) \mbp^{\prime -} \bigr)\\\nn
+    &&-\gamma_\theta(j) \phi_\theta(j) \phi_{-\theta}(j) \mbp^+\cdot\mbp^--
+    \gamma_\theta(j' ) \phi_\theta(j' ) \phi_{-\theta}(j' )
+    \mbp^{\prime +}\cdot\mbp^{\prime -}\biggr)
+\end{eqnarray}
+The $x_a \star x_b$ products are identical to those of the symmetric time
+ordering prescription \eqref{TOsymcoordstarprods}. After some computation, from
+\eqref{NOproductsBCH}, \eqref{fstargbidiff} we find for generic functions
+$f,g\in\CC^\infty(\mfn^\vee)$ the formula
+\begin{eqnarray}
+\nn
+f\star g&=&\mu\circ\exp\left\{\theta x^+ \left[  
+\frac{1\otimes1+\bigl( i
+\theta (\d_-\otimes1+1\otimes\d_-)-1\otimes1
+\bigr)  e^{ i\theta \d_-}\otimes e^{ i\theta \d_-}}
+{\left( e^{ i\theta \d_-}\otimes e^{ i\theta \d_-}-1\otimes1
+\right)^2}\right.\right.\\ &&\times 
+\left(\frac{4\bfd^\top\left( e^{- i\theta \d_-}-1
+\right)}{\theta \d_-}\otimes
+\frac{\overline{\bfd}\left( e^{- i\theta \d_-}-1
+\right)}{\theta \d_-}-\frac{3\overline{\bfd}^{ \top}
+\left( e^{ i\theta \d_-}-1
+\right)}{\theta \d_-}\otimes
+\frac{\bfd\left( e^{ i\theta \d_-}-1
+\right)}{\theta \d_-}\right.\nn\\ &&+\left.
+\frac{4\overline{\bfd}\cdot\bfd\sin^2\left(\frac\theta2
+ \d_-\right)}{\theta^2 \d_-^2}\otimes1-1\otimes
+\frac{4\overline{\bfd}\cdot\bfd\sin^2\left(\frac\theta2
+ \d_-\right)}{\theta^2 \d_-^2}\right)
+\nn\\ &&+ 
+\frac{4 i\overline{\bfd}\cdot\bfd}{\theta \d_-}
+\left(\frac{ i\sin^2\left(\frac\theta2
+ \d_-\right)}{\theta \d_-\left(
+ e^{ i\theta \d_-}-1\right)}-1\right)\otimes1+1\otimes
+\frac{4 i\overline{\bfd}\cdot\bfd}{\theta \d_-}
+\left(\frac{ i\sin^2\left(\frac\theta2
+ \d_-\right)}{\theta \d_-\left(
+ e^{ i\theta \d_-}-1\right)}-1\right)\nn\\ &&
++\left.\frac{3\overline{\bfd}^{ \top}\left( e^{ i\theta \d_-}-1
+\right)}{\theta \d_-}\otimes\frac{
+\bfd\left( e^{ i\theta \d_-}-1
+\right)}{\theta \d_-}+\frac{\bfd^\top
+\left( e^{- i\theta \d_-}-1
+\right)}{\theta \d_-}\otimes\frac{\overline{\bfd}
+\left( e^{- i\theta \d_-}-1\right)}{\theta \d_-}  \right]
+\nn\\&&
++ \frac{\overline{z}_i}{1\otimes e^{- i\theta 
+\d_-}- e^{ i\theta \d_-}\otimes1} \left[  
+\frac{\d^i}{\d_-} \left(1- e^{ i\theta \d_-}
+\right)\otimes\d_--\d_-\otimes\frac{\d^i}
+{\d_-} \left(1- e^{- i\theta \d_-}\right)\right.\nn\\
+&& +\Biggl. 1\otimes\d^i 
+ e^{- i\theta \d_-}-\d^i  e^{ i\theta \d_-}
+\otimes1-1\otimes2\d^i  \Biggr]\nn\\ &&
++ \frac{z_i}{1\otimes e^{ i\theta 
+\d_-}- e^{- i\theta \d_-}\otimes1} \left[  
+\frac{\overline{\d}^{ i}}{\d_-} \left(1- e^{- i\theta \d_-}
+\right)\otimes\d_--\d_-\otimes\frac{\overline{\d}^{ i}}
+{\d_-} \left(1- e^{ i\theta \d_-}\right)\right.\nn\\
+&& +\left.\Biggl.1\otimes\overline{\d}^{ i} 
+ e^{ i\theta \d_-}-\overline{\d}^{ i}  e^{- i\theta \d_-}
+ \otimes1-1\otimes2\overline{\d}^{ i}  \Biggr]\right\}f\otimes g
+  \label{Weylstargen}
+\end{eqnarray}
+To second order in the deformation parameter $\theta$ we obtain
+\begin{eqnarray}
+  \label{eq:weyl:positionspace}
+  f\star g&=&f g- \frac{ i}2  \theta \left[
+  2x^+ \left( \overline{\bfd}f\cdot\bfd g
+  - \bfd f\cdot\overline{\bfd}g\right)\right.\\\nn
+  &&\qquad\qquad\qquad+\left.\overline{\mz}\cdot\left(\bfd f \d_- g
+  - \d_- f \bfd g\right)+ \mz\cdot\left(\d_- f \overline{\bfd}g
+   - \overline{\bfd}f \d_- g\right)\right]\\ \nn
+  &&-  \frac1{2}  \theta^2  \sum\limits_{i=1,2}  \left[
+  \left(x^+\right)^2 
+  \left(( \overline{\d}^{ i})^2f (\d^i)^2g
+  +(\d^i)^2f ( \overline{\d}^{ i})^2g
+  -2\overline{\d}^{ i}\d^if \overline{\d}^{ i}\d^ig
+  \right)\right.\\ \nn &&\qquad\quad
+  -  \frac13  x^+ \left(\d^if \overline{\d}^{ i}\d_- g
+  +\overline{\d}^{ i}f \d^i\d_- g
+  +\overline{\d}^{ i}\d_- f \d^ig
+  +\d^i\d_- f \overline{\d}^{ i}g\right.\\ \nn
+  &&\qquad\qquad\qquad\qquad\quad
+  -\left.2\d_-f \overline{\d}^{ i}
+  \d^ig-2\overline{\d}^{ i}\d^if 
+  \d_-g\right)\\\nn&&\qquad\quad
+  + x^+ \overline{z}_i \left( \overline{\d}^{ i}
+  \d^if \d^i\d_- g
+  -\overline{\d}^{ i}\d_- f (\d^i)^2g
+  +\d^i\d_- f \overline{\d}^{ i}\d^ig
+  -(\d^i)^2f \overline{\d}^{ i}\d_- g\right)
+  \\ \nn &&\qquad\quad
+  + x^+ z_i \left( \overline{\d}^{ i}\d^if \overline{\d}^{ i}\d_- g
+  -\d^i\d_- f ( \overline{\d}^{ i})^2g
+  +\overline{\d}^{ i}\d_- f \overline{\d}^{ i}\d^ig
+  -( \overline{\d}^{ i})^2f \d^i\d_- g\right)\\ \nn
+  &&\qquad\quad
+  +  \frac12  \overline{z}_i z_i \left( 
+  \overline{\d}^{ i}\d_- f \d^i\d_- g
+  +\d^i\d_- f \overline{\d}^{ i}\d_- g
+  -\d_- ^2f \overline{\d}^{ i}\d^ig
+  -\overline{\d}^{ i}\d^if \d_-^2g\right)
+  \\ \nn &&\qquad\quad
+  +  \frac14  \overline{z}_i^{ 2} 
+  \left((\d^i)^2f \d_-^2g
+  -2\d^i\d_- f \d^i\d_- g
+  +\d_-^2f (\d^i)^2g\right)\\ \nn &&\qquad\quad
+  +  \frac14  z_i^2 
+  \left(( \overline{\d}^{ i})^2f \d_-^2g
+  -2\overline{\d}^{ i}\d- f \overline{\d}^{ i}\d_- g
+  +\d_-^2f ( \overline{\d}^{ i})^2g\right)
+  \\ \nn &&\qquad\quad
+  +  \frac16  \overline{z}_i \left(\d^if \d_-^2g
+  +\d_-^2f \d^ig-\d_-f \d^i
+  \d_-g-\d^i\d_-f \d_-g\right)
+  \\&&\qquad\quad
+  +\Bigl. \frac16  z_i \left(\d_-^2f \overline{\d}^{ i}g
+  +\overline{\d}^{ i}f \d_-^2g-\d_-f \overline{\d}^{ i}\d_-g-
+  \overline{\d}^{ i}\d_-f \d_-g\right)
+\Bigr]\\\nn
+&&+{\mathcal O}\left(\theta^3\right)
+\end{eqnarray}
+
+Although extremely cumbersome in form, the Weyl-ordered product has several
+desirable features over the simpler time-ordered products. For instance, it is
+Hermitean owing to the property
+\begin{equation}
+  \label{Weylstarherm}
+  \overline{f\star g}=\overline{g}\star\overline{f}
+\end{equation}
+Moreover, while the $\mfn$-covariance condition \eqref{xyPoisson} holds for all
+of our $\star$-products, the Weyl product is in fact $\mfn$-invariant, because for
+any $x\in\C_{(1)}(\mfn^\vee)$ one has the stronger compatibility condition
+\begin{equation}
+  \label{strongcompcond}
+  [x,f]_\star= i\theta \Theta(x,f)\qquad\qquad\forall f\in\CC^\infty(\mfn^\vee)
+\end{equation}
+with the action of the Lie algebra $\mfn$. In the next section we shall see that
+the Weyl-ordered $\star$-product is, in a certain sense, the generator of all other
+$\star$-products making it the ``universal'' product for the quantisation of the
+spacetime $\NW_6$.
+
+\section{Weyl Systems}
+\label{WeylSystems}
+
+In this section we will use the notion of a generalised Weyl system introduced
+in \cite{ALZ1} to describe some more formal aspects of the $\star$-products that
+we have constructed and to analyse the interplay between them. This generalises
+the standard Weyl systems \cite{Sz1} which may be used to provide a purely
+operator theoretic characterisation of the Moyal product, associated to the
+(untwisted) Heisenberg algebra. In that case, it can be regarded as a projective
+representation of the translation group in an even-dimensional real vector
+space. However, for the twisted Heisenberg algebra such a representation is not
+possible, since by definition the appropriate arena should be a central
+extension of the non-Abelian subgroup $\mathcal S_5$ \eqref{S5subgp} of the full
+euclidean group ${\rm ISO}(4)$. This requires a generalisation of the standard
+notion which we will now describe and use it to obtain a very useful
+characterisation of the noncommutative geometry induced by the algebra $\mfn$.
+
+Let $\mathbb{V}$ be a five-dimensional real vector space. In a suitable
+(canonical) basis, vectors $\mk\in\mathbb{V}\cong \R\times\C^2$ will be
+denoted (with respect to a chosen complex structure) as
+\begin{equation}
+  \label{Svectors}
+  \mk=\begin{pmatrix}j\\\mbp^+ \\\mbp^-\end{pmatrix}
+\end{equation}
+with $j\in\R$ and $\mbp^\pm=\overline{\mbp^\mp}\in\C^2$. As the notation
+suggests, we regard $\mathbb{V}$ as the ``momentum space'' of the dual
+$\mfn^\vee$. Note that we do not explicitly incorporate the component
+corresponding to the central element $\T$, as it will instead appear through the
+appropriate projective representation that we will construct, similarly to the
+Moyal case. As an Abelian group, $\mathbb{V}\cong\R^5$ with the usual addition
+$+$ and identity $\mbf0$. Corresponding to a deformation parameter
+$\theta\in\R$, we deform this Abelian Lie group structure to a generically
+non-Abelian one. The deformed composition law is denoted $\comp$. It is
+associative and in general will depend on $\theta$. The identity element with
+respect to $\comp$ is still defined to be $\mbf0$, and the inverse of any
+element $\mk\in\mathbb{V}$ is denoted $\underline{\mk}$, so that
+\begin{equation}
+  \label{compinverse}
+  \mk\comp\underline{\mk}=\underline{\mk}\comp\mk=\mbf0
+\end{equation}
+Being a deformation of the underlying Abelian group structure on $\mathbb{V}$
+means that the composition of any two vectors $\mk,\mq\in\mathbb{V}$ has a
+formal small $\theta$ expansion of the form
+\begin{equation}
+  \label{compsmalltheta}
+  \mk\comp\mq=\mk+\mq+{\mathcal O}(\theta)
+\end{equation}
+from which it follows that
+\begin{equation}
+  \label{compinvsmalltheta}
+  \underline{\mk}=-\mk+{\mathcal O}(\theta)
+\end{equation}
+In other words, rather than introducing $\star$-products that deform the
+pointwise multiplication of functions on $\mfn^\vee$, we now deform the ``momentum
+space'' of $\mfn^\vee$ to a non-Abelian Lie group. We will see below that the
+five-dimensional group $(\mathbb{V},\comp)$ is isomorphic to the original
+subgroup $\mathcal{S}\subset{\rm ISO}(4)$, and that the two notions of
+quantisation are in fact the same.
+
+Given such a group, we now define a (generalised) Weyl system for the algebra
+$\mfn$ as a quadruple $(\mathbb{V},\comp,\weyl,\omega)$, where the map
+\begin{equation}
+  \label{genweylmapdef}
+  \weyl : \mathbb{V} \longrightarrow \overline{U(\mfn)^\C}
+\end{equation}
+is a projective representation of the group $(\mathbb{V},\comp)$ with projective
+phase $\omega:\mathbb{V}\times\mathbb{V}\to\C$. This means that for every
+pair of elements $\mk,\mq\in\mathbb{V}$ one has the composition rule
+\begin{equation}
+  \label{Weylcomprule}
+  \weyl(\mk)\cdot\weyl(\mq)= e^{\frac i2 \omega(\mk,\mq) \T} \cdot 
+  \weyl(\mk\comp\mq)
+\end{equation}
+in the completed, complexified universal enveloping algebra of $\mfn$. The
+associativity of $\comp$ and the relation \eqref{Weylcomprule} imply that the
+subalgebra $\weyl(\mathbb{V})\subset\overline{U(\mfn)^\C}$ is associative
+if and only if
+\begin{equation}
+  \label{cocyclecond}
+  \omega(\mk\comp\mbf p,\mq)=\omega(\mk,\mbf p\comp\mq)+\omega(\mbf p,\mq)-
+  \omega(\mk,\mbf p)
+\end{equation}
+for all vectors $\mk,\mq,\mbf p\in\mbbV$. This condition means that $\omega$
+defines a one-cocycle in the group cohomology of $(\mathbb{V},\comp)$. It is
+automatically satisfied if $\omega$ is a bilinear form with respect to $\comp$.
+We will in addition require that $\omega(\mk,\mq)={\mathcal O}(\theta)$ $\forall
+\mk,\mq\in\mathbb{V}$ for consistency with \eqref{compsmalltheta}. The identity
+element of $\weyl(\mathbb{V})$ is $\weyl(\mbf0)$ while the inverse of
+$\weyl(\mk)$ is given by
+\begin{equation}
+  \label{weylinverse}
+  \weyl(\mk)^{-1}=\weyl( \underline{\mk} )
+\end{equation}
+The standard Weyl system on $\R^{2n}$ takes $\comp$ to be ordinary addition
+and $\omega$ to be the Darboux symplectic two-form, so that $\weyl(\R^{2n})$
+is a projective representation of the translation group, as is appropriate to
+the Moyal product.
+
+Given a Weyl system defined as above, we can now introduce another isomorphism
+\begin{equation}
+  \label{Omegaquantmap}
+  \Pi : \CC^\infty\left(\R^5\right) \longrightarrow 
+  \weyl\bigl(\mathbb{V}\bigr)
+\end{equation}
+defined by the symbol
+\begin{equation}
+  \label{Omegafdef}
+  \Pi(f):=\int\limits_{\R^5}\frac{\dd\mk}{(2\pi)^5} 
+  \tilde{f}(\mk) \weyl(\mk)
+\end{equation}
+where as before $\tilde f$ denotes the Fourier transform of
+$f\in\CC^\infty(\R^5)$. This definition implies that
+\begin{equation}
+  \label{weylmkDelta}
+  \Pi\bigl( e^{ i\mk\cdot\mx}\bigr)=\weyl(\mk)
+\end{equation}
+and that we may introduce a $\star$-involution $\dag$ on both algebras
+$\CC^\infty(\R^5)$ and $\weyl(\mbbV)$ by the formula
+\begin{equation}
+  \label{involdef}
+  \Pi\bigl(f^\dag\bigr)=\Pi\bigl(f\bigr)^\dag:=
+  \int\limits_{\R^5}\frac{\dd\mk}{(2\pi)^5} \overline{
+    \tilde f( \underline{\mk} )} \weyl(\mk)
+\end{equation}
+The compatibility condition
+\begin{equation}
+  \label{compconddag}
+  \bigl(\Pi(f)\cdot\Pi(g)\bigr)^\dag=\Pi(g)^\dag\cdot
+  \Pi(f)^\dag
+\end{equation}
+with the product in $\overline{U(\mfn)^\C}$ imposes further constraints on the
+group composition law $\comp$ and cocycle $\omega$ \cite{ALZ1}. From
+\eqref{Weylcomprule} we may thereby define a $\dag$-hermitean $\star$-product of
+$f,g\in\CC^\infty(\R^5)$ by the formula
+\begin{equation}
+  \label{fstargweyl}
+  f\star g:=\Pi^{-1}\bigl(\Pi(f)\cdot\Pi(g)\bigr)
+  =\int\limits_{\R^5}\frac{\dd\mk}{(2\pi)^5} 
+  \int\limits_{\R^5}\frac{\dd\mq}{(2\pi)^5} \tilde f(\mk) 
+  \tilde g(\mq)  e^{\frac i2 \omega(\mk,\mq)} 
+  \Pi^{-1}\circ\weyl(\mk\comp\mq)
+\end{equation}
+and in this way we have constructed a quantisation of the algebra $\mfn$ solely
+from the formal notion of a Weyl system. The associativity of $\star$ follows
+from associativity of $\comp$. We may also rewrite the $\star$-product
+\eqref{fstargweyl} in terms of a bi-differential operator as
+\begin{equation}
+  \label{bidiffweyl}
+  f\star g=f  e^{\frac i2 \omega( - i\overleftarrow{\mbf\d} , 
+    - i\overrightarrow{\mbf\d} )+ i\mx\cdot(- i\overleftarrow{\mbf\d} \comp
+    - i\overrightarrow{\mbf\d}\comp + i\overleftarrow{\mbf\d}+ i
+    \overrightarrow{\mbf\d} )} g
+\end{equation}
+
+This deformation is completely characterised in terms of the new algebraic
+structure and its projective representation provided by the Weyl system. It is
+clear that the Lie algebra of $(\mathbb{V},\comp)$ coincides precisely with the
+original subalgebra $\mfs\subset{\rm iso}(4)$, while the cocycle $\omega$
+generates the central extension of $\mfs$ to $\mfn$ in the usual way. From
+\eqref{fstargweyl} one may compute the $\star$-products of coordinate functions
+on $\R^5$ as
+\begin{equation}
+  \label{xastarxbweyl}
+  x_a\star x_b=x_a x_b- i\mx\cdot\left.\frac\d{\d k^a}\frac\d
+    {\d q^b}(\mk\comp\mq)\right|_{\mk=\mq=\mbf0}-\left.\frac i2 
+    \frac\d{\d k^a}\frac\d
+    {\d q^b}\omega(\mk,\mq)\right|_{\mk=\mq=\mbf0}
+\end{equation}
+The corresponding $\star$-commutator may thereby be written as
+\begin{equation}
+  \label{xaxbstarcommxi}
+  [x_a,x_b]_\star= i\theta C_{ab}^{  c} x_c+ i\theta \xi_{ab}
+\end{equation}
+where the relation
+\begin{equation}
+  \label{Cabccomp}
+  \theta C_{ab}^{  c}=-\left.\left(\frac\d{\d k^a}\frac\d
+      {\d q^b}-\frac\d{\d k^b}\frac\d
+      {\d q^a}\right)(\mk\comp\mq)^c\right|_{\mk=\mq=\mbf0}
+\end{equation}
+gives the structure constants of the Lie algebra defined by the Lie group
+$(\mathbb{V},\comp)$, while the cocycle term
+\begin{equation}
+  \label{cocycleterm}
+  \theta \xi_{ab}=-\frac12 \left.\left(\frac\d{\d k^a}\frac\d
+      {\d q^b}-\frac\d{\d k^b}\frac\d
+      {\d q^a}\right)\omega(\mk,\mq)\right|_{\mk=\mq=\mbf0}
+\end{equation}
+gives the usual form of a central extension of this Lie algebra. Demanding that
+this yield a deformation quantisation of the Kirillov-Kostant Poisson structure
+on $\mfn^\vee$ requires that $C_{ab}^{ c}$ coincide with the structure constants of
+the subalgebra $\mfs\subset{\rm iso}(4)$ of $\mfn$, and also that $\xi_{\mbp^-,
+  \mbp^+} = -\xi_{\mbp^+,\mbp^-}=2t$ be the only non-vanishing components of the
+central extension.
+
+It is thus possible to define a broad class of deformation quantisations of
+$\mfn^\vee$ solely in terms of an abstract Weyl system
+$(\mbbV,\comp,\weyl,\omega)$, without explicit realisation of the operators
+$\weyl(\mk)$. In the remainder of this section we will set $\Pi=\Omega$ above
+and describe the Weyl systems underpinning the various products that we
+constructed previously. This entails identifying the appropriate maps
+\eqref{genweylmapdef}, which enables the calculation of the projective
+representations \eqref{Weylcomprule} and hence explicit realisations of the
+group composition laws $\comp$ in the various instances. This unveils a purely
+algebraic description of the $\star$-products which will be particularly useful
+for our later constructions, and enables one to make the equivalences between
+these products explicit.
+
+\subsection{Time Ordering}
+\label{TOPGWS}
+Setting $t=t'=0$ in \eqref{TOgpprodexpl}, we find the ``time-ordered''
+non-Abelian group composition law $\compa$ for any two elements of the
+form \eqref{Svectors} to be given by
+\begin{equation}
+  \label{TOcomplaw}
+  \mk\compa\mk'=\begin{pmatrix}j+j' \\\mbp^++ e^{-\theta j} 
+    \mbp^{\prime +} \\\mbp^-+ e^{\theta j} \mbp^{\prime -}
+  \end{pmatrix}
+\end{equation}
+From \eqref{TOcomplaw} it is straightforward to compute the inverse
+$\underline{\mk}$ of a group element \eqref{Svectors}, satisfying
+\eqref{compinverse}, to be
+\begin{equation}
+  \label{TOinverse}
+  \underline{\mk}=-\begin{pmatrix}j\\ e^{\theta j} \mbp^+\\
+    e^{-\theta j} \mbp^- \end{pmatrix}
+\end{equation}
+The group cocycle is given by
+\begin{equation}
+  \label{TOcocycle}
+  \omega_*(\mk,\mk' )=2 i\theta \left( e^{\theta j} 
+    \mbp^+\cdot\mbp^{\prime -}- e^{-\theta j} 
+    \mbp^-\cdot\mbp^{\prime +}\right)
+\end{equation}
+and it defines the canonical symplectic structure on the $j={\rm constant}$
+subspaces $\C^2\subset\mathbb{V}$. Note that in this representation, the
+central coordinate function $x^+$ is not written explicitly and is simply
+understood as the unit element of $\C(\R^5)$, as is conventional in the
+case of the Moyal product. For $\mk\in\mathbb{V}$ and $\X_a\in\mfs$ the
+projective representation \eqref{Weylcomprule} is generated by the time-ordered
+group elements
+\begin{equation}
+  \label{TOweylop}
+  \weyl_*(\mk)=\NOa  e^{ i k^a \X_a} \NOa
+\end{equation}
+defined in \eqref{eq:time:defn}.
+
+\subsection{Symmetric Time Ordering}
+\label{TSOPGWS}
+
+In a completely analogous manner, inspection of \eqref{TOsymgpprodexpl} reveals
+the ``symmetric time-ordered'' non-Abelian group composition law $\compb$
+defined by
+\begin{equation}
+  \label{TOsymcomplaw}
+  \mk\compb\mk'=\begin{pmatrix}j+j' \\ e^{\frac{\theta}2 j'} \mbp^++
+    e^{-\frac{\theta}2 j} \mbp^{\prime +} \\ e^{-\frac{\theta}2 j'} 
+    \mbp^-+ e^{\frac{\theta}2 j} \mbp^{\prime -} \end{pmatrix}
+\end{equation}
+for which the inverse $\underline{\mk}$ of a group element \eqref{Svectors} is
+simply given by
+\begin{equation}
+  \label{TOsyminverse}
+  \underline{\mk}=-\mk
+\end{equation}
+The group cocycle is
+\begin{equation}
+  \label{TOsymcocycle}
+  \omega_\bullet(\mk,\mk' )=2 i\theta \left( e^{\frac{\theta}2 
+      (j+j' )} \mbp^+\cdot\mbp^{\prime -}- e^{-\frac{\theta}2 
+      (j+j' )} \mbp^-\cdot\mbp^{\prime +}\right)
+\end{equation}
+and it again induces the canonical symplectic structure on
+$\C^2\subset\mbbV$. The corresponding projective representation of
+$(\mbbV,\compb)$ is generated by the symmetric time-ordered group elements
+\begin{equation}
+  \label{TOsymweylop}
+  \weyl_\bullet(\mk)=\NOb  e^{ i k^a \X_a} \NOb
+\end{equation}
+defined in \eqref{TOsymgpprods}.
+
+\subsection{Weyl Ordering}
+\label{WOPGWS}
+Finally, we construct the Weyl system $(\mbbV,\compc,\weyl_\star,\omega_\star)$
+associated with the Weyl-ordered $\star$-product of Section \ref{WOP}. Starting
+from \eqref{Weylgpprodexpl} we introduce the non-Abelian group composition law
+$\compc$ by
+\begin{equation}
+  \label{Weylcomplaw}
+  \mk\compc\mk'=\begin{pmatrix}j+j' \\[2mm]
+    \frac{\phi_\theta(j) \mbp^++
+      e^{-\theta j} \phi_\theta(j' ) \mbp^{\prime +}}
+    {\phi_\theta(j+j' )}\\[3mm]
+    \frac{\phi_{-\theta}(j) \mbp^-+
+      e^{\theta j} \phi_{-\theta}(j' ) \mbp^{\prime -}}
+    {\phi_{-\theta}(j+j' )}\end{pmatrix}
+\end{equation}
+from which we may again straightforwardly compute the inverse $\underline{\mk}$
+of a group element \eqref{Svectors} simply as
+\begin{equation}
+  \label{Weylinverse}
+  \underline{\mk}=-\mk
+\end{equation}
+When combined with the definition \eqref{involdef}, one has $f^\dag=\overline{f}$
+$\forall f\in\CC^\infty(\R^5)$ and this explains the hermitean property
+\eqref{Weylstarherm} of the Weyl-ordered $\star$-product $\star$. This is also
+true of the product $\bullet$, whereas $*$ is only hermitean with respect to the
+modified involution $\dag$ defined by \eqref{involdef} and \eqref{TOinverse}.
+The group cocycle is given by
+\begin{eqnarray}
+  \label{Weylcocycle}
+  &&\omega_\star(\mk,\mk' )=-2 i\theta \Bigl(
+\phi_{-\theta}(j) \phi_{-\theta}(j' ) 
+\mbp^+\cdot\mbp^{\prime -}-\phi_{\theta}(j) \phi_{\theta}(j' ) 
+\mbp^-\cdot\mbp^{\prime +}\Bigr.\\\nn &&\qquad\qquad\qquad
+- \gamma_\theta(j+j' ) \bigl(\phi_\theta(j) 
+\mbp^++ e^{-\theta j} \phi_\theta(j' ) \mbp^{\prime +}\bigr)
+\cdot\bigl(\phi_{-\theta}(j) 
+\mbp^-+ e^{\theta j} \phi_{-\theta}(j' ) 
+\mbp^{\prime -}\bigr)\\\nn &&
+\qquad\qquad\qquad+\Bigl.
+\gamma_\theta(j) \phi_\theta(j) \phi_{-\theta}(j) \mbp^+\cdot\mbp^-+
+\gamma_\theta(j' ) \phi_\theta(j' ) \phi_{-\theta}(j' ) 
+\mbp^{\prime +}\cdot\mbp^{\prime -}
+\Bigr)
+\end{eqnarray}
+In contrast to the other cocycles, this does {\it not} induce any symplectic
+structure, at least not in the manner described earlier. The corresponding
+projective representation \eqref{Weylcomprule} is generated by the completely
+symmetrised group elements
+\begin{equation}
+  \label{Weylweylop}
+  \weyl_\star(\mk)= e^{ i k^a \X_a}
+\end{equation}
+with $\mk\in\mbbV$ and $\X_a\in\mfs$.
+
+The Weyl system $(\mbbV,\compc,\weyl_\star,\omega_\star)$ can be used to
+generate the other Weyl systems that we have found \cite{ALZ1}. From
+\eqref{1ststudyexpl} and \eqref{Weylgpprodexpl} one has the identity
+\begin{equation}
+  \label{weylTOWeylDelta}
+  \weyl_*(j,\mbp^\pm)=\Omega_\star\left(
+    e^{ i(\mbf p^+\cdot\overline{\mz}
+      +\mbp^-\cdot\mz)}\star e^{ i j  x^-}\right)
+\end{equation}
+which implies that the time-ordered $\star$-product $*$ can be expressed by
+means of a choice of different Weyl system generating the product $\star$. Since
+$\Omega_\star$ is an algebra isomorphism, one has
+\begin{equation}
+  \label{weylTOWeylprods}
+  \weyl_*(j,\mbp^\pm)=\weyl_\star(0,\mbp^\pm)
+  \cdot\weyl_\star(j,\mbf0)
+\end{equation}
+This explicit relationship between the Weyl systems for the $\star$-products $*$
+and $\star$ is another formulation of the statement of their cohomological
+equivalence, as established by other means in Section \ref{WOP}. Similarly, the
+symmetric time-ordered $\star$-product $\bullet$ can be expressed in terms of
+$\star$ through the identity
+\begin{equation}
+  \label{WeylTOsymWeylDelta}
+  \weyl_\bullet(j,\mbp^\pm)=\Omega_\star\left(
+    e^{\frac i2 j x^-}\star e^{ i(\mbp^+\cdot\overline{\mz}
+      +\mbp^-\cdot\mz)}\star e^{\frac i2 j x^-}\right)
+\end{equation}
+which implies the relationship
+\begin{equation}
+  \label{WeylTOsymWeylprods}
+  \weyl_\bullet\bigl(j,\mbp^\pm\bigr)=\weyl_\star
+  \bigl( \frac j2 ,\mbf0\bigr)\cdot\weyl_\star\bigl(0,\mbp^\pm\bigr)
+  \cdot\weyl_\star\bigl( \frac j2 ,\mbf0\bigr)
+\end{equation}
+between the corresponding Weyl systems. This shows explicitly that the
+$\star$-products $\bullet$ and $\star$ are also equivalent.
+
+\section{Twisted Isometries}
+\label{Coprod}
+We will now start working our way towards the explicit construction of the
+geometric quantities required to define field theories on the noncommutative
+plane wave $\NW_6$. We will begin with a systematic construction of derivative
+operators on the present noncommutative geometry, which will be used later on to
+write down kinetic terms for scalar field actions. In this section we will study
+some of the basic spacetime symmetries of the $\star$-products that we
+constructed in Section \ref{StarProds}, as they are directly related to the
+actions of derivations on the noncommutative algebras of functions.
+
+Classically, the isometry group of the gravitational wave $\NW_6$ is the group
+$\mcN_{\rm L}\times\mcN_{\rm R}$ induced by the left and right regular actions
+of the Lie group $\mcN$ on itself. The corresponding Killing vector fields live
+in the 11-dimensional Lie algebra $\mfg:=\mfn_{\rm L}\oplus\mfn_{\rm R}$ (The
+left and right actions generated by the central element $\T$ coincide). This
+isometry group contains an ${\rm SO}(4)$ subgroup acting by rotations in the
+transverse space $\mz\in\C^2\cong\R^4$, which is broken to ${\rm U}(2)$ by the
+Neveu-Schwarz background \eqref{NS2formBrink}. This symmetry can be restored
+upon quantisation by instead letting the generators of $\mfg$ act in a twisted
+fashion \cite{CPT1,CKNT1,Wess1}, as we now proceed to describe.
+
+The action of an element $\nabla\in U(\mfg)$ as an algebra automorphism
+$\CC^\infty(\mfn^\vee)\to\CC^\infty(\mfn^\vee)$ will be denoted
+$f\mapsto\nabla\triangleright f$. The universal enveloping algebra $U(\mfg)$ is
+given the structure of a cocommutative bialgebra by introducing the ``trivial''
+coproduct $\Delta:U(\mfg)\to U(\mfg)\otimes U(\mfg)$ defined by the homomorphism
+\begin{equation}
+  \label{trivialcoprod}
+  \Delta(\nabla)=\nabla\otimes1+1\otimes\nabla
+\end{equation}
+which generates the action of $U(\mfg)$ on the tensor product
+$\CC^\infty(\mfn^\vee)\otimes\CC^\infty(\mfn^\vee)$. Since $\nabla$ is an automorphism
+of $\CC^\infty(\mfn^\vee)$, the action of the coproduct is compatible with the
+pointwise (commutative) product of functions
+$\mu:\CC^\infty(\mfn^\vee)\otimes\CC^\infty(\mfn^\vee)\to\CC^\infty(\mfn^\vee)$ in the
+sense that
+\begin{equation}
+  \label{commcoprodcomp}
+  \nabla\triangleright\mu(f\otimes g)=\mu\circ\Delta(\nabla)
+  \triangleright(f\otimes g)
+\end{equation}
+For example, the standard action of spacetime translations is given by
+\begin{equation}
+  \label{commtranslaction}
+  \d^a\triangleright f=\d^af
+\end{equation}
+for which \eqref{commcoprodcomp} becomes the classical symmetric Leibniz rule.
+
+Let us now pass to a noncommutative deformation of the algebra of functions on
+$\NW_6$ via a quantisation map $\Omega:\CC^\infty(\mfn^\vee) \to
+\overline{U(\mfn)^\C}$ corresponding to a specific $\star$-product $\star$
+on $\CC^\infty(\mfn^\vee)$ (or equivalently a specific operator ordering in
+$U(\mfn)$). This isomorphism can be used to induce an action of $U(\mfg)$ on the
+algebra $\overline{U(\mfn)^\C}$ through
+\begin{equation}
+  \label{nablastar}
+  \Omega(\nabla_\star)\triangleright\Omega(f):=
+  \Omega(\nabla\triangleright f)
+\end{equation}
+which defines a set of quantised operators $\nabla_\star = \nabla+{\mathcal
+  O}(\theta): \CC^\infty(\mfn^\vee)\to\CC^\infty(\mfn^\vee)$. However, the
+bialgebra $U(\mfg)$ will no longer generate automorphisms with respect to the
+noncommutative $\star$-product on $\CC^\infty(\mfn^\vee)$. It will only do so if
+its coproduct can be deformed to a non-cocommutative one
+$\Delta_\star=\Delta+O(\theta)$ such that the covariance condition
+\begin{equation}
+  \label{NCcoprodcomp}
+  \nabla_\star\triangleright\mu_\star(f\otimes g)=\mu_\star\circ
+  \Delta_\star(\nabla_\star)\triangleright(f\otimes g)
+\end{equation}
+is satisfied, where $\mu_\star(f\otimes g):=f\star g$. This deformation is
+constructed by writing the $\star$-product $f\star g=\hat{\mathcal D}(f,g)$ in
+terms of a bi-differential operator as in \eqref{fstargbidiff} or
+\eqref{bidiffweyl} to define an invertible Abelian Drinfeld twist \cite{Resh1}
+element $\hat{\mathcal F}_\star\in
+\overline{U(\mfg)^\C}\otimes\overline{U(\mfg)^\C}$ through
+\begin{equation}
+  \label{Dtwistdef}
+  f\star g=\mu\circ\hat{\mathcal F}_\star^{-1}\triangleright(f\otimes g)
+\end{equation}
+It obeys the cocycle condition
+\begin{equation}
+  \label{twistcocycle}
+  (\hat{\mathcal F}_\star\otimes1) (\Delta\otimes1) \hat
+  {\mathcal F}_\star=(1\otimes\hat{\mathcal F}_\star) 
+  (\Delta\otimes1) \hat{\mathcal F}_\star
+\end{equation}
+and defines the twisted coproduct through
+\begin{equation}
+  \label{Deltastardef}
+  \Delta_\star:=\hat{\mathcal F}_\star\circ\Delta\circ
+  \hat{\mathcal F}_\star^{-1}
+\end{equation}
+where $(f\otimes g)\circ(f'\otimes g' ):=f f'\otimes g g'$. This new coproduct
+obeys the requisite coassociativity condition $(\Delta_\star\otimes\1)
+\circ\Delta_\star=(\1\otimes\Delta_\star) \circ\Delta_\star$. The important
+property of the twist element $\hat{\mathcal F}_\star$ is that it modifies only
+the coproduct on the bialgebra $U(\mfg)$, while leaving the original product
+structure (inherited from the Lie algebra $\mfg=\mfn_{\rm L}\oplus\mfn_{\rm R}$)
+unchanged.
+
+As an example, let us illustrate how to compute the twisting of the quantised
+translation generators by the noncommutative geometry of $\NW_6$. For this, we
+introduce a Weyl system $(\mbbV,\comp,\weyl,\omega)$ corresponding to the chosen
+$\star$-product $\star$. With the same notations as in the previous section, for
+$a=1,\dots,5$ we may use \eqref{Weylcomprule}, \eqref{involdef} with
+$\Pi=\Omega$, and \eqref{nablastar} with $\nabla=\d^a$ to compute
+\begin{eqnarray}
+  \label{partialstarderiv}
+  \Omega\bigl(\d_\star^a\bigr)\triangleright\Omega\bigl(
+ e^{ i\mk\cdot\mx}\bigr)\cdot\Omega\bigl( e^{ i\mk'\cdot\mx}
+\bigr)&=&\Omega\bigl(\d_\star^a\bigr)\triangleright
+ e^{\frac i2 \omega(\mk,\mk' ) \T} \cdot \Omega\bigl(
+ e^{ i(\mk\comp\mk' )\cdot\mx}\bigr) \\\nn &=&
+ i  e^{\frac i2 \omega(\mk,\mk' ) \T} \cdot \Omega
+\bigl((\mk\comp\mk' )^a  e^{ i(\mk\comp\mk' )\cdot\mx}\bigr)
+\\\nn &=&  i  \sum\limits_i  \Omega\bigl(d^a_{(1) i}(
+- i\bfd_\star)\bigr)\triangleright\Omega\bigl( e^{ i\mk\cdot\mx}
+\bigr)\\\nn && \qquad\qquad
+\cdot \Omega\bigl(d^a_{(2) i}(- i\bfd_\star)\bigr)
+\triangleright\Omega\bigl( e^{ i\mk'\cdot\mx}\bigr)
+\end{eqnarray}
+where we have assumed that the group composition law of the Weyl system has an
+expansion of the form $(\mk\comp\mk' )^a := \sum_i d^a_{(1) i}(\mk) d^a_{(2)
+  i}(\mk' )$. From the covariance condition \eqref{NCcoprodcomp} it then follows
+that the twisted coproduct assumes a Sweedler form
+\begin{equation}
+  \label{Deltastarexpl}
+  \Delta_\star\left(\d_\star^a\right)= i 
+  \sum\limits_i  d^a_{(1) i}(- i\bfd_\star)\otimes
+  d^a_{(2) i}(- i\bfd_\star)
+\end{equation}
+Analogously, if we assume that the group cocycle of the Weyl system admits an
+expansion of the form $\omega(\mk,\mk' ) := \sum_i w^i_{(1)}(\mk) w^i_{(2)}(\mk'
+)$, then a similar calculation gives the twisted coproduct of the quantised
+plane wave time derivative as
+\begin{equation}
+  \label{Deltastartime}
+  \Delta_\star\left(\d_+^\star\right)=\d_+^\star
+  \otimes1+1\otimes\d_+^\star- \frac12 \sum\limits_i  
+  w^i_{(1)}(- i\bfd_\star)\otimes w^i_{(2)}(- i\bfd_\star)
+\end{equation}
+Note that now the corresponding Leibniz rules \eqref{NCcoprodcomp} are no longer
+the usual ones associated with the product $\star$ but are the deformed,
+generically non-symmetric ones given by
+\begin{eqnarray}
+  \label{defLeibniz}
+  \d^a_\star\triangleright(f\star g)&=& i  \sum\limits_i  
+  \bigl(d^a_{(1) i}(- i\bfd_\star)\triangleright f\bigr) \star \bigl(
+  d^a_{(2) i}(- i\bfd_\star)\triangleright g\bigr) \\\nn
+\d_+^\star\triangleright(f\star g)&=&\left(\d_+^\star
+\triangleright f\right)\star g+f\star\left(\d_+^\star
+\triangleright g\right)\\\nn&&
+- \frac12 \sum\limits_i  
+\bigl(w^i_{(1)}(- i\bfd_\star)\triangleright f\bigr) \star 
+\bigl(w^i_{(2)}(- i\bfd_\star)\triangleright g\bigr)
+\end{eqnarray}
+arising from the twisting of the coproduct. Thus these derivatives do {\it not}
+define derivations of the noncommutative algebra of functions, but rather
+implement the twisting of isometries of flat space appropriate to the plane wave
+geometry \cite{PK1,CFS1,BOL1,Halliday:2005zt}.
+
+In the language of quantum groups \cite{QG1}, the twisted isometry group of the
+spacetime $\NW_6$ coincides with the quantum double of the cocommutative Hopf
+algebra $U(\mfn)$. The antipode ${S}_\star:U(\mfg)\to U(\mfg)$ of the given
+non-cocommutative Hopf algebra structure on the bialgebra $U(\mfg)$ gives the
+dual action of the isometries of the noncommutative plane wave and provides the
+analog of inversion of isometry group elements. This analogy is made precise by
+computing ${S}_\star$ from the group inverses $\underline{\mk}$ of elements
+$\mk\in\mbbV$ of the corresponding Weyl system. Symbolically, one has
+${S}_\star(\bfd_\star)=\underline{\bfd_\star}$. In particular, if
+$\underline{\mk}=-\mk$ (as in the case of our symmetric $\star$-products) then
+${S}_\star(\d_\star^a)=-\d_\star^a$ and the action of the antipode is trivial.
+In what follows we will only require the underlying bialgebra structure of
+$U(\mfg)$.
+
+The generic non-triviality of the twisted coproducts \eqref{Deltastarexpl} and
+\eqref{Deltastartime} is consistent with and extends the fact that generic
+translations are not classically isometries of the plane wave geometry, but
+rather only appropriate twisted versions are
+\cite{PK1,CFS1,BOL1,Halliday:2005zt}. Similar computations can also be carried
+through for the remaining five isometry generators of $\mfg$ and correspond to
+the right-acting counterparts of the derivatives above, giving the full action
+of the noncommutative isometry group on $\NW_6$. We shall not display these
+formulas here. In the next section we will explicitly construct the quantised
+derivative operators $\d_\star^a$ and $\d_+^\star$ above. We now proceed to list
+the coproducts corresponding to our three $\star$-products.
+
+\subsection{Time Ordering}
+\label{TOcoprod}
+The Drinfeld twist $\hat{\mathcal F}_*$ for the time-ordered $\star$-product is
+the inverse of the exponential operator appearing in \eqref{TOstargen}.
+Following the general prescription given above, from the group composition law
+\eqref{TOcomplaw} of the corresponding Weyl system we deduce the time-ordered
+coproducts
+\begin{eqnarray}
+  \label{TOcoprods}
+  \Delta_*\left(\d_-^*\right)&=&\d_-^*\otimes1+
+1\otimes\d_-^* \\\nn
+\Delta_*\left(\d^i_*\right)&=&\d^i_*\otimes1+
+ e^{ i\theta \d_-^*}\otimes\d^i_* \\\nn
+\Delta_*\left( \overline{\d}^{ i}_*\right)&=&
+\overline{\d}^{ i}_*\otimes1+ e^{- i\theta \d_-^*}
+\otimes\overline{\d}^{ i}_*
+\end{eqnarray}
+while from the group cocycle \eqref{TOcocycle} we obtain
+\begin{equation}
+  \label{TOcoprodtime}
+  \Delta_*\left(\d_+^*\right)=\d_+^*\otimes1+
+1\otimes\d_+^*+\theta  e^{- i\theta 
+\d_-^*} \left(\bfd_*\right)^\top\otimes\overline{\bfd}_*-\theta 
+ e^{ i\theta \d_-^*} 
+\left( \overline{\bfd}_*\right)^\top\otimes\bfd_*
+\end{equation}
+The corresponding Leibniz rules read
+\begin{eqnarray}
+  \label{TOLeibniz}
+  \d_-^*\triangleright(f*g)&=&\left(\d_-^*\triangleright
+f\right)*g+f*\left(\d_-^*\triangleright g\right) \\\nn
+\d_+^*\triangleright(f*g)&=&\left(\d_+^*\triangleright
+f\right)*g+f*\left(\d_+^*\triangleright g\right)\\\nn &&
++ \theta \bigl( e^{- i\theta \d_-^*} (\bfd_*)^\top
+\triangleright f\bigr) * \left( \overline{\bfd}_*
+\triangleright g\right)-\theta \bigl( e^{ i\theta \d_-^*} 
+(\overline{\bfd}_*)^\top
+\triangleright f\bigr) * \left(\bfd_*\triangleright g\right)
+\\\nn \d^i_*\triangleright(f*g)&=&\left(\d^i_*
+\triangleright f\right)*g+\bigl( e^{ i\theta \d_-^*}
+\triangleright f\bigr)*\left(\d^i_*\triangleright g\right)
+\\\nn \overline{\d}^{ i}_*
+\triangleright(f*g)&=&\left( \overline{\d}^{ i}_*
+\triangleright f\right)*g+\bigl( e^{- i\theta \d_-^*}
+\triangleright f\bigr)*\left( \overline{\d}^{ i}_*
+\triangleright g\right)
+\end{eqnarray}
+
+\subsection{Symmetric Time Ordering}
+\label{STOcoprod}
+The Drinfeld twist $\hat{\mathcal F}_\bullet$ associated to the symmetric
+time-ordered $\star$-product is given by the inverse of the exponential operator
+in \eqref{TOsymstargen}. From the group composition law \eqref{TOsymcomplaw} of
+the corresponding Weyl system we deduce the symmetric time-ordered coproducts
+\begin{eqnarray}
+  \label{STOcoprods}
+  \Delta_\bullet\left(\d_-^\bullet\right)&=&\d_-^\bullet
+  \otimes1+1\otimes\d_-^\bullet \\\nn
+  \Delta_\bullet\left(\d^i_\bullet\right)&=&\d^i_\bullet\otimes
+  e^{-\frac{ i\theta}2 \d_-^\bullet}+ e^{\frac{ i\theta}2 
+    \d_-^\bullet}\otimes\d^i_\bullet \\\nn
+  \Delta_\bullet\left( \overline{\d}^{ i}_\bullet\right)&=&
+  \overline{\d}^{ i}_\bullet\otimes
+  e^{\frac{ i\theta}2 \d_-^\bullet}+ e^{-\frac{ i\theta}2 
+    \d_-^\bullet}\otimes\overline{\d}^{ i}_\bullet
+\end{eqnarray}
+while from the group cocycle \eqref{TOsymcocycle} we find
+\begin{eqnarray}
+  \label{STOcoprodtime}
+  \Delta_\bullet\left(\d_+^\bullet\right)&=&\d_+^\bullet\otimes1+
+  1\otimes\d_+^\bullet\\\nn &&
+  + \theta  e^{-\frac{ i\theta}2 
+    \d_-^\bullet} \left(\bfd_\bullet\right)^\top\otimes
+  e^{-\frac{ i\theta}2 \d_-^\bullet} \overline{\bfd}_\bullet-
+  \theta  e^{\frac{ i\theta}2 \d_-^\bullet}\left( 
+    \overline{\bfd}_\bullet\right)^\top\otimes e^{\frac{ i\theta}2 
+    \d_-^\bullet} \bfd_\bullet
+\end{eqnarray}
+The corresponding Leibniz rules are given by
+\begin{eqnarray}
+  \label{STOLeibniz}
+  \d_-^\bullet\triangleright(f\bullet g)&=&
+  \left(\d_-^\bullet\triangleright f\right)\bullet g+
+f\bullet\left(\d_-^\bullet\triangleright g\right)
+\\\nn \d_+^\bullet\triangleright(f\bullet g)&=&
+\left(\d_+^\bullet\triangleright f\right)\bullet g+
+f\bullet\left(\d_+^\bullet\triangleright g\right)
++\theta \bigl( e^{-\frac{ i\theta}2 \d_-^\bullet} 
+(\bfd_\bullet)^\top\triangleright f\bigr) \bullet \bigl(
+ e^{-\frac{ i\theta}2 \d_-^\bullet} 
+\overline{\bfd}_\bullet\triangleright g\bigr) \\\nn &&
+\qquad\qquad\qquad\qquad\qquad\qquad - 
+\theta \bigl( e^{\frac{ i\theta}2 \d_-^\bullet} 
+( \overline{\bfd}_\bullet)^\top\triangleright f\bigr) \bullet 
+\bigl( e^{\frac{ i\theta}2 \d_-^\bullet} \bfd_\bullet
+\triangleright g\bigr) \\\nn
+\d^i_\bullet\triangleright(f\bullet g)&=&\left(\d^i_\bullet
+\triangleright f\right)\bullet\bigl( e^{-\frac{ i\theta}2 
+\d_-^\bullet}\triangleright g\bigr)+\bigl(
+ e^{\frac{ i\theta}2 \d_-^\bullet}\triangleright f
+\bigr)\bullet\left(\d^i_\bullet\triangleright g\right)
+\\\nn \overline{\d}^{ i}_\bullet\triangleright(f\bullet g)
+&=&\left( \overline{\d}^{ i}_\bullet
+\triangleright f\right)\bullet\bigl( e^{\frac{ i\theta}2 
+\d_-^\bullet}\triangleright g\bigr)+\bigl(
+ e^{-\frac{ i\theta}2 \d_-^\bullet}\triangleright f
+\bigr)\bullet\left( \overline{\d}^{ i}_\bullet\triangleright g\right)
+\end{eqnarray}
+
+\subsection{Weyl Ordering}
+\label{WOcoprod}
+Finally, for the Weyl-ordered $\star$-product \eqref{Weylstargen} we read off
+the twist element $\hat{\mathcal F}_\star$ in the standard way, and use the
+associated group composition law \eqref{Weylcomplaw} to write down the
+coproducts
+\begin{eqnarray}
+  \label{Weylcoprods}
+  \Delta_\star\left(\d_-^\star\right)&=&\d_-^\star\otimes1+
+1\otimes\d_-^\star \\\nn
+\Delta_\star\left(\d^i_\star\right)&=& \frac{\phi_{-\theta}\left( i
+\d_-^\star\right) \d^i_\star\otimes1+ e^{ i\theta \d_-^\star}
+\otimes\phi_{-\theta}\left( i\d_-^\star\right) \d^i_\star}
+{\phi_{-\theta}\left( i\d_-^\star\otimes1+1\otimes i
+\d_-^\star\right)}\\\nn
+\Delta_\star\left( \overline{\d}^{ i}_\star\right)&=&
+ \frac{\phi_{\theta}\left( i
+\d_-^\star\right) \overline{\d}^{ i}_\star\otimes1+
+ e^{- i\theta \d_-^\star}
+\otimes\phi_{\theta}\left( i\d_-^\star\right) 
+\overline{\d}^{ i}_\star}
+{\phi_{\theta}\left( i\d_-^\star\otimes1+1\otimes i
+\d_-^\star\right)}
+\end{eqnarray}
+The remaining coproduct may be determined from the cocycle
+\eqref{Weylcocycle} as
+\begin{eqnarray}
+  \label{Weylcoprodtime}
+  \Delta_\star\left(\d_+^\star\right)&=&\d_+^\star\otimes1+
+1\otimes\d_+^\star \\\nn &&+ 2 i\theta \Bigl[
+\phi_\theta\left( i\d_-^\star\right) \left(\bfd_\star
+\right)^\top\otimes\phi_\theta\left( i\d_-^\star\right) 
+\overline{\bfd}_\star-\phi_{-\theta}\left( i\d_-^\star
+\right) \left( \overline{\bfd}_\star
+\right)^\top\otimes\phi_{-\theta}\left( i\d_-^\star\right) 
+\bfd_\star\Bigr.
+\\\nn &&\quad
++ \bigl(\gamma_\theta( i\d_-^\star)\otimes1-
+\gamma_\theta( i\d_-^\star\otimes1+
+1\otimes i\d_-^\star)\bigr)\bigl(\phi_\theta( i\d_-^\star)
+ \phi_{-\theta}( i\d_-^\star) \overline{\bfd}_\star
+\cdot\bfd_\star\otimes1\bigr) \\\nn &&\quad
++ \bigl(1\otimes\gamma_\theta( i\d_-^\star)-
+\gamma_\theta( i\d_-^\star\otimes1+
+1\otimes i\d_-^\star)\bigr)\bigl(1\otimes
+\phi_\theta( i\d_-^\star)
+ \phi_{-\theta}( i\d_-^\star) \overline{\bfd}_\star
+\cdot\bfd_\star\bigr) \\\nn &&\quad -\Bigl.\gamma_\theta\left(
+ i\d_-^\star\otimes1+1\otimes i\d_-^\star\right)
+\bigl( e^{- i\theta \d_-^\star} \phi_{-\theta}( i
+\d_-^\star) (\bfd_\star)^\top\otimes\phi_\theta( i
+\d_-^\star) \overline{\bfd}_\star\bigr.\\\nn &&
+\quad\qquad\qquad\qquad\qquad\qquad\qquad+\bigl. e^{ i\theta 
+\d_-^\star} \phi_{\theta}( i
+\d_-^\star) ( \overline{\bfd}_\star)^\top\otimes
+\phi_{-\theta}( i\d_-^\star) \bfd_\star\bigr)\Bigr]
+\end{eqnarray}
+In \eqref{Weylcoprods} and \eqref{Weylcoprodtime} the functionals of the
+derivative operator $ i\d_-^\star\otimes1 +1\otimes i\d_-^\star$ are
+understood as usual in terms of the power series expansions given in section
+\ref{WOP}. This leads to the corresponding Leibniz rules.
+
+\begin{eqnarray}
+  \label{WeylLeibniz}
+  \d_-^\star\triangleright(f\star g)&=&\left(\d_-^\star
+    \triangleright f\right)\star g+f\star\left(\d_-^\star
+\triangleright g\right) \\\nn
+\d_+^\star\triangleright (f\star g)&=&\left(\d_+^\star
+\triangleright f\right)\star g+f\star\left(\d_+^\star
+\triangleright g\right) \\\nn
+&&+ 2 i\theta\left\{
+\Bigl( \frac{(1- e^{- i\theta \d_-^\star} 
+(\bfd_\star)^\top}{ i\theta \d_-^\star} \triangleright f
+\Bigr) \star \Bigl( \frac{(1- e^{- i\theta \d_-^\star} 
+\overline{\bfd}_\star}{ i\theta \d_-^\star} \triangleright
+g\Bigr)\right. \\\nn && \qquad\qquad
+- \Bigl( \frac{(1- e^{ i\theta 
+\d_-^\star} ( \overline{\bfd}_\star)^\top}
+{ i\theta \d_-^\star} \triangleright f
+\Bigr) \star \Bigl( \frac{(1- e^{ i\theta \d_-^\star} 
+\bfd_\star}{ i\theta \d_-^\star} \triangleright
+g\Bigr)\\\nn &&\qquad\qquad
++ \Bigl( \Bigl[\frac12+\frac{(1+ i\theta 
+\d_-^\star)  e^{- i\theta \d_-^\star}-1}{( e^{- i\theta 
+\d_-^\star}-1)^2}\Bigr] \frac{\sin^2(\frac\theta2 \d_-^\star) 
+\overline{\bfd}_\star\cdot\bfd_\star}{(\theta \d_-^\star)^2} 
+\triangleright f\Bigr) \star g\\\nn &&\qquad\qquad+ f \star 
+\Bigl( \Bigl[\frac12+\frac{(1+ i\theta 
+\d_-^\star)  e^{- i\theta \d_-^\star}-1}{( e^{- i\theta 
+\d_-^\star}-1)^2}\Bigr] \frac{\sin^2(\frac\theta2 \d_-^\star) 
+\overline{\bfd}_\star\cdot\bfd_\star}{(\theta \d_-^\star)^2} 
+\triangleright g\Bigr) \\\nn && \hspace{-20pt}+ \sum_{n=1}^\infty 
+\sum_{k=0}^n \frac{B_{n+1} (- i\theta)^{n-2}}{k! (n-k)!} 
+\Biggl[\bigl((\d_-^\star)^{n-k-2} \sin^2( \frac\theta2  
+\d_-^\star) \overline{\bfd}_\star\cdot\bfd_\star
+\triangleright f\bigr) \star \bigl((\d_-^\star)^k
+\triangleright g\bigr)\\\nn && \quad + 
+\bigl((\d_-^\star)^{n-k}\triangleright
+f\bigr) \star \bigl((\d_-^\star)^{k-2} \sin^2( \frac\theta2  
+\d_-^\star) \overline{\bfd}_\star\cdot\bfd_\star
+\triangleright g\bigr) \\\nn && \quad - 
+\bigl(( e^{- i\theta \d_-^\star}-1) (\d_-^\star)^{n-k-1}
+ (\bfd_\star)^\top\triangleright f\bigr) \star \bigl(
+( e^{- i\theta \d_-^\star}-1) (\d_-^\star)^{k-1}
+ \overline{\bfd}_\star\triangleright g\bigr) \\\nn &&
+\quad -
+\bigl(( e^{ i\theta \d_-^\star}-1) (\d_-^\star)^{n-k-1}
+ ( \overline{\bfd}_\star)^\top\triangleright f\bigr) \star \bigl(
+( e^{ i\theta \d_-^\star}-1) (\d_-^\star)^{k-1}
+ \bfd_\star\triangleright g\bigr)\Biggr] \\\nn
+\d^i_\star\triangleright(f\star g)&=&\sum_{n=0}^\infty 
+\sum_{k=0}^n \frac{B_n ( i\theta)^{n-1}}{k! (n-k)!} \left[
+\bigl(( e^{ i\theta \d_-^\star}-1) 
+(\d_-^\star)^{n-k-1} \d^i_\star\triangleright f\bigr) \star 
+\bigl((\d_-^\star)^k\triangleright g\bigr)\right.\\\nn &&
+\qquad\qquad\qquad\quad
++\left.\bigl( e^{ i\theta \d_-^\star} (\d_-^\star)^{n-k}
+\triangleright f\bigr) \star \bigl(( e^{ i\theta \d_-^\star}-1)
+ (\d_-^\star)^{k-1} \d^i_\star\triangleright g\bigr)\right]
+\\\nn\overline{\d}^{ i}_\star\triangleright(f\star g)&=&
+\sum_{n=0}^\infty \sum_{k=0}^n \frac{B_n (- i\theta)^{n-1}}{k! (n-k)!}
+ \left[\bigl(( e^{- i\theta \d_-^\star}-1) 
+(\d_-^\star)^{n-k-1} \overline{\d}^{ i}_\star
+\triangleright f\bigr) \star 
+\bigl((\d_-^\star)^k\triangleright g\bigr)\right.\\\nn &&
+\qquad\qquad\qquad
++\left.\bigl( e^{- i\theta \d_-^\star} (\d_-^\star)^{n-k}
+\triangleright f\bigr) \star \bigl(( e^{- i\theta \d_-^\star}-1)
+ (\d_-^\star)^{k-1} \overline{\d}^{ i}_\star
+\triangleright g\bigr)\right]
+\end{eqnarray}
+Note that a common feature to all three deformations is that the coproduct
+of the quantisation of the light-cone position translation generator
+$\d_-$ coincides with the trivial one \eqref{trivialcoprod}, and
+thereby yields the standard symmetric Leibniz rule with respect to the
+pertinent $\star$-product. This owes to the fact that the action of
+$\d_-$ on the spacetime $\NW_6$ corresponds to the commutative
+action of the central Lie algebra generator $\T$, whose left and right actions
+coincide. In the next section we shall see that the action of the
+quantised translations in $x^-$ on $\CC^\infty(\mfn^\vee)$ coincides with
+the standard commutative action \eqref{commtranslaction}. This is
+consistent with the fact that all frames of reference for the
+spacetime $\NW_6$ possess an $x^-$-translational symmetry, while
+translational symmetries in the other coordinates depend crucially on
+the frame and generally need to be twisted in order to generate an
+isometry of $\NW_6$. Notice also that ordinary time translation
+invariance is always broken by the time-dependent Neveu-Schwarz
+background \eqref{NS2formBrink}.
+
+\section{Derivatives}
+\label{Derivatives}
+In this section we will systematically construct a set of quantised derivative
+operators $\d^a_\star$, $a=1,\dots,6$ satisfying the conditions of the
+previous section. In general, there is no unique way to build up such
+derivatives. To this end, we will impose some weak conditions, namely that the
+quantised derivatives be deformations of ordinary derivatives,
+$\d_\star^a=\d^a+O(\theta)$, and that they commute among themselves,
+$[\d_\star^a,\d_\star^b]_\star=0$. The latter condition is
+understood as a requirement for the iterated action of the derivatives on
+functions $f\in\CC^\infty(\mfn^\vee)$,
+$[\d_\star^a,\d_\star^b]_\star\triangleright f=0$ or equivalently
+\begin{equation}
+  \label{derivcommute}
+  \d_\star^a\triangleright\bigl(\d_\star^b\triangleright f
+  \bigr)=\d_\star^b\triangleright\bigl(\d_\star^a\triangleright
+  f\bigr)
+\end{equation}
+For the former condition, the simplest consistent choice is to assume a linear
+derivative deformation on the coordinate functions, $[\d_\star^a,
+x_b]_\star = \delta^a_{ b}+ i\theta \rho^a_{ bc} \d^c_\star$, which is
+understood as the requirement
+\begin{equation}
+  \label{dxreq}
+  \left[\d_\star^a , x_b\right]_\star\triangleright f:=
+  \d^a_\star\triangleright\left(x_b\star f\right)-
+  x_b\star\left(\d_\star^a\triangleright f\right)=
+  \delta^a_{ b} f+ i\theta \rho^a_{ bc} \d^c_\star
+  \triangleright f
+\end{equation}
+A set of necessary conditions on the constant tensors $\rho^a_{ bc}\in\R$ may
+be derived by demanding consistency of the derivatives with the original
+$\star$-commutators of coordinates \eqref{xaxbstarcomm}. Applying the Jacobi
+identity for the $\star$-commutators between $\d^a_\star$, $x_b$ and $x_c$
+leads to the relations
+\begin{eqnarray}
+  \label{rhoCrels}
+  \rho^a_{ bc}-\rho^a_{ cb}&=&C_{bc}^{  a} \\\nn
+  \rho^a_{ bc} \rho^c_{ de}-\rho^a_{ dc} \rho^c_{ be}&=&
+  C_{bd}^{  c} \rho^a_{ ce}
+\end{eqnarray}
+
+With these requirements we now seek to find quantised derivative operators
+$\d_\star^a$ as functionals of ordinary derivatives $\d^a$ acting on
+$\CC^\infty(\mfn^\vee)$ as in \eqref{commtranslaction}. However, there are
+(uncountably) infinitely many solutions $\rho^a_{ bc}$ obeying \eqref{rhoCrels}
+\cite{DMT1} with $C_{ab}^{ c}$ the structure constants of the Lie algebra $\mfn$
+given by \eqref{NW4algdef}. We will choose the simplest intuitive one defined by
+the $\star$-commutators
+\begin{align}
+  \nn
+  \left[\d_-^\star , x^-\right]_\star&=1
+  &\left[\d_+^\star , x^-\right]_\star&=0
+  &\left[\d_\star^i , x^-\right]_\star&=- i\theta \d_\star^i
+  &\left[ \overline{\d}_\star^{ i} , x^-\right]_\star&=
+   i\theta \overline{\d}_\star^{ i}
+  \\ \nn
+  \left[\d_-^\star , x^+\right]_\star&=0
+  &\left[\d_+^\star , x^+\right]_\star &=1
+  &\left[\d_\star^i , x^+\right]_\star&=0
+  &\left[ \overline{\d}_\star^{ i} , x^+\right]_\star&=0
+  \\ \nn
+  \left[\d_-^\star , z_i\right]_\star&=0
+  &\left[\d_+^\star , z_i\right]_\star&=- i\theta 
+  \overline{\d}^{ i}_\star
+  &\left[\d_\star^i , z_j\right]_\star&=\delta^i_{ j}
+  &\left[ \overline{\d}_\star^{ i} , z_j\right]_\star&=0
+  \\\nn
+  \left[\d_-^\star , \overline{z}_i\right]_\star&=0
+  &\left[\d_+^\star , \overline{z}_i\right]_\star&=
+   i\theta \d_\star^i
+  &\left[\d_\star^i , \overline{z}_j\right]_\star&=0
+  &\left[ \overline{\d}_\star^{ i} , \overline{z}_j\right]_\star&
+  =\delta^i_{ j}
+  \\
+    \label{eq:rho:nw4}
+\end{align}
+whose ${\mathcal O}(\theta)$ parts mimick the structure of the Lie brackets
+\eqref{NW4algdef}. All other admissible choices for $\rho^a_{ bc}$ can be mapped
+into those given by \eqref{eq:rho:nw4} via non-linear redefinitions of the
+derivative operators $\d^a_\star$ \cite{DMT1}. It is important to realise that
+the quantised derivatives do not generally obey the classical Leibniz rule, i.e.
+$\d_\star^a\triangleright(f g)\neq f (\d_\star^a\triangleright
+g)+(\d_\star^a\triangleright f) g$ in general, but rather the generalised
+Leibniz rules spelled out in the previous section in order to achieve
+consistency for $\theta\neq0$. Let us now construct the three sets of
+derivatives of interest to us here.
+
+\subsection{Time Ordering}
+\label{TOderiv}
+For the time ordered case, we use \eqref{TOstargen} to compute the
+$\ast$-products
+\begin{eqnarray}
+  \label{TOxfprods}
+  x^-*f&=&\left(x^-- i\theta \mz\cdot\bfd+ i\theta 
+\overline{\mz}\cdot\overline{\bfd} \right) f\\\nn
+x^+*f&=&x^+ f \\\nn
+z_i*f&=&\left(z_i- i\theta x^+ \overline{\d}^{ i}
+\right)  f \\\nn
+\overline{z}_i*f&=&\left( \overline{z}_i+ i\theta x^+ \d^i
+\right) f
+\end{eqnarray}
+Substituting these into \eqref{dxreq} using \eqref{eq:rho:nw4} then shows that
+the actions of the $*$-derivatives simply coincide with the canonical actions of
+the translation generators on $\CC^\infty(\mfn^\vee)$, so that
+\begin{equation}
+  \label{TOderivs}
+  \d_*^a\triangleright f=\d^af
+\end{equation}
+Thus the time-ordered noncommutative geometry of $\NW_6$ is invariant under {\it
+  ordinary} translations of the spacetime in all coordinate directions, with the
+generators obeying the twisted Leibniz rules \eqref{TOLeibniz}.
+
+\subsection{Symmetric Time Ordering}
+\label{STOderiv}
+Next, consider the case of symmetric time ordering. From \eqref{TOsymstargen} we
+compute the $\bullet$-products
+\begin{eqnarray}
+  \label{STOxfprods}
+  x^-\bullet f&=&\left(x^-- \frac{ i\theta}2  
+\mz\cdot\bfd+ \frac{ i\theta}2  \overline{\mz}
+\cdot\overline{\bfd} \right) f \\\nn
+x^+\bullet f&=&x^+ f \\\nn
+z_i\bullet f&=& e^{\frac{ i\theta}2 \d_-} 
+\left(z_i- i\theta x^+ \overline{\d}^{ i}
+\right) f \\\nn
+\overline{z}_i\bullet f&=& e^{-\frac{ i\theta}2 \d_-} 
+\left( \overline{z}_i+ i\theta 
+x^+ \d^i\right) f
+\end{eqnarray}
+Substituting \eqref{STOxfprods} into \eqref{dxreq} using \eqref{eq:rho:nw4}
+along with the derivative rule
+\begin{equation}
+  \label{derivrule1}
+  e^{i\theta\partial_-}x^-=(x^-+i\theta)e^{i\theta\partial_-}
+\end{equation}
+we find that the actions of the $\bullet$-derivatives on $\CC^\infty(\mfn^\vee)$
+are generically non-trivial and given by
+\begin{eqnarray}
+  \label{STOderivs}
+  \d_-^\bullet\triangleright f&=&\d_-f \\\nn
+  \d_+^\bullet\triangleright f&=&\d_+f \\\nn
+  \d^i_\bullet\triangleright f&=& e^{-\frac{ i\theta}2 \d_-} \d^if \\\nn
+  \overline{\d}^{ i}_\bullet\triangleright f&=&
+  e^{\frac{ i\theta}2 \d_-} 
+  \overline{\d}^{ i}f
+\end{eqnarray}
+Only the transverse space derivatives are modified: a consequence of the
+invariance of the Brinkman coordinate system under translations of the
+light-cone coordinates $x^\pm$. Again the twisted Leibniz rules
+\eqref{STOLeibniz} are straightforward to verify in this instance.
+
+\subsection{Weyl Ordering}
+\label{Weylderiv}
+Finally, from the Weyl-ordered $\star$-product \eqref{Weylstargen} we compute
+\begin{eqnarray}
+  \nn
+  x^-\star f&=&\left[x^-+\left(1-\frac1{\phi_{-\theta}( i\d_-)}
+\right) \frac{\mz\cdot\bfd}{\d_-}+
+\left(1-\frac1{\phi_{\theta}( i\d_-)}
+\right) \frac{\overline{\mz}\cdot\overline{\bfd}}{\d_-}
+\right.\\\nn &&\qquad-\left.2\theta x^+\left(\frac{2}
+{\theta \d_-}-\cot\left( \frac\theta2 \d_- 
+\right)\right) \frac{\overline{\bfd}
+\cdot\bfd}{\d_-}\right] f \\\nn
+x^+\star f&=&x^+ f \\\nn
+z_i\star f&=&\left[\frac{z_i}{\phi_{-\theta}( i\d_-)}+
+2x^+ \left(1-\frac1{\phi_{-\theta}( i\d_-)}\right) 
+\frac{\overline{\d}^{ i}}{\d_-}\right] f
+\\ \overline{z}_i\star f&=&
+\left[\frac{\overline{z}_i}{\phi_{\theta}( i\d_-)}+
+2x^+ \left(1-\frac1{\phi_{\theta}( i\d_-)}\right) 
+\frac{\d^i}{\d_-}\right] f
+  \label{Weylxfprods}
+\end{eqnarray}
+From \eqref{dxreq}, \eqref{eq:rho:nw4} and the derivative rule
+\begin{equation}
+  \label{derivrule2}
+  \phi_\theta(i\partial_-)x^-=\frac{e^{i\theta\partial_-}
+    -\phi_\theta(i\partial_-)}{i\partial_-}
+  +x^-\phi_\theta(i\partial_-)
+\end{equation}
+it then follows that the actions of the $\star$-derivatives on
+$\CC^\infty(\mfn^\vee)$ are given by
+\begin{eqnarray}
+  \label{Weylderivs}
+  \d_-^\star\triangleright f&=&\d_-f \\\nn
+  \d_+^\star\triangleright f&=&\left[\d_++2 
+  \left(1-\frac{\sin(\theta \d_-)}{\theta \d_-}
+  \right) \frac{\overline{\bfd}\cdot\bfd}{\d_-}
+\right]f \\\nn \d_\star^i\triangleright f&=&
+-\frac{1- e^{ i\theta \d_-}}{ i\theta \d_-} 
+\d^if \\\nn \overline{\d}_\star^{ i}
+\triangleright f&=&\frac{1- e^{- i\theta \d_-}}
+{ i\theta \d_-} \overline{\d}^{ i}f
+\end{eqnarray}
+Thus in the completely symmetric noncommutative geometry of $\NW_6$ both the
+light-cone and the transverse space of the plane wave are generically only
+invariant under rather complicated twisted translations, obeying the involved
+Leibniz rules \eqref{WeylLeibniz}.
+
+\section{Integrals}
+\label{Integrals}
+The final ingredient required to construct noncommutative field theory action
+functionals is a definition of integration. At the algebraic level, we define an
+integral to be a trace on the algebra $\overline{U(\mfn)^\C}$, i.e. a map
+$\ncintsmall:\overline{U(\mfn)^\C}\to\C$ which is linear,
+\begin{equation}
+  \label{ncintlin}
+  \ncint\bigl(c_1 \Omega(f)+c_2 \Omega(g)\bigr)=
+  c_1 \ncint\Omega(f)+c_2 \ncint\Omega(g)
+\end{equation}
+for all $f,g\in\CC^\infty(\mfn^\vee)$ and $c_1,c_2\in\C$, and which is cyclic,
+\begin{equation}
+  \label{ncintcyclic}
+  \ncint\Omega(f)\cdot\Omega(g)=\ncint\Omega(g)\cdot\Omega(f)
+\end{equation}
+We define the integral in the $\star$-product formalism using the usual
+definitions for the integration of commuting Schwartz functions in
+$\CC^\infty(\R^6)$. Then the linearity property \eqref{ncintlin} is
+automatically satisfied. To satisfy the cyclicity requirement
+\eqref{ncintcyclic}, we introduce
+\cite{CalWohl1,BehrSyk1,Agostini:2004cu,Dimitrijevic:2003wv,FelShoi1} a measure
+$\kappa$ on $\R^6$ which deforms the flat space volume element $\dd\mbf x$ and
+define
+\begin{equation}
+  \label{ncintdef}
+  \ncint\Omega(f):=\int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) f(\mbf x)
+\end{equation}
+The measure $\kappa$ is chosen in order to achieve the property
+\eqref{ncintcyclic}, so that
+\begin{equation}
+  \label{mucyclic}
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) (f\star g)(\mbf x)=
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) (g\star f)(\mbf x)
+\end{equation}
+Such a measure always exists \cite{CalWohl1,Dimitrijevic:2003wv,FelShoi1} and
+its inclusion in the present context is natural for the curved spacetime $\NW_6$
+which we are considering here. It is important note that, for the
+$\star$-products that we use, a measure which satisfies \eqref{mucyclic} gives
+the integral the additional property
+\begin{equation}
+  \label{ncintaddprop}
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) (f\star g)(\mbf x)=
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) f(\mbf x) g(\mbf x)
+\end{equation}
+providing an explicit realisation of the Connes-Flato-Sternheimer conjecture
+\cite{FelShoi1}.
+
+Since the coordinate functions $x_a$ generate the noncommutative algebra, the
+cyclicity constraint \eqref{mucyclic} is equivalent to the $\star$-commutator
+condition
+\begin{equation}
+  \label{starcommcond}
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \bigl[(x_a)^n , f(\mbf x)
+  \bigr]_\star=0
+\end{equation}
+which must hold for arbitrary functions $f\in\CC^\infty(\R^6)$ (for which the
+integral makes sense) and for all $n\in\N$, $a=1,\dots,6$. We may rewrite any
+commutator of the form $\cb{\hat x^n}{\hat y}$ using the following identity
+\begin{equation}
+  \label{eq:nw:int:samstheory}
+  \cb{\hat x^{n+1}}{\hat y} = \sum_{m=0}^n\binom nm
+  \hat x^{n-m}\cb{\hat x}{\hat y}\hat x^m
+\end{equation}
+allowing us to expand \eqref{starcommcond} to the form
+\begin{equation}
+  \label{commcondexp}
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \sum_{m=0}^n {\binom nm}
+  (x_a)^{n-m}\star\bigl[x_a , f(\mbf x)\bigr]_\star\star (x_a)^m=0
+\end{equation}
+We may thus insert the explicit form of $[x_a,f]_\star$ for generic $f$ and use
+the ordinary integration by parts property
+\begin{equation}
+  \label{intpartsfgh}
+  \int\limits_{\R^6} \dd\mbf x f(\mbf x) g(\mbf x) \partial_a^nh(\mbf x)=
+  (-1)^n \int\limits_{\R^6} \dd\mbf x
+  \Bigl[f(\mbf x) \left(\partial_a^n g(\mbf x) \right)
+  h(\mbf x)+\left( \partial_a^nf(\mbf x)\right) g(\mbf x) h(\mbf x)\Bigr]
+\end{equation}
+for Schwartz functions $f,g,h\in\CC^\infty(\R^6)$. This will lead to a number of
+constraints on the measure $\kappa$.
+
+The trace \eqref{ncintdef} can also be used to define an inner product
+$(-,-):\CC^\infty(\mfn^\vee)\times\CC^\infty(\mfn^\vee)\to\C$ through
+\begin{equation}
+  \label{ncintinnprod}
+  (f,g):=\int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \bigl( \overline{f}\star
+  g\bigr)(\mbf x)
+\end{equation}
+Note that this is different from the inner product introduced in Section
+\ref{NWPW}. When we come to deal with the variational principle in the next
+section, we shall require that our $\star$-derivative operators
+$\partial^a_\star$ be anti-Hermitean with respect to the inner product
+\eqref{ncintinnprod}, i.e. $(f,\partial^a_\star\triangleright
+g)=-(\partial^a_\star\triangleright f,g)$, or equivalently
+\begin{equation}
+  \label{ncintparts}
+  \int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \bigl( \overline{f}\star
+  \partial_\star^a
+  \triangleright g\bigr)(\mbf x)=-\int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) 
+  \bigl( \overline{\partial_\star^a\triangleright f}\star g\bigr)(\mbf x)
+\end{equation}
+This allows for a generalised integration by parts property
+\cite{Dimitrijevic:2003wv} for our noncommutative integral. As always, we will
+now go through our list of $\star$-products to explore the properties of the
+integral in each case. We will find that the measure $\kappa$ is not uniquely
+determined by the above criteria and that there is a large flexibility in the
+choices that can be made. We will also find that the derivatives of the previous
+section must be modified by a $\kappa$-dependent shift in order to satisfy
+\eqref{ncintparts}.
+
+\subsection{Time Ordering}
+\label{TOint}
+Using \eqref{TOxfprods} along with the analogous $*$-products $f*x_a$
+\begin{eqnarray}
+  \label{eq:time:starx}
+  f\ast x^- &=&x^-f\\ \nn
+  f\ast x^+ &=&x^+f\\ \nn
+  f\ast z_i&=&(z_i+i\theta x^+\overline\d^i)e^{-i\theta\d_-}f\\ \nn
+  f\ast \overline{z}_i&=&(\overline{z}_i-i\theta x^+\d^i)e^{i\theta\d_-}f
+\end{eqnarray}
+we arrive at the $*$-commutators
+\begin{eqnarray}
+  \label{eq:time:comm}
+  \cb{x^-}{f}_\ast&=&i \theta \left( \obfz\cdot\obfd
+    -\bfz\cdot\bfd\right)f   \\ \nn
+  \cb{x^+}{f}_\ast&=&0   \\ \nn
+  \cb{z_i}{f}_\ast&=&z_i \left(1
+    -e^{-i \theta \d_-}\right)f-i \theta x^+ \left(1
+    +e^{-i \theta \d_-}\right)\od^{ i}f   \\
+  \cb{ \oz_i}{f}_\ast&=&\oz_i \left(1
+    -e^{i \theta \d_-}\right)f+i \theta x^+ \left(1
+    +e^{i \theta \d_-}\right)\d^if \nn
+\end{eqnarray}
+When inserted into \eqref{commcondexp}, after integration by parts and
+application of the derivative rule \eqref{derivrule1} these expressions imply
+constraints on the corresponding measure $\kappa_\ast$. We highlight the steps
+involved in calculating the constraint for $x^-$
+\begin{eqnarray}
+  \label{eq:time:comm:mu:detail:1}
+  i\theta \int\limits_{\R^6} \dd\mbf x \kappa_\ast \sum_{m=0}^n {\binom nm}
+  (x^-)^n \left( \obfz\cdot\obfd
+    -\bfz\cdot\bfd\right)f &=&0 \\\nn
+  \implies \int\limits_{\R^6} \dd\mbf x
+  \kappa_\ast \left( \obfz\cdot\obfd
+    -\bfz\cdot\bfd\right)f &=&0 \\\nn
+  \cancel{\kappa_\ast}
+  + \bfz\cdot\bfd\kappa_\ast&=&
+  \cancel{\kappa_\ast}
+  + \obfz\cdot\obfd\kappa_\ast
+  \\ \nn \bfz\cdot\bfd\kappa_\ast&=&\obfz\cdot\obfd\kappa_\ast
+\end{eqnarray}
+Clearly $\kappa_\ast$ terms appear from both $\bfz\cdot\bfd$ and
+$\obfz\cdot\obfd$ parts of \eqref{eq:time:comm}. As $\kappa$-Minkowski only
+consists of a single set of $z_i$ (missing the complementary $\overline{z_i}$),
+this cancellation does not occur \cite{Agostini:2004cu} and
+\eqref{eq:time:comm:mu:detail:1} does not simplify so elegantly. Unfortunately,
+this limits the generalisation outlined in this thesis and one must choose the
+appropriate $\kappa(\mbf x)$ for calculations on $\kappa$-Minkowski. This is
+true for all of our orderings.
+
+The remaining constraints are
+\begin{eqnarray}
+  \label{eq:time:mu:all}
+  \left(1+e^{i \theta \d_-}\right)\od^{ i}\kappa_\ast&=&0 \\\nn
+  \left(1-e^{-i \theta \d_-}\right)\d^i\kappa_\ast&=&0
+\end{eqnarray}
+It is straightforward to see that the equations \eqref{eq:time:mu:all} imply
+that the measure must be independent of both the light-cone position and
+transverse coordinates, so that
+\begin{equation}
+  \label{eq:time:mu}
+  \partial_-\kappa_\ast=\d^i\kappa_\ast=\od^{ i}\kappa_\ast=0 
+\end{equation}
+However, the derivative $\d_+^\ast$ in \eqref{TOderivs} does not
+satisfy the anti-hermiticity requirement \eqref{ncintparts}. This can be
+remedied by translating it by a logarithmic derivative of the measure
+$\kappa_*$ and defining the modified $*$-derivative
+\begin{equation}
+  \label{eq:time:d}
+ \widetilde\d^{ \ast}_+=\d_+ + \frac12 \d_+\ln\kappa_\ast 
+\end{equation}
+The remaining $*$-derivatives in \eqref{TOderivs} are unaltered. While this
+redefinition has no adverse effects on the commutation relations
+\eqref{eq:rho:nw4}, the action $\widetilde\d^{ \ast}_+\triangleright f$ contains
+an additional linear term in $f$ even if the function $f$ is independent of the
+time coordinate $x^+$.
+
+It is also unfortunate that the $\kappa$-Minkowski and $\NW$ measure constraints
+are mutually exclusive. It is interesting to note that the measure is much
+simpler for $\NW$, an unexpected result.
+
+\subsection{Symmetric Time Ordering}
+\label{STOint}
+Using \eqref{STOxfprods} along with the corresponding $\bullet$-products
+$f\bullet x_a$
+\begin{eqnarray}
+  \label{eq:symtime:starx}
+  f\bullet x^-&=& \left(x^-+i\frac \theta 2\bfz\cdot\bfd
+    -i\frac \theta 2\obfz\cdot\obfd\right) f\\ \nn
+  f\bullet x^+&=&x^+f\\ \nn
+  f\bullet z_i&=&\left(z_i+i\theta x^+\od^i\right)
+        e^{-i\frac \theta 2 \d_-}f\\ \nn
+  f\bullet \oz_i&=&\left(\oz_i-i\theta x^+\d^i\right)
+        e^{i\frac \theta 2 \d_-}f
+\end{eqnarray}
+we arrive at the $\bullet$-commutators
+\begin{eqnarray}
+  \label{eq:symtime:comm}
+  \cb{x^-}{f}_\bullet&=&i \theta \left( 
+    \obfz\cdot\obfd -\bfz\cdot\bfd\right)f   \\ \nn
+  \cb{x^+}{f}_\bullet&=&0   \\ \nn
+  \cb{z_i}{f}_\bullet&=& 2iz_i \sin\left( \frac\theta2 \partial_- \right)f-2i
+  \theta x^+ \od^{ i}
+  \cos\left( \frac\theta2 \partial_-\right)f   \\
+  \cb{ \oz_i}{f}_\bullet&=&-2i \oz_i \sin\left( \frac\theta2
+    \partial_-\right)f+2i \theta x^+\d^i\cos
+  \left( \frac\theta2 \partial_-\right)f 
+\end{eqnarray}
+Substituting these into \eqref{commcondexp} and integrating by parts, we arrive
+at constraints on the measure $\kappa_\bullet$ given by
+\begin{eqnarray}
+  \label{eq:symtime:mu:all}
+  \bigl(1-\od^{ i}\bigr)\sin\left( \frac\theta2
+    \partial_-\right)\kappa_\bullet&=&0   \\ \nn
+  \bigl(1+\d^i\bigr)\sin\left( \frac\theta2
+    \partial_-\right)\kappa_\bullet&=&0   \\
+  \bfz\cdot\bfd\kappa_\bullet&=&\obfz\cdot\obfd\kappa_\bullet \nn
+\end{eqnarray}
+which can be reduced to the conditions
+\begin{equation}
+  \label{eq:symtime:mu:rest}
+  \bfz\cdot\bfd\kappa_\bullet=\obfz\cdot\obfd\kappa_\bullet  
+  \quad \d_-\kappa_\bullet=0 
+\end{equation}
+Now the derivative operators $\d_+^\bullet$, $\d^i_\bullet$ and $\od^{
+  i}_\bullet$ all violate the requirement \eqref{ncintparts}. Introducing
+translates of $\d^i_\bullet$ and $\od^{ i}_\bullet$ analogously to what we did
+in \eqref{eq:time:d} is problematic. While such a shift does not alter the
+canonical commutation relations between the coordinates and derivatives, i.e.
+the algebraic properties of the differential operators, it does violate the
+$\bullet$-commutator relationships \eqref{dxreq} and \eqref{eq:rho:nw4} for
+generic functions $f$. Consistency between differential operator and function
+commutators would only be possible in this case by demanding that multiplication
+from the left follow a Leibniz-like rule for the translated part.
+
+Thus in order to satisfy both sets of constraints, we are forced to further
+require that the measure $\kappa_\bullet$ depend only on the plane wave time
+coordinate $x^+$ so that \eqref{eq:symtime:mu:rest} truncates to
+\begin{equation}
+  \label{eq:symtime:mu}
+  \d^i\kappa_\bullet=\od^{ i}\kappa_\bullet=\d_-\kappa_\bullet=0 
+\end{equation}
+The logarithmic translation of $\d_+^\bullet$ must still be applied in order to
+ensure that the time derivative is anti-hermitean with respect to the
+noncommutative inner product. This modifies its action to
+\begin{equation}
+  \label{eq:symtime:d}
+  \widetilde\d^{ \bullet}_+=\d_++ \frac12 \d_+\ln\kappa_\bullet
+\end{equation}
+The actions of all other $\bullet$-derivatives are as in \eqref{STOderivs}.
+Again this shifting has no adverse effects on \eqref{eq:rho:nw4}, but it carries
+the same warning as in the time ordered case regarding extra linear terms from
+the action $\widetilde\d^{ \bullet}_+\triangleright f$.
+
+\subsection{Weyl Ordering}
+\label{Weylint}
+Finally, the Weyl ordered $\star$-products \eqref{Weylxfprods} along with the
+corresponding $f\star x_a$ products
+\begin{eqnarray}
+  \label{eq:weyl:starx}
+  f\star x^-&=&\left\{
+    \left(1-\frac{1}{\phi_\theta(i\d_-)}\right)
+        \frac{\bfz \cdot \bfd}{\d_-}
+    +\left(1-\frac{1}{\phi_{-\theta}(i\d_-)}\right)
+        \frac{\obfz \cdot \obfd}{\d_-}\right.\\ \nn
+    &&+x^--2\theta x^+\left(\frac{2}{\theta\d_-}
+        \left.-\cot\left(\frac\theta2\d_-\right)\right)
+        \frac{\bfd\cdot\obfd}{\d_-}\right\}f\\ \nn
+  f\star x^+&=&x^+f\\ \nn
+  f\star z_i&=&\left\{\frac{z_i}{\phi_\theta(i\d_-)}
+    +2x^+\left(1-\frac 1{\phi_\theta(i\d_-)}\right)
+      \frac{\od^i}{\d_-}\right\}f\\ \nn
+  f\star \oz_i&=&\left\{\frac{\oz_i}{\phi_{-\theta}(i\d_-)}
+    +2x^+\left(1-\frac 1{\phi_{-\theta}(i\d_-)}\right)
+      \frac{\d^i}{\d_-}\right\}f
+\end{eqnarray}
+lead to the $\star$-commutators
+\begin{eqnarray}
+  \label{eq:weyl:comm}
+  \cb{x^-}{f}_\star&=&i \theta \left( \obfz\cdot\obfd
+    -\bfz\cdot\bfd\right)f   \\ \nn
+  \cb{x^+}{f}_\star&=&0   \\ \nn
+  \cb{z_i}{f}_\star&=&i \theta \left(z_i \d_-
+    -2x^+ \od^{ i}\right)f   \\
+  \cb{ \oz_i}{f}_\star&=&i \theta \left(-\oz_i \d_-
+    +2x^+ \d^i\right)f \nn
+\end{eqnarray}
+Substituting these commutation relations into \eqref{commcondexp}, integrating
+by parts and using the derivative rule \eqref{derivrule1} along with
+\eqref{derivrule2} leads to the corresponding measure constraints
+\begin{eqnarray}
+  \label{eq:weyl:mu:all}
+  z_i \d_-\kappa_\star&=&2x^+ \od^{ i}\kappa_\star   \\ \nn
+  \oz_i \d_-\kappa_\star&=&2x^+ \d^i\kappa_\star   \\
+  \bfz\cdot\bfd\kappa_\star&=&\obfz\cdot\obfd\kappa_\star \nn
+\end{eqnarray}
+Again these differential equations imply that the measure
+$\kappa_\star$ depends only on the plane wave time coordinate $x^+$ so
+that
+\begin{equation}
+  \label{eq:weyl:mu}
+  \d_-\kappa_\star=\d^i\kappa_\star=\od^{ i}\kappa_\star=0
+\end{equation}
+Translating the derivative operator $\d_+^\star$ as before in order to satisfy
+\eqref{ncintparts} yields the modified derivative
+\begin{equation}
+  \label{eq:weyl:d}
+  \widetilde\d^{ \star}_+=\d_++2 
+  \left(1-\frac{\sin(\theta \partial_-)}{\theta \partial_-}
+  \right) \frac{\overline{\bfd}\cdot\bfd}{\partial_-}+
+  \frac12 \d_+\ln\kappa_\star
+\end{equation}
+with the remaining $\star$-derivatives in \eqref{Weylderivs} unchanged. Once
+again this produces no major alteration to \eqref{eq:rho:nw4} but does yield
+extra linear terms in the actions $\widetilde\d^{ \star}_+\triangleright f$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

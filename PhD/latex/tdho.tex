@@ -1,0 +1,284 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+\usepackage{epsfig}
+%\usepackage{color}
+\usepackage{amssymb}
+\usepackage{amsmath}
+%\setlength\arraycolsep{2pt}
+%\setlength\tabcolsep{5pt}
+
+% These are new commands i made at the end of the type up, so i haven't used them much
+% Partial Derivative
+\newcommand{\pd}{\partial}
+% Left Bracket
+\newcommand{\lb}{\left(}
+% Right Bracket
+\newcommand{\rb}{\right)}
+% Commutator Bracket
+\newcommand{\cb}[2]{\left[ #1 , #2 \right]}
+% Anti Commutator Bracket
+\newcommand{\acb}[2]{\left[ #1 , #2 \right]_+}
+% EQuatioN reference
+\newcommand{\eqn}[1]{(\ref{#1})}
+
+\begin{document}
+\section{The Time Dependant Harmonic Oscillator}
+Using the technique as outlined in \cite{ref_td}, a solution for the
+harmonic oscillator of type
+\begin{equation}
+  \label{eqn_tdhoH}
+  H(t) = \omega(t) \lb p^2 + q^2 \rb
+\end{equation}
+is investigated. Where $\omega(t)$ is a real function of time and the
+$q$'s and $p$'s are canonically conjugate time independent
+operators. The equations of motion are
+\begin{eqnarray}
+  \label{eqn_tdhoqeom}
+  \frac{d q}{dt} &= \frac{1}{i \hbar} [q, H(t)] =& 2 \omega(t) p \\
+  \label{eqn_tdhopeom}
+  \frac{d p}{dt} &= \frac{1}{i \hbar} [p, H(t)] =& - 2 \omega(t) q
+\end{eqnarray}
+As required by the method, we postulate an invariant $I(t)$, which we
+choose freely to be of the form
+\begin{equation}
+  \label{eqn_tdhoI}
+   I(t) = \alpha(t) q^2 + \beta(t) p^2 + \gamma(t) [q, p]_+
+\end{equation}
+where $\alpha(t)$, $\beta(t)$, $\gamma(t)$ are real functions of time. By imposing the condition
+\begin{equation}
+  \label{eqn_tdhoIdot}
+  \frac{dI(t)}{dt} = \frac{\pd I(t)}{\pd t} + \frac{1}{i \hbar} [I(t), H(t)] = 0
+\end{equation}
+henceforth dropping `$(t)$' from the notation and using dots to denote
+partial derivatives with respect to time, we obtain
+\begin{equation}
+  \label{eqn_tdhoIdotcondition}
+   \frac{dI(t)}{dt} = (\dot{\alpha} - \omega \gamma)q^2 + (\dot{\beta} + \omega \gamma)p^2 + (\dot{\gamma} + 2 \omega \alpha -2 \omega \beta)[q, p]_+
+\end{equation}
+which implies that
+\begin{eqnarray}
+  \label{eqn_cnd1}
+  \dot{\alpha} &=& \omega \gamma \\
+  \label{eqn_cnd2}
+  \dot{\beta} &=&  - \omega \gamma \\
+  \label{eqn_cnd3}
+  \dot{\gamma} &=& 2 \omega \beta - 2 \omega \alpha
+\end{eqnarray}
+It is clear that $\dot{\alpha} = - \dot{\beta}$, and we are free to set
+\begin{eqnarray}
+  \label{eqn_cnd4}
+   \alpha &=& - \beta \\
+  \label{eqn_cnd5}
+   \therefore \dot{\gamma} &=& - 4 \omega \alpha
+\end{eqnarray}
+This allows us to re-write (\ref{eqn_tdhoI}) in terms of $\alpha$
+\begin{equation}
+  \label{eqn_tdhoIa}
+  I = \alpha \left( q^2 - p^2 \right) + \frac{\dot{\alpha}}{\omega} [q, p]_+
+\end{equation}
+We now require a constraint upon $\alpha$, which is easily obtained by
+differentiating $\gamma$ in (\ref{eqn_cnd1}) and inserting into
+(\ref{eqn_cnd5}), giving
+\begin{equation}
+  \label{eqn_cnsrnta}
+  \ddot{\alpha} - \frac{\dot{\omega}}{\omega}\dot{\alpha} + 4\omega^2 \alpha = 0
+\end{equation}
+which has the trivial solution when $\omega$ is constant
+\begin{equation}
+  \label{eqn_cnsrntcnsta}
+   \alpha = \sin (2\omega t + \theta)
+\end{equation}
+where $\theta$ is an arbitrary phase factor.
+
+The form of $I$ in (\ref{eqn_tdhoIa}) is awkward to work with, and may
+be re-written as a sum of two squares
+\begin{equation}
+  \label{eqn_tdhoIa2}
+  I = \alpha
+  \left\{
+    \left(
+      1 + \frac{\dot{\alpha}^2}{\alpha^2 \omega^2}
+    \right) q^2 -
+    \left(
+      p - \frac{\dot{\alpha}}{\alpha \omega} q
+    \right)^2
+  \right\}
+\end{equation}
+allowing the substitutions
+\begin{eqnarray}
+  \label{eqn_chi}
+   \chi^2 &=& 1 + \frac{\dot{\alpha}^2}{\alpha^2 \omega^2} \\
+  \label{eqn_Q}
+    Q &=& \sqrt{\frac{\chi}{\hbar}} q \\
+  \label{eqn_P}
+    P &=& \frac{1}{\sqrt{\chi \hbar}} \left( p - \frac{\dot{\alpha}}{\alpha \omega} q \right) \\
+  \label{eqn_lambda}
+    \lambda &=& 2\hbar\chi\alpha
+\end{eqnarray}
+to give
+\begin{equation}
+  \label{eqn_I}
+  I = \frac{\lambda}{2} \left\{ Q^2 - P^2 \right\}
+\end{equation}
+where $Q$ and $P$ are canonically conjugate time dependant operators
+\begin{equation}
+  \label{eqn_QPcc}
+   [Q, P] = i
+\end{equation}
+This is clearly the inverted harmonic oscillator, which is similar to
+the `upside down' harmonic oscillator studied in \cite{ref_udho}. (In
+that scenario, the minus is before the $q^2$, not the $p^2$, and thus
+requiring a separate representation) In order to remove the minus
+sign, we may introduce the canonically conjugate operators $U$ and
+$V$, defined as
+ \begin{eqnarray}
+  \label{eqn_U}
+    U &=& \frac {1}{\sqrt{2}} \left( Q - P \right) \\
+  \label{eqn_V}
+    V &=& \frac {1}{\sqrt{2}} \left( Q + P \right)
+\end{eqnarray}
+where
+\begin{equation}
+  \label{eqn_uvcc}
+   [U, V] = i
+\end{equation}
+allowing a re-write of (\ref{eqn_I}) to give
+\begin{equation}
+  \label{eqn_Kuv}
+   I = \frac{\lambda}{2} \left\{U V + V U \right\}
+\end{equation}
+The eigenfunctions $\phi$ are solutions to
+\begin{equation}
+   \label{eqn_schrodinger}
+    \frac{\lambda}{2}(UV + VU)\phi = E \phi
+\end{equation}
+For $U$, introducing the parameter $\mu=\frac{E}{\lambda}$
+\begin{equation}
+  \label{eqn_uvev}
+    U \frac{d \phi(U)}{d U} = (i \mu - \frac{1}{2}) \phi(U)
+\end{equation}
+the formal (normalised) solutions are \cite{ref_uvvu}
+\begin{equation}
+  \label{eqn_phisol}
+    \phi(U) = \frac{1}{\sqrt{2 \pi}} U^{i\mu - \frac{1}{2}}
+\end{equation}
+Solutions (\ref{eqn_phisol}) are only defined for positive values of
+$U$. We may find that the states are normalised and orthogonal. The
+same can be said for the $\phi(V)$ solutions. 
+\begin{equation}
+  \label{eqn_phino}
+    \langle \phi' | \phi'' \rangle = \frac{1}{2\pi}\int^\infty_0 U^{i(\mu'' - \mu') - 1} d U
+\end{equation}
+substituting $x = \ln U$
+\begin{equation}
+  \label{eqn_phinox}
+    \langle \phi' | \phi'' \rangle = \frac{1}{2\pi}\int^\infty_{-\infty} e^{i(\mu'' - \mu')x} dx = \delta(\mu''-\mu')
+\end{equation}
+In order to make use of \cite{ref_td} we require the gauge transformed
+states $e^{i \Theta_\phi(t)} | \phi \rangle$ where $\Theta_\phi(t)$ is defined by
+\begin{equation}
+  \label{eqn_alpha}
+    \hbar \frac{d \Theta_\phi}{d t} = \langle \phi|i\hbar \frac{\partial }{\partial t} - H|\phi \rangle
+\end{equation}
+Firstly rewriting (\ref{eqn_tdhoH}) in terms of the operators $Q$
+(\ref{eqn_Q}) and $P$ (\ref{eqn_P}), we get 
+\begin{eqnarray}
+  \label{eqn_HQP1}
+        H &=& \left(\frac{w\hbar}{\chi}+\frac{\hbar \dot{\alpha}^2}{\chi\alpha^2\omega}\right)Q^2
+          + \chi\omega\hbar P^2
+          + \frac{\hbar\dot{\alpha}}{\alpha}[P,Q]_+ \\
+  \label{eqn_HQP2}
+          &=& \chi\omega\hbar \left( Q^2+P^2\right) + \frac{\hbar\dot{\alpha}}{\alpha}[P,Q]_+
+\end{eqnarray}
+Equations \eqn{eqn_U} and \eqn{eqn_V} can be rearranged to give
+\begin{eqnarray}
+  \label{eqn_U2}
+    Q^2 + P^2 &=& 2U^2 + \acb Q P \\
+  \label{eqn_V2}
+    Q^2 + P^2 &=& 2V^2 - \acb Q P \\
+   \label{eqn_UVac}
+    \acb P Q  &=& \frac{1}{2}\lb V^2 - U^2\rb
+\end{eqnarray}
+Allowing $H$ to be written in two ways
+\begin{eqnarray}
+  \label{eqn_HU2}
+    H &=& 2\chi\omega\hbar U^2 + \lb 2\chi\omega\hbar + \frac{\hbar\dot{\alpha}}{\alpha}\rb \acb P Q \\
+  \label{eqn_HV2}
+      &=& 2\chi\omega\hbar V^2 - \lb 2\chi\omega\hbar - \frac{\hbar\dot{\alpha}}{\alpha}\rb \acb P Q
+\end{eqnarray}
+Adding these linearly to obtain $2H$ and then halving, we get
+\begin{equation}
+   \label{eqn_HUV1}
+    H = \chi\omega\hbar \lb U^2 + V^2 \rb + \frac{\hbar\dot{\alpha}}{\alpha}\acb P Q
+\end{equation}
+Using \eqn{eqn_UVac}, $H$ can be written as desired in terms of $U$
+and $V$. 
+\begin{equation}
+   \label{eqn_HUV}
+    H = A U^2 + B V^2
+\end{equation}
+where
+\begin{equation}
+   \label{eqn_AandB}
+    A = \chi\omega\hbar - \frac{\hbar\dot{\alpha}}{2\alpha}
+    \qquad
+    B = \chi\omega\hbar + \frac{\hbar\dot{\alpha}}{2\alpha}
+\end{equation}
+We find
+\begin{eqnarray}
+  \label{eqn_phiHphi}
+   \langle \phi''|H|\phi' \rangle &=&
+   \frac{1}{2\pi}\int^\infty_{-\infty}
+   e^{i\lb\mu' - \mu'' \rb x} \\
+   &\times&
+   \left\{
+     Ae^{2x} - Be^x\lb i\mu'-\frac{1}{2}\rb\lb i\mu'e^{-3x}-\frac{3}{2}e^{-\frac{3}{2}x}\rb
+   \right\}
+   dx \nonumber
+\end{eqnarray}
+Noting that we may obtain
+\begin{equation}
+   \label{eqn_partialU}
+    \frac{\pd U}{\pd t} = \frac{2BU}{\hbar}\lb \mu+\frac{1}{2}i\rb
+\end{equation}
+from the differential of $\hat{u}\phi=u\phi$. Thus we calculate
+\begin{equation}
+  \label{eqn_ddt}
+   \langle \phi''|i\hbar \frac{\pd }{\pd t}|\phi' \rangle = \frac{i\hbar}{2\pi} \int^\infty_{-\infty}
+   e^{i\lb\mu' - \mu'' \rb x}
+   \left\{
+     2B \lb i\mu' - \frac{1}{2}\rb^2 - \dot{\mu}' \hbar x
+   \right\}
+   dx
+\end{equation}
+and may now write
+\begin{eqnarray}
+  \label{eqn_phiddtHphi}
+   \langle \phi''|i\hbar \frac{\partial }{\partial t} - H|\phi' \rangle &=& \frac{1}{2\pi}
+   \int^\infty_{-\infty} e^{i\lb\mu' - \mu'' \rb x}dx \\
+     &&2B \lb i\mu' - \frac{1}{2}\rb^2 + B \lb i\mu'-\frac{1}{2}\rb i \mu' e^{-2x} \nonumber\\
+     &-& Ae^{2x} - \frac{3B}{2} \lb i\mu'-\frac{1}{2}\rb e^{-\frac{x}{2}} - \dot{\mu}' \hbar x \nonumber
+\end{eqnarray}
+If this were solvable, the states of the Schr\"{o}dinger equation (for
+the original harmonic oscillator) could be written 
+\begin{equation}
+  \label{eqn_scheqn}
+          i\hbar \frac{\pd \Phi(t)}{\pd t} = H(t) \Phi(t)
+\end{equation}
+where
+\begin{equation}
+  \label{eqn_schsol}
+          \Phi = \int \frac{e^{i \lb \Theta +\mu \ln U \rb}}{\sqrt{2 \pi U}} d\mu
+\end{equation}
+Note: the quantities $A$, $B$, $\omega$, $\alpha$, $\dot{\alpha}$,
+$\chi$, $\mu$, $\dot{\mu}$ and $U$ are all time dependant.
+
+\begin{thebibliography}{100}
+        \bibitem{ref_td} H. R. Lewis, W. B. Riesenfeld, {\it
+        Journ. Math. Phys.} {\bf 10} 8 (1969) 1458
+        \bibitem{ref_udho} M. Castagnino, R. Diener, L. Lara,
+        G. Puccini, {\it quant-ph/0006011}
+        \bibitem{ref_uvvu} C. G. Bollini, L. E. Oxman, {\it
+        Phys. Rev.} {\bf A47} (1993) 2339
+\end{thebibliography}
+Typeset in $\LaTeXe$ using Emacs on GNU/Linux.
+\end{document}

@@ -1,0 +1,10 @@
+# run with
+#   maple -b /opt/maple/lib,/home/samuel/work/maple/lib test-bch.txt
+
+restart;
+with(Commutator);
+maxorder:=4;
+read "/home/samuel/work/maple/bch.txt";
+for i from 1 to maxorder do
+    C[i];
+end do;

@@ -1,0 +1,46 @@
+{VERSION 6 0 "SUN SPARC SOLARIS" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 2 
+1 2 0 0 0 1 }{CSTYLE "2D Output" -1 20 "Times" 0 1 0 0 255 1 0 0 2 2 
+2 2 0 0 0 1 }{CSTYLE "_cstyle2" -1 202 "Courier" 0 1 255 0 0 1 0 1 0 
+2 1 2 0 0 0 1 }{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 
+0 0 0 1 2 2 2 2 2 2 0 0 0 1 }1 1 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "Ma
+ple Output" -1 11 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+0 }3 3 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle2" -1 202 1 {CSTYLE "
+" -1 -1 "Courier" 0 1 255 0 0 1 0 1 0 2 1 2 0 0 0 1 }0 0 0 -1 -1 -1 2 
+0 2 0 2 2 -1 1 }{PSTYLE "_pstyle4" -1 204 1 {CSTYLE "" -1 -1 "Courier
+" 0 1 255 0 0 1 0 1 0 2 1 2 1 0 0 1 }1 1 0 0 0 0 2 0 2 0 2 2 -1 1 }
+{PSTYLE "_pstyle5" -1 205 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 2 2 
+2 0 0 0 1 }0 0 0 -1 -1 -1 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle6" -1 206 
+1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 2 2 2 0 0 0 1 }0 0 0 -1 -1 -1 
+1 0 1 0 2 2 -1 1 }}
+{SECT 0 {EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 8 "restart;" }}}
+{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 12 "Phi:=proc(x)" }{MPLTEXT 
+1 -1 27 "\n if (simplify(x)=0) then 1" }{MPLTEXT 1 -1 7 "\n  else" }
+{MPLTEXT 1 -1 19 "\n  (1-exp(-x))/(x);" }{MPLTEXT 1 -1 8 "\nend if:" }
+{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 
+1 -1 29 "r[1]:=proc(k0,k1,k2,l0,l1,l2)" }{MPLTEXT 1 -1 21 "\n  (k1*Phi
+(k0*lambda)" }{MPLTEXT 1 -1 56 "+l1*exp(-lambda*k0)*Phi(lambda*l0))/Ph
+i(lambda*(k0+l0)):" }{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 
+202 "> " 0 "" {MPLTEXT 1 -1 29 "r[0]:=proc(k0,k1,k2,p0,p1,p2)" }
+{MPLTEXT 1 -1 9 "\n  k0+p0:" }{MPLTEXT 1 -1 10 "\nend proc:" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 57 "simplify(expand(r[1](k[0],k[
+1],k[2],-k[0],-k[1],-k[2])));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 57 "simplify(expand(r[0](k[
+0],k[1],k[2],-k[0],-k[1],-k[2])));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+\"\"!" }}}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 42 "K[1]:=r[1](k[0]
+,k[1],k[2],l[0],l[1],l[2]):" }}}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 
+-1 42 "K[2]:=r[1](k[0],k[1],k[2],l[0],l[1],l[2]):" }}}{EXCHG {PARA 
+202 "> " 0 "" {MPLTEXT 1 -1 42 "K[0]:=r[0](k[0],k[1],k[2],l[0],l[1],l[
+2]):" }}}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 48 "L[1]:=r[1](-l[0]
+,-l[1],-l[2],-k[0],-k[1],-k[2]):" }}}{EXCHG {PARA 202 "> " 0 "" 
+{MPLTEXT 1 -1 48 "L[2]:=r[1](-l[0],-l[1],-l[2],-k[0],-k[1],-k[2]):" }}
+}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 48 "L[0]:=r[0](-l[0],-l[1],-
+l[2],-k[0],-k[1],-k[2]):" }}}{EXCHG {PARA 202 "> " 0 "" {MPLTEXT 1 -1 
+54 "simplify(expand(r[1](K[0],K[1],K[2],L[0],L[1],L[2])));" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 204 "> " 0 "" 
+{MPLTEXT 1 202 54 "simplify(expand(r[0](K[0],K[1],K[2],L[0],L[1],L[2])
+));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG }{EXCHG }
+{EXCHG }{PARA 205 "" 0 "" {TEXT -1 0 "" }}{PARA 205 "" 0 "" {TEXT -1 
+0 "" }}{PARA 206 "" 0 "" {TEXT -1 0 "" }}{PARA 206 "" 0 "" {TEXT -1 0 
+"" }}{PARA 206 "" 0 "" {TEXT -1 0 "" }}}{MARK "17 0" 0 }{VIEWOPTS 1 1 
+0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

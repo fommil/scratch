@@ -1,0 +1,337 @@
+\documentclass[14pt, a4paper, titlepage]{slides}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold}
+\usepackage[latin1]{inputenc}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\let\S\Sphere
+% Commutator Bracket (in math mode)
+\newcommand{\cb}[2]{\left[ {#1} , {#2} \right]}
+% Left Bracket (in math mode)
+\newcommand{\lb}{\left(}
+% Right Bracket (in math mode)
+  \newcommand{\rb}{\right)}
+
+\begin{document}
+\title{End of First Year Report: Talk}
+\author{Sam Halliday}
+\maketitle
+
+\textbf{Time Dependent Harmonic Oscillator}
+
+A relatively unknown technique was outlined in 1969\footnote{H. R. Lewis, W.  B.
+  Riesenfeld, {\it Journ. Math. Phys.} {\bf 10} 8 (1969) 1458} for calculating
+exact solutions to time dependent problems in quantum mechanics. As an
+application of the technique, a harmonic oscillator of the type
+\begin{equation*}
+  H=p^2+\Omega(t)^2q^2
+\end{equation*}
+was studied. As this is not the most favoured form of the harmonic oscillator,
+we attempted to apply the same technique to a harmonic oscillator of the form
+\begin{equation*}
+  H=\Omega(t)\left(p^2+q^2\right)
+\end{equation*}
+The technique requires an invariant quantity $I$ to exist, which we calculated
+as
+\begin{equation*}
+  I=\lambda\left(Q^2-P^2\right)  
+\end{equation*}
+where $Q$ and $P$ are canonically conjugate operators. The states (to within a
+gauge) of $I$ are $e^{i\Theta(t)}|\phi\rangle$ where $\Theta$ is defined by
+\begin{equation*}
+  \hbar \frac{d\Theta}{dt}  =\langle\phi|i\hbar \frac{\partial}{\partial t}
+  -H|\phi\rangle
+\end{equation*}
+by the technique we can get the states of the original problem by
+\begin{equation*}
+  \Phi=\int \frac{e^{i\left(\theta + \mu \ln{U}\right)}}{\sqrt{2\pi U}}d\mu
+\end{equation*}
+where $U=Q-P$ and $\mu$ is related to the eigenvalues of $I$. Unfortunately
+this requires more than just the solution of the inverted harmonic oscillator,
+but also the solution of $\langle\phi|i\hbar\frac{\partial}{\partial t}
+-H|\phi\rangle$. We reduced the solution to
+\begin{eqnarray*}
+  \langle \phi''|i\hbar \frac{\partial }{\partial t} - H|\phi' \rangle &=& \frac{1}{2\pi}
+  \int^\infty_{-\infty} e^{i\left(\mu' - \mu'' \right) x}dx \\
+  &&\times\left\{2B \left( i\mu' - \frac{1}{2}\right)^2\right.\nonumber\\
+  &&+ B \left( i\mu'-\frac{1}{2}\right) i \mu' e^{-2x} \nonumber\\
+  &&- Ae^{2x} - \frac{3B}{2} \left( i\mu'-\frac{1}{2}\right) e^{-\frac{x}{2}}\nonumber\\
+  &&\left.- \dot{\mu}' \hbar x \right\}\nonumber
+\end{eqnarray*}
+where $x=\ln{U}$ and $A$, $B$ can be thought of as frequencies. All the
+parameters are time dependent and there are three terms which clearly cause the
+solution to blow up to infinity, hence we found no solution to the problem we
+faced by using this technique.
+
+\textbf{Light Cone Quantisation of a Free Particle on $\NW_4$}
+
+The $\NW_4$ spacetime can be thought of as a plane wave
+\begin{equation*}
+  ds^2 = 2dx^-dx^+ + A_{ij}z^iz^j(dx^-)^2 + d\vec{z}^2
+\end{equation*}
+Using only the metric of a plane wave, a technique is known\footnote{M. Blau,
+  M. O'Loughlin, {\it hep-th/0212135}} for finding the Killing vectors and light
+cone quantisation of a spacetime. Apart from the obvious Killing vectors
+\begin{eqnarray*}
+  Z &=& \partial_-\\
+  X &=& \partial_+
+\end{eqnarray*}
+the technique gave four extra
+\begin{eqnarray*}
+  &&X^{(1)}=\cos{\lb\frac{x^+}{2}\rb}\partial_1+
+  \sin{\lb\frac{x^+}{2}\rb}z^1\partial_- \nonumber \\
+  &&X^{(2)}=\cos{\lb\frac{x^+}{2}\rb}\partial_2+
+  \sin{\lb\frac{x^+}{2}\rb}z^2\partial_- \nonumber \\
+  &&X^{\prime(1)}=2\sin{\lb\frac{x^+}{2}\rb}\partial_1-
+  \cos{\lb\frac{x^+}{2}\rb}z^1\partial_- \nonumber \\
+  &&X^{\prime(2)}=2\sin{\lb\frac{x^+}{2}\rb}\partial_2-
+  \cos{\lb\frac{x^+}{2}\rb}z^2\partial_-
+\end{eqnarray*}
+exhibiting the harmonic oscillator algebra
+\begin{eqnarray*}
+  \cb{X^{(k)}}{X^{(l)}}&=&\cb{X^{\prime(k)}}{X^{\prime(l)}}=0 \nonumber \\
+  \cb{X^{(k)}}{Z}&=&\cb{X^{\prime(k)}}{Z}=0 \nonumber \\
+  \cb{X^{(k)}}{X^{\prime(l)}}&=&-\delta^{kl}Z \nonumber \\
+  \cb{X}{X^{(k)}}&=&-\delta^k_l X^{\prime(l)} \nonumber \\
+  \cb{X}{X^{\prime(k)}}&=&X^{(k)} \nonumber \\
+  \cb{X}{Z}&=&0
+\end{eqnarray*}
+The Lagrangian for this metric is
+\begin{equation*}
+  L=\dot{x}^-\dot{x}^+
+  +\frac{1}{2}\lb b-\frac{\vec{z}^2}{4}\rb\lb\dot{x}^-\rb^2 +\frac{\vec{z}^2}{2}
+\end{equation*}
+where the light-cone momentum
+\begin{equation*}
+  P_+=\frac{\partial L}{\partial \dot{x}^+}=\dot{x}^-=1
+\end{equation*}
+is conserved. Imposing the constraint $L=0$ for a massless particle, we find the
+conserved quantity
+\begin{equation*}
+  \left. \frac{\partial L}{\partial \dot{x}^-} \right|_{\dot{x}^-=1}
+  =\frac{b}{2}-\frac{1}{2}\lb \vec{p}^2 + \frac{\vec{z}^2}{4} \rb
+\end{equation*}
+which is a trivial time-independent harmonic oscillator with an additional
+ground state energy. In the point-particle case this conserved quantity is
+simply the Hamiltonian of the system.
+
+We confirmed this result by using a direct Klein-Gordon approach
+\begin{equation*}
+  \lb g^{\mu\nu}\partial_\mu\partial_\nu\rb \phi =
+  \left\{ 2\partial_-\partial_+ +\lb
+    \frac{\vec{z}^2}{4}-b\rb\partial_-^2+\partial_{\vec{z}}^2\right\}\phi
+\end{equation*}
+giving (after a change of representation and parameter substitution)
+\begin{equation*}
+  \label{eq:NW:KG:KGSHO}
+  -i\frac{\partial \psi\lb \tau,p_-,\vec{z}\rb}{\partial \tau}=
+  \left\{ \frac{b}{2} - \frac{1}{2}\lb
+    \frac{\vec{z}^2p_-^2}{4} - \partial_{\vec{z}}^2 \rb\right\}
+  \psi\lb \tau,p_-,\vec{z}\rb
+\end{equation*}
+These calculations can be thought of as the light cone quantisation of $\NW_4$
+in the commutative geometry limit ($\Theta$, $B=0$).
+
+\textbf{Star-Product Contractions}
+
+A group contraction is a way of getting to a different algebra by some rescaling
+of the generators. For example $Sl(2,\mathbb{R})\rightarrow h(1)$.
+\begin{eqnarray*}
+  \cb{x_1}{x_2} &=& -x_3\\
+  \cb{x_1}{x_3} &=& x_2\\
+  \cb{x_2}{x_3} &=& x_1
+\end{eqnarray*}
+and defining
+\begin{eqnarray*}
+  P_1&=&\Omega x_1\\
+  P_2&=&\Omega x_2\\
+  T&=&-\Omega^2x_3
+\end{eqnarray*}
+with $\Omega\rightarrow 0$ we get
+\begin{eqnarray*}
+  \cb{P_1}{P_2}&=&T\\
+  \cb{P_1}{T}&=&\cb{P_2}{T}=0
+\end{eqnarray*}
+which is $h(1)$. Similarly for the $\star$-product
+\begin{eqnarray*}
+  x_j\star f&=&\left\{x_j-\frac{i\theta}{2}g_{jk}c_{klm}x_l\partial_m\right.\\
+  &&-\frac{\theta^2}{8}\left[\left(1+x_l\partial_l\right)g_{jk}\partial_k -
+    \frac{x_j}{2}g_{lm}\partial_l\partial_m\right]\left.\right\}f
+\end{eqnarray*}
+gives
+\begin{eqnarray*}
+  T\star f &=& Tf\\
+  P_1\star f &=& \left\{P_1+\frac{i\theta}{2}T\partial_2\right\}f\\
+  P_2\star f &=& \left\{P_2-\frac{i\theta}{2}T\partial_1\right\}f
+\end{eqnarray*}
+which are the correct star products for $h(1)$. We wished to perform a similar
+contraction on $\mathrm{SU}(2)\oplus \mathrm{Sl}(2,\mathbb{R})$ to get the
+double extension of the Poincar\'{e} algebra (which is the group manifold of
+$\NW_6$, a six-dimensional analogy of $\NW_4$). Unfortunately we got unexpected
+infinities, showing that $\star$-products do not always contract well. As a
+simpler example of the infinities, let us look at $SU(2)\rightarrow E(2)$
+\begin{eqnarray*}
+  \cb{x_1}{x_2}&=&x_3\\
+  \cb{x_1}{x_3}&=&-x_2\\
+  \cb{x_2}{x_3}&=&x_1
+\end{eqnarray*}
+and define
+\begin{eqnarray*}
+  P_1&=&\Omega x_1\\
+  P_2&=&\Omega x_2\\
+  J&=&x_3
+\end{eqnarray*}
+with $\Omega\rightarrow 0$. We get
+\begin{eqnarray*}
+  \cb{P_1}{P_2}&=&0\\
+  \cb{J}{P_1}&=&P_2\\
+  \cb{J}{P_2}&=&-P_1
+\end{eqnarray*}
+which is $E(2)$. However, on $SU(2)$, the $\star$-products are
+\begin{eqnarray*}
+  x_i\star f&=&\left\{x_i +\frac{\delta_{ij}x_0}{2}\partial_j +
+    \frac{i\epsilon_{ijk}}{2}x_k\partial_j\right\}f\\
+  x_0\star f&=& \left\{x_0 + \frac{x^k}{2}\partial_k\right\}f
+\end{eqnarray*}
+which contract to
+\begin{eqnarray*}
+  P_1\star f&=& \left\{ P_1 -\frac{i}{2}P_2\partial_J\right\}f\\
+  P_2\star f&=& \left\{ P_2 +\frac{i}{2}P_1\partial_J\right\}f\\
+  J\star f &=&  \left\{ J + x_0\partial_J+\frac{i}{2}P_2\partial_1-\frac{i}{2}P_1\partial_2\right\}f
+\end{eqnarray*}
+but $x_0\rightarrow 0$, meaning that although the Lie algebra is still
+preserved, point-wise multiplication is infinite.
+
+\textbf{$\NW_4$ as a Penrose Limit}
+
+Group contractions are closely related to Penrose limits. A Penrose limit is
+essentially a way of getting a Plane wave from any Lorentz spacetime. Since it
+is often more convenient to perform calculations on well studied spaces and take
+the limit to a plane wave, they have become very popular recently; especially
+since G\"{u}ven extended the Penrose limit to supergravity backgrounds. As
+$\NW_4$ is itself a plane wave, it allows the possibility of doing calculations
+on a simpler spacetime and map the results directly. A particular Penrose limit
+of $\NW_4$ has been known for some time\footnote{M. Blau, J. Figueroa-O'Farrill,
+  G. Papadopoulos, \textit{Class.  Quant. Grav} \textbf{19} (2002) 4753,
+  \textit{hep-th/0202111}}, which is the limit of $\AdS_2\times\S^2$. It has
+also been shown\footnote{S. Stanciu, J. Figueroa-O'Farrill, ``Penrose limits of Lie
+  Branes and a Nappi-Witten braneworld'', \textit{JHEP} \textbf{0306} (2003)
+  025, \textit{hep-th/0303212}} that $\NW_4$ can be achieved as a Penrose limit
+of $\AdS_3\times\S^3$ and a projection, via a six dimensional analogy of the
+Nappi-Witten space.
+\begin{equation*}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation*}
+where the top Penrose-G\"{u}ven limit is similar to the $\mathrm{SU}(2)\oplus
+\mathrm{Sl}(2,\mathbb{R})$ group contraction we previously studied. We found
+that this diagram does not actually commute, and in fact that $\NW_4$ is not
+even a PGL of $\AdS_2\times\S^2$, but rather $\CW_4$ which is like the
+commutative geometry limit of $\NW_4$. In finding why this diagram did not
+commute, we generalised isometric embedding diagrams with PGLs and found
+conditions to ensure that the metric and supergravity fields commute. The
+conditions are written in my report and I will now show this diagram as an
+explicit example
+
+On $\AdS_3\times\S^3$ we may write the metric, NS-NS $B$ field and strength $H$
+in conventional coordinates as
+\begin{eqnarray*}
+  G &=& - d\tau^2 + \sin^2{\tau}\left( \frac{dr^2}{1+r^2} +
+    \left(1+r^2\right)d\beta^2\right) \\ \nonumber
+  &&+d\phi^2+\sin^2{\phi}\left(\frac{d\chi^2}{1-\chi^2}+
+    \left(1-\chi^2\right)d\theta^2\right)\\
+  -H/2 &=& \cos^2{\tau} d\tau\wedge dr\wedge d\beta + \sin^2{\phi}d\phi\wedge
+  d\chi\wedge d\theta\\
+  -2B &=& \left(\sin{2\tau}+2\tau\right)dr\wedge d\beta\\
+  &&+\left(\sin{2\phi}-2\phi\right)d\chi\wedge d\theta
+\end{eqnarray*}
+where $\AdS_3$ has coordinates $(\tau,r,\beta)$ and $\S^3$ has
+$(\phi,\chi,\theta)$ so that $D=6$. Making a change of coordinates
+\begin{eqnarray*}
+  2\tau=U-V &\qquad& 2\phi=U+V \\ \nonumber
+  r=Y^1\quad\beta=Y^2 &\qquad& \chi=Y^3\quad\theta=Y^4
+\end{eqnarray*}
+we can now express the metric and fields along the geodesic $\gamma$ as
+\begin{eqnarray*}
+  C(u)_{ii} &=& \sin^2{\frac{U}{2}} \\ \nonumber
+  b(u)_{12}&=&-\frac{\sin{U}+U}{2}\\ \nonumber
+  b(u)_{34}&=&\frac{U-\sin{U}}{2}
+\end{eqnarray*}
+The projection $\imath^*$ consists of setting $Y^q\rightarrow 0$ where $q=1,3$
+and $\widetilde{\imath}$ as $y^r\rightarrow 0$ where $r=1,2$. We can now observe
+the sets $S=\{2,4\}$, $T=\{3,4\}$ and we see clearly that there is no such
+pairing between $S$ and $T$ such that the potential or field strength conditions
+are satisfied (equation (20) in the report), as it will result in requiring
+$b(u)_{12}=b(u)_{1j}$ where $j$ is either $3$ or $4$. We can however see that
+equation (19) will always be satisfied since all the components of $C(u)_{ii}$
+are identical. So we expect the metric but not the fields to commute in such a
+diagram.
+
+We can confirm these predictions by following each path explicitly\footnote{It
+  is easier to work in Brinkman coordinates $(x^-,x^+,z^i)$ at this stage, we
+  have made the transformation from Rosen coordinates by
+  \begin{equation}
+    \label{eq:ex:jose:brinkman}
+    u=2x^- \qquad v=x^+ + \frac{\cot{x^-}}{2}\vec{z}^2 \qquad y^i=\frac{z^i}{\sin{x^-}}
+  \end{equation}}. Firstly, the path
+$\AdS_3\times\S^3\rightarrow\NW_6\rightarrow\NW_4$ yields
+\begin{eqnarray*}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \widetilde{H}&=&-dx^-\wedge dz^1\wedge dz^2 \\
+  \widetilde{B}&=&-x^- dz^1\wedge dz^2
+\end{eqnarray*}
+which is in fact, the Nappi-Witten WZW model. The alternative path
+$\AdS_3\times\S^3\rightarrow\AdS_2\times\S^2\rightarrow\NW_4$ yields
+\begin{eqnarray*}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \widetilde{H}&=&d\widetilde{B}=0
+\end{eqnarray*}
+confirming the prediction that the metric commutes, but the fields do not.
+
+We can now see why the diagram breaks down and we may attempt to remedy it. The
+essential problem is in choosing a suitable $\imath^*$ projection where we may
+pair up the elements of $S$ and $T$. The easiest and most obvious way to fix
+this is to make the projection $\widetilde{\imath}^*$ equivalent to $\imath^*$,
+i.e. so that we choose $\imath^*: Y^l\rightarrow 0$ where $l=1,2$. Since the
+sets $S=\{3,4\}$ and $T=\{3,4\}$ are now identical, the commutative conditions
+are trivially satisfied. This has however changed the diagram somewhat into the
+following
+\begin{equation*}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \mathbb{R}^1\times\S^3         @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation*}
+The final space of each path is the $\NW_4$ model and both metric and fields
+commute in the diagram. It is interesting to note that the PGL on the bottom of
+the diagram has also been studied\footnote{G. D'Appollonio, E. Kiritsis,
+  ``String interactions in gravitational wave backgrounds'',
+  \textit{hep-th/0305081}}, albeit with slight technical differences from the
+PGL used here.
+
+We could also have fixed the diagram by choosing the projection
+$\widetilde{\imath}^*: y^l\rightarrow 0$ where $l=1,3$ so that it is equivalent
+to $\imath$ and that the diagram will again trivially commute. Again this
+involves a change in the diagram
+\begin{equation*}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL}>> \CW_4\\
+    @.
+  \end{CD}
+\end{equation*}
+where $\CW_N$ is used to denote a Cahen-Wallach space in $N$ dimensions.
+\end{document}

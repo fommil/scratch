@@ -1,0 +1,55 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" 0 3 1 
+{CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 4 0 0 
+0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "x(x,y,w) := x :" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 15 "y(x,y,w) := y :" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 15 "w(x,y,w) := w :" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 14 "#theta := -I ;" }}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 
+24 "Define the Star Products" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+432 "x_star := f -> (x,y,w) -> x * f(x,y,w)\n                         \+
+ - I * (theta/2) * y * diff(f(x,y,w),w)\n                          + I
+ * (theta/2) * w * diff(f(x,y,w),y)\n                          - ((the
+ta^2)/8) * diff(f(x,y,w),x)\n                          - ((theta^2)/16
+) * x * diff(f(x,y,w),x,x)\n                          - ((theta^2)/8) \+
+* w * diff(f(x,y,w),x,w)\n                          - ((theta^2)/8) * \+
+y * diff(f(x,y,w),x,y):" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 116 "y_star := f -> (x,y,w) -> y * f(x,y,w) - I * (theta/
+2) * w * diff(f(x,y,w),x) + theta^2/16 * y * diff(f(x,y,w),x,x):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 116 "w_star := f -> (x,y,w) -> w
+ * f(x,y,w) + I * (theta/2) * y * diff(f(x,y,w),x) + theta^2/16 * w * \+
+diff(f(x,y,w),x,x):" }{TEXT -1 0 "" }}}}{SECT 0 {PARA 3 "" 0 "" {TEXT 
+-1 41 "Function to Show All Non-Zero Commutators" }}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 420 "showallcommutators := proc( )\n    descriptio
+n \"Return the Star Product Commutators of the Algebra\";\n    local a
+:\n    a := simplify(x_star(y) - y_star(x))(x,y,w):\n     if ( a <> 0 \+
+) then print([x,y] = a) end if:\n    a := simplify(x_star(w) - w_star(
+x))(x,y,w):\n     if ( a <> 0 ) then print([x,w] = a) end if:\n    a :
+= simplify(y_star(w) - w_star(y))(x,y,w):\n     if ( a <> 0 ) then pri
+nt([y,w] = a) end if:\n    end proc:" }}}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 21 "showallcommutators():" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/7$%\"xG%\"yG*(%&thetaG\"\"\"%\"wGF)^#F)F)" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/7$%\"xG%\"wG*(^#!\"\"\"\"\"%&thetaGF*%\"yGF*" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "left := expand(simplify(x_st
+ar(y_star(f))(x,y,w)-y_star(x_star(f))(x,y,w)));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%%leftG,(*&#\"\"\"\"\"#F(*()%&thetaGF)F(%\"yGF(-%%diff
+G6$-%\"fG6%%\"xGF-%\"wGF4F(F(!\"\"**^##F(\"#;F()F,\"\"$F(F5F(-F/6$F1-%
+\"$G6$F4F)F(F(**F,F(F5F(F1F(^#F(F(F(" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 34 "x_star(y)(x,y,w)-y_star(x)(x,y,w);" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#*(%&thetaG\"\"\"%\"wGF%^#F%F%" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 95 "# this envolves user interaction, insert value
+ from above, converting products to star-prodcuts" }}}{EXCHG {PARA 0 "
+> " 0 "" {MPLTEXT 1 0 52 "right := expand(simplify(I*theta*w_star(f)(x
+,y,w)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&rightG,(*&#\"\"\"\"\"#F
+(*()%&thetaGF)F(%\"yGF(-%%diffG6$-%\"fG6%%\"xGF-%\"wGF4F(F(!\"\"**^##F
+(\"#;F()F,\"\"$F(F5F(-F/6$F1-%\"$G6$F4F)F(F(**F,F(F5F(F1F(^#F(F(F(" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 11 "left-right;" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG }}{MARK "
+12 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 
+1 }

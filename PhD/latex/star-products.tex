@@ -1,0 +1,1775 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage[notref,notcite]{showkeys}
+\usepackage{amsmath,amsfonts,amssymb,bbold,color}
+\usepackage[latin1]{inputenc}
+%\setlength{\parindent}{0pt}
+\setlength\arraycolsep{2pt}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+%% Local defines
+\def\P{{\sf P}} \def\K{{\sf K}} \def\J{{\sf J}} \def\T{{\sf FIXME}}
+\def\d{\partial}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\let\S\Sphere
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\DeclareMathOperator{\weyl}{{\cal W}}
+\DeclareMathOperator{\real}{{\mathbb R}}
+\newcommand{\comp}{\boxplus}
+\newcommand{\compa}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+      \protect\raisebox{0.2ex}{$\ast$}}\mkern+5mu}}
+\newcommand{\compb}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+      \protect\raisebox{0.2ex}{$\bullet$}}\mkern+5mu}}
+\newcommand{\compc}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+      \protect\raisebox{0.2ex}{$\star$}}\mkern+5mu}}
+\newcommand{\cb}[2]{\left[#1,#2\right]}
+\newcommand{\scb}[2]{\left[#1,#2\right]_\star}
+\newcommand{\NO}{\mbox{$\substack{\circ\\\circ}$}}
+\newcommand{\NOa}{\mbox{$\substack{\ast\\\ast}$}}
+\newcommand{\NOb}{\mbox{$\substack{\bullet\\\bullet}$}}
+\newcommand{\nts}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\1}{\mathbb{1}}
+\newcommand{\grad}{\nabla}
+\newcommand{\opd}{\hat \d}
+\newcommand{\xh}{\hat x}
+\newcommand{\shouldid}{\stackrel{!}{=}}
+
+\begin{document}
+\tableofcontents
+%\clearpage
+
+\section{$\star$-Products for the Nappi-Witten Algebra}
+\subsection{The $\star$-Product}
+\label{star}
+The Weyl operator ${\hat\Omega}[f]$ can be thought of as a one-to-one map from
+local coordinates $x^i$ (an algebra of fields on $\real^D$) to Hermitian
+operators $\hat{x}^i$ (on an appropriate Hilbert space) exhibiting the algebra
+\begin{equation}
+  \label{eq:algebra}
+  \cb{\hat{x}^i}{\hat{x}^j}=i\theta^{ij}
+\end{equation}
+where $\theta^{ij}$ is not necessarily constant. The inverse map
+${\hat\Omega}^{-1}[f]$ pulls operators back to local coordinates; the functions
+obtained in this way are called Wigner distribution functions and their
+$\star$-commutator brackets, defined as
+\begin{equation}
+  \label{eq:poisson}
+  \scb{x^i}{x^j}=x^i\star x^j-x^j\star x^i
+\end{equation}
+replicate the operator algebra
+\begin{equation}
+  \label{eq:falgebra}
+  \scb{x^i}{x^j}=i\theta^{ij}
+\end{equation}
+where we understand that the $\theta$ in \eqref{eq:falgebra} may depend on
+Wigner distribution functions associated to the operators on the Hilbert space.
+If the fields live in an appropriate Schwartz space of functions, any function
+may be described by its Fourier transform
+\begin{equation}
+  \label{eq:fourier}
+  \widetilde{f}(k)=\int^\infty_{-\infty}e^{-ik_ix^i}f(x)d^Dx
+\end{equation}
+allowing us to define the symbol for $f(x)$
+\begin{equation}
+  \label{eq:weylsymb}
+  {\hat\Omega}[f]=\frac{1}{(2\pi)^D}\int^\infty_{-\infty}
+  \widetilde{f}(k)\NO e^{ik_i\hat{x}^i}\NO d^Dk
+\end{equation}
+We are free to choose a convenient ordering, denoted by $\NO~\NO$. When the
+ordering is symmetric, ${\hat\Omega}[f]$ is often called the Weyl symbol. The
+products of ${\hat\Omega}[f]$ symbols may be computed allowing us to define the
+$\star$-product
+\begin{eqnarray}
+  \label{eq:weylproduct}
+  {\hat\Omega}[f]{\hat\Omega}[g]&=&{\hat\Omega}[f\star g]\\
+  \label{eq:starproduct}
+  f\star g &=& \iint
+  \frac{\widetilde{f}(k)\widetilde{g}(k')}{(2\pi)^{2D}}{\hat\Omega}^{-1}[\NO
+  e^{ik_i\hat{x}^i}e^{ik'_i\hat{x}^i}\NO]d^Dkd^Dk'
+\end{eqnarray}
+The product of exponentials is calculated by using the
+Baker-Campbell\--Hausdorff (BCH) formula (which we will explain in the
+proceeding section). The $\star$-product is a deformation of point-wise
+multiplication of functions on $\real^D$ to an associative but non-commutative
+algebra. For $\theta=0$, the $\star$-product reduces to the ordinary product of
+functions and if $\theta$ is constant we may employ simplifications in the BCH
+formula such that we get the Groenewold-Moyal $\star$-product
+\begin{eqnarray}
+  \label{eq:star:constanttheta}
+  f(x)\star g(x)&=&f(x)\exp\left(\frac{i}{2}\overleftarrow\d_i
+    \theta^{ij}\overrightarrow\d_j\right)g(x)\\ \nonumber
+  &=& f(x)g(x)+
+  \sum_{n=1}^\infty
+  \frac{i^n}{2^nn!}\theta^{i_1j_1}\ldots\theta^{i_nj_n}
+  \d_{i_1}\ldots\d_{i_n}f(x)\d_{j_1}\ldots\d_{j_n}g(x)
+\end{eqnarray}
+For non-constant $\theta$ the expansion is generally more complicated. However,
+an easy example is for an algebra
+\begin{equation}
+  \label{eq:example:nonconstant}
+  \cb{\hat{x}_i}{\hat{x}_j}=f^k_{ij}\hat{x}_k
+\end{equation}
+where we might wish to find the $\star$-products between the local coordinates
+$x_i$. Since we know
+\begin{equation}
+  \label{eq:example:integral}
+  \int x e^{ik x}dk=-i\frac{\d}{\d k}\delta(k)
+\end{equation}
+we can insert this into \eqref{eq:starproduct} obtaining
+\begin{equation}
+  \label{eq:example:star}
+  x_i\star x_j = -\frac{\d^2}
+  {\d k_i\d k'_j}e^{F_nx^n}\
+  \Bigr|_{\boldsymbol{k}=\boldsymbol{k}'=0}
+\end{equation}
+where $F_n=F_n(\boldsymbol{k},\boldsymbol{k}')$ are functions arising from the
+BCH formula.
+
+More generally, there is a standard $\star$-product for Lie algebras
+\cite{Kathotia:1998}
+\begin{equation}
+  \label{eq:star:lie}
+  f\star g(z)=f(z)\exp\left(ix^i\left[F_i-k_i-k_i'\right]\right)g(z)
+\end{equation}
+which can easily be written in position space by replacing
+\begin{eqnarray}
+  \label{eq:star:position}
+  k_\nu\rightarrow -i\overleftarrow\d_\nu \\ \nonumber
+  k_\nu'\rightarrow-i\overrightarrow\d_\nu
+\end{eqnarray}
+There is no general closed form for $F_n(\boldsymbol{k},\boldsymbol{k}')$ (as we
+will see in the next section). It is often convenient to scale all of the
+generators $x^i\rightarrow \frac 1\alpha x^i$ resulting in some non-trivial
+change in the $F_n$ but allowing a power expansion of \eqref{eq:star:lie} in
+$\alpha$. As $\alpha\rightarrow 0$ the normal commutative product is recovered.
+
+\subsection{Baker-Campbell-Hausdorff Formula}
+The BCH formula is used to calculate the product of exponentials when the
+exponents do not commute
+\begin{equation}
+  \label{eq:BCH:define}
+  e^Ae^B=e^{\mathrm{C}(A:B)}
+\end{equation}
+where $\mathrm{C}(A:B)$ is often an infinite sum, calculated through the
+recursion formula
+\begin{eqnarray}
+  \label{eq:BCH}
+  (n+1)\mathrm{C}_{n+1}(X:Y)&&=\frac 12 \cb{X-Y}{\mathrm{C}_n(X:Y)}
+  \\ \nonumber + \sum_{p \ge 1, 2p \le n} K_{2p}\!\!\!\!\!
+  \sum_{\substack{k_1,\ldots,k_{2p}> 0 \\ k_1+\ldots+k_{2p}=n }}&&
+  \!\!\!\!\!\!\!\!\!\!\cb{\mathrm{C}_{k_1}(X:Y)}
+  {\left[\ldots,\cb{\mathrm{C}_{k_{2p}}(X:Y)}{X+Y}\ldots\right]}
+\end{eqnarray}
+where ($n \ge 1 ; X,Y\in \mathfrak g$) and $\mathrm{C}_1(X:Y)=X+Y$. The $K$s
+are defined by
+\begin{equation}
+  \label{eq:BCH:K}
+  \frac{z}{1-e^{-z}}-\frac z2-1=\sum_{p=1}K_{2p}z^{2p}
+\end{equation}
+which are closely related to the Bernoulli numbers ($B_n$), defined by
+\begin{equation}
+  \label{eq:BCH:bernoulli}
+  \sum_{n=0}\frac{B_nx^n}{n!}=\frac{x}{e^x-1}
+\end{equation}
+The first few terms of the BCH formula may be written concisely as
+\begin{eqnarray}
+  \label{eq:BCH:1}
+  \mathrm{C}_1(X:Y)&=& X+Y\\
+  \label{eq:BCH:2}
+  \mathrm{C}_2(X:Y)&=& \frac 12 \cb XY \\
+  \label{eq:BCH:3}
+  \mathrm{C}_3(X:Y)&=& \frac 1{12} \cb X {\cb XY}
+  -\frac 1{12} \cb Y {\cb XY}\\
+  \label{eq:BCH:4}
+  \mathrm{C}_4(X:Y)&=& -\frac 1{24} \cb Y{ \cb X {\cb XY}}
+\end{eqnarray}
+but beyond about 4th order, the terms get lengthy to write explicitly due to
+the partition sum in \eqref{eq:BCH}.
+
+\nts{need to define $F_i$ properly.}
+
+\subsection{The Nappi-Witten Algebra}
+We wish to find the $\star$-product of the $\NW_4$ algebra, a centrally extended
+Poincaré algebra. \cite{Nappi:1993ie} define the algebra of anti-Hermitian operators
+as
+\begin{eqnarray}
+  \label{eq:NW:origalg}
+  \cb{\hat\J}{\hat\P_i}&=&\epsilon_{ij}\hat\P_j \\ \nonumber
+  \cb{\hat\P_i}{\hat\P_j}&=&\epsilon_{ij}\hat\K
+\end{eqnarray}
+which may be written as an algebra of Hermitian operators by replacing each
+operator with its complex equivalent: ${\sf X}_j\rightarrow i{\sf X}_j$
+\begin{eqnarray}
+  \label{eq:NW:hermalg}
+  \cb{\hat\J}{\hat\P_i}&=&-i\epsilon_{ij}\hat\P_j \\ \nonumber
+  \cb{\hat\P_i}{\hat\P_j}&=&-i\epsilon_{ij}\hat\K
+\end{eqnarray}
+By defining the conjugate operators
+\begin{eqnarray}
+  \label{eq:NW:defineP+-}
+  \hat\P^+&=&\hat\P_1+i\hat\P_2 \\ \nonumber
+  \hat\P^-&=&\hat\P_1-i\hat\P_2
+\end{eqnarray}
+we have an algebra which looks much like a centrally extended $\kappa$-Minkowski
+algebra\footnote{In fact, the algebra is so closely related that this approach
+  may be used as an alternative derivation of the Weyl ordered $\kappa$-Minkowski
+  $\star$-product, see Appendix \ref{app:kappaminsk}.}
+\begin{eqnarray}
+  \label{eq:NW:algebra}
+  \cb{\hat{\P}^+}{\hat{\P}^-} &=& -2 \hat{\K} \\ \nonumber
+  \cb{\hat{\J}}{\hat{\P}^\pm} &=& \mp\hat{\P}^\pm
+  % \\ \cb{\hat{\K}}{\Diamond} &=& 0
+\end{eqnarray}
+Using the parameterisation (where $u$ and $v$ are real numbers, $w$ is a complex
+with conjugate $\bar w$)
+\begin{eqnarray}
+  \label{eq:NW:param:R}
+  R(u) &=& e^{i u\hat{\J}} \\
+  \label{eq:NW:param:T}
+  T(w) &=& e^{i\bar w\hat\P^++iw\hat\P^-} \\
+  \label{eq:NW:param:Z}
+  Z(v) &=& e^{iv\hat\K}
+\end{eqnarray}
+we know that $R(u)$ is the rotation by an angle $u$ in the complex plane:
+$R(u)\cdot z=e^{iu}z$ and $T(w)$ is the translation by $w$: $T(w)\cdot z = z+w$.
+$Z(v)$ is a one-parameter subgroup acting as $Z(v)\cdot z = e^{iv}z$. The group
+multiplication law \cite{Figueroa-OFarrill:1999ie} tells us
+\begin{eqnarray}
+  \label{eq:NW:mult:RR}
+  R(u_1)R(u_2)&=&R(u_1+u_2) \\
+  \label{eq:NW:mult:RT}  
+  R(u)T(w)&=&T(we^{iu})R(u) \\
+  \label{eq:NW:mult:TT}
+  T(w_1)T(w_2)&=&T(w_1+w_2)Z(iw\bar w'-i\bar w w')
+\end{eqnarray}
+which is invaluable when attempting to calculate exponential products such as
+\begin{eqnarray}
+  \label{eq:NW:mult:JP}
+  e^{iu\hat\J}e^{i\bar w\hat\P^++iw\hat\P^-}&=&e^{i\bar w e^{-i\beta
+      u}\hat\P^+ +iwe^{i\beta u}\hat\P^-}e^{iu\hat\J} \\
+  \label{eq:NW:mult:PJ}
+  e^{i\bar w\hat\P^++iw\hat\P^-}e^{iu\hat\J}&=&e^{iu\hat\J}e^{i\bar w e^{i\beta
+      u}\hat\P^+ +iwe^{-i\beta u}\hat\P^-} \\
+  \label{eq:NW:mult:PP}
+  e^{i\bar w\hat\P^++iw\P^-}e^{i\bar w'\hat\P^++iw'\hat\P^-}&=&
+  e^{i(\bar w+\bar w')\hat\P^++i(w+w')\hat\P^-}e^{\left(\bar ww'-w\bar
+      w'\right)\hat\K}
+\end{eqnarray}
+where we mean to expand the exponentials around $\beta=1$.
+
+\nts{add a note about the $\Im$ notation}
+
+The more general $\alpha$-scaled generators of \eqref{eq:star:lie} are given by
+\begin{eqnarray*}
+  \cb{\hat{\P}^+}{\hat{\P}^-} &=& -2 \alpha\hat{\K} \\ \nonumber
+  \cb{\hat{\J}}{\hat{\P}^\pm} &=& \mp\alpha\hat{\P}^\pm
+\end{eqnarray*}
+with the corresponding exponential products
+\begin{eqnarray*}
+  e^{iu\hat\J}e^{i\bar w\hat\P^++iw\hat\P^-}&=&e^{i\bar w e^{-i\alpha\beta
+      u}\hat\P^+ +iwe^{i\alpha\beta u}\hat\P^-}e^{iu\hat\J} \\
+  e^{i\bar w\hat\P^++iw\hat\P^-}e^{iu\hat\J}&=&e^{iu\hat\J}e^{i\bar w
+    e^{i\alpha\beta u}\hat\P^+ +iwe^{-i\alpha\beta u}\hat\P^-} \\
+  e^{i\bar w\hat\P^++iw\P^-}e^{i\bar w'\hat\P^++iw'\hat\P^-}&=&
+  e^{i(\bar w+\bar w')\hat\P^++i(w+w')\hat\P^-}e^{\alpha\left(\bar ww'-w\bar
+      w'\right)\hat\K}
+\end{eqnarray*}
+
+\subsubsection{Time Ordering}
+As mentioned, we are free to choose a convenient exponential ordering for
+\eqref{eq:starproduct}. Here we will use an ordering such that
+\begin{equation}
+  \label{eq:time:defn}
+  \NOa e^{ik_i\hat x^i}\NOa=e^{i\bar w\hat\P^++iw\hat\P^-}e^{iu\hat\J}e^{iv\hat\K}
+\end{equation}
+We call this ``Time-Ordering'' as the time coordinate ($u$) is always kept
+separated and to the right of the $\P$s. The group multiplication law is well
+studied and it is easy to calculate the exponential product explicitly
+\begin{eqnarray}
+  \label{eq:time:mult}
+  &&\NOa e^{i\bar w \hat\P^++iw \hat\P^-}e^{iu \hat\J}e^{iv \hat\K}
+  e^{i\bar w'\hat\P^++iw'\hat\P^-}e^{iu'\hat\J}e^{iv'\hat\K}\NOa
+  =\\ \nonumber
+  &&e^{i(\bar w+\bar w'e^{-i u})\hat\P^+
+    +i(w + w'e^{i u})\hat\P^-}
+  e^{i(u+u')\hat\J}
+  e^{\left\{i(v+v')+\bar ww'e^{i u}-w\bar w'e^{-i
+        u}\right\}\hat\K}
+\end{eqnarray}
+so that the $\ast$-product between any two functions is
+\begin{eqnarray}
+  \label{eq:time:star}
+  f\ast g(z)&=&f(z)e^{ix^i(F^\ast_i-k_i-k_i')}g(z)\\ \nonumber
+  F^\ast_1&=& \bar w+\bar w'e^{-i\alpha u}\\ \nonumber
+  F^\ast_2&=& w + w'e^{i\alpha u}\\ \nonumber
+  F^\ast_3&=& u+u'\\ \nonumber
+  F^\ast_4&=& v+v'-i\alpha \bar ww'e^{i\alpha u}+i\alpha w\bar
+  w'e^{-i\alpha u}
+\end{eqnarray}
+where $k$ runs over $\bar w,w,u,v$ and $x$ over $\P^+,\P^-,\J,\K$. We see from
+\eqref{eq:example:star} and \eqref{eq:star:lie} that the operator algebra is
+recovered in the functional space with the $\ast$-product between the generators
+being
+\begin{eqnarray}
+  \label{eq:time:star:generators}
+  \P^+\ast\P^-&=&\P^+\P^--\K\\ \nonumber
+  \P^-\ast\P^+&=&\P^+\P^-+\K\\ \nonumber
+  \J\ast\P^+&=&\J\P^+-\P^+\\ \nonumber
+  \P^+\ast\J&=&\J\P^+\\ \nonumber
+  \J\ast\P^-&=&\J\P^-+\P^-\\ \nonumber
+  \P^-\ast\J&=&\J\P^-
+\end{eqnarray}
+To second order in $\alpha$ and written in position space, the $\ast$-product
+between any two functions is
+\begin{eqnarray}
+  \label{eq:time:positionspace}
+  \nonumber
+  f\ast g(x)=fg
+  &&+\alpha
+  \left(
+    \K\d_-f\d_+g
+    -\K\d_+f\d_-g
+    +\P^-\d_\J f\d_-g
+    -\P^+\d_\J f\d_+g
+  \right)\\\nonumber
+  &&+\alpha^2
+  \biggl(
+  \frac 12\K^2\d_-^2f\d_+^2g
+  -\K^2\d_+\d_-f\d_+\d_-g
+  +\frac 12\K^2\d_+^2f\d_-^2g\\ \nonumber &&\qquad\quad\!\!
+  +\frac 12{\P^+}^2d_\J^2f\d_+^2g
+  +\frac 12\P^+\d_\J^2f\d_+g\\ \nonumber &&\qquad\quad\!\!
+  +\frac 12\P^-\d_\J^2f\d_-g
+  +\frac 12{\P^-}^2\d_\J^2f\d_-^2g\\ \nonumber &&\qquad\quad\!\!
+  -\P^+\P^-\d_\J^2f\d_+\d_-g
+  -\K\d_-\d_\J f\d_+g
+  -\K\d_+\d_\J f\d_-g\\ \nonumber &&\qquad\quad\!\!
+  +\K\P^+\d_+\d_\J f\d_+\d_-g
+  -\K\P^+\d_-\d_\J f\d_+^2g
+  \\ \nonumber &&\qquad\quad\!\!
+  +\K\P^-\d_-\d_\J f\d_+\d_-g
+  -\K\P^-\d_+\d_\J f\d_-^2g
+  \biggr)\\ &&
+  +\mathcal{O}(\alpha^3)
+\end{eqnarray}
+
+\subsubsection{Symmetric Time Ordering}
+The ordering used in \cite{DAppollonio:2003dr} is of interest as it allows us
+to recover the plane wave coordinates. Called ``Symmetric Time Ordering'' due to
+the time coordinate on either side of the translation
+\begin{equation}
+  \label{eq:symtime:defn}
+  \NOb e^{ik_i\hat x^i}\NOb=e^{i\frac u2\hat\J}e^{i\bar w\hat\P^++iw\hat\P^-}
+  e^{i\frac u2\hat\J}e^{iv\hat\K}
+\end{equation}
+From \eqref{eq:NW:mult:JP},\eqref{eq:NW:mult:PJ} and \eqref{eq:NW:mult:PP} we
+know how to calculate all the exponential products required to find
+\begin{eqnarray}
+  \label{eq:symtime:mult}
+  \NOb e^{\frac i2u\hat\J}&&e^{i\bar w\hat\P^++iw\hat\P^-}
+  e^{\frac i2u\hat\J}e^{iv\hat\K}
+  e^{\frac i2u'\hat\J}e^{i\bar w'\hat\P^++iw'\hat\P^-}
+  e^{\frac i2u'\hat\J}e^{iv'\hat\K}\NOb= \\ \nonumber
+  &&e^{\frac i2(u+u')\hat\J}
+  e^{i\left(\bar we^{\frac i2 u'}+\bar w'e^{-\frac i2 u}\right)\hat\P^+
+    +i\left(we^{-\frac i2 u'}+w'e^{\frac i2 u}\right)\hat\P^-}\\ \nonumber
+  &&e^{\frac i2(u+u')\hat\J}e^{\left[i(v+v')+\bar ww'e^{\frac
+        i2(u+u')}-w\bar w'e^{-\frac i2
+        (u+u')}\right]\hat\K}
+\end{eqnarray}
+so that the $\bullet$-product between any two functions is
+
+\begin{eqnarray}
+  \label{eq:symtime:star}
+  f\bullet g(z)&=&f(z)e^{ix^i(F^\bullet_i-k_i-k_i')}g(z)\\ \nonumber
+  F^\bullet_1&=&\bar we^{\frac i2\alpha u'}+\bar w'e^{-\frac i2\alpha u}\\ \nonumber
+  F^\bullet_2&=&we^{-\frac i2\alpha u'}+w'e^{\frac i2\alpha u}\\ \nonumber
+  F^\bullet_3&=&u+u'\\ \nonumber
+  F^\bullet_4&=&v+v'-i\alpha\bar ww'e^{\frac i2\alpha(u+u')}
+  +i\alpha w\bar w'e^{-\frac i2\alpha(u+u')}
+\end{eqnarray}
+where $k$ runs over $\bar w,w,u,v$ and $x$ over $\P^+,\P^-,\J,\K$. We see from
+\eqref{eq:example:star} and \eqref{eq:star:lie} that the operator algebra is
+recovered in the functional space with the $\bullet$-product between the
+generators being
+\begin{eqnarray}
+  \label{eq:symtime:generators}
+  \P^+\bullet\P^-&=&\P^+\P^--\K\\ \nonumber
+  \P^-\bullet\P^+&=&\P^+\P^-+\K\\ \nonumber
+  \P^+\bullet\J&=&\J\P^++\frac 12\P^+\\ \nonumber
+  \J\bullet\P^+&=&\J\P^+-\frac 12\P^+\\ \nonumber
+  \P^-\bullet\J&=&\J\P^--\frac 12\P^-\\ \nonumber
+  \J\bullet\P^-&=&\J\P^-+\frac 12\P^-
+\end{eqnarray}
+To second order in $\alpha$ and written in position space, the $\bullet$-product
+between any two functions is
+\begin{eqnarray}
+  \label{eq:symtime:positionspace}
+  &&f\bullet g(x)=fg\\ \nonumber &+&\frac\alpha2
+  \Biggl(
+  - 2\K\d_+f\d_-g
+  + 2\K\d_-f\d_+g
+  - \P^-\d_-f\d_\J g\\ \nonumber &&\qquad\quad\!\!
+  + \P^-\d_\J f\d_-g
+  + \P^+\d_+f\d_\J g
+  - \P^+\d_\J f\d_+g
+  \Biggr)\\ \nonumber
+  &+&\frac{\alpha^2}{2}
+  \Biggl(
+  -\K\d_-f\d_+\d_\J g
+  -\K\d_+f\d_-\d_\J g
+  -\K\d_+\d_\J f\d_-g
+  -\K\d_-\d_\J f\d_+g\\ \nonumber &&
+  +\K\P^+\d_+\d_-f\d_+\d_\J g
+  -\K\P^+\d_-\d_\J f\d_+^2g
+  +\K\P^-\d_-\d_\J f\d_+\d_-g\\ \nonumber &&
+  +\K\P^+\d_+\d_\J f\d_+\d_-g
+  -\K\P^-\d_-^2f\d_+\d_\J g
+  -\K\P^+\d_+^2f\d_-\d_\J g\\ \nonumber &&
+  +\K\P^-\d_+\d_-f\d_-\d_\J g
+  -\K\P^-\d_+\d_\J f\d_-^2g
+  -\frac 12\P^+\P^-\d_\J ^2f\d_+\d_-g\\ \nonumber &&
+  -\frac 12\P^+\P^-\d_+\d_-f\d_\J^2g
+  +\frac 12\P^+\P^-\d_+\d_\J f\d_-\d_\J g
+  +\frac 12\P^+\P^-\d_-\d_\J f\d_+\d_\J g\\ \nonumber &&
+  -\frac 12{\P^+}^2\d_+\d_\J f\d_+\d_\J g
+  -\frac 12{\P^-}^2\d_-\d_\J f\d_-\d_\J g
+  +\frac 14{\P^-}^2\d_\J^2f\d_-^2g\\ \nonumber &&
+  +\frac 14{\P^+}^2\d_+^2f\d_\J^2g
+  +\frac 14{\P^+}^2\d_\J^2f\d_+^2g
+  +\frac 14{\P^-}^2\d_-^2f\d_\J^2g\\ \nonumber &&
+  +\K^2\d_+^2f\d_-^2g
+  +\K^2\d_-^2f\d_+^2g
+  -2\K^2\d_+\d_-f\d_+\d_-g\\ \nonumber &&
+  +\frac 14\P^+\d_\J^2f\d_+g
+  +\frac 14\P^+\d_+f\d_\J^2g
+  +\frac 14\P^-\d_-f\d_\J^2g
+  +\frac 14\P^-\d_\J^2f\d_-g
+  \Biggr)\\ \nonumber
+  &+&\mathcal{O}(\alpha^3)
+\end{eqnarray}
+
+\subsubsection{Weyl Ordering}
+The most obvious, but least physically enlightening parameterisation is given by
+the Weyl ordering
+\begin{equation}
+  \label{eq:weyl:defn}
+  \NO e^{ik_i\hat x^i}\NO=e^{i\bar{w}\hat \P^++iw\hat \P^-+iu\hat \J+iv\hat\K}
+\end{equation}
+It is a difficult task to calculate the product directly using the BCH formula
+\eqref{eq:BCH} as it is a complicated, unrecognisable, infinite sum. We can
+however investigate the BCH formula for
+\begin{equation}
+  \label{eq:weyl:start}
+  e^{ip_1\hat\P^++ip_2\hat\P^-}e^{ip_3\hat\J}=e^{G_1(\boldsymbol{p})\hat\P^+
+    +G_2(\boldsymbol{p})\hat\P^-+G_3(\boldsymbol{p})\hat\J+G_4(\boldsymbol{p})\hat\K}
+\end{equation}
+where $G_i(\boldsymbol{p})$ may be calculated. This lets us write a time ordered
+product using the Weyl ordering coefficients. Using \eqref{eq:time:mult} the
+full exponential product can be calculated, and we may then use
+\eqref{eq:weyl:start} again to get back to the Weyl ordering.
+
+We notice that the only surviving $\hat \P^+$ terms are given by the commutators
+\begin{equation*}
+  \cb{\hat \J}{\left[\ldots,\cb{\hat \J}{\hat \P^+}\right]\ldots} 
+\end{equation*}
+Gathering all the terms, we find
+\begin{eqnarray}
+  \nonumber
+  G_1&=&\sum_{n=0}\frac{B_n}{n!}\cb{ip_3\hat\J_n}{\left[\ldots,\cb{ip_3\hat
+        \J_1}{ip_1\hat\P^+}\right]\ldots} \\ \nonumber
+  &=& p_1\sum_{n=0}\frac{B_n}{n!}(-ip_3)^n \\
+  \label{eq:weyl:G1}
+  &=&\frac{ip_1}{\Phi(-ip_3)}
+\end{eqnarray}
+where we have introduced the generating function
+\begin{equation}
+  \label{eq:weyl:Phi}
+  \Phi(a)=\frac{e^{\beta a}-1}a
+\end{equation}
+Similarly for $G_2$
+\begin{eqnarray}
+  \nonumber
+  G_2&=&\sum_{n=0}\frac{B_n}{n!}\cb{ip_3\hat\J_n}{\left[\ldots,\cb{ip_3\hat
+        \J_1}{ip_2\hat \P^-}\right]\ldots} \\ \nonumber
+  &=& p_2\sum_{n=0}\frac{B_n}{n!}(ip_3)^n \\
+  \label{eq:weyl:G2}
+  &=&\frac{ip_2}{\Phi(ip_3)}
+\end{eqnarray}
+The $G_3$ term is trivial
+\begin{equation}
+  \label{eq:weyl:G3}
+  G_3=ip_3
+\end{equation}
+For $G_4$ there are several non-vanishing commutators
+\begin{eqnarray}
+  \nonumber
+  G_4&=&\sum_{n=1}\frac{B_{n+1}}{n!}
+  \cb{ip_1\hat \P^+}{\left[ip_3\hat\J_n,\ldots\cb{ip_3\hat\J_1}{ip_2\hat
+        \P^-}\ldots\right]}\\ \nonumber
+  &+&\sum_{n=1}\frac{B_{n+1}}{n!}\cb{ip_2\hat\P^-}{\left[ip_3\hat
+      \J_n,\ldots\cb{ip_3\hat\J_1}{ip_1 \hat\P^+}\ldots\right]}\\ \nonumber
+  &=&-2p_1p_2\sum_{n=1}\frac{B_{n+1}}{n!}(ip_3)^n\\
+  \label{eq:weyl:G4}
+  &=&-2p_1p_2\Upsilon(ip_3)
+\end{eqnarray}
+where we have introduced the generating function (see Appendix
+\ref{app:generating} for a derivation)\footnote{Note that the $\alpha$-scaling
+  also requires, in addition to the exponential product changes, that
+  $\Phi(\lambda)\rightarrow\Phi(\alpha\lambda)$ and
+  $\Upsilon(\lambda)\rightarrow\alpha\Upsilon(\alpha\lambda)$}
+\begin{equation}
+  \label{eq:weyl:Upsilon}
+  \Upsilon(a)=\frac 12 +\frac{e^{\beta a}-1-\beta a
+    e^{\beta a}}{\left(e^{\beta a}-1\right)^2}
+\end{equation}
+Now that we know the $G_i$ in \eqref{eq:weyl:start}, we can rewrite the Weyl
+ordering as a product of exponentials. In preparation, we define $v=\widetilde
+v+q_4$ and write the Weyl ordering as
+\begin{equation}
+  \label{eq:weyl:rewritten:1}
+  e^{i\bar{w}\hat\P^++iw\hat \P^-+iu\hat\J+i\widetilde v\hat\K}e^{iq_4\hat\K}
+\end{equation}
+We proceed to define $q$s by
+\begin{eqnarray}
+  \label{eq:weyl:qs}
+  q_1&=&\bar{w}\Phi(-iu)\\ \nonumber
+  q_2&=&w\Phi(iu)\\ \nonumber
+  q_3&=&u\\ \nonumber
+  q_4&=&v-2i\bar{w}w\Upsilon(iu)\Phi(iu)\Phi(-iu)
+\end{eqnarray}
+allowing us to rewrite the Weyl ordering as
+\begin{equation}
+  \label{eq:weyl:time}
+  e^{iq_1\hat\P^++iq_2\hat\P^-}e^{iq_3\hat\J}e^{iq_4\hat\K}
+\end{equation}
+It should be clear that $\bar q_1=q_2$ and $u$ is a real angle. Using
+\eqref{eq:time:mult} to calculate the exponential product of the time ordering
+form and then \eqref{eq:weyl:start} to get back into the Weyl ordering form, we
+find the $\star$-product to be
+\begin{eqnarray}
+  \label{eq:weyl:star}
+  f\star g(z)&=&f(z)e^{ix^i(F^\star_i-k_i-k_i')}g(z)\\ \nonumber
+  F^\star_1&=&\frac{\bar{w}\Phi(-i\alpha u)+\bar{w}'\Phi(-i\alpha
+    u')e^{-i\alpha  u}}{\Phi(-i\alpha u-i\alpha u')}\\ \nonumber
+  F^\star_2&=&\frac{w\Phi(i\alpha u)+w'\Phi(i\alpha u')e^{i\alpha
+      u}}{\Phi(i\alpha u-i\alpha u')}\\ \nonumber
+  F^\star_3&=&u+u'\\ \nonumber
+  F^\star_4&=&-2i\alpha\bar{w}w\Phi(i\alpha u)\Phi(-i\alpha u)\Upsilon(i\alpha
+  u)+i\alpha w\bar{w}'\Phi(-i\alpha u)\Phi(-i\alpha u')\\ \nonumber
+  &&-2i\alpha\bar{w}'w'\Phi(i\alpha u')\Phi(-i\alpha u')\Upsilon(i\alpha u')
+  -i\alpha\bar{w}w'\Phi(i\alpha u)\Phi(i\alpha u')\\ \nonumber
+  &&+2i\alpha\left(\bar{w}\Phi(i\alpha u)+\bar{w}'\Phi(-i\alpha u')\right)
+  \left(w\Phi(-i\alpha u)+w'\Phi(i\alpha u')\right)
+  \\ \nonumber && \quad\!\! \times \Upsilon(i\alpha u+i\alpha u')
+  +v+v'
+\end{eqnarray}
+where $x$ runs over $\P^+,\P^-,\J,\K$. We see from \eqref{eq:example:star} and
+\eqref{eq:star:lie} that the operator algebra is recovered in the functional
+space with the $\star$-product between the generators being
+\begin{eqnarray}
+  \label{eq:weyl:generators}
+  \P^+\star\P^-&=&\P^+\P^--\K\\ \nonumber
+  \P^-\star\P^+&=&\P^+\P^-+\K\\ \nonumber
+  \P^+\star\J&=&\J\P^++\frac 12\P^+\\ \nonumber
+  \J\star\P^+&=&\J\P^+-\frac 12\P^+\\ \nonumber
+  \P^-\star\J&=&\J\P^--\frac 12\P^-\\ \nonumber
+  \J\star\P^-&=&\J\P^-+\frac 12\P^-
+\end{eqnarray}
+To second order in $\alpha$ and written in position space, the $\star$-product
+between any two functions is
+\begin{eqnarray}
+  \label{eq:weyl:positionspace}
+  f\star g(x)&=&fg+\frac{\alpha}{2}\Biggl(
+  2\K\d_-f\d_+g
+  +\P^-\d_\J f\d_-g
+  -\P^-\d_-f\d_\J g\\ \nonumber &&\qquad\quad\!\!
+  -2\K\d_+f\d_-g
+  -\P^+\d_\J f\d_+g
+  +\P^+\d_+f\d_\J g
+  \Biggr) \\ \nonumber
+  &+&\frac{\alpha^2}{2}\Biggl(
+  \K^2\d_+^2f\d_-^2g
+  +\K\P^+\d_+\d_-f\d_+\d_\J g
+  +\K^2\d_-^2f\d_+^2g\\ \nonumber &&
+  +\frac 16\P^+\d_\J^2f\d_+g
+  +\frac 16\P^+\d_+f\d_\J^2g
+  +\frac 16\P^-\d_-f\d_\J^2g\\ \nonumber &&
+  -\K\P^+\d_+^2f\d_-\d_\J g
+  +\K\P^-\d_-\d_\J f\d_+\d_-g
+  -\K\P^-\d_-^2f\d_+\d_\J g\\ \nonumber &&
+  -\K\P^+\d_-\d_\J f\d_+^2g
+  -2\K^2\d_+\d_-f\d_+\d_-g
+  +\K\P^-\d_+\d_-f\d_-\d_\J g\\ \nonumber &&
+  +\K\P^+\d_+\d_\J f\d_+\d_-g
+  -\K\P^-\d_+\d_\J f\d_-^2g
+  +\frac 16\P^-\d_\J^2f\d_-g\\ \nonumber &&
+  -\frac 12{\P^+}^2\d_+\d_\J f\d_+\d_\J g
+  -\frac 12{\P^-}^2\d_-\d_\J f\d_-\d_\J g\\ \nonumber &&
+  -\frac 16\P^-\d_\J f\d_-\d_\J g
+  -\frac 16\P^+\d_+\d_\J f\d_\J g
+  -\frac 16\P^+\d_\J f\d_+\d_\J g\\ \nonumber &&
+  -\frac 13\K\d_+f\d_-\d_\J g
+  +\frac 23\K\d_\J f\d_+\d_-g
+  +\frac 23\K\d_+\d_-f\d_\J g\\ \nonumber &&
+  +\frac 14{\P^+}^2\d_\J^2f\d_+^2g
+  +\frac 12\P^+\P^-\d_-\d_\J f\d_+\d_\J g
+  -\frac 12\P^+\P^-\d_+\d_-f\d_\J^2g\\ \nonumber &&
+  +\frac 14{\P^-}^2\d_\J ^2f\d_-^2g
+  +\frac 14{\P^-}^2\d_-^2f\d_\J ^2g
+  -\frac 16\P^-\d_-\d_\J f\d_\J g\\ \nonumber &&
+  -\frac 26\K\d_-\d_\J f\d_+g
+  -\frac 26\K\d_-f\d_+\d_\J g
+  -\frac 13\K\d_+\d_\J f\d_-g\\ \nonumber &&
+  +\frac 12\P^+\P^-\d_+\d_\J f\d_-\d_\J g
+  +\frac 14{\P^+}^2\d_+^2f\d_\J^2g
+  -\frac 12\P^+\P^-\d_\J^2f\d_+\d_-g
+  \Biggr)\\ \nonumber
+  &+&\mathcal{O}(\alpha^3)
+\end{eqnarray}
+
+\clearpage
+\section{Weyl Systems}
+\subsection{Standard Weyl Systems}
+A Weyl system is a map $\weyl$ from a real, finite dimensional, symplectic
+vector space $S$ to the set of unitary operators on a suitable Hilbert space,
+with the property
+\begin{equation}
+  \label{eq:nw:weyl:st:prop}
+  \weyl(k)\weyl(k')=e^{i\omega(k,k')}\weyl(k')\weyl(k)
+\end{equation}
+where $\omega$ is the symplectic, translationally invariant form on $S$.
+According to Stone's theorem, $\weyl$ is the exponential of a Hermitian operator
+on $\cal H$
+\begin{equation}
+  \label{eq:nw:weyl:st:exp}
+  \weyl(ak)=e^{iaX(k)}
+\end{equation}
+The original motivation was to avoid the presence of unbounded operators in the
+Q.M. formalism and is satisfied by property \eqref{eq:nw:weyl:st:prop} as it can
+be considered the exponentiated version of the commutation relations. The usual
+form of the commutators can be recovered with a series expansion
+\begin{equation}
+  \label{eq:nw:weyl:st:series}
+  \cb{X(k)}{X(k')}=-i\omega(k,k')
+\end{equation}
+The usual identification has $S=\real^{2n}$ and $\omega=dq^i\wedge dp^j$ where
+$(q^i,p_j)$ are canonical coordinates, giving the explicit realisation
+\begin{equation}
+  \label{eq:nw:weyl:st:realise}
+  \weyl(q,p)=e^{i\left(q^iQ_j+p_iP^j\right)}
+\end{equation}
+where $Q$ and $P$ are the usual operators that represent position and momentum
+observables.
+
+It is then possible to formulate the Groenewold-Moyal $\star$-product given in
+section \ref{star}, which is the case when $\omega(k,k')$ and $\Theta$ are
+constant.
+
+\subsection{Generalised Weyl Systems}
+The previous construction of a $\star$-product for a Weyl system is not valid
+for the case when $\Theta$ is non-constant, simply because property
+\eqref{eq:nw:weyl:st:prop} does not hold.
+
+It is possible to define a class of deformed products in a set of functions on
+$\real^n$ without using an explicit realisation of $\weyl$, thus generalising
+the concept. A \textit{generalised Weyl system} \cite{Agostini:2002} is a map in
+the set of operators $\weyl$ with composition rule
+\begin{equation}
+  \label{eq:weyl:gen:prop}
+  \weyl(k)\weyl(k')=e^{\frac i2\omega(k,k')}\weyl(k\comp k')
+\end{equation}
+$\comp$ forms a group on $\real^n$ satisfying
+\begin{eqnarray}
+  \label{eq:weyl:comp:group}
+  (k\comp k')\comp k'' &=& k\comp(k'\comp k'') \\
+  k\comp \underline k &=& 0
+\end{eqnarray}
+where $\underline k$ is the inverse of $k$ and $0$ is the neutral element. When
+$\comp$ is the normal addition on $\real^n$ this is a standard Weyl system.
+
+In analogy to the standard Weyl system, we define the symbol
+\begin{equation}
+  \label{eq:weyl:gen:symb}
+  {\hat\Omega}[f]\equiv F=\frac{1}{(2\pi)^n}\int_{-\infty}^\infty \widetilde
+  f(k)\weyl(k)dk
+\end{equation}
+(from here on we use capital Roman letters to denote elements of the deformed
+algebra). The product is
+\begin{equation}
+  \label{eq:weyl:gen:prod}
+  FG=\frac{1}{(2\pi)^{2n}}\int_{-\infty}^\infty \widetilde f(k)\widetilde g(k')
+  e^{\frac i2 \omega(k,k')}\weyl(k\comp k')dkdk'
+\end{equation}
+and it can be shown that
+\begin{equation}
+  \label{eq:weyl:gen:star}
+  f\star g(x)=\frac{1}{(2\pi)^{2n}}\int_{-\infty}^\infty \widetilde f(k)\widetilde g(k')
+  e^{\frac i2 \omega(k,k')}e^{i\left(k\comp k'\right)x}dkdk'
+\end{equation}
+where
+\begin{equation}
+  \label{eq:weyl:gen:exp}
+  e^{ikx}={\hat\Omega}^{-1}[\weyl(k)]
+\end{equation}
+Associativity of this product is a consequence of the associativity of $\comp$.
+The Hermitian conjugate of $F$ is defined as
+\begin{equation}
+  \label{eq:weyl:gen:herm}
+  F^\dagger = \frac{1}{(2\pi)^{2n}}\int_{-\infty}^\infty\widetilde f^*(\underline
+  k)\weyl(k)dk
+\end{equation}
+and
+\begin{equation}
+  \label{eq:weyl:gen:herm:2}
+  (FG)^\dagger=G^\dagger F^\dagger
+\end{equation}
+an extra condition
+\begin{equation}
+  \label{eq:weyl:gen:lizzicond}
+  \underline{(k\comp k')}=(\underline{k'}\comp\underline{k})
+\end{equation}
+is introduced in \cite{Agostini:2002} which is automatically satisfied by the
+associativity of $\comp$ since
+\begin{eqnarray}
+  \label{eq:weyl:gen:assoc}
+  (k\comp k')\comp\underline{(k\comp k')}&=&0 \\ \nonumber
+  (k\comp k')\comp(\underline{k'}\comp\underline{k})&=&
+  k\comp(k'\comp\underline{k'})\comp\underline k=0
+\end{eqnarray}
+
+\subsection{Nappi-Witten Generalised Weyl System}
+As the Nappi-Witten algebra cannot satisfy property \eqref{eq:nw:weyl:st:prop},
+it does not meet the conditions required to be a standard Weyl system. It can
+however be presented as a generalised Weyl system. We find the compositions
+$\comp$ for each ordering by inspection of the previously derived
+$\star$-products \eqref{eq:time:star}, \eqref{eq:symtime:star} and
+\eqref{eq:weyl:star}. In each case $\omega(k,k')=0$ and the composition can be
+shown to be associative.
+
+\subsubsection{Time Ordering}
+By inspection of \eqref{eq:time:star}, we find the composition $\compa$ to be
+\begin{eqnarray}
+  \label{eq:weyl:nw:time}
+  (k \compa k')^1&=& \bar w+\bar w'e^{-i\alpha u}\\ \nonumber
+  (k \compa k')^2&=& w + w'e^{i\alpha u}\\ \nonumber
+  (k \compa k')^3&=& u+u'\\ \nonumber
+  (k \compa k')^4&=& v+v'-i\alpha\bar ww'e^{i\alpha u}
+  +i\alpha w\bar w'e^{-i\alpha u}
+\end{eqnarray}
+where we define $k$ and it's inverse $\underline k$, component-wise as
+\begin{eqnarray}
+  \label{eq:weyl:gen:time}
+  k&=&(\bar w,w, u, v) \\ \nonumber
+  \underline k&=&(-e^{iu}\bar w,-e^{-iu}w,-u,-v)
+\end{eqnarray}
+
+\subsubsection{Symmetric Time Ordering}
+By inspection of \eqref{eq:symtime:star}, we find the composition $\compb$ to be
+\begin{eqnarray}
+  \label{eq:weyl:nw:symtime}
+  (k \compb k')^1&=&\bar we^{\frac i2\alpha u'}+\bar w'e^{-\frac i2\alpha u}\\
+  \nonumber
+  (k \compb k')^2&=&we^{-\frac i2\alpha u'}+w'e^{\frac i2\alpha u}\\ \nonumber
+  (k \compb k')^3&=&u+u'\\ \nonumber
+  (k \compb k')^4&=&v+v'-i\alpha\bar ww'e^{\frac i2\alpha(u+u')}
+  +i\alpha w\bar w'e^{-\frac i2\alpha(u+u')}
+\end{eqnarray}
+where we define $k$ and it's inverse $\underline k$, component-wise as
+\begin{eqnarray}
+  \label{eq:weyl:gen:symtime}
+  k&=&(\bar w,w, u, v) \\ \nonumber
+  \underline k&=&(-\bar w,-w,-u,-v)
+\end{eqnarray}
+
+\subsubsection{Weyl Ordering}
+By inspection of \eqref{eq:weyl:star}, we find the composition $\compc$ to be
+\begin{eqnarray}
+  \label{eq:weyl:nw:weyl}
+  (k \compc k')^1&=&\frac{\bar{w}\Phi(-i\alpha u)+\bar{w}'\Phi(-i\alpha
+    u')e^{-i\alpha  u}}{\Phi(-i\alpha u-i\alpha u')}\\ \nonumber
+  (k \compc k')^2&=&\frac{w\Phi(i\alpha u)+w'\Phi(i\alpha u')e^{i\alpha
+      u}}{\Phi(i\alpha u-i\alpha u')}\\ \nonumber
+  (k \compc k')^3&=&u+u'\\ \nonumber
+  (k \compc k')^4&=&-2i\alpha\bar{w}w\Phi(i\alpha u)\Phi(-i\alpha u)
+  \Upsilon(i\alpha u)+i\alpha w\bar{w}'\Phi(-i\alpha u)\Phi(-i\alpha u')
+  \\ \nonumber
+  &&-2i\alpha\bar{w}'w'\Phi(i\alpha u')\Phi(-i\alpha u')\Upsilon(i\alpha u')
+  -i\alpha\bar{w}w'\Phi(i\alpha u)\Phi(i\alpha u')\\ \nonumber
+  &&+2i\alpha\left(\bar{w}\Phi(i\alpha u)+\bar{w}'\Phi(-i\alpha u')\right)
+  \left(w\Phi(-i\alpha u)+w'\Phi(i\alpha u')\right)
+  \\ \nonumber && \quad\!\! \times \Upsilon(i\alpha u+i\alpha u')
+  +v+v'
+\end{eqnarray}
+where we define $k$ and it's inverse $\underline k$, component-wise as
+\begin{eqnarray}
+  \label{eq:weyl:gen:weyl}
+  k&=&(k_1,k_2,k_3,k_4) \\ \nonumber
+  \underline k&=&(-k_1,-k_2,-k_3,-k_4)
+\end{eqnarray}
+
+\clearpage
+\section{Derivatives}
+\subsection{Derivative Commutators}
+For any Lie Algebra
+\begin{equation}
+  \label{eq:lie}
+  \cb{\hat x^\mu}{\hat x^\nu}=iC_\lambda^{\mu\nu}\hat x^\lambda
+\end{equation}
+we may demand linear derivatives \cite{Dimitrijevic:2004vv} which look like
+\begin{equation}
+  \label{eq:deriv}
+  \cb{\opd_\mu}{\hat x^\nu}=\delta_\mu^\nu
+  +i\rho_\mu^{\nu\lambda}\opd_\lambda
+\end{equation}
+The Jacobi identity between $\opd_\mu$, $\hat x^\nu$, $\hat x^\lambda$
+supplies the sufficient conditions
+\begin{eqnarray}
+  \label{eq:deriv:rho}
+  \rho_\lambda^{\mu\nu}-\rho_\lambda^{\nu\mu}&=&C_\lambda^{\mu\nu}\\ \nonumber
+  \rho_\lambda^{\mu\nu}\rho_\nu^{\kappa\sigma}
+  -\rho_\lambda^{\kappa\nu}\rho_\nu^{\mu\sigma}
+  &=&C_\nu^{\mu\kappa}\rho_\lambda^{\nu\sigma}
+\end{eqnarray}
+
+\subsection{$\star$-Derivatives}
+This allows us to define a $\star$-derivative by elevating the $\opd$ to
+$\d^\star$ composed of normal derivatives and satisfying the following
+conditions
+\begin{eqnarray}
+  \nonumber
+  \scb{x^\mu}{x^\nu}&=&iC_\lambda^{\mu\nu}x^\lambda\\
+  \label{eq:lie:starcomm}
+  \scb{\d_\mu^\star}{x^\nu}f(x)&=&\d_\mu^\star(x^\nu\star
+  f(x)) -x^\nu\star(\d_\mu^\star f(x))\\ \nonumber
+  &=&(\delta_\mu^\nu+i\rho_\mu^{\nu\lambda}\d_\lambda^\star)f(x)
+\end{eqnarray}
+
+\nts{I see why the awful notation by the Germans exists now... using this
+  cleaner notation means that strictly speaking we mean $\d_\mu^\star
+  \star (\ldots)$ instead of $\d_\mu^\star(\ldots)$ in
+  \eqref{eq:lie:starcomm}}
+
+\subsection{Leibniz Rule}
+These $\opd$, $\d^\star$ do not necessarily follow the normal
+Leibniz rule. However we may obtain a Leibniz rule from the co-product, given by
+the Generalised Weyl System
+
+\nts{I am still unclear about the details of \emph{why} this is true. speak to
+  Berndt maybe?}
+
+For example, \eqref{eq:weyl:nw:time} implies the co-product
+\begin{equation}
+  \label{eq:coproduct}
+    \Delta(\opd_1)=\opd_1\otimes \1
+    +e^{\alpha\opd_3}\otimes\opd_1
+\end{equation}
+giving the Leibniz rule
+\begin{eqnarray}
+  \label{eq:leibniz}
+  \hat\grad_1(\hat f\hat g)&=&i\mu\Delta(\opd_1)(\hat f\otimes\hat g)
+  \\ \nonumber
+  &=&(\opd_1\hat f)\hat g +(e^{\alpha\opd_3}\hat
+  f)(\opd_1\hat g)
+\end{eqnarray}
+with the rule for the $\star$-derivatives being inherited
+\begin{equation}
+  \label{eq:leibtiz:star}
+  \grad^\star_1(f\star g)=(\d_1^\star f)\star g
+  +(e^{\alpha\d_3^\star}f)\star(\d_1^\star g)
+\end{equation}
+It is important to note that normal Leibniz does not necessarily hold even when
+$fg$ is normal multiplication
+\begin{equation}
+  \label{eq:leibniz:normal}
+  \grad^\star(fg)\neq f\grad^\star g+g\grad^\star f
+\end{equation}
+
+\subsection{Nappi-Witten $\star$-Derivatives}
+There are an infinite number of solutions to $\rho_\lambda^{\mu\nu}$
+\eqref{eq:deriv:rho}, but we choose an intuitive one giving
+\begin{align}
+  \nonumber
+  \cb{\opd_1}{\xh^1}&=1 & \cb{\opd_2}{\xh^1}&=0
+  &\quad\cb{\opd_3}{\xh^1}=0 &\quad \cb{\opd_4}{\xh^1}=-\alpha\opd_2
+  \\ \nonumber
+  \cb{\opd_1}{\xh^2}&=0 & \cb{\opd_2}{\xh^2}&=1
+  &\quad\cb{\opd_3}{\xh^2}=0 &\quad \cb{\opd_4}{\xh^2}=\alpha\opd_1
+  \\ \nonumber
+  \cb{\opd_1}{\xh^3}&=-\alpha\opd_1 & \cb{\opd_2}{\xh^3}&=\alpha\opd_2
+  &\quad\cb{\opd_3}{\xh^3}=1 &\quad \cb{\opd_4}{\xh^3}=0
+  \\ \nonumber
+  \cb{\opd_1}{\xh^4}&=0 & \cb{\opd_2}{\xh^4}&=0
+  &\quad\cb{\opd_3}{\xh^4}=0 &\quad \cb{\opd_4}{\xh^4}=1
+  \\ \label{eq:rho:nw4}
+\end{align}
+
+\subsubsection{Time Ordering}
+From \eqref{eq:weyl:nw:time} we deduce the co-products
+\begin{eqnarray}
+  \label{eq:deriv:leibniz:time}
+  \Delta^\ast(\opd_1)&=&\opd_1\otimes\1+e^{\alpha\opd_3}\otimes\opd_1\\ \nonumber
+  \Delta^\ast(\opd_2)&=&\opd_2\otimes\1+e^{-\alpha\opd_3}\otimes\opd_2\\ \nonumber
+  \Delta^\ast(\opd_3)&=&\opd_3\otimes\1 + \1\otimes\opd_3\\ \nonumber
+  \Delta^\ast(\opd_4)&=&\opd_4\otimes\1 + \1\otimes\opd_4
+        -i\alpha\opd_1e^{-\alpha\opd_3}\otimes\opd_2
+        +i\alpha\opd_2e^{\alpha\opd_3}\otimes\opd_1
+\end{eqnarray}
+Using \eqref{eq:time:star} we find the $x\ast f(x)$ products
+\begin{eqnarray}
+  \label{eq:time:xstar}
+  x^1\ast f(x)&=&(x^1-\alpha x^4\d_2)f(x)\\ \nonumber
+  x^2\ast f(x)&=&(x^2+\alpha x^4\d_1)f(x)\\ \nonumber
+  x^3\ast f(x)&=&(x^3+\alpha x^2\d_2
+        -\alpha x^1\d_1)f(x)\\ \nonumber
+  x^4\ast f(x)&=&x^4f(x)
+\end{eqnarray}
+which we may insert into \eqref{eq:lie:starcomm} to show that the
+$\ast$-derivatives are simply the normal derivatives on functions
+\begin{equation}
+  \label{eq:time:derivs}
+  \d^\ast_i=\d_i
+\end{equation}
+
+\subsubsection{Symmetric Time Ordering}
+From \eqref{eq:weyl:nw:symtime} we deduce the co-products
+\begin{eqnarray}
+  \label{eq:deriv:leibniz:symtime}
+  \Delta^\bullet(\opd_1)&=&\opd_1\otimes e^{-\frac \alpha 2\opd_3}
+        +e^{\frac \alpha 2\opd_3}\otimes\opd_1\\ \nonumber
+  \Delta^\bullet(\opd_2)&=&\opd_2\otimes e^{\frac \alpha 2\opd_3}
+        +e^{-\frac \alpha 2\opd_3}\otimes\opd_2\\ \nonumber
+  \Delta^\bullet(\opd_3)&=&\opd_3\otimes\1 + \1\otimes\opd_3\\ \nonumber
+  \Delta^\bullet(\opd_4)&=&\opd_4\otimes\1 + \1\otimes\opd_4
+        -i\alpha\opd_1e^{-\frac \alpha 2\opd_3}\otimes e^{-\frac \alpha 2\opd_3}\opd_2
+        +i\alpha\opd_2e^{\frac \alpha 2\opd_3}\otimes e^{\frac \alpha 2\opd_3}\opd_1
+\end{eqnarray}
+Using \eqref{eq:symtime:star} we find the $x\bullet f(x)$ products
+\begin{eqnarray}
+  \label{eq:symtime:xstar}
+  x^1\bullet f(x)&=&\left((x^1-\alpha x^4\d_2)
+    e^{\frac \alpha 2\d_3}\right)f(x)\\ \nonumber
+  x^2\bullet f(x)&=&\left((x^2+\alpha x^4\d_1)
+    e^{-\frac \alpha 2\d_3}\right)f(x)\\ \nonumber
+  x^3\bullet f(x)&=&(x^3+\frac \alpha 2 x^2\d_2
+        -\frac \alpha 2 x^1\d_1)f(x)\\ \nonumber
+  x^4\bullet f(x)&=&x^4f(x)
+\end{eqnarray}
+which we may insert into \eqref{eq:lie:starcomm} to show that the
+$\bullet$-derivatives are non-trivial
+\begin{eqnarray}
+  \label{eq:symtime:derivs}
+  \d^\bullet_1&=&\d_1e^{-\frac \alpha 2\d_3}\\ \nonumber
+  \d^\bullet_2&=&\d_2e^{\frac \alpha 2\d_3}\\ \nonumber
+  \d^\bullet_3&=&\d_3\\ \nonumber
+  \d^\bullet_4&=&\d_4
+\end{eqnarray}
+
+\subsubsection{Weyl Ordering}
+From \eqref{eq:weyl:nw:weyl} we deduce the co-products
+\begin{eqnarray}
+  \label{eq:deriv:leibniz:weyl}
+  \Delta^\star(\opd_1)&=&\frac{\opd_1\Phi(\alpha \opd_3)\otimes\1
+  +e^{\alpha\opd_3}\otimes\opd_2\Phi(\alpha \opd_3)}
+{\Phi(\alpha \opd_3\otimes\1+\1\otimes\alpha\opd_3)}\\ \nonumber
+  \Delta^\star(\opd_2)&=&\frac{\opd_2\Phi(-\alpha\opd_3)\otimes\1
+  +e^{-\alpha\opd_3}\otimes\opd_1\Phi(-\alpha \opd_3)}
+{\Phi(-\alpha \opd_3\otimes\1+\1\otimes\alpha\opd_3)}\\ \nonumber
+  \Delta^\star(\opd_3)&=&\opd_3\otimes\1+\1\otimes\opd_3
+\\ \nonumber
+  \Delta^\star(\opd_4)&=&-2\alpha\opd_1\opd_2\Phi(-\alpha\opd_3)\Phi(\alpha\opd_3)
+  \Upsilon(-\alpha\opd_3)\otimes\1 \\ \nonumber
+  &&-\1\otimes2\alpha\opd_2\opd_1\Phi(-\alpha\opd_3)\Phi(\alpha\opd_3)
+  \Upsilon(-\alpha\opd_3)\\ \nonumber
+  &&+\alpha\opd_2\Phi(\alpha\opd_3)\otimes\opd_1\Phi(\alpha\opd_3)
+  -\alpha\opd_1\Phi(-\alpha\opd_3)\otimes\opd_2\Phi(-\alpha\opd_3)\\ \nonumber
+  &&+2\alpha\left(\opd_1\Phi(-\alpha\opd_3)\otimes\1
+    +\1\otimes\opd_1\Phi(\alpha\opd_3)\right)
+  \\ \nonumber && \qquad
+  \times \left(\opd_2\Phi(\alpha\opd_3)\otimes\1
+    +\1\otimes\opd_2\Phi(-\alpha\opd_3)\right)
+  \\ \nonumber && \qquad
+  \times \Upsilon(-\alpha\opd_3\otimes\1-\1\otimes\alpha\opd_3)
+  +\opd_4\otimes\1+\1\otimes\opd_4
+\end{eqnarray}
+
+Using \eqref{eq:weyl:star} we find the $x\star f(x)$ products
+\begin{eqnarray}
+  \label{eq:weyl:xstar}
+  x^1\star f(x)&=&\left\{\frac{x^1}{\Phi(-\alpha\d_3)}
+    +2x^4\left(1-\frac 1{\Phi(-\alpha\d_3)}\right)
+      \frac{\d_2}{\d_3}\right\}f(x)\\ \nonumber
+  x^2\star f(x)&=&\left\{\frac{x^2}{\Phi(\alpha\d_3)}
+    +2x^4\left(1-\frac 1{\Phi(\alpha\d_3)}\right)
+      \frac{\d_1}{\d_3}\right\}f(x)\\ \nonumber
+  x^3\star f(x)&=&\left\{
+    x^1\left(1-\frac{1}{\Phi(-\alpha\d_3)}\right)
+        \frac{\d_1}{\d_3}
+    +x^2\left(1-\frac{1}{\Phi(\alpha\d_3)}\right)
+        \frac{\d_2}{\d_3}\right.\\ \nonumber
+    &&+x^3-2\alpha x^4\left(\frac{2}{\alpha\d_3}
+        \left.-\frac{e^{\alpha\d_3}+1}{e^{\alpha\d_3}-1}\right)
+        \frac{\d_1\d_2}{\d_3}\right\}f(x)\\ \nonumber
+  x^4\star f(x)&=&x^4f(x)
+\end{eqnarray}
+which we may insert into \eqref{eq:lie:starcomm}, showing that the
+following $\star$-derivatives are non-trivial
+\begin{eqnarray}
+  \label{eq:weyl:derivs}
+  \d^\star_1&=&\Phi(-\alpha\d_3)\d_1\\ \nonumber
+  \d^\star_2&=&\Phi(\alpha\d_3)\d_2\\ \nonumber
+  \d^\star_3&=&\d_3
+\end{eqnarray}
+however the ansatz
+\begin{equation}
+  \label{eq:weyl:derivs:4}
+  \d^\star_4=\d_4+\frac{\d_1\d_2}{\d_3}
+  \left(2-\Phi(-\alpha\d_3)-\Phi(\alpha\d_3)\right)
+\end{equation}
+is only confirmed for three of the $\d^\star_4$ relationships given in
+\eqref{eq:lie:starcomm}. In order for \eqref{eq:weyl:derivs:4} to be true we
+require
+\begin{eqnarray}
+  \nonumber
+  \scb{\d^\star_4}{x^3}f(x)&=& \left\{2\left(1-\Phi(-\alpha\d_3)
+      -\Phi(\alpha\d_3)\right)+e^{\alpha\d_3}+e^{-\alpha\d_3}
+      \right\}\frac{\d_1\d_2}{\d_3^2}f(x)\\ \nonumber
+  &&+\frac 1{\d_3}\left(2-\Phi(-\alpha\d_3)
+      -\Phi(\alpha\d_3)\right)x^3\d_1\d_2f(x)\\ \nonumber
+  &&-x^3\left(2-\Phi(-\alpha\d_3)-\Phi(\alpha\d_3)\right)
+    \frac{\d_1\d_2}{\d_3}f(x) \\
+  \label{eq:weyl:derivs:4:cond}
+  &\shouldid&0
+\end{eqnarray}
+which is very difficult to calculate due to the presence of an ill-defined
+$\frac 1{\d_3}$ term acting on $x^3\d_if(x)$.
+
+\section{Integrals}
+\subsection{$\star$-Integral Measure}
+In order to derive field equations by means of a variational principle, we
+require an integral. Algebraically an integral is a linear map of the algebra
+into complex numbers
+\begin{eqnarray}
+  \label{eq:nw:int:alg}
+  \int:{\cal \hat A}(\hat x)\rightarrow \mathbb C&&\\
+  \int (c_1\hat f+c_2\hat g)=c_1\int\hat f+c_2\int\hat g\qquad&&
+  \forall \hat f,\hat g\in {\cal \hat A}(\hat x), c_i\in\mathbb C
+\end{eqnarray}
+We also demand the cyclic property \cite{Dimitrijevic:2003wv,Agostini:2004cu}
+\begin{equation}
+  \label{eq:nw:int:cyc}
+  \int\hat f\hat g=\int\hat g\hat f
+\end{equation}
+We define the integral in the $\star$-product formalism using the usual
+definitions of an integral of commuting functions. It has been shown in
+\cite{Dietz:2001} that a measure can be introduced to achieve property
+\eqref{eq:nw:int:cyc}
+\begin{equation}
+  \label{eq:nw:int:cyc:measure}
+  \int d^nx\mu(x) f(x)\star g(x)=\int d^nx\mu(x) g(x)\star f(x)
+\end{equation}
+It is important to note that a $\mu$ which satisfies
+\eqref{eq:nw:int:cyc:measure} gives the integral the additional
+property \nts{show why this is true in more detail}
+\begin{equation}
+  \label{eq:nw:int:cyc:nostar}
+  \int d^nx\mu(x) f(x)\star g(x) =\int d^nx\mu(x) f(x)g(x)
+\end{equation}
+
+Since the functions $x^i$ form a basis, it is necessary for a cyclic action
+functional to satisfy the following condition
+\begin{equation}
+  \label{eq:nw:int:condition}
+  \int d^4x \mu_\star(x)\cb{(x^i)^n}{f(x)}_\star=0
+\end{equation}
+for all the natural numbers $n$ and $i=1\ldots4$.
+
+We may rewrite any commutator of the form $\cb{\hat x^n}{\hat y}$ using the
+following identity 
+\begin{equation}
+  \label{eq:nw:int:samstheory}
+  \cb{\hat x^{n+1}}{\hat y} = \sum_{m=0}^n\binom nm
+  \hat x^{n-m}\cb{\hat x}{\hat y}\hat x^m
+\end{equation}
+allowing us to simplify \eqref{eq:nw:int:condition} to
+\begin{equation}
+  \label{eq:nw:int:condition2}
+  \int d^4x \mu_\star(x)\sum_{m=0}^n\binom nm
+  (x^i)^{n-m}\cb{x^i}{f(x)}_\star(x^i)^m=0
+\end{equation}
+It is then a matter of inserting the explicit form of $\cb{x^i}{f(x)}_\star$ to
+find restraints upon $\mu(x)$ for general $f(x)$, making use of integration by
+parts in the case where $\int d(fg)=0$\footnote{As we are in a Schwartz space,
+  all functions go to zero at infinity.}.
+\begin{equation}
+  \label{eq:nw:int:parts}
+  \int \left[fg\d^nh\right] dx=
+  (-1)^n\int\left[f(\d^ng)h+g(\d^nf)h\right]dx
+\end{equation}
+
+\subsection{Anti-Hermitian Derivatives}
+\nts{this should not be its own section, encorporate this text into the previous
+  section}
+
+The variational principle requires that the derivatives be anti-hermitian by
+the following definiton
+\begin{equation}
+  \label{eq:nw:int:ah}
+  \int d^nx\mu(x) \overline f\star\d^\star g =
+  -\int d^nx\mu(x) \overline{\d^\star f}\star g
+\end{equation}
+Which allows for a generalised integration by parts.
+
+\subsection{Nappi-Witten $\star$-Integrals}
+\subsubsection{Time Ordering}
+In addition to \eqref{eq:time:xstar}, the $f(x)\ast x^i$ products are
+\begin{eqnarray}
+  \label{eq:time:starx}
+  f(x)\ast x^1&=&(x^1+\alpha x^4\d_2)e^{-\alpha\d_3}f(x)\\ \nonumber
+  f(x)\ast x^2&=&(x^2-\alpha x^4\d_1)e^{\alpha\d_3}f(x)\\ \nonumber
+  f(x)\ast x^3&=&x^3f(x)\\ \nonumber
+  f(x)\ast x^4&=&x^4f(x)
+\end{eqnarray}
+giving the following $\ast$-commutators
+\begin{eqnarray}
+  \label{eq:time:comm}
+  \cb{x^1}{f(x)}_\ast&=&-\alpha x^4\left(1
+    +e^{-\alpha\d_3}\right)\d_2f(x)\\ \nonumber
+  \cb{x^2}{f(x)}_\ast&=&\alpha x^4\left(1
+    +e^{\alpha\d_3}\right)\d_1f(x)\\ \nonumber
+  \cb{x^3}{f(x)}_\ast&=&\alpha\left(x^2\d_2
+    -x^1\d_1\right)f(x)\\ \nonumber
+  \cb{x^4}{f(x)}_\ast&=&0
+\end{eqnarray}
+When inserted into \eqref{eq:nw:int:condition2}, they give the restraints on
+$\mu_\ast(x)$
+\begin{eqnarray}
+  \label{eq:time:mu:all}
+  \left(1+e^{\alpha\d_3}\right)\d_2\mu_\ast(x)&=&0\\ \nonumber
+  \left(1-e^{-\alpha\d_3}\right)\d_1\mu_\ast(x)&=&0\\ \nonumber
+  x^1\d_1\mu_\ast(x)&=&x^2\d_2\mu_\ast(x)
+\end{eqnarray}
+satisfied by
+\begin{equation}
+  \label{eq:time:mu}
+  \d_{1,2}\mu_\ast(x)=0
+\end{equation}
+
+However, the $\d_4^\ast$ derivative does not satisfy \eqref{eq:nw:int:ah},
+but it may be remedied by introducing the translation
+$\d_4\rightarrow\d_4+\frac{\d_4\mu_\ast(x)}{2\mu_\ast(x)}$ so that the
+$\ast$-derivatives \eqref{eq:time:derivs} are now
+\begin{eqnarray}
+  \label{eq:time:d}
+  \widetilde\d^\ast_1&=&\d_1 \\ \nonumber
+  \widetilde\d^\ast_2&=&\d_2 \\ \nonumber
+  \widetilde\d^\ast_3&=&\d_3 \\ \nonumber
+  \widetilde\d^\ast_4&=&\d_4 + \frac{\d_4\mu_\ast(x)}{2\mu_\ast(x)}
+\end{eqnarray}
+with no adverse effects on \eqref{eq:rho:nw4} \nts{but affects linearity. go
+  into more detail}.
+
+\subsubsection{Symmetric Time Ordering}
+In addition to \eqref{eq:symtime:xstar}, the $f(x)\bullet x^i$ products are
+\begin{eqnarray}
+  \label{eq:symtime:starx}
+  f(x)\bullet x^1&=&\left(x^1+\alpha x^4\d_2\right)
+        e^{-\frac \alpha 2 \d_3}f(x)\\ \nonumber
+  f(x)\bullet x^2&=&\left(x^2-\alpha x^4\d_1\right)
+        e^{\frac \alpha 2 \d_3}f(x)\\ \nonumber
+  f(x)\bullet x^3&=&-\alpha\left(x^3+\frac \alpha 2x^1\d_1
+    -\frac \alpha 2x^2\d_2\right)f(x)\\ \nonumber
+  f(x)\bullet x^4&=&x^4f(x)
+\end{eqnarray}
+giving the following $\bullet$-commutators
+\begin{eqnarray}
+  \label{eq:symtime:comm}
+  \cb{x^1}{f(x)}_\bullet&=&\left(x^1-\alpha x^4\d_2\right)
+  \left(e^{\frac\alpha 2\d_3}-e^{-\frac\alpha 2\d_3}\right)f(x)\\ \nonumber
+  \cb{x^2}{f(x)}_\bullet&=&\left(x^2+\alpha x^4\d_1\right)
+  \left(e^{-\frac\alpha 2\d_3}-e^{\frac\alpha 2\d_3}\right)f(x)\\ \nonumber
+  \cb{x^3}{f(x)}_\bullet&=&\alpha\left(x^2\d_2
+    -x^1\d_1\right)f(x)\\ \nonumber
+  \cb{x^4}{f(x)}_\bullet&=&0
+\end{eqnarray}
+When inserted into \eqref{eq:nw:int:condition2}, they give the restraints on
+$\mu_\bullet(x)$
+\begin{eqnarray}
+  \label{eq:symtime:mu:all}
+  (1-\d_2)\left(e^{-\frac\alpha 2\d_3}
+    -e^{\frac\alpha 2\d_3}\right)\mu_\bullet(x)&=&0\\ \nonumber
+  (1+\d_1)\left(e^{\frac\alpha 2\d_3}
+    -e^{-\frac\alpha 2\d_3}\right)\mu_\bullet(x)&=&0\\ \nonumber
+  x^1\d_1\mu_\bullet(x)&=&x^2\d_2\mu_\bullet(x)
+\end{eqnarray}
+satisfied by
+\begin{equation}
+  \label{eq:symtime:mu:rest}
+  x^1\d_1\mu_\bullet(x)=x^2\d_2\mu_\bullet(x)
+  \qquad\qquad \d_3\mu_\bullet(x)=0
+\end{equation}
+
+However, the $\d_{1,2,4}^\bullet$ derivatives do not satisfy
+\eqref{eq:nw:int:ah}. The introduction of translations to $\d_{1,2}$ breaks the
+derivative $\bullet$-commutator relationships\footnote{Article
+  \cite{Dimitrijevic:2003wv} suggests that such a change does not effect the
+  canonical commutators, but this is not true for the function commutators.
+  Consistency between operator and function space commutators would only be
+  possible by demanding that multiplication from the left follow a Leibniz like
+  rule for the translation part.} (\ref{eq:lie:starcomm}, \ref{eq:rho:nw4}) and
+in order to satisfy both sets of restraints, we are forced to further require
+$\mu_\bullet(x)$ to be independent of $x^{1,2}$
+\begin{equation}
+  \label{eq:symtime:mu}
+  \d_{1,2,3}\mu_\bullet(x)=0
+\end{equation}
+
+The translation $\d_4\rightarrow\d_4+\frac{\d_4\mu_\bullet(x)}{2\mu_\bullet(x)}$
+must still be applied in order to ensure the derivatives are anti-Hermitian
+under integration. The $\bullet$-derivatives \eqref{eq:symtime:derivs} are now
+\begin{eqnarray}
+  \label{eq:symtime:d}
+  \widetilde\d^\bullet_1&=&\d_1e^{-\frac \alpha 2\d_3}\\ \nonumber
+  \widetilde\d^\bullet_2&=&\d_2e^{\frac \alpha 2\d_3}\\ \nonumber
+  \widetilde\d^\bullet_3&=&\d_3\\ \nonumber
+  \widetilde\d^\bullet_4&=&\d_4+\frac{\d_4\mu_\bullet(x)}{2\mu_\bullet(x)}
+\end{eqnarray}
+with no adverse effects on \eqref{eq:rho:nw4}.
+
+\subsubsection{Weyl Ordering}
+In addition to \eqref{eq:weyl:xstar}, the $f(x)\star x^i$ products are
+\begin{eqnarray}
+  \label{eq:weyl:starx}
+  f(x)\star x^1&=&\left\{\frac{x^1}{\Phi(\alpha\d_3)}
+    +2x^4\left(1-\frac 1{\Phi(\alpha\d_3)}\right)
+      \frac{\d_2}{\d_3}\right\}f(x)\\ \nonumber
+  f(x)\star x^2&=&\left\{\frac{x^2}{\Phi(-\alpha\d_3)}
+    +2x^4\left(1-\frac 1{\Phi(-\alpha\d_3)}\right)
+      \frac{\d_1}{\d_3}\right\}f(x)\\ \nonumber
+  f(x)\star x^3&=&\left\{
+    x^1\left(1-\frac{1}{\Phi(\alpha\d_3)}\right)
+        \frac{\d_1}{\d_3}
+    +x^2\left(1-\frac{1}{\Phi(-\alpha\d_3)}\right)
+        \frac{\d_2}{\d_3}\right.\\ \nonumber
+    &&+x^3-2\alpha x^4\left(\frac{2}{\alpha\d_3}
+        \left.-\frac{e^{\alpha\d_3}+1}{e^{\alpha\d_3}-1}\right)
+        \frac{\d_1\d_2}{\d_3}\right\}f(x)\\ \nonumber
+  f(x)\star x^4&=&x^4f(x)
+\end{eqnarray}
+giving the following $\star$-commutators
+\begin{eqnarray}
+  \label{eq:weyl:comm}
+  \cb{x^1}{f(x)}_\star&=&\alpha\left(x^1\d_3
+    -2x^4\d_2\right)f(x)\\ \nonumber
+  \cb{x^2}{f(x)}_\star&=&\alpha\left(x^2\d_3
+    +2x^4\d_1\right)f(x)\\ \nonumber
+  \cb{x^3}{f(x)}_\star&=&\alpha\left(x^2\d_2
+    -x^1\d_1\right)f(x)\\ \nonumber
+  \cb{x^4}{f(x)}_\star&=&0
+\end{eqnarray}
+When inserted into \eqref{eq:nw:int:condition2}, they give the restraints
+\begin{eqnarray}
+  \label{eq:weyl:mu:all}
+  x^1\d_3\mu_\star(x)&=&2x^4\d_2\mu_\star(x)\\ \nonumber
+  x^2\d_3\mu_\star(x)&=&-2x^4\d_1\mu_\star(x)\\ \nonumber
+  x^1\d_1\mu_\star(x)&=&x^2\d_2\mu_\star(x)
+\end{eqnarray}
+satisfied by
+\begin{equation}
+  \label{eq:weyl:mu}
+  \d_{1,2,3}\mu_\star(x)=0
+\end{equation}
+
+However, the $\d_4^\star$ derivative does not satisfy
+\eqref{eq:nw:int:ah}, but it may be remedied by introducing the translation
+$\d_4\rightarrow\d_4+\frac{\d_4\mu_\star(x)}{2\mu_\star(x)}$ so that the
+$\star$-derivatives \eqref{eq:weyl:derivs} are now
+\begin{eqnarray}
+  \label{eq:weyl:d}
+  \widetilde\d^\star_1&=&\Phi(-\alpha\d_3)\d_1\\ \nonumber
+  \widetilde\d^\star_2&=&\Phi(\alpha\d_3)\d_2\\ \nonumber
+  \widetilde\d^\star_3&=&\d_3\\ \nonumber
+  \widetilde\d^\star_4&=&\d_4+\frac{\d_4\mu_\star(x)}{2\mu_\star(x)}
+  +\left(2-\Phi(-\alpha\d_3)-\Phi(\alpha\d_3)\right)
+  \frac{\d_1\d_2}{\d_3}
+\end{eqnarray}
+with no adverse effects on \eqref{eq:rho:nw4}.
+
+\section{Free Scalar Field Theory}
+We now have all the necessary tools in order to construct a free scalar field
+theory using the action principle for the non-commuting Nappi-Witten space-time.
+For our Lagrangian density, we use the familiar
+\begin{equation}
+  \label{eq:lagdens}
+  {\cal L} = \frac 12 \d^\star_\mu\phi\star\d^\star_\mu\phi
+  + \frac 12 m^2\phi\star\phi
+\end{equation}
+where we have replaced multiplication by $\star$-multiplication, and derivatives
+by $\star$-derivatives. Using \eqref{eq:nw:int:cyc:nostar}, the Lagrangian under
+integration ${\cal L}_\star$ simplifies to
+\begin{equation}
+  \label{eq:lagdens:simp}
+  {\cal L}_\star = \frac 12 (\d^\star_\mu\phi)^2 + \frac 12 m^2\phi^2
+\end{equation}
+The action is defined with an appropriate $\mu_\star(x)$
+\begin{eqnarray}
+  \label{eq:action}
+  S[\phi] &=& \int d^4x\mu_\star(x){\cal L}_\star \\ \nonumber
+  &=& \frac 12 \int d^4x\mu_\star(x)\left\{(\d^\star_\mu\phi)^2 +
+    m^2\phi^2\right\}
+\end{eqnarray}
+We should be able to recover a familiar $\star$-Klein-Gordon equation by finding
+the extremum of $S$ by demanding the functional derivative be zero
+\begin{equation}
+  \label{eq:action:zero}
+  \frac{\delta S[\phi]}{\delta\phi}=0
+\end{equation}
+We define the functional derivative by
+\begin{equation}
+  \label{eq:action:funderiv}
+  S[\phi,\delta\phi]-S[\phi]\equiv \frac{\delta S[\phi]}{\delta\phi}\delta\phi
+\end{equation}
+With this definition, we get to first order in variation
+\begin{eqnarray}
+  \nonumber
+  S[\phi,\delta\phi]-S[\phi]
+  &=&\frac 12 \int d^4x\mu_\star(x)\left\{
+    \left(\d^\star_\mu(\phi+\delta\phi)\right)^2 + m^2(\phi+\delta\phi)^2
+    \right.\\ \nonumber
+    &&\qquad\qquad\qquad\quad -(\d^\star_\mu\phi)^2 - m^2\phi^2
+  \Big\} \\ \nonumber
+  &=&\int d^4x\mu_\star(x)\left\{
+    \d^\star_\mu\phi\d^\star_\mu\delta\phi+m^2\phi\delta\phi
+  \right\} \\
+  \label{eq:action:min}
+  &=&-\int d^4x\mu_\star(x)\left\{
+    \overline{\d^\star_\mu}\d^\star_\mu\phi - m^2\phi
+  \right\}\delta\phi
+\end{eqnarray}
+In the final line we make use of the anti-hermitian property
+\eqref{eq:nw:int:ah} which is integration by parts when the boundary terms are
+zero.
+
+This allows us to identify
+\begin{eqnarray}
+  \label{eq:nw:starminaction}
+  \frac{\delta S[\phi]}{\delta\phi}&=&0 \\ \nonumber
+  &=& \overline{\d^\star_\mu}\d^\star_\mu\phi - m^2\phi
+\end{eqnarray}
+and therefore define\footnote{Note that this differs from the definition of
+  $\Box^\star$ in the $\kappa$-Minkowski literature \cite{Dimitrijevic:2003wv}.
+  Using this definition we obtain
+  \begin{equation*}
+    \Box^\star_\kappa\phi = \frac{2}{\lambda^2\d_n^2}
+    \left(1-\cos(\lambda\d_n)\right)\d_i^2\phi + \d_n^2\phi
+  \end{equation*}
+  whereas the literature obtains the similar
+  \begin{equation*}
+    \Box^\star_\kappa\phi = \frac{2}{\lambda^2\d_n^2}
+    \left(1-\cos(\lambda\d_n)\right)\left(\d_i^2+\d_n^2\right)\phi
+  \end{equation*}
+  as a result of defining the box operator in terms of the invariant ``Dirac''
+  derivative. The standard box operator is recovered for both definitions in the
+  commutative geometry $\lambda\rightarrow 0$ limit.}
+\begin{equation}
+  \label{eq:nw:kg}
+  \Box^\star\phi\equiv\overline{\d^\star_\mu}\d^\star_\mu\phi
+\end{equation}
+
+We may now explicitly calculate the box operator for all three of our orderings,
+where, for brevity, we use $\d_\star$ to mean $\widetilde{\d_\star}$. \nts{this
+  could be fixed by using a better notation earlier on.}
+
+\subsection{Time Ordering}
+Using \eqref{eq:time:d}, and making the simplificion
+\begin{equation}
+  \label{eq:time:eta}
+  \eta_\ast(x) = \frac{\d_4\mu_\ast(x)}{2\mu_\ast(x)}
+\end{equation}
+we can write out the box operator
+\begin{equation}
+  \label{eq:time:box}
+  \Box^\ast\phi = \d_\mu^2\phi +(\overline{\eta_\ast(x)} + \eta_\ast(x))\d_4\phi
+  + \phi\d_4\eta_\ast(x) + |\eta_\ast(x)|^2\phi
+\end{equation}
+
+\subsubsection*{Example: $\mu_\ast(x)=1$}
+\begin{equation}
+  \label{eq:time:box:unitmeasure}
+  \Box^\ast\phi = \d_\mu^2\phi
+\end{equation}
+
+%\subsubsection{Example: $\mu_\ast(x)=\sqrt{\det(g)}$}
+%\nts{}
+
+\subsection{Symmetric Time Ordering}
+Using \eqref{eq:symtime:d}, and making the simplificion
+\begin{equation}
+  \label{eq:symtime:eta}
+  \eta_\bullet(x) = \frac{\d_4\mu_\bullet(x)}{2\mu_\bullet(x)}
+\end{equation}
+we can write out the box operator for $\alpha\in \mathbb R$
+\begin{eqnarray}
+  \label{eq:symtime:box:1}
+  \Box^\bullet_{\alpha}\phi &=& e^{-\alpha\d_3}\d_1^2\phi
+  + e^{\alpha\d_3}\d_2^2\phi + \d_3^2\phi + \d_4^2\phi \\ \nonumber
+  &&+(\overline{\eta_\bullet(x)} + \eta_\bullet(x))\d_4\phi
+  + \phi\d_4\eta_\bullet(x) + |\eta_\bullet(x)|^2\phi
+\end{eqnarray}
+and for the Wick rotated $\alpha \rightarrow i\alpha$, $\alpha\in \mathbb R$
+\begin{equation}
+  \label{eq:symtime:box:2}
+  \Box^\bullet_{i\alpha}\phi = \d_\mu^2\phi
+  +(\overline{\eta_\bullet(x)} + \eta_\bullet(x))\d_4\phi
+  + \phi\d_4\eta_\bullet(x) + |\eta_\bullet(x)|^2\phi
+\end{equation}
+
+\subsubsection*{Example: $\mu_\bullet(x)=1$}
+For $\alpha\in \mathbb R$
+\begin{equation}
+  \label{eq:symtime:box:1:unitmeasure}
+  \Box^\bullet_{\alpha}\phi = e^{-\alpha\d_3}\d_1^2\phi
+  + e^{\alpha\d_3}\d_2^2\phi + \d_3^2\phi + \d_4^2\phi
+\end{equation}
+and for the Wick rotated $\alpha \rightarrow i\alpha$, $\alpha\in \mathbb R$
+\begin{equation}
+  \label{eq:symtime:box:2:unitmeasure}
+  \Box^\bullet_{i\alpha}\phi = \d_\mu^2\phi
+\end{equation}
+The standard box operator is recovered in the commutative geometry
+$\alpha\rightarrow 0$ limit.
+
+%\subsubsection{Example: $\mu_\bullet(x)=\sqrt{\det(g)}$}
+%\nts{}
+
+\subsection{Weyl Ordering}
+Using \eqref{eq:weyl:d}, and making the simplificions
+\begin{eqnarray}
+  \label{eq:weyl:etasigma}
+  \eta_\star(x) &=& \frac{\d_4\mu_\star(x)}{2\mu_\star(x)}\\ \nonumber
+  \d_\triangle &=& \left(2-\Phi(-\alpha\d_3)-\Phi(\alpha\d_3)\right)
+  \frac{\d_1\d_2}{\d_3}
+\end{eqnarray}
+we can write out the box operator for $\alpha\in \mathbb R$
+\begin{eqnarray}
+  \label{eq:weyl:box:1}
+  \Box^\star_{\alpha}\phi &=&
+    \frac{2}{\alpha^2\d_3^2}\left(1-\cos(\alpha\d_3)\right)
+    \left(e^{-\alpha\d_3}\d_1^2\phi + e^{\alpha\d_3}\d_2^2\phi\right)\\ \nonumber
+  &&  + \d_3^2\phi + \d_4^2\phi \\ \nonumber
+  && + \left(2\d_\triangle + \eta_\star(x) +
+    \overline{\eta_\star(x)}\right)\d_4\phi
+  + |\eta_\star(x)|^2\phi + \phi\d_4\eta_\star(x)\\ \nonumber
+  && + (\eta_\star(x) + \overline{\eta_\star(x)})\d_\triangle\phi +
+  (\d_\triangle)^2\phi
+\end{eqnarray}
+and for the Wick rotated $\alpha \rightarrow i\alpha$, $\alpha\in \mathbb R$
+\begin{eqnarray}
+  \label{eq:weyl:box:2}
+  \Box^\star_{i\alpha}\phi &=&
+  \frac{2}{\alpha^2\d_3^2}\left(1-\cos(\alpha\d_3)\right)
+  \left(\d_1^2\phi + \d_2^2\phi\right) + \d_3^2\phi + \d_4^2\phi \\ \nonumber
+  && + \left(\d_\triangle + \overline{\d_\triangle} + \eta_\star(x)
+    + \overline{\eta_\star(x)}\right)\d_4\phi
+  + |\eta_\star(x)|^2\phi + \phi\d_4\eta_\star(x)\\ \nonumber
+  && + (\eta_\star(x)\overline{\d_\triangle} +
+  \overline{\eta_\star(x)}\d_\triangle)\phi
+  + \d_\triangle\overline{\d_\triangle}\phi
+\end{eqnarray}
+which is hard to solve, again due to $\frac{1}{\d_3}$ terms.
+
+\subsubsection*{Example: $\mu_\star(x)=1$}
+For $\alpha\in \mathbb R$
+\begin{eqnarray}
+  \label{eq:weyl:box:1:unitmeasure}
+  \Box^\star_{\alpha}\phi &=& \Phi(-\alpha\d_3)^2\d_1^2\phi
+  + \Phi(\alpha\d_3)^2\d_2^2\phi + \d_3^2\phi + \d_4^2\phi \\ \nonumber
+  &&+ 2\d_\triangle\d_4\phi
+  + (\d_\triangle)^2\phi
+\end{eqnarray}
+and for the Wick rotated $\alpha \rightarrow i\alpha$, $\alpha\in \mathbb R$
+\begin{eqnarray}
+  \label{eq:weyl:box:2:unitmeasure}
+  \Box^\star_{i\alpha}\phi &=&
+  \frac{2}{\alpha^2\d_3^2}\left(1-\cos(\alpha\d_3)\right)
+  \left(\d_1^2\phi + \d_2^2\phi\right) + \d_3^2\phi + \d_4^2\phi \\ \nonumber
+  && + \left(\d_\triangle + \overline{\d_\triangle}\right)\d_4\phi
+  + \d_\triangle\overline{\d_\triangle}\phi
+\end{eqnarray}
+The standard box operator is recovered in the commutative geometry
+$\alpha\rightarrow 0$ limit.
+
+%\subsubsection{Example: $\mu_\star(x)=\sqrt{\det(g)}$}
+%\nts{}
+
+% \section{Free Spinor Field Theory}
+% We need the Dirac derivative to do this... need to look at the
+% NW-deformed Lorentz group to define it. i.e. another paper of work
+
+% \section{Interacting $\phi^4$ Theory}
+% We need to know how to calculate $e^{iq_ix^i}\star e^{iq_i'x^i}$ to be able to
+% do this
+
+\clearpage
+\appendix
+\section{Generating Function of Equation \eqref{eq:weyl:G4}}
+\label{app:generating}
+\begin{eqnarray}
+  \label{eq:app:1}
+  \sum_{n=1}\frac{B_{n+1}
+    y^n}{n!}&=&\sum_{n=1}\frac{(n+1)B_{n+1}}{(n+1)!}\frac{y^{n+1}}{y}
+  \\ \nonumber
+  &=&\frac 1y\sum_{m=2}\frac{mB_m}{m!}y^m\\ \nonumber
+  &=&\frac{d}{dy}\sum_{m=2}\frac{B_m}{m!}y^m
+\end{eqnarray}
+where $m=n+1$. Since
+\begin{eqnarray}
+  \label{eq:app:2}
+  \sum_{m=2}\frac{B_m}{m!}y^m&=&-B_0-B_1y+\sum_{m=0}\frac{B_m}{m!}y^m \\ \nonumber
+  &=&-B_0-B_1y+\frac{y}{e^{xy}-1}\\ \nonumber
+  &=&\frac{y}{e^{xy}-1}+\frac y2 -1
+\end{eqnarray}
+around $x=1$ and $B_0=1$, $B_1=-\frac 12$, we can calculate the generating
+function of the original sum
+\begin{eqnarray}
+  \label{eq:app:3}
+  \sum_{n=1}\frac{B_{n+1} y^n}{n!}&=&\frac 12 +
+  \frac{d}{dy}\left(\frac{y}{e^{xy}-1}\right) \\ \nonumber
+  &=&\frac 12+\frac{e^{xy}-1-ye^{xy}}{\left(e^{xy}-1\right)^2}  
+\end{eqnarray}
+
+\section{$\kappa$-Minkowski Weyl Ordered $\star$-Product}
+\label{app:kappaminsk}
+A $\kappa$-Minkowski algebra is one that satisfies
+\begin{eqnarray}
+  \label{eq:app:kmink}
+  \cb{\hat x_0}{\hat x_i}&=&\lambda\hat x_i\\ \nonumber
+  \cb{\hat x_i}{\hat x_j}&=&0
+\end{eqnarray}
+Such an algebra can be thought of as a simplified Nappi-Witten algebra
+\eqref{eq:NW:algebra} with $\hat\K=0$, $\hat x_0$ taking the role of $\hat\J$
+and the $\hat x_i$ acting as independent $\hat\P^-$s. The only non-trivial
+exponential products for an $n$-dimensional algebra with a representation
+similar to the Nappi-Witten scenario in the main text are
+\begin{eqnarray}
+  \label{eq:app:kmink:mult}
+  e^{ik_l\hat x^l}e^{ik_0\hat x^0}&=&e^{ik_0\hat x^0}e^{ik_le^{-i\beta\lambda
+      k_0}\hat x^l} \\ \nonumber
+  e^{ik_0\hat x^0}e^{ik_l\hat x^l}&=&e^{ik_le^{i\beta\lambda k_0}\hat
+    x^n}e^{ik_0\hat x^0}
+\end{eqnarray}
+In analogy to \eqref{eq:weyl:start} we find the BCH formula for
+\begin{eqnarray}
+  \label{eq:app:kmink:start}
+  e^{ik_l\hat x^l}e^{ik_0\hat x^0}&=&e^{G_0\hat x^0+G_l\hat x^l} \\ \nonumber
+  G_0&=&ik_0 \\ \nonumber
+  G_l&=&\frac{ik_l}{\Phi(i\lambda k_0)}
+\end{eqnarray}
+where we use the same $\Phi$ as in \eqref{eq:weyl:Phi}
+\begin{equation*}
+  \Phi(a)=\frac{e^{\beta a}-1}a
+\end{equation*}
+and define
+\begin{eqnarray}
+  \label{eq:app:kmink:qs}
+  q_0&=&k_0 \\ \nonumber
+  q_l&=&k_l\Phi(i\lambda k_0)
+\end{eqnarray}
+allowing us to rewrite the Weyl ordering in terms of the $q$s
+\begin{equation}
+  \label{eq:app:kmink:ordering}
+  \NO e^{ik_l\hat x^i}\NO=e^{ik_0\hat x^0+ik_l\hat x^l}=e^{iq_l\hat x^l}e^{iq_0\hat x^0}
+\end{equation}
+Using \eqref{eq:app:kmink:mult},\eqref{eq:app:kmink:start}, we calculate the Weyl
+ordered $\star$-product for $\kappa$-Minkowski as
+\begin{eqnarray}
+  \label{eq:app:kmink:star}
+  f\star g(z)&=&f(z)e^{ix^i(F_i-k_i-k_i')}g(z)\\ \nonumber
+  F_0&=&k_0+k_0'\\ \nonumber
+  F_l&=&\frac{k_l\Phi(i\lambda k_0)+k_l'\Phi(i\lambda k_0')
+    e^{i\lambda k_0}}{\Phi(i\lambda(k_0+k_0'))}
+\end{eqnarray}
+where $l$ runs over $1,\ldots,n-1$. This result may be compared with
+\cite{Agostini:2002}. We see from \eqref{eq:example:star} and \eqref{eq:star:lie}
+that the operator algebra is recovered in the functional space with deformed
+$\star$-product between the generators being
+\begin{eqnarray}
+  \label{eq:app:kmink:generators}
+  x_l\star x_0&=&x_lx_0-\frac\lambda2x_l\\ \nonumber
+  x_0\star x_l&=&x_0x_l+\frac \lambda2x_l
+\end{eqnarray}
+Using \eqref{eq:star:lie} to second order in
+$\lambda$\footnote{$\kappa$-Minkowski is by definition a scaled algebra, so
+  there is no need to introduce a parameter such as $\alpha$} and written in
+position space, the $\star$-product between any two functions for $n=3$ is
+\begin{eqnarray}
+  \label{eq:app:kmink:position}
+  \nonumber
+  f\star g(x)=fg&+&\frac{\lambda}{2}\Biggl(
+  x_1\d_0f\d_1g
+  -x_1\d_1f\d_0g
+  +x_2\d_0f\d_2g
+  -x_2\d_2f\d_0g
+  \Biggr) \\ \nonumber
+  &+&\frac{\lambda^2}{4}\Biggl(
+  \frac 13x_1\d_1f\d_0^2g
+  +\frac 13x_2\d_0^2f\d_2g
+  +\frac 13x_2\d_2f\d_0^2g\\ \nonumber &&\qquad
+  -x_1^2\d_0\d_1f\d_0\d_1g
+  -\frac 13x_1\d_0f\d_0\d_1g
+  -\frac 13x_2\d_0\d_2f\d_0g\\ \nonumber &&\qquad
+  +\frac 12x_2^2\d_0^2f\d_2^2g
+  +x_1x_2\d_0^2f\d_1\d_2g
+  -x_1x_2\d_0\d_1f\d_0\d_2g\\ \nonumber &&\qquad
+  +\frac 12x_2^2\d_2^2f\d_0^2g
+  +\frac 12x_1^2\d_0^2f\d_1^2g
+  -\frac 13x_1\d_0\d_1f\d_0g\\ \nonumber &&\qquad
+  +\frac 12x_1^2\d_1^2f\d_0^2g
+  -x_2^2\d_0\d_2f\d_0\d_2g
+  +x_1x_2\d_1\d_2f\d_0^2g\\ \nonumber &&\qquad
+  +\frac 13x_1\d_0^2f\d_1g
+  -\frac 13x_2\d_0f\d_0\d_2g
+  -x_1x_2\d_0\d_2f\d_0\d_1g
+  \Biggr) \\
+  &+&\mathcal{O}(\lambda^3)
+\end{eqnarray}
+In this proof, we have used a real Lie algebra \eqref{eq:app:kmink}, as opposed
+to the anti-Hermitian definition often used. It should be noted that in order to
+directly compare this $\star$-product with those given in
+\cite{Dimitrijevic:2003wv},\cite{Dimitrijevic:2004vv} then the definition of the
+algebra should be changed (using $\lambda\rightarrow i\Lambda$) to
+\begin{eqnarray}
+  \label{eq:app:kmink:alt}
+  \cb{\hat x_0}{\hat x_i}&=&i\Lambda\hat x_i\\ \nonumber
+  \cb{\hat x_i}{\hat x_j}&=&0
+\end{eqnarray}
+giving
+\begin{eqnarray}
+  \label{eq:app:kmink:star:alt}
+  f\star g(z)&=&f(z)e^{ix^i(F_i-k_i-k_i')}g(z)\\ \nonumber
+  F_0&=&k_0+k_0'\\ \nonumber
+  F_l&=&\frac{k_l\Phi(-\Lambda k_0)+k_l'\Phi(-\Lambda k_0')
+    e^{-\Lambda  k_0}}{\Phi(-\Lambda(k_0+k_0'))}
+\end{eqnarray}
+
+\section{A ``Not so Obvious'' Mistake}
+A mistake which is not so obvious to spot is in assuming
+\begin{equation*}
+  e^{i\hat A}e^{i\hat B}=e^{iC(\hat A:\hat B)}
+\end{equation*}
+To show why this is not the case, a simple counterexample is used. For an
+algebra $\cb{A}{B}=c$, we would have
+\begin{eqnarray*}
+  e^{i\hat A}e^{i\hat B}&=&e^{i\hat A+i\hat B+\frac 12\cb{i\hat A}{i\hat B}} \\
+  &=&e^{i\hat A+i\hat B-\frac c2}
+\end{eqnarray*}
+whereas
+\begin{equation*}
+  e^{iC(\hat A:\hat B)}=e^{i(\hat A+\hat B+\frac c2)}
+\end{equation*}
+which is not equivalent.
+
+\section{Some Non-Trivial Derivative Rules}
+we note that
+\begin{eqnarray*}
+  \d_0^nx^0\d_1f &=& \d_0^{n-1}(\d_1f+x^0\d_0\d_1f) \\
+  &=& \d_0^{n-1}\d_1f+\d_0^{n-2}(\d_0\d_1f+x^0\d_0^2\d_1f)\\
+  && \vdots \\
+  &=& n\d_0^{n-1}\d_1f+x^0\d_0^n\d_1f
+\end{eqnarray*}
+allowing us to construct the following rules
+\begin{eqnarray*}
+  e^{\alpha\d_0}x^0\d_1f &=& \left(\sum_{n=0}^\infty\frac{(\alpha\d_0)^n}{n!}
+  \right)x^0\d_1f \\
+  &=&\left(1+\sum_{n=1}^\infty\frac{(\alpha\d_0)^n}{n!}\right)x^0\d_1f \\
+  &=&x^0\d_1f+\sum_{n=1}^\infty\frac 1{n!}\left(
+    n\alpha^n\d_0^{n-1}\d_1f + x^0(\alpha\d_0)^n\d_1f\right)\\
+  &=&\left(\alpha+x^0\right)e^{\alpha\d_0}\d_1f
+\end{eqnarray*}
+\begin{eqnarray*}
+  \Phi(\alpha\d_0)x^0\d_1f &=&
+  \left(\frac{e^{\alpha\d_0}-1}{\alpha\d_0}\right)x^0\d_1f \\
+  &=& \left(\sum_{n=1}^\infty\frac{(\alpha\d_0)^{n-1}}{n!}\right)x^0\d_1f \\
+  &=& \sum_{n=1}^\infty\frac 1{n!}\left(
+    (n-1)\alpha^{n-1}\d_0^{n-2}+x^0\alpha^{n-1}\d_0^{n-1}\right)\d_1f \\
+  &=& \left\{\frac{e^{\alpha\d_0}}{\d_0}-
+    \frac{\Phi(\alpha\d_0)}{\d_0}+x^0\Phi(\alpha\d_0)\right\}\d_1f
+\end{eqnarray*}
+
+\section{Some Helpful Identities}
+\begin{eqnarray*}
+  \Phi(a)e^{-a}&=&\Phi(-a) \\
+  \Phi(ia)\Phi(-ia)&=&\frac{2}{a^2}\left(1-\cos(a)\right)
+\end{eqnarray*}
+
+\begin{thebibliography}{99}
+\bibitem{Nappi:1993ie}
+  C.~R.~Nappi and E.~Witten,
+  ``A WZW model based on a nonsemisimple group,''
+  Phys.\ Rev.\ Lett.\  {\bf 71} (1993) 3751
+  [arXiv:hep-th/9310112].
+  %%CITATION = HEP-TH 9310112;%%
+
+\bibitem{Kathotia:1998}
+  V.~Kathotia,
+  ``Kontsevichs Universal Formula for Deformation Quantization and the
+  Campbell-Baker-Hausdorff Formula, I''
+  UC Davis Math 1998-16
+  [arXiv:math.QA/9811174].
+  %%CITATION = MATH-QA 9811174;%%
+
+\bibitem{Figueroa-OFarrill:1999ie}
+  J.~M.~Figueroa-O'Farrill and S.~Stanciu,
+  ``More D-branes in the Nappi-Witten background,''
+  JHEP {\bf 0001} (2000) 024
+  [arXiv:hep-th/9909164].
+  %%CITATION = HEP-TH 9909164;%%
+
+\bibitem{DAppollonio:2003dr}
+  G.~D'Appollonio and E.~Kiritsis,
+  ``String interactions in gravitational wave backgrounds,''
+  Nucl.\ Phys.\ B {\bf 674} (2003) 80
+  [arXiv:hep-th/0305081].
+  %%CITATION = HEP-TH 0305081;%%
+
+\bibitem{Agostini:2002}
+  A.~Agostini, F.~Lizzi, A.~Zampini,
+  ``Generalized Weyl Systems and Kappa Minkowski Space''
+  Mod.\ Phys.\ Lett.\ {\bf A17} (2002) 2105-2126
+  [arXiv:hep-th/0209174].
+  %%CITATION = HEP-TH 0209174;%%
+
+\bibitem{Dimitrijevic:2003wv}
+  M.~Dimitrijevic, L.~Jonke, L.~Moller, E.~Tsouchnika, J.~Wess and
+  M.~Wohlgenannt,
+  ``Deformed field theory on kappa-spacetime,''
+  Eur.\ Phys.\ J.\ C {\bf 31} (2003) 129
+  [arXiv:hep-th/0307149].
+  %%CITATION = HEP-TH 0307149;%%
+
+\bibitem{Dimitrijevic:2004vv}
+  M.~Dimitrijevic, L.~Moller and E.~Tsouchnika,
+  ``Derivatives, forms and vector fields on the kappa-deformed Euclidean space,''
+  [arXiv:hep-th/0404224].
+  %%CITATION = HEP-TH 0404224;%%
+
+\bibitem{Agostini:2004cu}
+  A.~Agostini, G.~Amelino-Camelia, M.~Arzano and F.~D'Andrea,
+  ``Action functional for kappa-Minkowski noncommutative spacetime,''
+  [arXiv:hep-th/0407227].
+  %%CITATION = HEP-TH 0407227;%%
+
+\bibitem{Dietz:2001}
+  M.~Dietz,
+  ``Symmetrische Formen auf Quantenalgebren'',
+  Diploma thesis at the University of Hamburg (2001).
+
+\end{thebibliography}
+\end{document}
+      
+% This is for Emacs
+%%% Local Variables:
+%%% TeX-command-default: "LaTeX"
+%%% TeX-command-Show: "View"
+%%% End:

@@ -1,0 +1,157 @@
+\documentstyle[12pt]{article}
+\setlength{\textwidth}{162mm} \setlength{\textheight}{222mm}
+\addtolength{\oddsidemargin}{-12.5mm}
+\addtolength{\topmargin}{-15mm}
+\newcommand{\att}{\marginpar{\bf ?}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatletter
+\@addtoreset{equation}{section} %%% Latex Companion, p.~16
+\makeatother
+
+
+%\newcommand{\att}{\marginpar{\bf ?}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatletter
+\@addtoreset{equation}{section} %%% Latex Companion, p.~16
+\makeatother
+
+
+\newcommand{\eqn}[1]{(\ref{#1})}
+
+\def\appendix#1
+{
+\addtocounter{section}{1}\setcounter{equation}{0}%\setcounter{section}{1}
+ \renewcommand{\thesection}{\Alph{section}}
+ \section*{%Appendix~
+ \thesection\protect\indent \parbox[t]{16.715cm}{#1}}
+ \addcontentsline{toc}{section}{Appendix \thesection\ \ \ #1}
+}
+\newcommand{\complex}{{\mathbb{C}}} %% complex numbers
+\newcommand{\complexs}{{\mathbb{C}}} %% small complex numbers
+\newcommand{\zed}{{\mathbb{Z}}} %% integers
+\newcommand{\nat}{{\mathbb{N}}} %% naturals
+\newcommand{\real}{{\mathbb{R}}} %% real numbers
+\newcommand{\reals}{{\mathbb{R}}} %% small real numbers
+\newcommand{\realb}{{\mathbb{R}}} %% big real numbers
+\newcommand{\zeds}{{\mathbb{Z}}} %% small integers
+\newcommand{\rat}{{\mathbb{Q}}} %% rational numbers
+\newcommand{\mat}{{\mathbb{M}}} %% matrix algebra
+\newcommand{\mats}{{\mathbb{M}}} %% small matrix algebra
+\newcommand{\NO}{\,\mbox{$\circ\atop\circ$}\,} % Normal ordering
+\newcommand{\id}{{\mathbb{I}}} %% identity operator
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\def\<#1,#2>{\left\langle#1,#2\right\rangle} %% bilinear form
+\newcommand{\Dirac}{{D\mkern-11.5mu/\,}} %% Dirac operator
+\def\alg{\mathcal{A}}
+\def\hil{\mathcal{H}}
+\def\uni{\mathcal{U}}
+\def\ota{\otimes_{A}}
+\def\otc{\otimes_{\complexs}}
+\def\otr{\otimes_{\reals}}
+
+
+\def\nn{\nonumber}
+\newcommand\opname[1]{\mathop{\mathrm{#1}}\nolimits}
+\newcommand{\tr}{\opname{tr}}
+\newcommand{\Tr}{\opname{Tr}}
+\newcommand{\eq}[1]{Eq.~(\ref{#1})}
+\newcommand{\non}{\nonumber \\*}
+\hyphenation{pre-print pre-prints di-men-sion-al
+di-men-sion-al-ly}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+\newcommand{\del}{\partial}
+\newcommand{\kM}{$\kappa$-Minkowski}
+\newcommand{\kkP}{$\kappa$-Poincar\'{e}}
+%Alessandra's macros
+\newcommand{\p}{\hat{p}}
+\newcommand{\q}{\hat{q}}
+\newcommand{\hpsi}{\hat{\psi}}
+\newcommand{\hphi}{\hat{\phi}}
+\newcommand{\ah}{\hat{\alpha}}
+\newcommand{\A}{\hat{A}}
+\newcommand{\B}{\hat{B}}
+\newcommand{\pt}{\tilde{p}}
+\newcommand{\ft}{\tilde{f}}
+\newcommand{\gt}{\tilde{g}}
+\newcommand{\W}{\hat{W}}
+\newcommand{\Om}{\hat{Omega}}
+\newcommand{\F}{\hat{F}}
+\newcommand{\G}{\hat{G}}
+\newcommand{\al}{\alpha}
+\newcommand{\bt}{\beta}
+\newcommand{\s}{\sigma}
+\newcommand{\x}{{\bf x}}
+\newcommand{\X}{\hat{X}}
+\newcommand{\ts}{\left(}
+\newcommand{\td}{\right)}
+\newcommand{\qs}{\left[}
+\newcommand{\gs}{\left{}
+\newcommand{\gd}{\right}}
+\newcommand{\qd}{\right]}
+\newcommand{\vq}{\vec{q}}
+\newcommand{\vs}{\vec{s}}
+\newcommand{\vt}{\vec{t}}
+\newcommand{\vk}{\vec{k}}
+\newcommand{\vl}{\vec{l}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vp}{\vec{p}}
+\newcommand{\adr}{\stackrel{ad}{\triangleright}}
+\newcommand{\D}{{\mathcal{D}}}
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\trir}{\triangleright}
+\newcommand{\mP}{{\mathcal{P}}}
+\newcommand{\de}{d}
+
+
+
+
+%%% ----------------------------------------------------------------------
+\begin{document}
+
+
+
+
+We consider the kappaminkowki algebra:
+\be
+[x_0,x_j]_*=i\lambda x_j
+\ee
+
+Concerning the so
+called  "symmetric-star product" (or CBH star product as called in
+our article), the correct general formula is:
+
+
+\be f(z)*g(x)=\lim_{x\to z, y\to z} \exp\big\{  z^j\partial_{x^j}[
+\frac{\partial_0}{\partial_{x_0}}
+\frac{1-e^{ia\partial_{x_0}}}{1-e^{ia\partial_{0}}} -1 ]+
+z^j\partial_{y^j}[ \frac{\partial_0}{\partial_{y_0}}
+\frac{1-e^{ia\partial_{y_0}}}{1-e^{ia\partial_{0}}}e^{ia\partial_{x_0}}
+-1 ]\big\} \ee where $\partial_0=\partial_{x_0}+\partial_{y_0}$.
+
+
+ On the exponential functions this reads:
+  \be e^{ikx}*e^{ik'x}=
+e^{i(k_0+k'_0)}e^{-i\frac{k\phi(k_0)+e^{-\lambda
+k_0}k'\phi(k'_0)}{\phi(k_0+k'_0)}x}\ee where
+$\phi(a)=\frac{1-e^{-\lambda a }}{\lambda a }$ and the contracted
+form $kx$ stands for $k_0x_0-k_ix_i$. \\
+So formula (4.1) must be corrected in the following way: \be
+(k\oplus k')^j=\frac{k^j\phi(k_0)+e^{-\lambda
+k_0}k'^j\phi(k'_0)}{\phi(k_0+k'_0)} \ee
+
+
+Accordingly, formula (3.10) should be: \be
+r^j=\frac{\phi(-k^0)e^{\lambda
+l^0}k^j+\phi(-l^0)l^j}{\phi(-k^0-l^0)}\ee
+
+
+
+
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{amsmath}
+\newcommand{\cb}[2]{\left[#1,#2\right]}                 %% \cb{a}{b} = [ a, b ]
+\begin{document}
+\section{$\kappa$-Minkowski Weyl Ordered $\star$-Product}
+Our definition of the $\kappa$-Minkowski algebra is of the real Lie algebra
+\begin{eqnarray*}
+  \cb{\hat x_0}{\hat x_i}&=&\lambda\hat x_i\\ \nonumber
+  \cb{\hat x_i}{\hat x_j}&=&0
+\end{eqnarray*}
+whereas your paper, and a lot of others use
+\begin{eqnarray*}
+  \cb{\hat x_0}{\hat x_i}&=&i\lambda\hat x_i\\ \nonumber
+  \cb{\hat x_i}{\hat x_j}&=&0
+\end{eqnarray*}
+This significantly changes the Weyl ordered $\star$-product. In our case we obtain
+\begin{eqnarray*}
+  f\star g&=&\frac{1}{(2\pi)^{8}}\iint
+  e^{ir_n(k,k')x^i}dkdk'\\ \nonumber
+  r_0&=&k_0+k_0'\\ \nonumber
+  r_l&=&\frac{k_l\phi(ik_0)+k_l'\phi(ik_0')e^{i\lambda k_0}}{\phi(ik_0+ik_0')}
+\end{eqnarray*}
+where $l$ runs over $1\ldots n-1$. Your $\star$-product should then be
+\begin{eqnarray*}
+  f\star g&=&\frac{1}{(2\pi)^{8}}\iint
+  e^{ir_n(k,k')x^i}dkdk'\\ \nonumber
+  r_0&=&k_0+k_0'\\ \nonumber
+  r_l&=&\frac{k_l\phi(k_0)+k_l'\phi(k_0')e^{-\lambda k_0}}{\phi(k_0+k_0')}
+\end{eqnarray*}
+in each case
+\begin{equation*}
+  \phi(a)=\frac{1-e^{-a\lambda}}{a\lambda}
+\end{equation*}
+Essentially, in the paper on Generalised Weyl Systems, equation (4.1) requires
+only a minus sign in the exponent, and equation (3.10) needs to agree (which
+involves moving the exponent from the term on the left, to the term on the
+right).
+\end{document}

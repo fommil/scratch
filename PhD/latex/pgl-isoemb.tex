@@ -1,0 +1,333 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold}
+%\usepackage[latin1]{inputenc}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\let\S\Sphere
+
+\begin{document}
+\section{Penrose-G\"{u}ven Limits and Isometric Embeddings}
+\subsection{The Penrose-G\"{u}ven Plane Wave Limit}
+In \cite{pl}, Penrose showed that any Lorentzian spacetime has a limiting
+spacetime which is a plane wave. This limit can be thought of as a ``first order
+approximation'' along a null geodesic. The limiting spacetime depends on the
+choice of null geodesic, and hence any spacetime can have more than one Penrose
+limit. More recently, G\"{u}ven extended Penrose's argument to show that any
+solution of a supergravity theory has plane wave limits which are also
+solutions \cite{guven}.
+
+Let $(M,G)$ be a $D$-dimensional Lorentzian spacetime. By \cite{penrose} we can
+always introduce local coordinates $(U,V,Y^i)$ in the neighbourhood of a portion
+of a null geodesic $\gamma$ which contains no conjugate points. Such a metric
+takes the form
+\begin{equation}
+  \label{eq:bpg:initial:G}
+  G = \left(dU + \alpha dV + \beta_i dY^i \right)dV + C_{ij} dY^i dY^j
+\end{equation}
+where $\alpha$, $\beta_i$ and $C_{ij}$ are functions of the coordinates and
+$C_{ij}$ is a symmetric positive-definite matrix, $i,j=1,2,\ldots,D-2$. The
+coordinates break down when $\det{C}=0$, signalling the existence of a conjugate
+point. This coordinate system has the advantage that a null geodesic congruence
+is singled out by $V,Y^i\rightarrow$ constant, with $U$ being an affine
+parameter along these geodesics. The geodesic $\gamma$ is the one for which
+$V=Y^i=0$.
+
+In supergravity theories there are also general $p$-form potentials $A$ with
+$(p+1)$-form field strengths $F=dA$. The potentials are defined up to gauge
+transformations $A\mapsto A+d\Lambda$ in such a way that $F$ is gauge invariant.
+G\"{u}ven extended the Penrose limit to supergravity theories by noting that in
+order to ensure well defined potentials in the target space, a gauge must be
+chosen for the potentials such that
+\begin{equation}
+  \label{eq:bpg:guven}
+  A_{U(i_1\ldots i_{p-1})}=0
+\end{equation}
+By imposing this condition on $A$, we can now write general potential and
+associated field strengths on $M$
+\begin{eqnarray}
+  \label{eq:bpg:initial:A}
+  A &=& a_{i_1 \ldots i_p} dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+b_{i_1\ldots i_p} dY^{i_1}\wedge\ldots\wedge dY^{i_p}\\ \nonumber
+  &&+c_{i_1\ldots i_p} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-2}} \\
+  \label{eq:bpg:initial:F}
+  F &=& \left( \frac{\partial b_{i_1 \ldots i_{p+1}}}{\partial U}
+  \right) dU\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}} \\ \nonumber
+  &&+ d_{i_1 \ldots i_{p+1}} dY^{i_1}\wedge\ldots\wedge dY^{i_{p+1}} \\ \nonumber
+  &&+ e_{i_1 \ldots i_{p+1}} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+ f_{i_1 \ldots i_{p+1}} dV\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}}  
+\end{eqnarray}
+Where $a$, $b$, $c$, $d$, $e$ and $f$ are functions of the coordinates. The
+Penrose limit is in practise the rescaling of the coordinates
+\begin{equation}
+  \label{eq:bpg:rescale}
+  U\rightarrow u\qquad V\rightarrow\Omega^2v\qquad Y^i\rightarrow\Omega y^i
+\end{equation}
+where $\Omega\rightarrow 0$. Let us define the new fields on the target space as
+\begin{eqnarray}
+  \label{eq:bpg:tildefields}
+  \widetilde{G}=\lim_{\Omega\rightarrow 0} \Omega^{-2}\psi^*G \\ \nonumber
+  \widetilde{A}=\lim_{\Omega\rightarrow 0} \Omega^{-p}\psi^*A \\ \nonumber
+  \widetilde{F}=\lim_{\Omega\rightarrow 0} \Omega^{-p}\psi^*F
+\end{eqnarray}
+where $\psi^*$ denotes the local diffeomorphism defined by
+\eqref{eq:bpg:rescale}. These new fields are related to the original ones by a
+diffeomorphism, a rescaling and (in the case of the potentials) possibly a gauge
+transformation. We obtain the metric and fields in Rosen \cite{rosen}
+coordinates $(u,v,y^i)$
+\begin{eqnarray}
+  \label{eq:bpg:target:G}
+  \widetilde{G}&=& dudv + C(u)_{ij}dy^i dy^j \\
+  \label{eq:bpg:target:A}
+  \widetilde{A}&=& b(u)_{i_1\ldots i_p}dy^{i_1}
+  \wedge\ldots\wedge dy^{i_p} \\ \nonumber
+  &&+c(u)_{i_1\ldots i_p} du\wedge
+  dv\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_{p-2}}\\
+  \label{eq:bpg:target:F}
+  \widetilde{F}&=&\frac{\partial b(u)_{i_1\ldots i_{p+1}}}{\partial u}
+  du\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_p}
+\end{eqnarray}
+Due to \eqref{eq:bpg:rescale}, we can see that $C(u)_{ij}=C(U,0,0)_{ij}$ which
+is just the value of $C$ along the geodesic $\gamma$. This is also true of
+$b(u)$ and $c(u)$.
+
+\subsection{Isometric Embedding Diagrams}
+\label{bpg:ie}
+If we wish to generate a commutative isometric embedding diagram, whereby the
+embeddings of $N$'s into the $M$'s are denoted by vertical arrows and
+Penrose-G\"{u}ven limits (PGL) by horizontal arrows, we would have the following
+picture:
+\begin{equation}
+  \label{eq:bpg:ie:generic}
+  \begin{CD}
+    @.\\
+    M @>\text{PGL}>>                      \widetilde{M}\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    N @>\text{PGL}>>                      \widetilde{N}\\
+    @.
+  \end{CD}
+\end{equation}
+In order to ensure that the metric and fields commute in such a diagram (i.e.
+that $M\rightarrow \widetilde{M} \rightarrow \widetilde{N}$ yields the same
+result as $M\rightarrow N\rightarrow\widetilde{N}$), we must place some
+restrictions on the kind of projections $\imath^*$, $\widetilde{\imath}^*$ we
+can use. If we choose to set $m$ coordinates to zero\footnote{We require the
+  coordinates to go to zero in order that the PGL is along the same null
+  geodesic in each case, but requiring the coordinates to go constant rather
+  than zero is often sufficient.} in each projection, then we can define
+\begin{eqnarray}
+  \label{eq:bpg:ie:i1}
+  \imath^*&:& Y^{q_1},\ldots,Y^{q_m} \rightarrow 0\\
+  \label{eq:bpg:ie:i2}
+  \widetilde{\imath}^*&:& y^{r_1},\ldots,y^{r_m} \rightarrow 0
+\end{eqnarray}
+If $I=\{1,2,\ldots,D-2\}$ is the set of all indexes and the sets of indexes of
+the coordinates set to zero are $Q=\{q_1,\ldots,q_m\}$ and
+$R=\{r_1,\ldots,r_m\}$, then $Q,R\subset I$. We can now define two new sets of
+indexes, which are the indexes of the coordinates which are not set to zero;
+$S=I\backslash Q=\{s_1,\ldots,s_{D-2-m}\}$ and $T=I\backslash
+R=\{t_1,\ldots,t_{D-2-m}\}$.
+
+The following condition is required for the metric to be commutative in such a
+diagram
+\begin{equation}
+  \label{eq:bpg:ie:metriccond}
+  C(U,0,0)_{is} = C(U,0,0)_{i\pi(t)}
+\end{equation}
+where $\pi(t)$ is any permutation of the indexes $t$. A similar condition exists
+for field strengths
+\begin{equation}
+  \label{eq:bpg:ie:fieldcond}
+  b(U,0,0)_{(i_1\ldots i_{p+1})s} = b(U,0,0)_{(i_1\ldots i_{p+1})\pi(t)}
+\end{equation}
+For potentials we require the condition \eqref{eq:bpg:ie:fieldcond} (with
+indexes up to $i_p$ rather than $i_{p+1}$) and also a second condition
+\begin{equation}
+  \label{eq:bpg:ie:potcond}
+  c(U,0,0)_{(i_1\ldots i_{p})s} = c(U,0,0)_{(i_1\ldots i_{p})\pi(t)}
+\end{equation}
+It is the particular pairing of $S$ and $T$ which we must choose carefully in
+order to satisfy \eqref{eq:bpg:ie:metriccond}, \eqref{eq:bpg:ie:fieldcond} and
+\eqref{eq:bpg:ie:potcond}. It may even be possible that no such choice exists,
+in which case such a commutative diagram cannot be constructed. If we wish the
+metric and fields to both commute simultaneously, we require the pairing of $S$
+and $T$ to be the same in all the conditions.
+
+These conditions are essentially just a trivial statement that $\imath^*$ and
+$\widetilde{\imath}^*$ must be equivalent.
+
+\subsection{An Example}
+\subsubsection{Broken Commutativity}
+We will now show an example of a diagram such as \eqref{eq:bpg:ie:generic} which
+does not commute
+\begin{equation}
+  \label{eq:bpg:ex:jose}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3    @>\text{PGL}>>          \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2    @>\text{PGL}>>          \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+This diagram was originally studied in \cite{plsbd, pllbnwb} and was conjectured
+to be commutative. As we will now show, the metric is commutative but the fields
+are not.
+
+The restrictions of $\AdS_3$ and $\S^3$ in $\mathbb{R}^4$ are separately given by
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:ads3}
+  \left(X^0\right)^2+\left(X^1\right)^2-\left(X^2\right)^2-\left(X^3\right)^2&=&R\\
+  \label{eq:bpg:ex:jose:s3}
+  \left(X^4\right)^2+\left(X^5\right)^2+\left(X^6\right)^2+\left(X^7\right)^2&=&R
+\end{eqnarray}
+We choose to keep the radii $R$ the same for each space with the explicit
+parameterisation
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:param}
+  X^0&=\sqrt{1+r^2}\sin{\tau}    \qquad &X^1=\cos{\tau}\cosh{\beta} \\ \nonumber
+  X^2&=\cos{\tau}\sinh{\beta}    \qquad &X^3=r\sin{\tau} \\ \nonumber
+  X^4&=\cos{\phi}\sin{\theta}    \qquad &X^5=\chi\sin{\phi} \\ \nonumber
+  X^6&=\sqrt{1-\chi^2}\sin{\phi} \qquad &X^7=\cos{\phi}\cos{\theta}
+\end{eqnarray}
+Using these coordinates, we may write the metric, NS-NS $B$ field and strength $H$
+on $\AdS_3\times\S^3$ as
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:G}
+  G &=& - d\tau^2 + \sin^2{\tau}\left( \frac{dr^2}{1+r^2} +
+    \left(1+r^2\right)d\beta^2\right) \\ \nonumber
+  &&+d\phi^2+\sin^2{\phi}\left(\frac{d\chi^2}{1-\chi^2}+
+    \left(1-\chi^2\right)d\theta^2\right)\\
+  \label{eq:bpg:ex:jose:H}
+  -H/2 &=& \cos^2{\tau} d\tau\wedge dr\wedge d\beta + \sin^2{\phi}d\phi\wedge
+  d\chi\wedge d\theta\\
+  \label{eq:bpg:ex:jose:B}
+  -2B &=& \left(\sin{2\tau}+2\tau\right)dr\wedge d\beta
+  +\left(\sin{2\phi}-2\phi\right)d\chi\wedge d\theta
+\end{eqnarray}
+where $\AdS_3$ has coordinates $(\tau,r,\beta)$ and $\S^3$ has
+$(\phi,\chi,\theta)$ so that $D=6$. Making a change of coordinates so that we
+can write everything in the generalised form of \eqref{eq:bpg:initial:G},
+\eqref{eq:bpg:initial:A} and \eqref{eq:bpg:initial:F}
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:changecoords}
+  2\tau=U-V &\qquad& 2\phi=U+V \\ \nonumber
+  r=Y^1\quad\beta=Y^2 &\qquad& \chi=Y^3\quad\theta=Y^4
+\end{eqnarray}
+we can now express the metric and fields along the geodesic $\gamma$ as
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:parts}
+  C(u)_{ii} &=& \sin^2{\frac{u}{2}} \\ \nonumber
+  b(u)_{12}&=&-\frac{\sin{u}+u}{2}\\ \nonumber
+  b(u)_{34}&=&\frac{u-\sin{u}}{2}
+\end{eqnarray}
+with everything else zero. The projection $\imath^*$ consists of setting
+$Y^q\rightarrow 0$ where $q=1,3$ and $\widetilde{\imath}$ as $y^r\rightarrow 0$
+where $r=1,2$. We can now observe the sets $S=\{2,4\}$, $T=\{3,4\}$ and we see
+clearly that there is no such pairing between $S$ and $T$ such that
+\eqref{eq:bpg:ie:fieldcond} is satisfied, as it will result in requiring
+$b(u)_{12}=b(u)_{1j}$ where $j$ is either $3$ or $4$. We can however see that
+\eqref{eq:bpg:ie:metriccond} will always be satisfied since all the components
+of $C(u)_{ii}$ are identical. So we expect the metric but not the fields to
+commute in such a diagram.
+
+We can confirm these predictions by following each path explicitly\footnote{It
+  is easier to work in Brinkman \cite{brinkman} coordinates $(x^-,x^+,z^i)$ at
+  this stage, we have made the transformation from Rosen coordinates by
+  \begin{equation}
+    \label{eq:ex:jose:brinkman}
+    u=2x^- \qquad v=x^+ + \frac{\cot{x^-}}{2}\vec{z}^2 \qquad y^i=\frac{z^i}{\sin{x^-}}
+  \end{equation}}. Firstly, the path
+$\AdS_3\times\S^3\rightarrow\CW_6\rightarrow\CW_4$ yields
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:path1:G}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \label{eq:bpg:ex:jose:path1:H}
+  \widetilde{H}&=&-dx^-\wedge dz^1\wedge dz^2 \\
+  \label{eq:bpg:ex:jose:path1:B}
+  \widetilde{B}&=&-x^- dz^1\wedge dz^2
+\end{eqnarray}
+which is in fact, the Nappi-Witten WZW model \cite{nw}. The alternative path
+$\AdS_3\times\S^3\rightarrow\AdS_2\times\S^2\rightarrow\CW_4$ yields
+\begin{eqnarray}
+  \label{eq:bpg:ex:jose:path2:G}
+  \widetilde{G}&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \label{eq:bpg:ex:jose:path2:fields}
+  \widetilde{H}&=&d\widetilde{B}=0
+\end{eqnarray}
+confirming the prediction that the metric commutes, but the fields do not.
+
+\subsubsection{Working Commutativity}
+We can now see why \eqref{eq:bpg:ex:jose} breaks down and we may attempt to
+remedy it. The essential problem is in choosing a suitable $\imath^*$ projection
+where we may pair up the elements of $S$ and $T$. The easiest and most obvious
+way to fix this is to make the projection $\widetilde{\imath}^*$ equivalent to
+$\imath^*$, i.e. so that we choose $\imath^*: Y^l\rightarrow 0$ where $l=1,2$.
+Since the sets $S=\{3,4\}$ and $T=\{3,4\}$ are now identical, the commutative
+conditions \eqref{eq:bpg:ie:metriccond}, \eqref{eq:bpg:ie:fieldcond},
+\eqref{eq:bpg:ie:potcond} are trivially satisfied. This has however changed the
+diagram somewhat, from \eqref{eq:bpg:ex:jose} into the following
+\begin{equation}
+  \label{eq:bpg:ex:fixed1}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \mathbb{R}^1\times\S^3         @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+The final space of each path is the $\NW_4$ model and both metric and fields
+commute in the diagram. It is interesting to note that the PGL on the bottom of
+the diagram has also been studied in \cite{kiritsis}, albeit with slight
+technical differences from the PGL used here.
+
+We could also have fixed \eqref{eq:bpg:ex:jose} by choosing the projection
+$\widetilde{\imath}^*: y^l\rightarrow 0$ where $l=1,3$ so that it is equivalent
+to $\imath$ and that the diagram will again trivially commute. Again this
+involves a change in the diagram
+\begin{equation}
+  \label{eq:bpg:ex:fixed2}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL}>> \CW_4\\
+    @.
+  \end{CD}
+\end{equation}
+where $\CW_N$ is used to denote a Cahen-Wallach space \cite{cw} in $N$
+dimensions. This diagram more closely resembles \eqref{eq:bpg:ex:jose}, since
+$\NW_4$ is just $\CW_4$ at the level of the geometry, neglecting the
+supergravity fields.
+
+\begin{thebibliography}{100}
+\bibitem{pl} R. Penrose, ``Any Space-Time has a Plane Wave as a Limit'',
+  \textit{Differential Geometry and Relativity}, Reidel, Dordrecht (1976)
+  271-275
+\bibitem{guven} R. G\"{u}ven, ``Plane Wave Limits and T-Duality'', \textit{Phys.
+    Lett.} \textbf{B482} (2000) 255-263, \textit{hep-th/0005061}
+\bibitem{penrose} D. Lerner, R. Penrose, ``Technique of Differential Topology in
+  Relativity'', \textit{SIAM}, Philadelphia (1971)
+\bibitem{rosen} N. Rosen, \textit{Phys. Z. Sowjetunion} \textbf{12} (1937) 366
+\bibitem{plsbd} M. Blau, J. Figueroa-O'Farrill, G. Papadopoulos, \textit{Class.
+    Quant. Grav} \textbf{19} (2002) 4753, \textit{hep-th/0202111}
+\bibitem{pllbnwb} S. Stanciu, J. Figueroa-O'Farrill, ``Penrose limits of Lie
+  Branes and a Nappi-Witten braneworld'', \textit{JHEP} \textbf{0306} (2003)
+  025, \textit{hep-th/0303212}
+\bibitem{brinkman} H. W. Brinkman, \textit{Proc. Natl. Acad. Sci. (U.S.)}
+  \textbf{9} (1923) 1
+\bibitem{nw} C. R. Nappi, E. Witten, ``A WZW model based on a non-semi-simple
+  group'', \textit{Phys. Rev.} \textbf{L71} (1993) 3751, \textit{hep-th/9310112}
+\bibitem{kiritsis} G. D'Appollonio, E. Kiritsis, ``String interactions in
+  gravitational wave backgrounds'', \textit{hep-th/0305081}
+\bibitem{cw} M. Cahen, N. Wallach, ``Lorentzian Symmetric Spaces'',
+  \textit{Bull. Am. Math. Soc.} \textbf{76} (1970) 585-591
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,60 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" 0 3 1 
+{CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 4 0 0 
+0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "P1(P1,P2,J) := P1 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "P2(P1,P2,J) := P2 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 19 "J(P1,P2,J)  := J  :" }}}{SECT 0 
+{PARA 3 "" 0 "" {TEXT -1 24 "Define the Star Products" }}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 288 "P1_star := f -> (P1,P2,J) -> P1 * f(P1,P
+2,J)\n                              - P1^2 * diff(f(P1,P2,J),P1)\n    \+
+                          - P1 * P2 * diff(f(P1,P2,J),P2)\n           \+
+                   - I * P2 * diff(f(P1,P2,J),J)\n                    \+
+          - P1 * J * diff(f(P1,P2,J),J):  " }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 286 "P2_star := f -> (P1,P2,J) -> P2 * f(P1,P2,J)\n    \+
+                          - P2^2 * diff(f(P1,P2,J),P2)\n              \+
+                - P1 * P2 * diff(f(P1,P2,J),P1)\n                     \+
+         - I * P1 * diff(f(P1,P2,J),J)\n                              \+
+- P2 * J * diff(f(P1,P2,J),J):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 394 "J_star := f -> (P1,P2,J) -> J * f(P1,P2,J)\n                 \+
+             - diff(f(P1,P2,J),J)\n                              - J^2
+ * diff(f(P1,P2,J),J)\n                              - P1 * J * diff(f
+(P1,P2,J),P1)\n                              - P2 * J * diff(f(P1,P2,J
+),P2)\n                              + I * P2 * diff(f(P1,P2,J),P1)\n \+
+                             + I * P1 * diff(f(P1,P2,J),P2)" }
+{MPLTEXT 1 0 1 ":" }}}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 41 "Function t
+o Show All Non-Zero Commutators" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 446 "showallcommutators := proc( )\n    description \"Return the S
+tar Product Commutators of the Algebra\";\n    local a:\n    a := simp
+lify(P1_star(P2) - P2_star(P1))(P1,P2,J):\n     if ( a <> 0 ) then pri
+nt([P[1],P[2]] = a) end if:\n    a := simplify(P1_star(J) - J_star(P1)
+)(P1,P2,J):\n     if ( a <> 0 ) then print([P[1],J] = a) end if:\n    \+
+a := simplify(P2_star(J) - J_star(P2))(P1,P2,J):\n     if ( a <> 0 ) t
+hen print([P[2],J] = a) end if:\n    end proc:" }}}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 21 "showallcommutators();" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/7$&%\"PG6#\"\"\"%\"JG*&^#!\"#F(%#P2GF(" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#/7$&%\"PG6#\"\"#%\"JG*&^#!\"#\"\"\"%#P1GF-" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 62 "left:=J_star(P1_star(f))(P1,
+P2,J)-P1_star(J_star(f))(P1,P2,J):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 49 "expand(simplify(J_star(P1)-P1_star(J)))(P1,P2,J);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#*&^#\"\"#\"\"\"%#P2GF&" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "# Insert last result here" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "right:=2*I*P2_star(f)(P1,P2,
+J):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "expand(simplify(left
+ - right));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 62 "left:=J_star(P2_star(f))(P1,P2,J)-P2_star
+(J_star(f))(P1,P2,J):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 49 "ex
+pand(simplify(J_star(P2)-P2_star(J)))(P1,P2,J);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#*&^#\"\"#\"\"\"%#P1GF&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 25 "# Insert last result here" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 31 "right:=2*I*P1_star(f)(P1,P2,J):" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 31 "expand(simplify(left - right));" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 0 "" }}}}{MARK "17 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }

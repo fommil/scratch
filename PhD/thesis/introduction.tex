@@ -1,0 +1,752 @@
+\chapter{Introduction}
+\label{intro}
+\section{Noncommutative Geometry}
+The formulation of quantum mechanics by Dirac \cite{Dirac} sets the
+commutativity of position operators by borrowing from classical mechanics, such
+that position operators commute with each other. However, this choice was merely
+convenience as there was no experimental evidence to question such a definition.
+It was not long before esteemed authors wrote about the effect of introducing
+noncommuting coordinates \cite{Snyder:1946qz}. The motivation for studying
+noncommutative geometry was to hopefully find a fix for the infinities
+appearing in quantum field theory, but was sidelined as renormalisation became
+successful at achieving that goal.
+
+Noncommutative geometry has seen recent interest since open string models have
+been shown to possess a noncommutative geometry \cite{witten, SW1} where there
+is a non-zero $B$-field. Should string theory turn out to be a viable
+explanation of our universe, one would expect to be able to observe the
+noncommutativity on a quantum mechanical level. The coordinates would possess
+commutator brackets of the form
+\begin{equation}
+  \label{eq:i:com}
+  [\hat x^i, \hat x^j]=i\Theta^{ij}(\hat x)
+\end{equation}
+where $\Theta$ is an antisymmetric matrix. However, no such noncommutativity has
+been experimentally observed \cite{Hinchliffe:2002km}. The noncommutativity
+between position and momenta gives rise to the Heisenberg Uncertainty Principle
+and similarly \eqref{eq:i:com} implies an uncertainty on the coordinates
+themselves
+\begin{equation}
+  \label{eq:i:planck}
+  \Delta x^i  \Delta x^j \geq \frac 12|\Theta^{ij}|
+\end{equation}
+This means there is no longer an idea of ``a point'', but we instead have the
+notion of ``Planck cells''. The most widely studied type of noncommutative
+geometry is the canonical case where $\Theta$ is a constant antisymmetric
+matrix.
+
+Unfortunately a noncommutative geometry will lead to a breaking of Lorentz
+invariance. Lorentz covariance of $\Theta$ means that different inertial
+observers see different noncommutativity of coordinates due to different
+projections of the noncommuting planes. This is perhaps one of the greatest
+hurdles for theories which rely upon a noncommutative geometry, but there is
+hope. Theories such as those on $\kappa$-Minkowski spacetime
+\cite{Dimitrijevic:2003wv} preserve Lorentz symmetries as deformed quantum
+symmetries (a bonus from having a quantum algebra) and twisted symmetries even
+for constant $\Theta$ can realise Lorentz invariance by acting in a twisted way
+\cite{CKNT1, CPT1}.
+
+A spacetime which is of particular interest is the Nappi-Witten background
+\cite{NW1} which possesses a quantum algebra, is four dimensional with Minkowski
+signature and is an exactly solvable background for string theory. We shall look
+at the properties of this spacetime in Section \ref{sec:i:nw} and proceed to
+investigate it in detail throughout this thesis.
+
+Instead of calculating physics on a noncommutative space itself, we may
+equivalently stay in commutative space and replace pointwise multiplication by a
+deformed $\star$-product. A $\star$-commutator bracket between the coordinate
+functions produces the functional equivalent of \eqref{eq:i:com}
+\begin{equation}
+  \label{eq:i:starcom}
+  [ x^i,  x^j]_\star = x^i\star x^j - x^j\star x^i = i \Theta^{ij}(x)
+\end{equation}
+Although we shall only return to the complicated $\star$-product in detail for
+Chapter \ref{star}, a basic understanding shall be assumed in Chapter
+\ref{liebranes} whereby the reader recognises that in general $f\star g \neq
+g\star f$ for functions depending upon the coordinates and that the
+$\star$-product is not unique for a given algebra.
+
+\section{pp-Waves and the AdS/CFT Correspondence}
+A pp-wave spacetime is any Lorentzian manifold whose metric can be described in
+Brinkman coordinates \cite{Brink1} as
+\begin{equation}
+  \label{eq:brinkman}
+  G = 2dx^+dx^- + |d\mz|^2 + H(x^+, x^-, \mz)\left( d x^+\right)^2
+\end{equation}
+where $H(x^+, x^-, \mz)$ is any smooth function. $x^+$ is a time-like
+coordinate\footnote{Please note that this convention has not been standardised
+  in the literature; some authors label the time-like coordinate by $x^-$.},
+$x^-$ is null and the $\mz$ are euclidean coordinates. The term ``pp'' modestly
+stands for \textit{plane-fronted waves with parallel propagation}. As we shall
+see in Chapter \ref{pglimits}, Penrose \cite{Penrose1} observed that near a null
+geodesic, every Lorentzian spacetime looks like a plane wave. pp-waves are an
+important family of exact solutions to Einstein's field equations and exhibit
+the characteristic effect of a gravitational wave on light.
+
+The AdS/CFT correspondence \cite{Aharony:1999ti} is the equivalence between a
+string or supergravity theory defined on anti de Sitter space and a conformal
+field theory defined on its conformal boundary, with dimension one lower. It is
+the most successfully tested realisation of the holographic principle
+\cite{Bousso:2002ju}.
+
+The dynamics of strings in the backgrounds of pp-waves has been of interest
+recently for a variety of reasons. They provide explicit realisations of string
+theory in time-dependent backgrounds which is necessary for applications of
+string cosmology. They also provide scenarios in which the AdS/CFT
+correspondence may be tested beyond the supergravity approximation by taking the
+Penrose limit of an $\AdS_m\times\S^n$ background \cite{BFP1} and the BMN limit
+of the dual superconformal field theory \cite{BMN1}. The property of these
+backgrounds that make them appealing in these contexts is that string dynamics
+on them are solvable in some instances, even in the presence of non-trivial
+$B$-fields \cite{BMN1,BOLPT1,Met1,PRT1,RT1}. The spectrum of the theory can be
+studied in light-cone gauge wherein the two-dimensional $\sigma$-models become
+free, while scattering amplitudes can be analysed using light-cone string field
+theory.
+
+D-branes (the D standing for Dirichlet) are membrane-like structures which are
+considered to be as physically fundamental to string theory as the strings
+themselves; they are the surfaces to which the strings are attached. If it were
+not for D-branes, energy could flow along a string, slip off the endpoint and
+vanish. Because the endpoints of open strings cannot detach from the D-branes to
+which they are affixed, the D-branes determine the boundary conditions for the
+string's equation of motion (either Neumann or Dirichlet), thereby ensuring
+conservation of energy. D-branes are typically classified by their spatial
+worldvolume dimension, which is indicated by a number written after the D. For
+example, A D0-brane is a ``D-particle'', a D1-brane is a line (sometimes called
+a ``D-string'') and a D2-brane is a plane. A ``D-instanton'' is a fixed point in
+all space-time coordinates,
+
+When D-branes are added to such closed string backgrounds, in some cases
+decoupling limits exist in which one can freeze out massive open string modes
+and closed string excitations. The low-energy effective theory governing the
+dynamics of open strings living on the branes is non-gravitational and can be
+reformulated as a field theory. The typical result is a noncommutative gauge
+theory with a spacetime dependent noncommutativity parameter
+\cite{CLO1,DRRS1,DN1,HS1,HT1,LNR1}. The role of spacetime dependence in these
+worldvolume field theories leads to interesting violations of energy-momentum
+conservation \cite{BG1,RS1}, and their potential time-dependence is especially
+important for cosmological applications. In some instances the decoupled open
+strings also have a dual description in terms of a gravitational theory via the
+AdS/CFT correspondence \cite{HS1}. This suggests that the holographic
+description of cosmological spacetimes may be described by non-local field
+theories.
+
+The general construction and analysis of noncommutative gauge theories on curved
+spacetimes is one of the most important outstanding problems in the applications
+of noncommutative geometry to string theory. These non-local field theories
+arise naturally as certain decoupling limits of open string dynamics on D-branes
+in curved superstring backgrounds in the presence of a non-constant background
+Neveu-Schwarz $B$-field. On a generic Poisson manifold $M$, they are formulated
+using the Kontesevich star-product \cite{Kont1} which is linked to a topological
+string theory known as the Poisson sigma-model \cite{CattFel1}. Under suitable
+conditions, the quantisation of D-branes in the Poisson sigma-model which wrap
+coisotropic submanifolds of $M$, i.e. worldvolumes defined by first-class
+constraints, may be consistently carried out and related to the deformation
+quantisation in the induced Poisson bracket \cite{CattFel2}. Branes defined by
+second-class constraints may also be treated by quantising Dirac brackets on the
+worldvolumes \cite{CFal1}.
+
+However, in other concrete string theory settings, most studies of
+noncommutative gauge theories on curved D-branes have been carried out only
+within the context of the AdS/CFT correspondence by constructing the branes as
+solutions in the dual supergravity description of the gauge theory (see for
+example \cite{Cai1,CLO1,HS1,HashTh1,ASY1}). It is important to understand
+how to describe the classical solutions and quantisation of these models
+directly at the field theoretic level in order to better understand to what
+extent the noncommutative field theories capture the non-local aspects of string
+theory and quantum gravity, and also to be able to extend the descriptions to
+more general situations which are not covered by the AdS/CFT correspondence.
+
+Open string dynamics on the $\NW$ background are particularly interesting
+because it has the potential to display a time-dependent noncommutative geometry
+\cite{DN1,HS1}, and hence the noncommutative field theories built on $\NW_6$ can
+serve as interesting toy models for string cosmology which can be treated for
+the most part as ordinary field theories. However, this point is rather subtle
+for the present geometry \cite{DN1,HT1}. A particular gauge choice which leads
+to a time-dependent noncommutativity parameter breaks conformal invariance of
+the worldsheet sigma-model, i.e. it does not satisfy the Born-Infeld field
+equations, while a conformally invariant background yields a non-constant but
+time-independent noncommutativity. In this thesis we partially clarify this
+issue.
+
+\section{Nappi-Witten Spacetime}
+\label{sec:i:nw}
+
+In this thesis, which is based on the publications \cite{Halliday:2005zt,
+  Halliday:2006qc}, we will study the noncommutative gauge theories that reside
+on some D-branes in the four-dimensional Nappi-Witten gravitational wave
+\cite{NW1} and its six-dimensional generalisation \cite{KM1}. We will refer to
+both of these pp-waves as Nappi-Witten spacetimes and denote them respectively
+by $\NW_4$ and $\NW_6$. In the full superstring setting the backgrounds we study
+are $\NW_4\times\Torus^6$ and $\NW_6\times\Torus^4$, although we shall not write
+the toroidal factors explicitly in what follows. We will only consider the
+noncommutative deformations of the bosonic parts of these string theories, and
+hence only a non-trivial NS background.
+
+The interest in this particular class of pp-waves is that string theory in these
+backgrounds can be solved completely and in a fully covariant way
+\cite{BAKZ1,CFS1,DAK1,FHHP1,KK1,KKL1,RT2}. They describe homogeneous
+gravitational waves (Hpp-waves) and represent the ``minimal'' deformation of
+flat spacetime by $H$-flux ($H=dB$, the flux associated to the NS field). They
+may be formulated as WZW models based on a twisted Heisenberg group, for which
+the wave is an exact solution of the worldsheet $\sigma$-model \cite{KM1,NW1}.
+
+The $\NW_6$ spacetime already captures the generic features of
+higher-dimensional Hpp-waves. It can be regarded as the Penrose-G\"uven limit of
+the background $\AdS_3\times$ $\S^3\times\Torus^4$ \cite{BFP1,BFHP1} supported
+by an NS--NS three-form flux, which describes the near horizon geometry of an
+NS5/F1 bound state \cite{GKS1}. The dual superconformal field theory is believed
+to be the nonlinear $\sigma$-model with target space the symmetric product
+orbifold ${\rm Sym}^N(\Torus^4)$. Similarly, the plane wave metric of $\NW_4$
+arises from the Penrose limit of $\AdS_2\times\S^2$ \cite{BFP1,BFHP1}.
+
+Both $\NW_4$ and the Penrose limit of $\AdS_3\times\S^3$ are examples of
+non-dilatonic, pp-wave solutions of six-dimensional supergravity \cite{SS-J1}.
+However, as we later discuss in detail, the Penrose-G\"uven limit of
+$\AdS_2\times\S^2$ does {\it not} induce the full NS-supported geometry of the
+$\NW_4$ spacetime. Therefore, contrary to some claims \cite{DeKa1,SF1}, the
+four-dimensional Nappi-Witten spacetime cannot be studied as the Penrose-G\"uven
+limit of $\AdS_2\times\S^2$. Instead, it arises as a Penrose-G\"uven limit of
+the near horizon geometry of NS5-branes \cite{GO1}, on which string theory is
+dual to little string theory. This feature can be understood by regarding
+$\AdS_2\times\S^2$ as the worldvolume of a symmetric D-brane in the
+$\AdS_3\times\S^3$ spacetime, while $\NW_4$ may only be realised as the
+worldvolume of a non-symmetric D-brane in $\NW_6$.
+
+We shall find that the most natural plane wave limits of embedded
+$\AdS_2\times\S^2$ submanifolds of $\AdS_3\times\S^3$ correspond to two classes
+of symmetric D-branes in $\NW_6$. The first one is a {\it flat} euclidean
+D3-brane in a constant magnetic field, which carries a noncommutative
+worldvolume field theory with constant noncommutativity parameter determined by
+the constant time slices of the plane wave background. The second one is a
+Lorentzian D3-brane isometric to $\NW_4$ with vanishing NS fields but with a
+null worldvolume electric field, which is described in the decoupling limit by a
+non-gravitational theory of noncommutative open strings, rather than by a
+noncommutative field theory. It is tempting to speculate that the full $\NW_4$
+deformation of this noncommutative open string theory describes the dynamics of
+the dual little string theory.
+
+This problem is not peculiar to the class of plane wave geometries that we
+study, and it leads us into a detailed investigation of how D-branes behave
+under the Penrose-G\"uven limit of a spacetime. Similar analyses in some
+specific contexts are considered in \cite{DK2,SZ1,SF1}. We formulate and solve
+this problem in some generality, and then apply it to our specific backgrounds
+of interest. With this motivation at hand, we then proceed to reanalyse the
+classification of the symmetric D-branes of $\NW_6$, elaborating on the analysis
+initiated in \cite{FS1,SF1} and extending it to a detailed study of the
+worldvolume supergravity fields supported by each of these branes.
+
+We also clarify some points which were missed in the analysis of \cite{SF1}. In
+each instance we identify the $\AdS_3\times\S^3$ origin of the brane in
+question, and quantise its worldvolume geometry using standard techniques and
+the representation theory of the twisted Heisenberg group
+\cite{BAKZ1,CFS1,KK1,Streater1}. We will find that most of these branes support
+{\it local} worldvolume effective field theories, because on most of them the
+pertinent supergravity form fields are trivial. In fact, we find that all
+symmetric D-branes in $\NW_6$ (both twisted and untwisted) have vanishing NS--NS
+three-form flux, and only the two classes of branes mentioned above support a
+non-vanishing gauge-invariant two-form field. The overall consistency of these
+results, along with their agreement with the exact boundary conformal field
+theory description of Cardy branes in $\NW_4$ \cite{DK2}, provides an important
+check that the standard techniques for quantisation of worldvolume geometries in
+compact group manifolds (see \cite{Schom1} for a review) extend to these classes
+of non-compact (and non-semisimple) Lie groups.
+
+Somewhat surprisingly, even the spacetime filling symmetric D5-brane in $\NW_6$
+has trivial supergravity form fields. Motivated by this fact, we systematically
+construct the noncommutative geometry underlying the non-local field theory
+living on a non-symmetric D5-brane wrapping $\NW_6$. The resulting
+noncommutativity is non-constant, but independent of the plane wave time
+coordinate. This agrees with the recent analysis in \cite{HT1} of the
+Dolan-Nappi model \cite{DN1} which describes a time-dependent noncommutative
+geometry on the worldvolume of a D3-brane wrapping $\NW_4$. However, the
+background used in \cite{DN1} is not conformally invariant and hence not a
+closed string background. Correctly reinstating conformal invariance \cite{HT1}
+gives a spatially dependent but time-independent noncommutativity parameter. We
+elaborate on this noncommutativity somewhat and show that it may be regarded as
+arising from a formal quantisation of the twisted Heisenberg algebra.
+
+In Section \ref{NWPW} we review the definition and geometrical properties of the
+four-dimensional Nappi-Witten spacetime. We show that its natural pp-wave
+isometry group is isomorphic to the six-dimensional twisted Heisenberg group,
+paving the way to an analysis of the isometric embeddings
+$\NW_4 \hookrightarrow \NW_6$. We also emphasise the time-independent harmonic
+oscillator character of point-particle dynamics in these backgrounds, as it
+helps to clarify the nature of the noncommutative worldvolume field theories
+constructed later on. In Section \ref{IsomEmb} we study the interplay between
+isometric embeddings and Penrose-G\"uven limits of branes, first in generality
+and then to the particular instances of Nappi-Witten spacetimes. From this
+analysis it becomes clear that both the $\NW_4$ and $\NW_6$ gravitational waves
+are necessarily wrapped by non-symmetric D-branes. In Section \ref{NCBranes} we
+begin our analysis of the symmetric branes in $\NW_6$, beginning with those
+described by conjugacy classes of the twisted Heisenberg group.
+
+We identify classes of null branes (with degenerate worldvolume metrics), and
+show that their quantised geometries are commutative but generically differ from
+those of the classical conjugacy classes due to a unitary rotational symmetry of
+the background. We also find a class of euclidean D3-branes and show, directly
+from the representation theory of the twisted Heisenberg group, that their
+worldvolumes carry a Moyal-type noncommutativity akin to that induced on branes
+in constant magnetic fields \cite{DNek1,SW1,Sz1,Sz2}. This sort of
+noncommutativity is natural from the point of view of the time-independent
+harmonic oscillator dynamics. In Section \ref{TwistedNCBranes} we analyse
+symmetric branes in $\NW_6$ which are described by twisted conjugacy classes. We
+show, again through explicit quantisation via representation theory and analysis
+of the worldvolume supergravity fields, that the low-energy effective field
+theories on {\it all} twisted D-branes are local.
+
+\subsection{Definitions}
+\label{NWPW}
+In this section we will define and analyse the geometry of the Nappi-Witten
+spacetime $\NW_4$ \cite{NW1}. It is a four-dimensional homogeneous spacetime of
+Minkowski signature which defines a monochromatic plane wave. It is further
+equipped with a supergravity NS $B$-field of constant flux, which in the
+presence of D-branes is responsible for the spacetime noncommutativity of the
+pp-wave. We will emphasise the simple, time-independent harmonic oscillator form
+of the dynamics in this background, as it will play a crucial role in subsequent
+sections.
+
+The spacetime $\NW_4$ is defined as the group manifold of the Nappi-Witten
+group, the universal central extension of the two-dimensional euclidean group
+${\rm ISO}(2)={\rm SO}(2)\ltimes\R^2$. The corresponding simply connected
+group $\mathcal N_4$ is homeomorphic to four-dimensional Minkowski space
+$\E^{1,3}$. Its non-semisimple Lie algebra $\mathfrak n_4$ is generated by
+elements $\P^\pm$, $\J$, $\T$ obeying the commutation relations
+\begin{eqnarray}
+  \label{NW4algdef}
+  \left[\P^+ , \P^-\right]&=&2 i \T \nn\\
+  \left[\J , \P^\pm\right]&=&\pm i \P^\pm \nn\\
+  \left[\T , \J\right]&=&\left[\T , \P^\pm\right] = 0
+\end{eqnarray}
+This is just the three-dimensional Heisenberg algebra extended by an outer
+automorphism which rotates the noncommuting coordinates. The twisted Heisenberg
+algebra may be regarded as defining the harmonic oscillator algebra of a
+particle moving in one-dimension, with the additional generator $\J$ playing the
+role of the number operator (or equivalently the oscillator hamiltonian). It is
+a solvable algebra whose properties are much more tractable than, for instance,
+those of the ${\rm su}(2)$ or ${\rm sl}(2,\R)$ Lie algebras which are at the
+opposite extreme.
+
+The centre of the universal enveloping algebra $U(\mathfrak n_4)$ contains the
+central element $\T$ of the Lie algebra $\mathfrak{n}_4$ and also the quadratic
+Casimir element
+\begin{equation}
+  \label{NW4Casimir}
+  \Casimir_4=2 \J \T+ \frac12 \left(\P^+ \P^-+\P^- \P^+\right)
+\end{equation}
+The most general invariant, non-degenerate symmetric bilinear form $\langle
+\cdot , \cdot \rangle:\mathfrak{n}_4\times\mathfrak{n}_4\to\R$ is defined by
+\cite{NW1}
+\begin{eqnarray}
+  \label{NW4innerprod}
+  \left\langle\P^+ , \P^-\right\rangle&=&2 
+  \left\langle\J , \T\right\rangle = 2 \nn\\
+  \left\langle\J , \J\right\rangle&=&b \nn\\
+  \left\langle\P^\pm , \P^\pm\right\rangle&=&
+  \left\langle\T , \T\right\rangle = 0 \nn\\
+  \left\langle\J , \P^\pm\right\rangle&=&\left\langle\T , 
+    \P^\pm\right\rangle = 0
+\end{eqnarray}
+for any $b\in\R$. This inner product has Minkowski signature (when $b=0$), so
+that the group manifold of $\mathcal N_4$ possesses a homogeneous, bi-invariant
+Lorentzian metric defined by the pairing of the Cartan-Maurer left-invariant,
+$\mathfrak n_4$-valued one-forms $g^{-1} d g$ for $g\in\mathcal N_4$ as
+\begin{equation}
+  \label{NW4CM}
+  d s_4^2=\left\langle g^{-1}  d g , g^{-1}  d g\right\rangle
+\end{equation}
+A generic group element $g\in\mathcal N_4$ may be parametrised as
+\begin{equation}
+  \label{NW4coords}
+  g(u,v,a,\overline{a} )=e^{a \P^++\overline{a} \P^-} 
+  e^{\theta u \J} e^{\theta^{-1} v \T}
+\end{equation}
+where $u,v\in\R$, $a\in\C$, and the parameter $\theta\in\R, \theta > 0$ controls
+the strength of the NS $B$-field background. In these global coordinates, the
+Cartan-Maurer one-form is given by
+\begin{equation}
+  \label{NW4CMform}
+  g^{-1}  d g=e^{- i \theta u}  d a \P^++e^{ i \theta u} 
+  d\overline{a} \P^-+\theta  d u \J+\left(\theta^{-1}  d v+ i 
+    a  d\overline{a}- i \overline{a}  d a\right) \T
+\end{equation}
+so that the metric \eqref{NW4CM} reads
+\begin{equation}
+  \label{NW4metricNW}
+  d s_4^2=2  d u  d v+| d a|^2+2 i \theta \left(a 
+    d\overline{a}-\overline{a}  d a\right)  d u+b \theta^2  d u^2
+\end{equation}
+
+The metric \eqref{NW4metricNW} assumes the standard form of the plane wave
+metric for a conformally flat, indecomposable Cahen-Wallach Lorentzian symmetric
+spacetime $\CW_4$ in four dimensions \cite{CW1} upon introduction of Brinkman
+harmonic coordinates $(x^+,x^-,z)$ \cite{Brink1} defined by rotating the
+transverse plane at a Larmor frequency as $u=x^+$, $v=x^-$ and $a=e^{\frac{ i
+    \theta}2 x^+} z$. In these coordinates the metric assumes the stationary form
+\begin{equation}
+  \label{NW4metricBrink}
+  d s_4^2=2  d x^+  d x^-+| d z|^2+\theta^2 
+  \left(b-\frac14 |z|^2\right) 
+  \left( d x^+\right)^2
+\end{equation}
+revealing the pp-wave nature of the geometry for $b=0$. The physical meaning of
+the arbitrary parameter $b$ will be elucidated below. It may be set to zero by
+exploiting the translational symmetry of the geometry in $x^-$ to shift $x^-\to
+x^--\frac{\theta^2 b}2 x^+$, which corresponds to a Lie algebra automorphism of
+$\mathfrak n_4$. Note that on the null planes of constant $u=x^+$, the geometry
+becomes that of flat two-dimensional euclidean space $\E^2$. This is the
+geometry appropriate to the Heisenberg subgroup of $\mathcal{N}_4$, where the
+effects of the twisting generator $\J$ are turned off.
+
+Thus far, the Nappi-Witten spacetime has been described geometrically as a
+four-dimensional Cahen-Wallach space $\CW_4$. The spacetime $\NW_4$ is further
+supported by a Neveu-Schwarz two-form field $B_4$ of constant field strength
+\begin{equation}
+  \label{NS3formBrink}
+  H_4=-\frac13 \bigl\langle g^{-1}  d g , 
+  \left[g^{-1}  d g , g^{-1}  d g\right]\bigl\rangle
+   = 2 i \theta  d x^+\wedge d z\wedge d\overline{z} =  d B_4
+\end{equation}
+where
+\begin{equation}
+  \label{NS2formBrink}
+  B_4=-\frac12 \bigl\langle g^{-1}  d g , 
+  \frac{\1+{\rm Ad}_g}{\1-{\rm Ad}_g} g^{-1}  d g\bigl\rangle = 
+  2 i \theta x^+  d z\wedge d\overline{z}
+\end{equation}
+is defined to be non-zero only on those vector fields lying in the range of the
+operator $\1-{\rm Ad}_g$ on $T_g\mathcal{N}_4$, i.e. on vectors tangent to the
+conjugacy class containing $g\in\mathcal{N}_4$. The corresponding contracted
+two-form $H_4^2$ compensates exactly the constant Riemann curvature of the
+metric \eqref{NW4metricBrink}, so that $\NW_4$ provides a viable supergravity
+background. In fact, in this case the cancellation is exact at the level of the
+full string equations of motion, so that the plane wave is an exact background
+of string theory \cite{NW1}. It is the presence of this $B$-field that induces
+noncommutativity of the string background in the presence of D-branes.
+
+\subsection{Isometries}
+\label{Isoms}
+The realisation of the geometry of $\NW_4$ as a standard plane wave of
+Cahen-Wallach type enables us to study its isometry group using the standard
+classification \cite{BOL1}. Writing $\partial_\pm := \partial/\partial x^\pm$,
+the metric \eqref{NW4metricBrink} has the obvious null Killing vector
+\begin{equation}
+  \label{ZKilling}
+  T=\theta \partial_-
+\end{equation}
+generating translations in $x^-$ and characterising a pp-wave, and also the null
+Killing vector
+\begin{equation}
+  \label{HKilling}
+  J=\theta^{-1} \partial_+
+\end{equation}
+generating translations in $x^+$. An analysis of the Killing equations
+\cite{BOL1} shows that there are also four extra Killing vectors $P^{(k)}$,
+$P^{\prime (k)}$, $k=1,2$ which generate twisted translations in the transverse
+plane $z\in\C$ to the motion of the plane wave. Denoting
+$\partial:=\partial/\partial z$, they are given in the form
+\begin{eqnarray}
+  \label{XkXprimegen}
+  P^{(k)}&=&c^{(k)}(x^+) \partial+\overline{c}^{ (k)}(x^+) 
+  \overline{\partial}-\theta^{-1} \left(\dot c^{(k)}(x^+) \overline{z}+
+    \dot{\overline{c}}^{ (k)}(x^+) z\right) \partial_- \nn\\
+  P^{\prime (k)}&=&c^{\prime (k)}(x^+) \partial+\overline{c}^{ 
+    \prime (k)}(x^+) 
+  \overline{\partial}-\theta^{-1} \left(\dot c^{\prime (k)}(x^+) \overline{z}+
+    \dot{\overline{c}}^{ \prime (k)}(x^+) z\right) \partial_-  
+\end{eqnarray}
+where the dots denote differentiation with respect to the light-cone time
+coordinate $u=x^+$, and the complex-valued coefficient functions in
+\eqref{XkXprimegen} solve the harmonic oscillator equation of motion
+\begin{equation}
+  \label{HODE}
+  \dot c(x^+)=-\frac{\theta^2}4 c(x^+)  
+\end{equation}
+The four linearly independent solutions of \eqref{HODE} are characterised by
+their initial conditions on the null surface $x^+=0$ as
+\begin{eqnarray}
+  \label{cinitialconds}
+  c^{(k)}(0) = \delta_{k1}+ i \delta_{k2} && \dot c^{(k)}(0) = 0\nn\\
+  c^{\prime (k)}(0) = 0 && \dot c^{\prime (k)}(0) =
+  \theta \left(\delta_{k1}+ i \delta_{k2}\right)  
+\end{eqnarray}
+
+The solutions of \eqref{HODE} and \eqref{cinitialconds} are given by
+\begin{eqnarray}
+  \label{cexplsoln}
+  c^{(1)}(x^+) = \cos\frac{\theta x^+}2 &&
+  c^{(2)}(x^+) =  i \cos\frac{\theta x^+}2   \nn\\
+  c^{\prime (1)}(x^+) = 2\sin\frac{\theta x^+}2 &&
+  c^{\prime (2)}(x^+) = 2 i \sin\frac{\theta x^+}2  
+\end{eqnarray}
+An interesting feature of these functions is that they generate the Rosen form
+\cite{Rosen1} of the plane wave metric \eqref{NW4metricBrink}. It is defined by
+the transformation to local coordinates $(u,v,y^1,y^2)$ given by
+\begin{eqnarray}
+  \label{Rosen}
+  u&=&x^+   \nn\\v&=&x^--\frac\theta4 (z+\overline{z} )^2 
+  \tan\frac{\theta x^+}2-\frac\theta4 (z-\overline{z} )^2 
+  \cot\frac{\theta x^+}2    \nn\\y^1&=&\frac12  
+  \left((z+\overline{z} )\sec\frac{\theta x^+}2 + i (z-\overline{z} )
+    \csc\frac{\theta x^+}2 \right)   \nn\\y^2&=&\frac12  
+  \left((z+\overline{z} )\sec\frac{\theta x^+}2 - i (z-\overline{z} )
+    \csc\frac{\theta x^+}2 \right)  
+\end{eqnarray}
+under which the metric becomes
+\begin{equation}
+  \label{NW4metricRosen}
+  d s_4^2=2  d u  d v+C_{ij}(u)  d y^i  d y^j+b \theta^2  d u^2
+\end{equation}
+where
+\begin{equation}
+  \label{Cumatrix}
+  C(u)=\bigl(C_{ij}(u)\bigr)=
+  \begin{pmatrix}
+    1&\cos\theta u\\\cos\theta u&1
+  \end{pmatrix}  
+\end{equation}
+This form of the metric is degenerate at the conjugate points where $\cos\theta
+u=\pm 1$. The harmonic oscillator solutions \eqref{cexplsoln} then generate an
+orthonormal frame for the transverse plane metric \eqref{Cumatrix},
+\begin{equation}
+  \label{CQrel}
+  C(u)=E(u) E^\top(u)  
+\end{equation}
+with
+\begin{eqnarray}
+  \label{Qvielbein}
+  E=\frac12
+  \begin{pmatrix}c^{(1)}+\frac12  c^{\prime (2)}+
+    \overline{c}^{ (1)}+\frac12  \overline{c}^{ \prime
+      (2)}& &-\left(c^{(2)}-\frac12  c^{\prime (1)}+
+      \overline{c}^{ (2)}-\frac12  \overline{c}^{ \prime
+        (1)}\right)\\c^{(1)}+\frac12  c^{\prime (2)}+
+    \overline{c}^{ (1)}+\frac12  \overline{c}^{ \prime
+      (2)}& &c^{(2)}-\frac12  c^{\prime (1)}+
+    \overline{c}^{ (2)}-\frac12  \overline{c}^{ \prime(1)}
+  \end{pmatrix}
+\end{eqnarray}
+satisfying the symmetry condition
+\begin{equation}
+  \label{Esymcond}
+  \dot E(u) E^\top(u)=E(u) \dot E^\top(u)
+\end{equation}
+Note that in contrast to the Brinkman coordinate system, in the Rosen form
+\eqref{NW4metricRosen} two extra commuting translational symmetries in the
+transverse plane $(y^1,y^2)$ are manifest, while time translation symmetry is
+lost.
+
+By defining $P^\pm:=P^{\prime (1)}\pm i P^{(1)}$ and $ Q^{\pm}:=P^{\prime
+  (2)}\pm i P^{(2)}$, the six Killing vectors generated by the basic
+Cahen-Wallach structure of the plane wave may be summarised as
+\begin{eqnarray}
+  \label{6CWKilling}
+  T&=&\theta \partial_-   \\
+  J&=&\theta^{-1} \partial_+   \nn\\
+  P^\pm&=&\left(\sin\frac{\theta x^+}2 \pm i e^{\mp 
+      \frac{ i \theta}2 x^+}\right)
+  \left(\partial+\overline{\partial} \right)-\theta e^{\mp 
+    \frac{ i \theta}2 x^+} \left(
+    z+\overline{z} \right) \partial_-   \nn\\
+  Q^{\pm}&=&\left( i \sin\frac{\theta x^+}2 \mp
+    e^{\mp \frac{ i \theta}2 x^+}\right)
+  \left(\partial-\overline{\partial} \right)+ i \theta e^{\mp 
+    \frac{ i \theta}2 x^+} \left(
+    z-\overline{z} \right) \partial_-  \nn
+\end{eqnarray}
+Together, they generate the harmonic oscillator algebra
+$\mathfrak{n}_6$ of a particle moving in {\it two} dimensions,
+\begin{eqnarray}
+  \label{NW4isomalg}
+  \left[P^\alpha ,  Q^{\beta}\right]&=&0 \qquad\qquad\alpha,\beta=\pm   \\
+  \left[T ,P^\pm\right]&=&\left[T, Q^{\pm}\right] = \left[T , J\right] = 0\nn\\
+  \left[P^+ , P^-\right]&=&\left[Q^{+}, Q^{-}\right] = 2iT\nn\\
+  \left[J , P^\pm\right]&=&\pm iP^\pm\nn\\
+  \left[J ,  Q^{\pm}\right]&=&\pm i  Q^{\pm} \nn
+\end{eqnarray}
+This isometry algebra acts transitively on the null planes of constant
+  $x^+$ and it generates a central extension ${\mathcal
+  N}_6$ of the subgroup
+\begin{equation}
+  \label{S5subgp}
+  \mathcal{S}_5={\rm SO}(2)\ltimes\R^4
+\end{equation}
+of the four-dimensional euclidean group ${\rm ISO}(4)={\rm SO}(4)\ltimes\R^4$,
+where ${\rm SO}(2)$ is the diagonal subgroup of ${\rm SO}(2)\times{\rm
+  SO}(2)\subset{\rm SO}(4)$. It is defined by extending the commutation
+relations \eqref{NW4algdef} by generators $\Q^{\pm}$ obeying relations as in
+\eqref{NW4isomalg}. The quadratic Casimir element $\Casimir_6\in
+U(\mathfrak{n}_6)$ and inner product on $\mathfrak{n}_6$ are defined in the
+obvious way by extending \eqref{NW4Casimir} and \eqref{NW4innerprod}
+symmetrically under $\P^\pm\leftrightarrow\Q^\pm$.
+
+Following the analysis of the previous section, one can show that the
+group manifold of ${\mathcal N}_6$ is a six-dimensional Cahen-Wallach
+space $\CW_6$, with Brinkman metric
+\begin{equation}
+  \label{NW6metricBrink}
+  d s_6^2=2  d x^+  d x^-+| d\mz|^2+\theta^2\left(b-\frac14
+    |\mz|^2\right)\left( d x^+\right)^2
+\end{equation}
+where $\mz^\top=(z,w)\in\C^2$, which carries a constant Neveu-Schwarz
+three-form flux
+\begin{eqnarray}
+  \nn H_6&=&-2 i \theta  d x^+\wedge d\overline{\mz}^{ \top}
+  \wedge d\mz= d B_6\\\label{NW6Bfield}
+  B_6&=&-2 i \theta x^+  d\overline{\mz}^{ \top}\wedge d\mz  
+\end{eqnarray}
+It thereby defines a six-dimensional version $\NW_6$ of the Nappi-Witten pp-wave
+\cite{KM1}. This observation will be exploited in the ensuing sections to view
+the Nappi-Witten wave as an isometrically embedded D-submanifold ${\rm
+  NW}_4\hookrightarrow{\rm NW}_6$. In this setting, it corresponds to a
+symmetry-breaking D3-brane in a non-zero $H$-flux.
+
+However, for the Nappi-Witten wave this is not the end of the story. Because of
+the bi-invariance of the metric \eqref{NW4CM}, the actual isometry group is the
+direct product $\mathcal N_4\times\overline{\mathcal N}_4$ acting by left and
+right multiplication on the group $\mathcal N_4$ itself. Since the left and
+right actions of the central generator $\T$ coincide, the isometry group is
+seven-dimensional. In the present basis, the missing generator from the list
+\eqref{6CWKilling} is the left-moving copy $\overline{J}$ of the oscillator
+hamiltonian with
+\begin{equation}
+  \label{JPpm}
+  \left[ \overline{J} , P^\pm\right]=\mp i 
+  P^\pm+ Q^{\pm}      \left[ \overline{J} , 
+    Q^{\pm}\right]=\mp i  Q^{\pm}-P^\pm  
+\end{equation}
+and it is straightforward to compute that it is given by
+\begin{equation}
+  \label{extraHKilling}
+  \overline{J}=-\theta^{-1} \partial_+- i \left(z \partial-\overline{z} 
+    \overline{\partial} \right)  
+\end{equation}
+The vector field $J+\overline{J}$ generates rigid rotations in the transverse
+plane.
+
+\subsection{Commutative Field Theory}
+\label{Dynamics}
+Standard covariant quantisation of a massless relativistic scalar particle in
+$\NW_4$ leads to the Klein-Gordon equation in the curved background,
+\begin{equation}
+  \label{KGeqn}
+  \Box_4\phi = 0  
+\end{equation}
+where
+\begin{equation}
+  \label{BoxNW4def}
+  \Box_4=2 \partial_+ \partial_--\theta^2 
+  \left(b-\frac14  |z|^2\right) \partial_-^2+|\partial|^2
+\end{equation}
+is the laplacian corresponding to the Brinkman metric \eqref{NW4metricBrink}. It
+coincides with the Casimir \eqref{NW4Casimir} expressed in terms of left or
+right isometry generators \eqref{6CWKilling}, \eqref{extraHKilling}. The
+dependence on the light-cone coordinates $x^\pm$ drops out of the Klein-Gordon
+equation because of the isometries generated by the Killing vectors
+\eqref{ZKilling} and \eqref{HKilling}.
+
+By using a Fourier transformation of the covariant Klein-Gordon field
+$\phi$ along the $x^-$ direction,
+\begin{equation}
+  \label{KGphiFT}
+  \phi\left(x^+,x^-,z,\overline{z} \right)=\int\limits_{-\infty}^\infty
+  d p^+ \psi\left(x^+,z,\overline{z};p^+\right) e^{ i  p^+x^-}  
+\end{equation}
+we may write \eqref{KGeqn} equivalently as
+\begin{equation}
+  \label{KGmomsp}
+  \left[|\partial|^2+2 i  p^+ \partial_++\left(b-
+      \frac14  |z|^2\right) \left(\theta p^+\right)^2\right]\psi\left(x^+,z,
+    \overline{z};p^+\right)=0  
+\end{equation}
+Introducing the time parameter $\tau$ through
+\begin{equation}
+  \label{utaudef}
+  u=x^+=p^+ \tau  
+\end{equation}
+the differential equation \eqref{KGmomsp}) becomes the
+Schr\"odinger wave equation
+\begin{equation}
+  \label{SchHO}
+  i  \frac{\partial\psi\left(\tau,z,\overline{z};p^+\right)}{\partial\tau}=
+  \left[-\frac12  |\partial|^2+\frac12  \left(
+      \frac{\theta p^+}2 \right)^2 
+    |z|^2-\frac b2  \left(\theta p^+\right)^2\right]\psi\left(\tau,z,
+    \overline{z};p^+\right)
+\end{equation}
+for the non-relativistic two-dimensional harmonic oscillator with a time
+independent frequency given by the light-cone momentum and $H$-flux as
+$\omega=|\theta p^+|/2$. The only role of the arbitrary parameter $b$ is to shift
+the zero-point energy of the harmonic oscillator, and it thereby carries no
+physical significance.
+
+Let us remark that the same hamiltonian that appears in the Schr\"odinger
+equation \eqref{SchHO} could also have been derived in light-cone gauge in the
+plane wave metric \eqref{NW4metricBrink} starting from the massless relativistic
+particle Lagrangian
+\begin{equation}
+  \label{masslessLag}
+  L=\dot x^+ \dot x^-+\frac{\theta^2}2  \left(b-\frac14  
+    |z|^2\right) \left(\dot x^+\right)^2+\frac12  \left|\dot z\right|^2
+\end{equation}
+describing free geodesic motion in the Nappi-Witten spacetime. In the light-cone
+gauge, the light-cone momentum is $p^+=p_-=\partial L/\partial\dot x^-=\dot
+x^+=1$, while the hamiltonian is $J=p_+=\partial L/\partial\dot x^+$. Imposing
+the mass-shell constraint $L=0$ at $\dot x^+=1$ gives the equation of motion for
+$x^-$, which when substituted into $J$ yields exactly the hamiltonian appearing
+on the right-hand side of \eqref{SchHO} with transverse momentum $p^{
+}_\perp=\dot z=- i \partial$.
+
+The time-independence of the effective dynamics here follows from homogeneity of
+the plane wave geometry, which prevents dispersion along the light-cone time
+direction. These calculations give the quantisation of a particle in $\NW_4$
+only in the commutative geometry limit, i.e. in the spacetime $\CW_4$, because
+they do not incorporate the supergravity $B$-field supported by the Nappi-Witten
+spacetime. In the following we will describe how to incorporate the deformation
+of $\CW_4$ caused by the non-trivial NS-sector. Henceforth we will drop the
+zero-point energy and set $b=0$.
+
+\subsection{Isometric Embeddings of Branes}
+\label{IsomEmb}
+A remarkable feature of the Nappi-Witten spacetime is the extent to which it
+shares common features with many of the more ``standard'' curved spaces. It is
+formally similar to the spacetimes built on the ${\rm SL}(2,\R)$ and ${\rm
+  SU}(2)$ group manifolds, but in many ways is much simpler. As a twisted
+Heisenberg group, it lies somewhere in between these curved spaces and the flat
+space based on the usual Heisenberg algebra. One way to see this feature at a
+quantitative level is by examining Penrose-G\"uven limits involving the
+(universal covers of the) ${\rm SL}(2,\R)$ and ${\rm SU}(2)$ group manifolds
+which produce the spacetime $\NW_4$. This will provide an aid in understanding
+various physical properties which arise in later constructions.
+
+In looking for D-submanifolds, we are primarily interested in D-embeddings which
+are NS-supported and thereby carry a noncommutative geometry. As we will
+discuss, this involves certain important subtleties that must be carefully taken
+into account. As the Nappi-Witten spacetime can be viewed as a Cahen-Wallach
+space, i.e. as a plane wave, its geometry will arise as Penrose limits of other
+metrics. This opens up the possibility of extracting features of $\NW_4$ by
+mapping them directly from properties of simpler, better studied noncommutative
+spaces. In this section we will begin with a thorough general analysis of the
+interplay between Penrose-G\"uven limits and isometric embeddings of Lorentzian
+manifolds, and derive simple criteria for the limit and embedding to commute.
+Then we apply these results to derive the possible limits that can be used to
+describe the NS-supported D-embeddings of $\NW_4$.
+
+\section{Outline of Thesis}
+The outline of this thesis is as follows. In Chapter \ref{pglimits} we introduce
+the concept of the Penrose-G\"{u}ven limit and impose a constraint for isometric
+embedding diagrams. We then examine the Lie branes of $\NW_6$ in Chapter
+\ref{liebranes}, highlighting the implied noncommutative geometries. We close
+the Chapter with the discovery of a time dependent, noncommutative geometry on
+$\NW_6$ which exhibits the same algebra as $\mathfrak{n}_6$.
+
+The discovery of such a spacetime is motivation for studying three classes of
+Nappi-Witten $\star$-products in Chapter \ref{star}. We construct the necessary
+tools for investigating the associated free scalar field theories and Chapter
+\ref{fieldtheory} concludes by investigating the field theories of our three
+orderings and the regularly embedded D-branes in $\NW_6$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

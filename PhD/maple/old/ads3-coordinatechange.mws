@@ -1,0 +1,62 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "#a:=cos(xi);" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 21 "#b:=sin(xi)*cos(tau);" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 34 "#c:=I*sin(xi)*sin(tau)*cosh(beta);" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "#d:=sin(xi)*sin(tau)*sinh(beta);" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "#simplify(a^2+b^2-c^2-d^2)
+;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "#da:=diff(a,xi)*dxi+di
+ff(a,tau)*dtau+diff(a,beta)*dbeta;" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 56 "#db:=diff(b,xi)*dxi+diff(b,tau)*dtau+diff(b,beta)*dbe
+ta;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "#dc:=diff(c,xi)*dxi+
+diff(c,tau)*dtau+diff(c,beta)*dbeta;" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 56 "#dd:=diff(d,xi)*dxi+diff(d,tau)*dtau+diff(d,beta)*dbe
+ta;" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "#simplify(da^2+db^2-
+dc^2-dd^2);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "a:=cosh(phi1
+/2)*cos((phi2+phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"aG*&-%%
+coshG6#,$*&\"\"#!\"\"%%phi1G\"\"\"F.F.-%$cosG6#,&*&F+F,%%phi2GF.F.*&F+
+F,%%phi3GF.F.F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "b:=cosh(
+phi1/2)*sin((phi2+phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"bG*
+&-%%coshG6#,$*&\"\"#!\"\"%%phi1G\"\"\"F.F.-%$sinG6#,&*&F+F,%%phi2GF.F.
+*&F+F,%%phi3GF.F.F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "c:=s
+inh(phi1/2)*sin((phi2-phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%
+\"cG*&-%%sinhG6#,$*&\"\"#!\"\"%%phi1G\"\"\"F.F.-%$sinG6#,&*&F+F,%%phi2
+GF.F.*&F+F,%%phi3GF.F,F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 
+"d:=sinh(phi1/2)*cos((phi2-phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "
+6#>%\"dG*&-%%sinhG6#,$*&\"\"#!\"\"%%phi1G\"\"\"F.F.-%$cosG6#,&*&F+F,%%
+phi2GF.F.*&F+F,%%phi3GF.F,F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 26 "simplify(a^2+b^2-c^2-d^2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"
+\"\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "da:=diff(a,phi1)*dp
+hi1+diff(a,phi2)*dphi2+diff(a,phi3)*dphi3;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%#daG,(*&#\"\"\"\"\"#F(*(-%%sinhG6#,$*&F)!\"\"%%phi1GF
+(F(F(-%$cosG6#,&*&F)F0%%phi2GF(F(*&F)F0%%phi3GF(F(F(%&dphi1GF(F(F(*&#F
+(F)F(*(-%%coshGF-F(-%$sinGF4F(%&dphi2GF(F(F0*&#F(F)F(*(F>F(F@F(%&dphi3
+GF(F(F0" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "db:=diff(b,phi1)
+*dphi1+diff(b,phi2)*dphi2+diff(b,phi3)*dphi3;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%#dbG,(*&#\"\"\"\"\"#F(*(-%%sinhG6#,$*&F)!\"\"%%phi1GF
+(F(F(-%$sinG6#,&*&F)F0%%phi2GF(F(*&F)F0%%phi3GF(F(F(%&dphi1GF(F(F(*&F'
+F(*(-%%coshGF-F(-%$cosGF4F(%&dphi2GF(F(F(*&F'F(*(F=F(F?F(%&dphi3GF(F(F
+(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "dc:=diff(c,phi1)*dphi1
++diff(c,phi2)*dphi2+diff(c,phi3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%#dcG,(*&#\"\"\"\"\"#F(*(-%%coshG6#,$*&F)!\"\"%%phi1GF(F(F(-%$s
+inG6#,&*&F)F0%%phi2GF(F(*&F)F0%%phi3GF(F0F(%&dphi1GF(F(F(*&F'F(*(-%%si
+nhGF-F(-%$cosGF4F(%&dphi2GF(F(F(*&#F(F)F(*(F=F(F?F(%&dphi3GF(F(F0" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "dd:=diff(d,phi1)*dphi1+diff(
+d,phi2)*dphi2+diff(d,phi3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%#ddG,(*&#\"\"\"\"\"#F(*(-%%coshG6#,$*&F)!\"\"%%phi1GF(F(F(-%$cosG6#,&
+*&F)F0%%phi2GF(F(*&F)F0%%phi3GF(F0F(%&dphi1GF(F(F(*&#F(F)F(*(-%%sinhGF
+-F(-%$sinGF4F(%&dphi2GF(F(F0*&F'F(*(F>F(F@F(%&dphi3GF(F(F(" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "4*simplify(da^2+db^2-dc^2-dd^2);" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#,,*$)%&dphi3G\"\"#\"\"\"F(*(F'F(%&dph
+i2GF(F&F(!\"\"*$)F*F'F(F(*$)%&dphi1GF'F(F+**\"\"%F()-%%coshG6#,$*&F'F+
+%%phi1GF(F(F'F(F*F(F&F(F(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+26 "simplify(a^2+b^2-c^2-d^2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"
+\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "22 0 0" 
+0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

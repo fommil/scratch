@@ -1,0 +1,44 @@
+{VERSION 6 0 "SUN SPARC SOLARIS" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 178 "J:=Matrix(3,[\n[r^2-x[1]^2,-x[1]*x
+[2]+I*r*x[3],-x[1]*x[3]-I*r*x[2]],\n[-x[2]*x[1]-I*r*x[3],r^2-x[2]^2,-x
+[2]*x[3]+I*r*x[1]],\n[-x[3]*x[1]+I*r*x[2],-x[3]*x[2]-I*r*x[1],r^2-x[3]
+^2]]);\n" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"JG-%'RTABLEG6%\"([*[D-
+%'MATRIXG6#7%7%,&*$)%\"rG\"\"#\"\"\"F3*$)&%\"xG6#F3F2F3!\"\",&*&F6F3&F
+76#F2F3F9*(F1F3&F76#\"\"$F3^#F3F3F3,&*&F6F3F?F3F9*(^#F9F3F1F3F<F3F37%,
+&F;F9*(FFF3F1F3F?F3F3,&F/F3*$)F<F2F3F9,&*&F<F3F?F3F9*(F1F3F6F3FBF3F37%
+,&FDF9*(F1F3F<F3FBF3F3,&FNF9*(FFF3F1F3F6F3F3,&F/F3*$)F?F2F3F9%'MatrixG
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "subs(\{x[1]=Omega*P[1],
+x[2]=Omega*P[2],x[3]=U/2\},J);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#-%'R
+TABLEG6%\"(;cl#-%'MATRIXG6#7%7%,&*$)%\"rG\"\"#\"\"\"F1*&)%&OmegaGF0F1)
+&%\"PG6#F1F0F1!\"\",&*(F3F1F6F1&F76#F0F1F9*(^##F1F0F1F/F1%\"UGF1F1,&*&
+#F1F0F1*(F4F1F6F1FAF1F1F9**^#F9F1F/F1F4F1F<F1F17%,&F;F9*(^##F9F0F1F/F1
+FAF1F1,&F-F1*&F3F1)F<F0F1F9,&*&#F1F0F1*(F4F1F<F1FAF1F1F9**F/F1F4F1F6F1
+^#F1F1F17%,&*&#F1F0F1FEF1F9**F/F1F4F1F<F1FUF1F1,&*&#F1F0F1FSF1F9**FGF1
+F/F1F4F1F6F1F1,&F-F1*&\"\"%F9FAF0F9%'MatrixG" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "4 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 
+1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }{RTABLE_HANDLES 2548948 2655616 }
+{RTABLE 
+M7R0
+I4RTABLE_SAVE/2548948X,%)anythingG6"6"[gl!"%!!!#*"$"$,&*$%"rG""#"""*$&%"xG6#F+F
+*!"",&*&F-F+&F.6#F*F+F0*(^#F0F+F)F+&F.6#""$F+F+,&*&F-F+F7F+F0*(^#F+F+F)F+F3F+F+
+,&F2F0*(F=F+F)F+F7F+F+,&F(F+*$F3F*F0,&*&F3F+F7F+F0*(F6F+F)F+F-F+F+,&F;F0*(F6F+F
+)F+F3F+F+,&FCF0*(F=F+F)F+F-F+F+,&F(F+*$F7F*F0F&
+}
+{RTABLE 
+M7R0
+I4RTABLE_SAVE/2655616X,%)anythingG6"6"[gl!"%!!!#*"$"$,&*$%"rG""#"""*&%&OmegaGF*
+&%"PG6#F+F*!"",&*(F-F*F.F+&F/6#F*F+F1*(^##F1F*F+F)F+%"UGF+F+,&*(F-F+F.F+F9F+F8*
+*^#F+F+F)F+F-F+F4F+F+,&F3F1*(^##F+F*F+F)F+F9F+F+,&F(F+*&F-F*F4F*F1,&*(F-F+F4F+F
+9F+F8**^#F1F+F)F+F-F+F.F+F+,&F;F8**FGF+F)F+F-F+F4F+F+,&FEF8**F=F+F)F+F-F+F.F+F+
+,&F(F+*$F9F*#F1""%F&
+}
+

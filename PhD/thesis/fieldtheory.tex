@@ -1,0 +1,563 @@
+\chapter{Scalar Field Theory}
+\label{fieldtheory}
+
+We are now ready to apply the detailed constructions of the preceding sections
+to the analysis of noncommutative field theories on the plane wave $\NW_6$,
+regarded as the worldvolume of a non-symmetric D5-brane \cite{KNSanjay1}. In
+this paper we will only study the simplest example of free scalar fields,
+leaving the detailed analysis of interacting field theories and higher spin
+(fermionic and gauge) fields for future work. The analysis of this section will
+set the stage for more detailed studies of noncommutative field theories in
+these settings, and will illustrate some of the generic features that one can
+expect.
+
+Given a real scalar field $\Phi\in\CC^\infty(\mfn^\vee)$ of mass $m$, we define
+an action functional using the integral \eqref{ncintdef} by
+\begin{equation}
+  \label{Svarphidef}
+  S[\Phi]=\int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \left[
+    \frac12  \eta_{ab} \bigl( \widetilde
+    {\partial}^{ a}_{\star}\triangleright\Phi\bigr)\star
+    \bigl( \widetilde{\partial}^{ b}_{\star}\triangleright\Phi\bigr)+
+    \frac12  m^2 \Phi\star\Phi\right]
+\end{equation}
+where $\eta_{ab}$ is the invariant Minkowski tensor induced by the inner product
+\eqref{NW4innerprod} with the non-vanishing components $\eta_{\pm \mp}=1$ and
+$\eta_{z_i \overline{z}_j}=\frac12 \delta_{ij}$. The tildes on the derivatives
+in \eqref{Svarphidef} indicate that the time component must be appropriately
+shifted as described in the previous section. Using the property
+\eqref{ncintaddprop} we may simplify the action to the form
+\begin{equation}
+  \label{Svarphisimpl}
+  S[\Phi]=\int\limits_{\R^6} \dd\mbf x \kappa(\mbf x) \left[
+    \frac12  \eta_{ab} \bigl( \widetilde
+    {\partial}^{ a}_{\star}\triangleright\Phi\bigr)
+    \bigl( \widetilde{\partial}^{ b}_{\star}\triangleright\Phi\bigr)+
+    \frac12  m^2 \Phi^2\right]
+\end{equation}
+
+By using the integration by parts property \eqref{ncintparts} on Schwartz fields
+$\Phi$, we may easily compute the first order variation of the action
+\eqref{Svarphisimpl} to be
+\begin{equation}
+  \label{actionvary1}
+  \frac{\delta S[\Phi]}{\delta\Phi} \delta\Phi:=
+  S[\Phi+\delta\Phi]-S[\Phi]=-\int\limits_{\R^6} \dd\mbf x 
+  \kappa(\mbf x) \left[\eta_{ab} \overline{\widetilde
+      {\partial}_\star^{ a}}\triangleright\bigl( \widetilde
+    {\partial}_\star^{ b}\triangleright\Phi\bigr)-m^2 \Phi^2
+  \right] \delta\Phi
+\end{equation}
+Applying the variational principle $\frac{\delta S[\Phi]}{\delta\Phi}=0$
+to \eqref{actionvary1} thereby leads to the noncommutative Klein-Gordon field
+equation
+\begin{equation}
+  \label{NCeom}
+  \Box^\star\triangleright\Phi-m^2 \Phi=0
+\end{equation}
+where
+\begin{equation}
+  \label{Boxstardef}
+  \Box^\star\triangleright\Phi:=2 \partial_+\triangleright
+  \partial_-\Phi+\bfd^\top\triangleright
+  \overline{\bfd}\triangleright\Phi+ \frac12  
+  \partial_+\ln\kappa \partial_-\Phi
+\end{equation}
+and we have used $\partial_-\kappa=0$. The second order $\star$-differential
+operator $\Box^\star$ should be regarded as a deformation of the covariant
+Laplace operator $\Box_0^\star$ corresponding to the commutative plane wave
+geometry of $\NW_6$. This Laplacian coincides with the quadratic Casimir element
+\begin{equation}
+  \label{quadCasimir}
+  {\sf C}_6:=\theta^{-2} \eta^{ab} \X_a \X_b
+  =2 \J \T+ \frac12 \sum\limits_{i=1,2}  \bigl(
+  \P_+^i \P_-^i+\P_-^i \P_+^i\bigr)
+\end{equation}
+of the universal enveloping algebra $U(\mfn)$, expressed in terms of left or
+right isometry generators for the action of the isometry group $\mathcal{N}_{\rm
+  L}\times\mathcal{N}_{\rm R}$ on $\NW_6$ \cite{PK1,CFS1,Halliday:2005zt}.
+
+However, in the manner which we have constructed things, this is not the case.
+Recall that the approximation in which our quantisation of the geometry of
+$\NW_6$ holds is the small time limit $x^+\to0$ in which the plane wave
+approaches flat six-dimensional Minkowski space $\E^{1,5}$. To incorporate the
+effects of the curved geometry of $\NW_6$ into our formalism, we have to replace
+the derivative operators $\widetilde{\partial}_\star^{ a}$ appearing in
+\eqref{Svarphidef} with appropriate curved space analogs $\delta_\star^a$
+\cite{BehrSyk1,HoMiao1}.
+
+Recall that the derivative operators $\partial_\star^{a}$ are {\it not}
+derivations of the $\star$-product $\star$, but instead obey the deformed Leibniz
+rules \eqref{defLeibniz}. The deformation arose from twisting the co-action of
+the bialgebra $U(\mfg)$ so that it generated automorphisms of the noncommutative
+algebra of functions, i.e. isometries of the noncommutative plane wave. The
+basic idea is to now ``absorb'' these twistings into derivations
+$\delta_\star^a$ obeying the usual Leibniz rule
+\begin{equation}
+  \label{deltaLeibniz}
+  \delta_\star^a\triangleright(f\star g)=\left(\delta_\star^a
+    \triangleright f\right)\star g+f\star\left(\delta_\star^a
+    \triangleright g\right)
+\end{equation}
+These derivations generically act on $\CC^\infty(\mfn^\vee)$ as noncommutative
+$\star$-polydifferential operators
+\begin{equation}
+  \label{polydiffops}
+  \delta_\star^a\triangleright f=\sum_{n=1}^\infty \xi_a^{a_1\cdots
+    a_n}\star\left(\partial_{a_1}^\star\triangleright\cdots\triangleright
+    \partial_{a_n}^\star \triangleright f\right)
+\end{equation}
+with $\xi_a^{a_1\cdots a_n}\in\CC^\infty(\mfn^\vee)$. Unlike the derivatives
+$\partial_\star^a$, these derivations will no longer $\star$-commute among each
+other. There is a one-to-one correspondence \cite{Kont1} between such
+derivations $\delta_a^\star$ and Poisson vector fields $E^a=E^a_b \partial^b$ on
+$\mfn^\vee$ obeying
+\begin{equation}
+  \label{Poissonvecfields}
+  E^a\circ\Theta(f,g)=\Theta(E^af,g)+\Theta(f,E^ag)
+\end{equation}
+for all $f,g\in\CC^\infty(\mfn^\vee)$. To leading order one has
+$\delta_\star^a\triangleright f=E^a_b\star(\partial_\star^b\triangleright
+f)+O(\theta)$. By identifying the Lie algebra $\mfn$ with the tangent space to
+$\NW_6$, at this order the vector fields $E^a$ can be thought of as defining a
+natural local frame with flat metric $\eta_{ab}$ and a curved metric tensor
+$G^\star_{ab}=\frac12 \eta_{cd} (E^c_a\star E^d_b+E^d_a\star E^c_b)$ on the
+noncommutative space $\NW_6$. However, for our $\star$-products there are always
+higher order terms in \eqref{polydiffops} which spoil this interpretation. The
+noncommutative frame fields $\delta_\star^a$ describe the {\it quantum} geometry
+of the plane wave $\NW_6$. In particular, the metric tensor $G^\star$ will in
+general differ from the classical open string metric $G_{\rm open}$. While the
+operators $\delta_\star^a$ always exist as a consequence of the Kontsevich
+formality map \cite{Kont1,BehrSyk1}, computing them explicitly is a highly
+difficult problem. We will see some explicit examples below, as we now begin to
+tour through our three $\star$-products. Throughout we shall take the natural
+choice of measure $\kappa=\sqrt{|\det G|}=\frac12$, the constant Riemannian
+volume density of the $\NW_6$ plane wave geometry.
+
+\section{Time Ordering}
+\label{ScalarTO}
+In the case of time ordering, we use \eqref{TOderivs} to compute
+\begin{equation}
+  \label{TOBoxeq}
+  \Box^*\triangleright\Phi=\left(2 \partial_+ \partial_-+
+    \overline{\bfd}\cdot\bfd\right)\Phi
+\end{equation}
+and thus the equation of motion coincides with that of a free scalar particle on
+flat Minkowski space $\E^{1,5}$ (Deviations from flat spacetime can only come
+about here by choosing a time-dependent measure $\kappa_*$). This illustrates
+the point made above that the treatment of this thesis tackles only the
+semi-classical flat space limit of the spacetime $\NW_6$. The appropriate curved
+geometry for this ordering corresponds to the global coordinate system
+\eqref{NW4metricNW} in which the classical Laplace operator is given by
+\begin{equation}
+  \label{TOBox0}
+  \Box_0^*=2 \partial_+ \partial_-+
+  \left|\bfd+ \frac i 2  \theta \overline{\mz} 
+    \partial_-\right|^2
+\end{equation}
+so that the free wave equation $(\Box_0^*-m^2)\Phi=0$ is equivalent to the
+Schr\"odinger equation for a particle of charge $p^+$ (the momentum along the
+$x^-$ direction) in a constant magnetic field of strength $\theta$. A global
+pseudo-orthonormal frame is provided by the commutative vector fields
+\begin{eqnarray}
+  \label{TOorthoframe}
+  E_-^*&=&\partial_-   \nn\\ E_+^*&=&\partial_+- i \theta \left(
+    \mz\cdot\bfd-\overline{\mz}\cdot\overline{\bfd} \right)
+  \\ E^{i}_*&=&\partial^i   \nn\\
+  \overline{E}_{*}^{ i}&=&\overline{\partial}^{ i} \nn
+\end{eqnarray}
+
+Determining the derivations $\delta_*^a$ corresponding to the commuting frame
+\eqref{TOorthoframe} on the quantum space is in general rather difficult.
+Evidently, from the coproduct structure \eqref{TOLeibniz} the action along the
+light-cone position is given by
+\begin{equation}
+  \label{TOdeltaminus}
+  \delta_-^*\triangleright f=\partial_-f
+\end{equation}
+This is simply a consequence of the fact that translations along $x^-$ generate
+an automorphism of the noncommutative algebra of functions, i.e. an isometry of
+the noncommutative geometry. From the Hopf algebra coproduct \eqref{TOcoprods}
+we have
+\begin{equation}
+  \label{TOcoprodglobal}
+  \Delta_*\bigl( e^{ i \theta \partial_-}\bigr)=
+   e^{ i \theta \partial_-}\otimes e^{ i \theta \partial_-}
+\end{equation}
+and consequently
+\begin{equation}
+  \label{xmautoNC}
+   e^{ i \theta \partial_-}\triangleright(f*g)=\bigl(
+   e^{ i \theta \partial_-}\triangleright f\bigr)*\bigl(
+   e^{ i \theta \partial_-}\triangleright g\bigr)  
+\end{equation}
+
+On the other hand, the remaining isometries involve intricate twistings between
+the light-cone and transverse space directions. For example, let us demonstrate
+how to unravel the coproduct rule for $\partial_+^*$ in \eqref{TOLeibniz} into
+the desired symmetric Leibniz rule \eqref{deltaLeibniz} for $\delta_+^*$. This
+can be achieved by exploiting the $*$-product identities
+\begin{eqnarray}
+  \label{TOstarprodcomm}
+  z_i*f&=&\bigl( e^{ i \theta \partial_-}f\bigr)*z_i-2 i \theta 
+  x^+ \overline{\partial}^{ i}f\\
+  \overline{z}_i*f&=&\bigl( e^{- i \theta \partial_-}f\bigr)*
+  \overline{z}_i+2 i \theta x^+ \partial^if \nn
+\end{eqnarray}
+along with the commutativity properties
+$[\partial_-^*,z_i]_*=[\partial_-^*,\overline{z}_i]_*=0$ for $i=1,2$ and for
+arbitrary functions $f$. Using in addition the modified Leibniz rules
+\eqref{TOLeibniz} along with the $*$-multiplication properties \eqref{TOxfprods}
+we thereby find
+\begin{equation}
+  \label{TOdeltap}
+  \delta_+\triangleright f=\left[x^+ \partial_++ \frac1{2 i }  
+    \left(\mz\cdot\overline{\bfd}+\overline{\mz}\cdot\bfd\right)
+  \right]f  
+\end{equation}
+This action mimics the form of the classical frame field $E_+^*$ in
+\eqref{TOorthoframe}.
+
+Finally, for the transversal isometries, one can attempt to seek functions
+$g^i\in\CC^\infty(\mfn^\vee)$ such that $g^i*f=( e^{- i
+  \theta \partial_-}f)*g_i$ in order to absorb the light-cone translation in the
+Leibniz rule for $\partial_*^i$ in \eqref{TOLeibniz}. This would mean that the
+$x^-$ translations are generated by {\it inner} automorphisms of the
+noncommutative algebra. If such functions exist, then the corresponding
+derivations are given by $\delta^i_*\triangleright f=g^i*\partial_*^if$ (no sum
+over $i$) and similarly for $\overline{\delta}^{ i}_*$. However, it is doubtful
+that such inner derivations exist and the transverse space frame fields are more
+likely to be given by higher-order $*$-polyvector fields. For example, using
+similar steps to those which led to \eqref{TOdeltap}, one can show that the
+actions
+\begin{eqnarray}
+  \label{TOdeltatransv}
+  \delta_*\triangleright f&:=&\left( \overline{\mz}\cdot\bfd+2 i 
+    x^+ \partial_+- i \theta x^+ \overline{\bfd}\cdot\bfd\right)f\\
+  \overline{\delta}_*\triangleright f&:=&\left({\mz}\cdot
+    \overline{\bfd}-2 i 
+    x^+ \partial_++ i \theta x^+ \overline{\bfd}\cdot\bfd\right)f\nn
+\end{eqnarray}
+define derivations of the $*$-product on $\NW_6$, and hence naturally
+determine elements of a noncommutative transverse frame.
+
+The action of the corresponding noncommutative Laplacian $\eta_{ab}
+\delta_*^a\triangleright(\delta_*^b\triangleright\Phi)$ deforms the harmonic
+oscillator dynamics generated by \eqref{TOBox0} by non-local higher spatial
+derivative terms. These extra terms will have significant ramifications at large
+energies for motion in the transverse space. This could have profound physical
+effects in the interacting noncommutative quantum field theory. In particular,
+it may alter the UV/IR mixing story \cite{MVRS1} in an interesting way. For
+time-dependent noncommutativity with standard tree-level propagators, UV/IR
+mixing becomes intertwined with violations of energy conservation in an
+intriguing way \cite{BG1,RS1}, and it would be interesting to see how our
+modified free field propagators affect this analysis. It would also be
+interesting to see if and how these modifications are related to the generic
+connection between wave propagation on homogeneous plane waves and the
+Lewis-Riesenfeld theory of time-dependent harmonic oscillators \cite{BOL1}.
+
+\section{Symmetric Time Ordering}
+\label{ScalarSTO}
+The analysis in the case of symmetric time ordering is very similar to that just
+performed, so we will be very brief and only highlight the essential changes.
+From \eqref{STOderivs} we find once again that the Laplacian \eqref{Boxstardef}
+coincides with the flat space wave operator
+\begin{equation}
+  \label{STOBoxeq}
+  \Box^\bullet\triangleright\Phi=\left(2 \partial_+ \partial_-+
+    \overline{\bfd}\cdot\bfd\right)\Phi  
+\end{equation}
+The relevant coordinate system in this case is given by the Brinkman metric
+\eqref{NW4metricBrink} for which the classical Laplace operator reads
+\begin{equation}
+  \label{STOBox0}
+  \Box_0^\bullet=2 \partial_+ \partial_-+\overline{\bfd}\cdot
+  \bfd- \frac14  \theta^2 |\mz|^2 \partial_-^2  
+\end{equation}
+A global pseudo-orthonormal frame in this case is provided by the vector fields
+\begin{eqnarray}
+  \label{STOorthoframe}
+  E_-^\bullet&=&\partial_-   \nn\\ E_+^\bullet&=&\partial_++
+  \frac18  \theta^2 |\mz|^2 \partial_-\\ E^{i}_\bullet&=&\partial^i   \nn\\
+  \overline{E}_{\bullet}^{ i}&=&\overline{\partial}^{i} \nn
+\end{eqnarray}
+The corresponding twisted derivations $\delta^a_\bullet$, which symmetrise the
+Leibniz rules \eqref{STOLeibniz} can be constructed analogously to those of the
+time ordering case in Section \ref{ScalarTO} above.
+
+\section{Weyl Ordering}
+\label{ScalarWeyl}
+Finally, the case of Weyl ordering is particularly interesting because the
+effects of curvature are present even in the flat space limit. Using
+\eqref{Weylderivs} we find the Laplacian
+\begin{equation}
+  \label{WeylBoxeq}
+  \Box^\star\triangleright\Phi=\left(2 \partial_+ \partial_-
+    +2 \left[2 \left(1-\frac{\sin(\theta \partial_-)}
+        {\theta \partial_-}\right)+\frac{1-\cos(\theta \partial_-)}
+      {\theta^2 \partial_-^2}\right] \overline{\bfd}\cdot\bfd
+  \right)\Phi
+\end{equation}
+which coincides with the flat space Laplacian only at $\theta=0$. To
+second order in the deformation parameter $\theta$, the equation of
+motion \eqref{NCeom} thereby yields a second order correction to the
+usual flat space Klein-Gordan equation given by
+\begin{equation}
+  \label{KGeqcorr}
+  \left[\left(2 \partial_+ \partial_-+\overline{\bfd}\cdot\bfd-m^2
+    \right)+ \frac7{12}  \theta^2 \partial_-^2 \overline{\bfd}\cdot
+    \bfd+O\left(\theta^4\right)\right]\Phi=0  
+\end{equation}
+Again we find that only the transverse space motion is altered by
+noncommutativity, but this time through a non-local dependence on the light-cone
+momentum $p^+$ yielding a drastic modification of the dispersion relation for
+free wave propagation in the noncommutative spacetime. This dependence is
+natural. The classical mass-shell condition for motion in the curved background
+is $2 p^+ p^-+|4 \theta p^+ \mbf\lambda|^2=m^2$, where $\mbf\lambda\in\C^2$
+represents the position and radius of the circular trajectories in the
+background magnetic field \cite{CFS1}. Thus the quantity $4 \theta p^+
+\mbf\lambda$ can be interpreted as the momentum for motion in the transverse
+space. The operator \eqref{WeylBoxeq} incorporates the appropriate
+noncommutative deformation of this motion. It illustrates the point that the
+fundamental quanta governing the interactions in the present class of
+noncommutative quantum field theories are not likely to involve the
+particle-like dipoles of the flat space cases, but more likely string-like
+objects owing to the nonvanishing $H$-flux in \eqref{NS2formBrink}. These open
+string quanta become polarised as dipoles experiencing a net force due to their
+couplings to the non-uniform $B$-field. It is tempting to speculate that, in
+contrast to the other orderings, the Weyl ordering naturally incorporates the
+new vacua corresponding to long string configurations which are due entirely to
+the time-dependent nature of the background Neveu-Schwarz field \cite{BAKZ1}.
+
+While the Weyl ordered $\star$-product is natural from an algebraic point of
+view, it does not correspond to a natural coordinate system for the plane wave
+$\NW_6$ due to the complicated form of the group product rule
+\eqref{Weylgpprodexpl} in this case. In particular, the frame fields in this
+instance will be quite complicated. Computing the corresponding twisted
+derivations $\delta^a_\star$ directly would again be extremely cumbersome, but
+luckily we can exploit the equivalence between the $\star$-products $\star$ and
+$*$ derived in Section \ref{WOP}. Given the derivations $\delta^a_*$ constructed
+in Section \ref{ScalarTO} above, we may use the differential operator
+\eqref{Gdiffopexpl} which implements the equivalence \eqref{WeylTOrel} to define
+\begin{equation}
+  \label{Weyldelta}
+  \delta^a_\star\triangleright f:=\mathcal{G}^{ }_\Omega\circ
+  \delta^a_*\triangleright\bigl(\mathcal{G}_\Omega^{-1}(f)\bigr)  
+\end{equation}
+These noncommutative frame fields will lead to the appropriate curved space
+extension of the Laplace operator in \eqref{WeylBoxeq}.
+
+\section{Worldvolume Field Theories}
+\label{D3Branes}
+In this final section we will describe how to build noncommutative field
+theories on regularly embedded worldvolumes of D-branes in the spacetime $\NW_6$
+using the formalism described above. We shall describe the general technique on
+a representative example by comparing the noncommutative field theory on $\NW_6$
+to that of the noncommutative D3-branes which was constructed in Chapter
+\ref{liebranes}. We shall do so in a general fashion which illustrates how the
+construction extends to generic D-branes. This will provide further perspective
+on the natures of the different quantisations we have used throughout, and also
+illustrate the overall consistency of our results. As we will now demonstrate,
+we can view the noncommutative geometry of $\NW_6$, in the manner constructed
+above, as a collection of all euclidean noncommutative D3-branes taken together.
+This is done by restricting the geometry to obtain the usual quantisation of
+coadjoint orbits in $\mfn^\vee$ (as opposed to all of $\mfn^\vee$ as described above).
+This restriction defines an alternative and more geometrical approach to the
+quantisation of these branes which does not rely upon working with
+representations of the Lie group $\mathcal{N}$, and which is more adapted to the
+flat space limit $\theta\to0$.
+
+This procedure can be thought of as somewhat opposite to the philosophy of
+\cite{Halliday:2005zt}, which quantised the geometry of a non-symmetric D5-brane
+wrapping $\NW_6$ \cite{KNSanjay1} by viewing it as a noncommutative foliation by
+these euclidean D3-branes. Here the quantisation of the spacetime-filling brane
+in $\NW_6$ has been carried out independently leading to a much simpler
+noncommutative geometry which correctly induces the anticipated worldvolume
+field theories on the $\E^4$ submanifolds of $\NW_6$.
+
+The euclidean D3-branes of interest wrap the non-degenerate conjugacy classes of
+the group $\mathcal{N}$ and are coordinatised by the transverse space
+$\mz\in\C^2\cong\E^4$ \cite{SF1}. They are defined by the spacelike
+hyperplanes of constant time in $\NW_6$ given by the transversal intersections
+of the null hypersurfaces
+\begin{eqnarray}
+  \label{D3subsps}
+  x^+&=&{\rm constant}\\
+  x^-+ \frac14  \theta |\mz|^2 \cot\left( \frac12  
+    \theta x^+\right)&=&{\rm constant}\nn
+\end{eqnarray}
+independently of the chosen coordinate frame. This describes the brane
+worldvolume as a wavefront expanding in a sphere in the transverse space. In the
+semi-classical flat space limit $\theta\to0$, the second constraint in
+\eqref{D3subsps} to leading order becomes
+\begin{equation}
+  \label{Cdefconst}
+  C:=2 x^+ x^-+|\mz|^2={\rm constant}
+\end{equation}
+The function $C$ on $\mfn^\vee$ corresponds to the Casimir element
+\eqref{quadCasimir} and the constraint \eqref{Cdefconst} is analogous to the
+requirement that Casimir operators act as scalars in irreducible
+representations. Similarly, the constraint on the time coordinate $x^+$ in
+\eqref{D3subsps} is analogous to the requirement that the central element $\T$
+act as a scalar operator in any irreducible representation of $\mathcal{N}$.
+
+Let $\pi:\NW_6\to\E^4$ be the projection of the six-dimensional plane wave
+onto the worldvolume of the symmetric D3-branes. Let
+$\pi^\sharp:\CC^\infty(\E^4)\to\CC^\infty(\NW_6)$ be the induced algebra
+morphism defined by pull-back $\pi^\sharp(f)=f\circ\pi$. To consistently reduce
+the noncommutative geometry from all of $\NW_6$ to its conjugacy classes, we
+need to ensure that the candidate $\star$-product on $\mfn^\vee$ respects the Casimir
+property of the functions $x^+$ and $C$, i.e. that $x^+$ and $C$ $\star$-commute
+with every function $f\in\CC^\infty(\mfn^\vee)$. Only in that case can the
+$\star$-product be consistently restricted from all of $\NW_6$ to a $\star$-product
+$\star_{x^+}$ on the conjugacy classes $\E^4$ defined by
+\begin{equation}
+  \label{starxpdef}
+  f\star_{x^+}g:=\pi^\sharp(f)\star\pi^\sharp(g)  
+\end{equation}
+Then one has the compatibility condition
+\begin{equation}
+  \label{compcondWeyl}
+  \iota^\sharp(f\star g)=\iota^\sharp(f)\star_{x^+}\iota^\sharp(g)
+\end{equation}
+where $\iota^\sharp:\CC^\infty(\NW_6)\to\CC^\infty(\E^4)$ is the pull-back
+induced by the inclusion map $\iota:\E^4\hookrightarrow\NW_6$. In this case one
+has an isomorphism $\CC^\infty(\E^4)\cong\CC^\infty(\NW_6)/\mathcal{J}$ of
+associative noncommutative algebras \cite{Waldmann1}, where $\mathcal{J}$ is the
+two-sided ideal of $\CC^\infty(\NW_6)$ generated by the Casimir constraints
+$(x^+-{\rm constant})$ and $(C-{\rm constant})$. This procedure is essentially a
+noncommutative version of the Poisson reduction, with the Poisson ideal
+$\mathcal{J}$ implementing the geometric requirement that the Seiberg-Witten
+bi-vector $\Theta$ be tangent to the conjugacy classes.
+
+From the $\star$-commutators \eqref{eq:time:comm}, \eqref{eq:symtime:comm} and
+\eqref{eq:weyl:comm} we see that $[x^+,f]_\star=0$ for all three of our
+$\star$-products. However, the condition $[C,f]_\star=0$ is {\it not} satisfied.
+Although classically one has the Poisson commutation $\Theta(C,f)=0$, one can
+only consistently restrict the $\star$-products by first defining an appropriate
+projection of the algebra of functions on $\mfn^\vee$ onto the
+$\star$-subalgebra $\mathcal{C}$ of functions which $\star$-commute with the
+Casimir function $C$. One easily computes that $\mathcal{C}$ naturally consists
+of functions $f$ which are independent of the light-cone position, i.e.
+$\partial_-f=0$. Then the projector $\iota^\sharp$ above may be applied to the
+subalgebra $\mathcal{C}$ on which it obeys the requisite compatibility condition
+\eqref{compcondWeyl}. The general conditions for reduction of Kontsevich
+star-products to D-submanifolds of Poisson manifolds are described
+in \cite{CattFel2,CFal1}.
+
+With these projections implicitly understood, one straightforwardly finds that
+all three $\star$-products \eqref{TOstargen}, \eqref{TOsymstargen} and
+\eqref{Weylstargen} restrict to
+\begin{equation}
+  \label{fstargrestrict}
+  f\star_{x^+}g=\mu\circ\exp\left[ i \theta x^+ \left(
+      \bfd^\top\otimes\overline{\bfd}-
+      {\overline{\bfd}}^{ \top}\otimes\bfd\right)\right]f\otimes g
+\end{equation}
+for functions $f,g\in\CC^\infty(\E^4)$. This is just the Moyal product, with
+noncommutativity parameter $\theta x^+$, on the noncommutative euclidean
+D3-branes. It is cohomologically equivalent to the Voros product
+\eqref{D3starfinal} which arises from quantising the conjugacy classes through
+endomorphism algebras of irreducible representations of the twisted Heisenberg
+algebra $\mfn$, with a normal or Wick ordering prescription for the generators
+$\P_\pm^i$. In this case, the noncommutative euclidean space arises from a
+projection of $U(\mfn)$ in the discrete representation $V^{p^+,p^-}$ whose
+second Casimir invariant \eqref{quadCasimir} is given in terms of light-cone
+momenta as ${\sf C}=-2 p^+ (p^-+\theta)$ and with $\T=\theta p^+$. In this
+approach the noncommutativity parameter is naturally the {\it inverse} of the
+effective magnetic field $p^+ \theta$. On the other hand, the present analysis
+is a more geometrical approach to the quantisation of symmetric D3-branes in
+$\NW_6$ which deforms the euclidean worldvolume geometry by a time parameter
+$\theta x^+$ without resorting to endomorphism algebras. The relationship
+between the two sets of parameters is given by $x^+=p^+ \tau$, where $\tau$ is
+the proper time coordinate for geodesic motion in the pp-wave geometry of
+$\NW_6$.
+
+In contrast to the coadjoint orbit quantisation \cite{Halliday:2005zt}, the
+noncommutativity found here matches exactly that predicted from string theory in
+the semi-classical limit \cite{DAK1}, which asserts that the Seiberg-Witten
+bi-vector on the D3-branes is given by $\Theta_{x^+}=\frac i 2 \sin(\theta x^+)$
+$\bfd^\top\wedge \overline{\bfd}$. Note that the present analysis also covers as
+a special case the degenerate cylindrical null branes located at time $x^+=0$
+\cite{SF1}, for which \eqref{fstargrestrict} becomes the ordinary pointwise
+product $f\star_0g=f\,g$ of worldvolume fields and as expected these branes
+support a {\it commutative} worldvolume geometry. In contrast, the commutative
+null branes correspond to the class of continuous representations of the twisted
+Heisenberg algebra having quantum number $p^+=0$ which must be dealt with
+separately \cite{Halliday:2005zt}.
+
+It is elementary to check that the rest of the geometrical constructs of this
+thesis reduce to the standard ones appropriate for a Moyal space. By defining
+\begin{equation}
+  \label{derivxpdef}
+  \partial_{\star_{x^+}}^a\triangleright
+  f:=\iota^\sharp\circ\partial_\star^a\triangleright\bigl(\pi^\sharp(f)\bigr)
+\end{equation}
+one finds that the actions of the derivatives constructed in Section
+\ref{Derivatives} all reduce to the standard ones of flat noncommutative
+euclidean space, i.e. $\partial_{\star_{x^+}}^i\triangleright f=\partial^if$,
+$\overline{\partial}^{ i}_{\star_{x^+}}\triangleright f=\overline{\partial}^{
+  i}f$ for $f\in\CC^\infty(\E^4)$. From Section \ref{Coprod} one recovers the
+standard Hopf algebra of these derivatives with trivial coproducts
+$\Delta_{\star_{x^+}}$ defined by
+\begin{equation}
+  \label{Deltaxpdef}
+  \Delta_{\star_{x^+}}(\nabla_{\star_{x^+}})\triangleright
+  (f\otimes g):=\bigl(\iota^\sharp\otimes\iota^\sharp\bigr)\circ
+  \Delta_\star(\nabla_\star)
+  \triangleright\bigl(\pi^\sharp(f)\otimes\pi^\sharp(g)\bigr)  
+\end{equation}
+and hence the symmetric Leibniz rules appropriate to the translational symmetry
+of field theory on Moyal space. Consistent with the restriction to the conjugacy
+classes, one also has $\partial_\pm^{\star_{x^+}}\triangleright f=0$.
+
+However, from \eqref{TOcoprodtime}, \eqref{STOcoprodtime} and
+\eqref{Weylcoprodtime} one finds a non-vanishing co-action of time translations
+given by
+\begin{equation}
+  \label{Moyalcoprodtime}
+  \Delta_{\star_{x^+}}\bigl(\partial_+^{\star_{x^+}}\bigr)=
+  \theta \bigl(\bfd_{\star_{x^+}}^\top\otimes
+  \overline{\bfd}_{\star_{x^+}}-
+  \overline{\bfd}_{\star_{x^+}}^\top\otimes\bfd_{\star_{x^+}}\bigr)  
+\end{equation}
+This formula is very natural. The isometries of $\NW_6$ in $\mfg=\mfn_{\rm
+  L}\oplus\mfn_{\rm R}$ corresponding to the number operator $\J$ of the twisted
+Heisenberg algebra are generated by the vector fields $J_{\rm
+  L}=\theta^{-1} \partial_+$ and $J_{\rm R}=-\theta^{-1} \partial_+- i
+(\mz\cdot\bfd- \overline{\mz}\cdot\overline{\bfd} )=\theta^{-1} E_+^*$ (in
+Brinkman coordinates). The vector field $J_{\rm L}+J_{\rm R}$ generates rigid
+rotations in the transverse space. Restricted to the D3-brane worldvolume, the
+time translation isometries thus truncate to rotations of $\E^4$ in ${\rm
+  so}(4)$. The coproduct \eqref{Moyalcoprodtime} gives the standard twisted
+co-action of rotations for the Moyal algebra which define quantum rotational
+symmetries of noncommutative euclidean space \cite{CPT1,CKNT1,Wess1}. This
+discussion also drives home the point made earlier that our derivative operators
+$\partial_\star^a$ indeed do generate, through their twisted co-actions (Leibniz
+rules), quantum isometries of the full noncommutative plane wave.
+
+Finally, a trace on $\CC^\infty(\E^4)$ is induced from \eqref{ncintdef} by
+restricting the integral to the submanifold $\iota:\E^4\hookrightarrow\NW_6$ and
+using the induced measure $\iota^\sharp(\kappa)$. For the measures constructed
+in Section \ref{Integrals}, $\iota^\sharp(\kappa)$ is always a constant function
+on $\E^4$ and hence the integration measures all restrict to the constant volume
+form of $\E^4$. Thus noncommutative field theories on the spacetime $\NW_6$
+consistently truncate to the anticipated worldvolume field theories on
+noncommutative euclidean D3-branes in $\NW_6$, together with the correct twisted
+implementation for the action of classical worldvolume symmetries. The advantage
+of the present point of view is that many of the novel features of these
+canonical Moyal space field theories naturally originate from the pp-wave
+noncommutative geometry when the Moyal space is regarded as a regularly embedded
+coadjoint orbit in $\mfn^\vee$, as described above. Furthermore, the method
+detailed in this thesis allows a more systematic construction of the deformed
+worldvolume field theories of {\it generic} D-branes in $\NW_6$ in the
+semi-classical regime, and not just the symmetric branes analysed here. For
+instance, the analysis can in principle be applied to describe the dynamics of
+symmetry-breaking D-branes which localise along products of twisted conjugacy
+classes in the Lie group $\mathcal{N}$ \cite{Quella1}. However, these branes
+have yet to be classified in the case of the gravitational wave $\NW_6$.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

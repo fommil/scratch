@@ -1,0 +1,547 @@
+<html><head><title>Maple | Application Center | The Commutator Package for Maple 6</title><!-- Created by Maple 6, IBM INTEL NT --></head>
+<body bgcolor="#ffffff">
+<center>
+  <basefont size="3"> <b><u><font size="5" color="#000000">The 'Commutator' Package 
+  for Maple 6</font></u></b> 
+</center>
+<p align="center"> <font color="#000000">Michael B. Monagan and Greg J. Fee (1986/10)<br>
+  <br>
+  G.J.F. (modified 1992/01)<br>
+  G.J.F. and Blair F. Madore (modified 1992/05)<br>
+  Douglas W. Harder (modified 2000/03)</font> </p>
+<p align="center">© <i>2000 Waterloo Maple Inc. </i></p>
+<p align="left">Å@</p>
+<p align="left"><font color="#000000">Note: If you wish to permanently save this package 
+  into your library, please <a href="#savelib">follow this link</a>.</font> </p>
+<p align="left">Å@</p>
+<p align="left"><font size="5"><b>Introduction: 'Commutator' Usage in Maple 6</b></font></p>
+<p align="left"><font color="#000000">Definition : the commutator </font> <font color="#0000ff">c(x,y) 
+  = x &amp;* y - y &amp;* x</font> <font color="#000000"> where multiplication here 
+  is non-commutative.<br>
+  <br>
+  This package provides for manipulation and simplification of commutators, expanding 
+  commutators in terms of &amp;* Maple's non-commutatorive multiplication operator, 
+  and converting an expression in terms of &amp;* to commutator form. The following 
+  identities are applied automatically:<br>
+  <br>
+  </font> <font color="#ff0000">c(y,x) = -c(x,y)</font> <font color="#000000"><br>
+  </font> <font color="#ff0000">c(x,x) = 0</font> <font color="#000000"> for all </font> 
+  <font color="#ff0000">x</font> <font color="#000000"><br>
+  </font> <font color="#ff0000">c(k,x) = 0</font> <font color="#000000"> for any constant 
+  </font> <font color="#ff0000">k</font> <font color="#000000"><br>
+  </font> <font color="#ff0000">c(x+y,z) = c(x,y) + c(y,z)</font> <font color="#000000"><br>
+  </font> <font color="#ff0000">c(k*x,y) = k*c(x,y)</font> <font color="#000000"> 
+  for any constant </font> <font color="#ff0000">k</font> <font color="#000000"><br>
+  <br>
+  See the </font> <u><font color="#008080">constants</font></u> <font color="#000000"> 
+  and </font> <u><font color="#008080">type[constant]</font></u> <font color="#000000"> 
+  help pages in Maple for the definition of a constant. <br>
+  </font></p>
+<p align="left"><font color="#000000"> </font> <b><font color="#000000">Procedures:</font></b> 
+  <font color="#000000"><br>
+  commutator<br>
+  `expand/c`<br>
+  `convert/c`<br>
+  `simplify/c`<br>
+  &amp;*<br>
+  `expand/&amp;*`<br>
+  `convert/&amp;*`<br>
+  `print/c`<br>
+  `convert/listtoc`<br>
+  <br>
+  </font><font color="#000000"><br>
+  A canonical form for commutators is obtained by applying the following two rules 
+  given the ordering : order by number of nested commutators and break ties by 
+  address of object.<br>
+  <br>
+  </font> <font color="#ff0000">c(y,x) ==&gt; -c(x,y) iff x &lt; y</font> <font color="#000000"><br>
+  </font> <font color="#ff0000">c(x,c(y,z)) ==&gt; c(y,c(x,z)) - c(z,c(x,y)) iff 
+  x &lt; y</font> <font color="#000000"><br>
+  <br>
+  In particular, this form recognizes the Jacobi identity<br>
+  <br>
+  c(x,c(y,z)) + c(y,c(z,x)) + c(z,c(x,y)) = 0<br>
+  <br>
+  Commutators can be expressed in terms of &amp;* as in<br>
+  <br>
+  &gt; </font> <font color="#ff0000">convert( c(x,(y,z)), '`&amp;*`' );</font> <font color="#000000"><br>
+  <br>
+  </font> <font color="#0000ff"> - &amp;*(y, z, x) - &amp;*(x, z, y) + &amp;*(z, 
+  y, x) + &amp;*(x, y, z)<br>
+  </font> <font color="#000000"><br>
+  Or converted back in terms of c<br>
+  <br>
+  &gt; </font> <font color="#ff0000">convert( %, 'c' );</font> <font color="#000000"><br>
+  </font> <font color="#0000ff"> c(y, c(x, z)) - c(z, c(x, y))<br>
+  </font> <font color="#000000"><br>
+  If an `&amp;*` expression is converted to a commutator and back to an `&amp;*` 
+  expression, then the original `&amp;*` expression will be identical to the final 
+  `&amp;*` expression if and only if the original `&amp;*` expression can be represented 
+  as a commutator expression.<br>
+  <br>
+  The procedure `print/c` displays commutators as lists, and the procedure `convert/listtoc` 
+  converts an input list expression to commutator form. "commutat" just calls 
+  `convert/listtoc` .</font> </p>
+<p align="left">Å@ </p>
+<p align="left"><font size="5"><b>Generating the Commutator Package in Maple 6</b></font></p>
+<p align="left"><tt>&gt; </tt> <b><font color="#ff0000">restart;</font></b> </p>
+<p align="left"> <tt>&gt; </tt> <b><font color="#ff0000">Commutator := module()<br>
+  option `Copyright (c) 2000 Waterloo Maple Inc. All rights reserved.`;<br>
+  export init, c, commutator, `&amp;*`;<br>
+  local ConvertAmpStar, PrintC, ConvertC, ExpandAmpStar, ExpandC,<br>
+  SimplifyC, LessThan, AmpStar, NondistributiveC;<br>
+  <br>
+  init := proc()<br>
+  global<br>
+  `print/c`, `convert/c`, `convert/&amp;*`, `convert/listtoc`, <br>
+  `expand/&amp;*`, `expand/c`, `simplify/c`;<br>
+  <br>
+  `print/c` := eval( PrintC );<br>
+  `convert/c` := eval( ConvertC );<br>
+  </font></b> <font color="#000000">convert list to c</font> <b><font color="#ff0000"><br>
+  `convert/listtoc` := eval( commutator );<br>
+  `convert/&amp;*` := eval( ConvertAmpStar );<br>
+  `expand/c` := eval( ExpandC );<br>
+  `expand/&amp;*` := eval( ExpandAmpStar );<br>
+  `simplify/c` := eval( SimplifyC );<br>
+  end proc;<br>
+  <br>
+  c := proc(x, y)<br>
+  local r, s, t, i;<br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if x = y then<br>
+  0;<br>
+  elif type( x, '`*`' ) then<br>
+  s, t := selectremove( 'type', x, 'constant' );<br>
+  s * c(t, y);<br>
+  elif type( y, '`*`' ) then<br>
+  s, t := selectremove( 'type', y, 'constant' );<br>
+  s * c(x, t);<br>
+  elif type( x, 'constant' ) or type( y, 'constant' ) then<br>
+  0;<br>
+  else<br>
+  if type( x, '`+`' ) then<br>
+  c(x, y) := map( c, x, y );<br>
+  elif type( y, '`+`' ) then<br>
+  c(x, y) := -map( c, y, x );<br>
+  elif LessThan(y, x) then<br>
+  c(x, y) := -c( y, x );<br>
+  elif type( y, 'specfunc'('anything', 'c') ) and LessThan(x, op(1, y)) then<br>
+  c(x, y) := c(op(1, y), c(x, op(2, y))) - c(op(2, y), c(x, op(1, y)));<br>
+  else<br>
+  c(x, y) := 'c'(x, y);<br>
+  end if;<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  commutator := proc(f)<br>
+  option `Copyright (c) 1990 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if type( f, ['anything', 'anything'] ) then<br>
+  c( procname( f[1] ), procname( f[2] ) );<br>
+  elif type( f, {'atomic', 'list'} ) then<br>
+  f;<br>
+  else<br>
+  map( procname, f );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  `&amp;*` := proc()<br>
+  local C, CT, d, j, k, t, x;<br>
+  option remember, system,<br>
+  `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  </font></b> <font color="#000000">simplifications of &amp;* -- non-commutatorive 
+  multiplication</font> <b><font color="#ff0000"><br>
+  </font></b> <font color="#000000">pull out constants and flatten nested &amp;*'s 
+  (associative)</font> <b><font color="#ff0000"><br>
+  <br>
+  if type( [args], 'list'('And'('name', 'Not'('constant'))) ) then<br>
+  '`&amp;*`'(args);<br>
+  else<br>
+  t := NULL;<br>
+  C := 1;<br>
+  <br>
+  for x in [args] do<br>
+  if type( x, 'constant' ) then<br>
+  C := C*x;<br>
+  elif type( x, 'name' ) then<br>
+  t := t, x;<br>
+  elif type( x, '`*`' ) then<br>
+  CT, d := selectremove( 'type', x, 'constant' );<br>
+  <br>
+  C := C*CT;<br>
+  <br>
+  if type( d, 'specfunc'('anything', '`&amp;*`') ) then<br>
+  t := t, op(d);<br>
+  else<br>
+  t := t, d;<br>
+  end if;<br>
+  elif type( x, 'specfunc'('anything', '`&amp;*`') ) then<br>
+  t := t, op(x);<br>
+  else<br>
+  t := t, x;<br>
+  end if;<br>
+  end do;<br>
+  <br>
+  if t = NULL then<br>
+  C;<br>
+  elif nops([t]) = 1 then<br>
+  C * t;<br>
+  else<br>
+  C * '`&amp;*`'( t );<br>
+  end if;<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  </font></b> <b><font size="4" color="#000000">Printing Routines</font></b> <b><font color="#ff0000"><br>
+  <br>
+  PrintC := proc(x, y)<br>
+  option `Copyright (c) 1997 by Waterloo Maple Inc. All rights reserved.`;<br>
+  </font></b> <font color="#000000">This used to be [x, y], which causes a problem 
+  since [a, b] + [a, c] now automatically simplifies to [2a, b+c], which is incorrect</font> 
+  <b><font color="#ff0000"><br>
+  'VECTOR'( [x, y] );<br>
+  end;<br>
+  <br>
+  </font></b> <b><font size="4" color="#000000">Conversion Routines</font></b> <b><font color="#ff0000"><br>
+  <br>
+  ConvertAmpStar := proc(f)<br>
+  local x, y;<br>
+  </font></b> <font color="#000000">recursively apply the rule c(x, y) ==&gt; x 
+  &amp;* y - y &amp;* x</font> <b><font color="#ff0000"><br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if type( f, 'ratpoly' ) then<br>
+  f;<br>
+  elif type( f, 'specfunc'('anything', 'c') ) then<br>
+  x := convert( op( 1, f ), '`&amp;*`' );<br>
+  y := convert( op( 2, f ), '`&amp;*`' );<br>
+  x &amp;* y - y &amp;* x<br>
+  elif type( f, 'atomic' ) then<br>
+  f;<br>
+  else<br>
+  map( procname, f );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  ConvertC := proc(f)<br>
+  local k, n, t;<br>
+  </font></b> <font color="#000000">express f (sum of products &amp;* of symbols) 
+  in commutator form</font> <b><font color="#ff0000"><br>
+  </font></b> <font color="#000000">caveats: if f cannot be expressed in commutator 
+  form, the result is erroneous</font> <b><font color="#ff0000"><br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if type( f, 'specfunc'('anything', '`&amp;*`') ) then<br>
+  n := nops(f);<br>
+  t := c( op(n-1, f), op(n, f) );<br>
+  <br>
+  for k from n-2 by -1 to 1 do<br>
+  t := c(op(k, f), t);<br>
+  end do;<br>
+  <br>
+  t / n;<br>
+  elif type( f, {'`*`', '`+`'} ) then<br>
+  map( procname, f );<br>
+  else<br>
+  f;<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  </font></b> <b><font size="4" color="#000000">Expansion Routines</font></b> <b><font color="#ff0000"><br>
+  <br>
+  ExpandC := proc(x,y)<br>
+  local a, b;<br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  a := expand(x);<br>
+  b := expand(y);<br>
+  <br>
+  if type( a, '`+`' ) then<br>
+  expand( map( c, 'a', 'b' ) );<br>
+  elif type( b, '`+`' ) then<br>
+  -map( c, 'b', 'a' );<br>
+  else<br>
+  c( a, b );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  ExpandAmpStar := proc(x, y)<br>
+  local a, b, i, j, k, s, t, z;<br>
+  </font></b> <font color="#000000">expand out x &amp;* y &amp;* ... as a sum of 
+  products</font> <b><font color="#ff0000"><br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if type( [args], 'list'('name') ) then<br>
+  '`&amp;*`'(args);<br>
+  else<br>
+  a := expand( x );<br>
+  <br>
+  if nargs = 2 then<br>
+  b := expand(y);<br>
+  elif nargs &gt; 2 then<br>
+  b := expand( `&amp;*`(args[2..nargs]) );<br>
+  end if;<br>
+  <br>
+  a := `if`( type( a, '`+`' ), [op(a)], [a] );<br>
+  b := `if`( type( b, '`+`' ), [op(b)], [b] );<br>
+  <br>
+  add( add( i &amp;* j, j=b ), i=a );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  </font></b> <b><font size="4" color="#000000">Simplification Routines</font></b> 
+  <b><font color="#ff0000"><br>
+  <br>
+  SimplifyC := proc()<br>
+  local cs, i, j, k, n, f, r, s, t, x, II;<br>
+  </font></b> <font color="#000000">simplify: 1. c(x,y) + c(x,z) ==&gt; c(x,y+z)</font> 
+  <b><font color="#ff0000"><br>
+  </font></b> <font color="#000000"> 2. c(x,z) + c(y,z) ==&gt; c(x+y,z)</font> <b><font color="#ff0000"><br>
+  <br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  f := args[1];<br>
+  <br>
+  if type( f, 'ratpoly' ) then<br>
+  f;<br>
+  elif not type( f, '`+`' ) then<br>
+  map( procname, f );<br>
+  else<br>
+  f := subs( c = NondistributiveC, f );<br>
+  <br>
+  cs := proc()<br>
+  local f;<br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  if type( args[1], '`+`' ) then<br>
+  f := {op(args[1])};<br>
+  else<br>
+  f := {args[1]};<br>
+  end if;<br>
+  <br>
+  f := map( proc(f)<br>
+  if type( f, '`*`' ) then<br>
+  op(f);<br>
+  else<br>
+  f;<br>
+  end if<br>
+  end proc, f );<br>
+  <br>
+  map( proc(f)<br>
+  if type( f, 'specfunc'('anything', 'NondistributiveC' ) ) then<br>
+  f<br>
+  end if;<br>
+  end proc, f );<br>
+  end proc;<br>
+  <br>
+  </font></b> <font color="#000000">Apply to f the rule a c(x,z) + b c(y,z) ==&gt; 
+  c(a x + b y, z)</font> <b><font color="#ff0000"><br>
+  s := [coeffs( f, cs(f), 't' )];<br>
+  t := [t];<br>
+  r := table();<br>
+  <br>
+  f := 0;<br>
+  n := nops(s);<br>
+  <br>
+  for i to n do<br>
+  x := t[i];<br>
+  <br>
+  if t[i] = 1 then<br>
+  f := s[i];<br>
+  next;<br>
+  else<br>
+  x := op(2,x);<br>
+  end if;<br>
+  <br>
+  if assigned(r[x]) then<br>
+  next;<br>
+  else<br>
+  r[x] := s[i] * op(1,t[i]);<br>
+  end if;<br>
+  <br>
+  for j from i+1 to n do<br>
+  if x = op(2,t[j]) then<br>
+  r[x] := r[x] + s[j]*op(1,t[j])<br>
+  end if;<br>
+  end do;<br>
+  end do;<br>
+  <br>
+  II := map( op, [indices(r)] );<br>
+  f := f + add( NondistributiveC(r[k],k), k=II );<br>
+  <br>
+  </font></b> <font color="#000000">Now apply to f the rule a c(x,y) + b c(x,z) 
+  ==&gt; c(x, a y + b z)</font> <b><font color="#ff0000"><br>
+  s := [coeffs( f, cs(f), 't' )];<br>
+  t := [t];<br>
+  r := table();<br>
+  <br>
+  f := 0;<br>
+  n := nops(s);<br>
+  <br>
+  for i to n do<br>
+  x := t[i];<br>
+  <br>
+  if t[i] = 1 then<br>
+  f := s[i];<br>
+  next;<br>
+  else<br>
+  x := op(1,x);<br>
+  end if;<br>
+  <br>
+  if assigned(r[x]) then<br>
+  next;<br>
+  else<br>
+  r[x] := s[i] * op(2,t[i]);<br>
+  end if;<br>
+  <br>
+  for j from i+1 to n do<br>
+  if x = op(1,t[j]) then<br>
+  r[x] := r[x] + s[j] * op(2,t[j]);<br>
+  end if;<br>
+  end do;<br>
+  end do;<br>
+  <br>
+  II := map( op, [indices(r)] );<br>
+  <br>
+  f := f + add( NondistributiveC(k, r[k]), k=II );<br>
+  <br>
+  subs( NondistributiveC = c, f );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  </font></b> <b><font size="4" color="#000000">Internal Helper Routines</font></b> 
+  <b><font color="#ff0000"><br>
+  <br>
+  NondistributiveC := proc(x,y)<br>
+  local s, t, i;<br>
+  option remember, system, `Copyright (c) 1992 by the University of Waterloo. 
+  All rights reserved.`;<br>
+  </font></b> <font color="#000000">not to distribute over +</font> <b><font color="#ff0000"><br>
+  <br>
+  if x = y then<br>
+  0;<br>
+  elif type( x, '`*`' ) then<br>
+  s, t := selectremove( 'type', x, 'constant' );<br>
+  <br>
+  s * procname( t, y );<br>
+  elif type( y, '`*`' ) then<br>
+  s, t := selectremove( 'type', y, 'constant' );<br>
+  <br>
+  s * procname( x, t );<br>
+  elif type( x, 'constant' ) or type( y, 'constant' ) then<br>
+  0;<br>
+  elif LessThan(y,x) then<br>
+  -procname( y, x );<br>
+  else<br>
+  'procname'( x, y );<br>
+  end if;<br>
+  end proc;<br>
+  <br>
+  LessThan := proc(x, y)<br>
+  local s, t, commutator;<br>
+  </font></b> <font color="#000000">ordering for commutators:</font> <b><font color="#ff0000"><br>
+  </font></b> <font color="#000000">of nested commutators (ties broken by address)</font> 
+  <b><font color="#ff0000"><br>
+  option `Copyright (c) 1992 by the University of Waterloo. All rights reserved.`;<br>
+  <br>
+  s := length( subs( c = commutator, x ) ) - length(x);<br>
+  t := length( subs( c = commutator, y ) ) - length(y);<br>
+  <br>
+  if s &lt; t then<br>
+  true;<br>
+  elif s &gt; t then<br>
+  false;<br>
+  else<br>
+  addressof(x) &lt; addressof(y);<br>
+  end if;<br>
+  end proc;<br>
+  end module:</font></b> </p>
+<p align="left"> <font color="#000000"><b><a name="savelib"></a></b></font><font size="5"><b>Saving 
+  'Commutator' Into Your Own Library</b></font></p>
+<p align="left"><font color="#000000">In order to permanently save this into your 
+  own library, check libname to ensure that it is appropriately defined and remove 
+  the comment on the next line then execute the worksheet (from the menu, choose 
+  </font> <font color="#000000">Edit-&gt;Execute-&gt;Worksheet</font> <font color="#000000">). 
+  Note, if you don't have write permissions on the library this command will result 
+  in an error so it may be necessary to set up another library in one of your 
+  own directories using the march</font> <font color="#000000"> command and adding 
+  the statement </font> <font color="#ff0000">libname := libname, &lt;new library 
+  directory&gt;;</font> <font color="#000000"> to your personal initialization file. 
+  </font> </p>
+<p align="left"> <tt></tt><b><tt>&gt; </tt> <font color="#ff0000">#savelib( 'Commutator' 
+  ):</font></b> </p>
+<p align="left">
+<b><font color="#000000"><br>
+Examples from the Help Page:<br>
+</font></b>
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">with(Commutator);</font></b>
+</p>
+<p align="center">
+<img alt="[`&amp;*`, c, commutator, init]" height="20" width="181" src="Commutator_files/Commutator1.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">c(x,y+c(y,z));</font></b>
+</p>
+<p align="center">
+<img alt="VECTOR([x, y])+VECTOR([y, VECTOR([x, z])])-VECTOR([..." height="20" width="217" src="Commutator_files/commutator2.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">(a + b) &amp;* (r + s);</font></b>
+</p>
+<p align="center">
+<img alt="`&amp;*`(a+b,r+s)" height="20" width="134" src="Commutator_files/Commutator3.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">expand(%);</font></b>
+</p>
+<p align="center">
+<img alt="`&amp;*`(a,r)+`&amp;*`(a,s)+`&amp;*`(b,r)+`&amp;*`(b,s)" height="20" width="291" src="Commutator_files/Commutator4.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">constants := constants, k, l;</font></b>
+</p>
+<p align="center">
+<img alt="constants := false, gamma, infinity, true, Catalan,..." height="20" width="343" src="Commutator_files/Commutator5.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">(a*l*b) &amp;* (r+s)/k;</font></b>
+</p>
+<p align="center">
+<img alt="l*`&amp;*`(a*b,r+s)/k" height="45" width="133" src="Commutator_files/Commutator6.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">c(4*l*g, h) - c(-2*a, k*l*g);</font></b>
+</p>
+<p align="center">
+<img alt="4*l*VECTOR([g, h])+2*k*l*VECTOR([a, g])" height="20" width="161" src="Commutator_files/Commutator7.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">[x+z, x+y];</font></b>
+</p>
+<p align="center">
+<img alt="[x+z, x+y]" height="20" width="101" src="Commutator_files/Commutator8.gif">
+</p>
+<p align="left">
+<tt>&gt; </tt>
+<b><font color="#ff0000">commutator(%);</font></b>
+</p>
+<p align="center">
+<img alt="VECTOR([x, y])-VECTOR([x, z])-VECTOR([y, z])" height="20" width="158" src="Commutator_files/Commutator9.gif">
+</p>
+<p align="left">
+</p>
+
+
+</body></html>

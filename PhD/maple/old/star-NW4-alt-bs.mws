@@ -1,0 +1,50 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart;with(Commuta
+tor):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 49 "maxorder:=4:read \+
+\"/home/samuel/maple/BCH-bs.txt\":" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 24 "constants:=constants, T:" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 39 "c(y,z):=I*2*T:c(x,y):=I*y:c(x,z):=-I*z:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "A:=-I*(x*k1+y*k2+z*k3+T*k4):B:=-I*(
+x*p1+y*p2+z*p3+T*p4):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "re
+ad \"/home/samuel/maple/star-routines.txt\";" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 193 "expand(I*subs(\{k1=k[1],k2=k[2],k3=k[3],k4=k[4]
+,p1=p[1],p2=p[2],p3=p[3],p4=p[4],x=`J`,y=`J+`,z=`J-`,E1=b[1],E2=b[2],E
+3=b[3],E4=b[4],E5=b[5],E6=b[6],E7=b[7],E8=b[8],E9=b[9],E10=b[10]\},exp
+onent));" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#,\\s*&#\"\"\"\"#7F&**&%\"p
+G6#F&F&&%\"kGF+F&%#J+GF&&F*6#\"\"#F&F&!\"\"*&#F&F'F&**F)F&F,F&%#J-GF&&
+F*6#\"\"$F&F&F2*&#F&F9F&**F/F&F,F&F7F&%\"TGF&F&F&*&#F&\"\"'F&**F/F&&F-
+F8F&F)F&F=F&F&F2*&#F&F@F&**F7F&&F-F0F&F)F&F=F&F&F2*&#F&F'F&**F,F&FFF&F
+)F&F.F&F&F2*&#F&F'F&**F,F&FBF&F)F&F6F&F&F2*&#F&F@F&**FFF&F,F&F7F&F=F&F
+&F2*&F;F&**FFF&FBF&F)F&F=F&F&F&*&#F&F@F&**FBF&F,F&F/F&F=F&F&F2*&#F&\"#
+'*F&**)F,F1F&FFF&F)F&F.F&F&F2*&#F&F'F&*(FYF&F.F&F/F&F&F&*&#F&FWF&**FYF
+&FBF&F)F&F6F&F&F&*&#F&\"#[F&**FFF&FYF&F7F&F=F&F&F&*&#F&F\\oF&**FBF&FYF
+&F/F&F=F&F&F2*&#F&F\\oF&**F)F&FYF&F/F&F.F&F&F2*&F[oF&**F)F&FYF&F7F&F6F
+&F&F&*&F[oF&**)F)F1F&F,F&FFF&F.F&F&F&*&#F&F\\oF&**FhoF&F,F&FBF&F6F&F&F
+2*&FhnF&**FhoF&F,F&F/F&F.F&F&F&*&#F&FWF&**FhoF&F,F&F7F&F6F&F&F2*&#F&F
+\\oF&**F/F&FhoF&FBF&F=F&F&F2*&F[oF&**F7F&FhoF&FFF&F=F&F&F&*&#F&\"\")F&
+**&%\"bGF0F&)F)F9F&FBF&F6F&F&F2*&#F&FhpF&**FjpF&)F,F9F&F7F&F6F&F&F&*&F
+^qF&**FjpF&F\\qF&FFF&F.F&F&F&*&#F&FhpF&**FjpF&F`qF&F/F&F.F&F&F2*&#F&\"
+#CF&*,F/F&F,F&FBF&F)F&F=F&F&F&*&#F&FhqF&*,F7F&F,F&FFF&F)F&F=F&F&F2*&#F
+&F1F&*.FjpF&F/F&F,F&FBF&F)F&F=F&F&F&*&#F&\"\"%F&*,FjpF&F)F&FYF&F/F&F.F
+&F&F2*&F^qF&*,FjpF&FYF&FFF&F)F&F.F&F&F&*&#F&FbrF&*,FjpF&FFF&FYF&F7F&F=
+F&F&F2*&#F&FhpF&*,FjpF&FhoF&F,F&F/F&F.F&F&F2*&#F&FbrF&*,FjpF&FhoF&F,F&
+FFF&F.F&F&F&*&F^qF&*,FjpF&FhoF&F,F&F7F&F6F&F&F&*&#F&FbrF&*,FjpF&FhoF&F
+,F&FBF&F6F&F&F2*&#F&FhpF&*,FjpF&FYF&FBF&F)F&F6F&F&F2*&F]sF&*,FjpF&F)F&
+FYF&F7F&F6F&F&F&*&#F&F1F&*.FjpF&F7F&F,F&FFF&F)F&F=F&F&F2*&F]sF&*,FjpF&
+F/F&FhoF&FBF&F=F&F&F&*&F]sF&*,FjpF&FBF&FYF&F/F&F=F&F&F&*&#F&FbrF&*,Fjp
+F&F7F&FhoF&FFF&F=F&F&F2*&%\"JGF&F)F&F&*&F=F&&F*6#FbrF&F&*&FdtF&F,F&F&*
+&F.F&FFF&F&*&F6F&FBF&F&*&F=F&&F-FgtF&F&*&F/F&F.F&F&*&F7F&F6F&F&*&#F&FW
+F&*(F`qF&F7F&F6F&F&F2*&FenF&*(FYF&F6F&F7F&F&F&*&F^rF&*(F,F&F/F&F.F&F&F
+&*&#F&F1F&*(F,F&F7F&F6F&F&F2*&#F&F1F&*(FFF&F)F&F.F&F&F2*(FFF&F7F&F=F&F
+&*&F^rF&*(FBF&F)F&F6F&F&F&*(FBF&F/F&F=F&F2*&FhnF&*(F`qF&F/F&F.F&F&F&*&
+#F&FWF&*(F\\qF&FFF&F.F&F&F2*&FhnF&*(F\\qF&FBF&F6F&F&F&*&FenF&*(FFF&Fho
+F&F.F&F&F&*&FenF&*(FBF&FhoF&F6F&F&F&" }}}{EXCHG }}{MARK "8" 0 }
+{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

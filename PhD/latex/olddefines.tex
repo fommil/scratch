@@ -1,0 +1,230 @@
+\usepackage[notref,notcite]{showkeys}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold,color}
+\usepackage{perpage}
+\MakePerPage[2]{footnote}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\usepackage[latin1]{inputenc}
+\newcommand{\nts}[1]{(\textcolor{red}{NOTE: #1})}
+
+% this suppresses hbox wornings, best to actually fix them though
+\hfuzz=100pt
+\hbadness=10000
+
+\newcommand{\mbf}[1]{{\boldsymbol {#1} }}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\R}{\real}
+
+\newcommand{\ncint}{\int\!\!\!\!\!\! - ~}
+
+\def\nn{\nonumber}
+\def\d{\partial}
+\def\bfd{{\mbf\partial}}
+\def\bfz{{\mbf z}}
+\def\od{\overline{\partial}}
+\def\oz{\overline{z}}
+\def\obfd{\overline{\mbf\partial}}
+\def\obfz{\overline{\mbf z}}
+\def\tri{\triangleright}
+\newcommand{\1}{\mathbb{1}}
+
+% unsure of everything below here
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\dS}{dS}
+\DeclareMathOperator{\Sphere}{S}
+\DeclareMathOperator{\Torus}{T}
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\DeclareMathOperator{\Hyp}{H}
+\let\S\Sphere
+\DeclareMathOperator{\weyl}{{\sf W}}                   %% \weyl =
+%% Weyl operator
+
+\newcommand{\comp}{\boxplus}                            %% \comp =
+%% composition
+\newcommand{\compa}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\ast$}}\mkern+5mu}}       %% \compa =
+%% composition style a
+\newcommand{\compb}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\bullet$}}\mkern+5mu}}    %% \compb =
+%% composition style b
+\newcommand{\compc}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\star$}}\mkern+5mu}}      %% \compc =
+%% composition style c
+\newcommand{\cb}[2]{\left[#1,#2\right]}                 %% \cb{a}{b} =
+%% [ a, b ]
+\newcommand{\scb}[2]{\left[#1,#2\right]_\star}          %% \scb{a}{b}
+%% = [ a, b ]_star
+\newcommand{\NO}{\mbox{$\substack{\circ\\\circ}$}}      %% Normal
+%% ordering
+\newcommand{\NOa}{\mbox{$\substack{\ast\\\ast}$}}       %% Normal
+%% ordering alt A
+\newcommand{\NOb}{\mbox{$\substack{\bullet\\\bullet}$}} %% Normal
+%% ordering alt B
+
+\newcommand{\appx}{\approx}
+\newcommand{\cD}{{\mathcal D}}
+
+\newcommand{\ee}[1]{{\rm e}^{#1}}
+\newcommand{\ii}{{\rm i}}
+\newcommand{\f}{\frac}
+
+\newcommand{\sgn}{{\rm sgn}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\half}{\mbox{$\frac{1}{2}$}}
+\newcommand{\behalf}{\frac{\beta}{2}}
+\def\Dirac{{D\!\!\!\!/\,}} % Dirac operator
+
+\newcommand{\C}{\complex}
+\newcommand{\Z}{\zed}
+\newcommand{\N}{\nat}
+
+\newcommand{\QED}{\hfill QED}
+\def\ii{{\,{\rm i}\,}}
+\def\dd{{\rm d}}
+\def\DD{{\rm D}}
+\def\CC{{\rm C}}
+\def\P{{\sf P}}
+\def\B{{\sf B}}
+\def\a{{\sf a}}
+\def\b{{\sf b}}
+\def\A{{\sf A}}
+\def\V{{\sf V}}
+\def\K{{\sf K}}
+\def\T{{\sf T}}
+\def\X{{\sf X}}
+\def\Y{{\sf Y}}
+\def\Q{{\sf Q}}
+\def\C{{\sf C}}
+\def\J{{\sf J}}
+\def\I{{\sf I}}
+\def\Pu{\underline{\sf P}{}}
+
+\def\mz{{\mbf z}}
+\def\mw{{\mbf w}}
+\def\mx{{\mbf x}}
+\def\my{{\mbf y}}
+\def\mk{{\mbf k}}
+\def\mq{{\mbf q}}
+\def\mbp{{\mbf p}}
+\def\ma{{\mbf a}}
+\def\mD{{\mbf D}}
+\def\mG{{\mbf G}}
+\def\mm{{\mbf m}}
+\def\mell{{\mbf\ell}}
+
+\def\mfn{{\mathfrak n}}
+\def\mfg{{\mathfrak g}}
+\def\mfs{{\mathfrak s}}
+\def\mcN{{\mathcal N}}
+\def\mcS{{\mathcal S}}
+\def\mbbV{{\mathbb V}}
+\def\mcD{{\mathcal D}}
+\def\mcDp{{\mathcal D}^{p^+,p^-}}
+
+\def\one{\mathbb{1}}
+
+\newcommand{\eq}{\begin{equation}}
+\newcommand{\eqend}{\end{equation}}
+\newcommand{\eqa}{\begin{eqnarray}}
+\newcommand{\nonueqa}{\begin{eqnarray*}}
+\newcommand{\eqaend}{\end{eqnarray}}
+\newcommand{\nonueqaend}{\end{eqnarray*}}
+\newcommand{\nonu}{\nonumber \\ \nopagebreak}
+\newcommand{\bma}[1]{\begin{array}{#1}}
+\newcommand{\ema}{\end{array}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+
+\newcommand{\U}{{\rm U}}
+\newcommand{\Ref}[1]{(\ref{#1})}
+\newcommand{\YM}{{\mathcal Y\!M}}
+\newcommand{\tet}{\theta}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\sine}{{\sf K}}
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\newcommand{\newsection}{\setcounter{equation}{0}\section}
+
+\newcommand{\complex}{{\mathbb C}} %% complex numbers
+\newcommand{\zed}{{\mathbb Z}} %% integers
+\newcommand{\nat}{{\mathbb N}} %% naturals
+\newcommand{\eucl}{{\mathbb E}}
+\newcommand{\rat}{{\mathbb Q}} %% rational numbers
+\newcommand{\mat}{{\mathbb M}} %% matrix algebra
+%\newcommand{\NO}{\,\mbox{$\circ\atop\circ$}\,} % Normal ordering
+\newcommand{\id}{\1} %% identity matrix
+\def\Dirac{{D\!\!\!\!/\,}} % Dirac operator
+\def\semiprod{{\,\rhd\!\!\!<\,}} % crossed product
+\def\alg{{\mathcal A}}
+\def\hil{{\mathcal H}}
+\def\ota{\otimes_{ A}}
+\def\otc{\otimes_{\complexs}}
+\def\otr{\otimes_{reals}}
+\newif\ifold             \oldtrue            \def\new{\oldfalse}
+
+%\font\mathsm=cmmi9
+
+\newcommand{\tr}[1]{\:{\rm tr}\,#1}
+\newcommand{\Tr}[1]{\:{\rm Tr}\,#1}
+\newcommand{\sdet}[1]{\:{\rm SDet}\,#1}
+\def\e{{\,\rm e}\,}
+\newcommand{\rf}[1]{(\ref{#1})}
+\newcommand{\non}{\nonumber \\*}
+\newcommand{\vgr}{{\vec \nabla}}
+\newcommand{\vx}{{\vec x}}
+\hyphenation{pre-print}
+\hyphenation{pre-prints}
+\hyphenation{di-men-sion-al}
+\hyphenation{di-men-sion-al-ly}
+\hyphenation{lor-entz-ian}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\def\bd{\begin{displaymath}}
+\def\ed{\end{displaymath}}
+\def\const{{\rm const}}
+\def\s{\sigma}
+\def\vcl{\varphi_{\rm cl}}
+\def\la{\left\langle}
+\def\ra{\right\rancle}
+
+\def\se{S_{\rm eff}}
+\def\E{F}
+
+\newcommand{\fr}[2]{{\textstyle {#1 \over #2}}}
+
+\newcommand{\fintf}[1]{\int \frac{d^{2d} #1}{(2\pi)^{2d}}}
+\newcommand{\fintt}[1]{\int \frac{d^2 #1}{(2\pi)^2}}
+
+\def\sepand{\rule{14cm}{0pt}\and}
+\newcommand{\beq}{\begin{eqnarray}}
+\newcommand{\eeq}{\end{eqnarray}}
+\newcommand{\MM}{\bf \mathcal M}
+\newcommand{\g}{\gamma}
+\newcommand{\G}{\Gamma}
+\newcommand{\rh}{\rho}
+\newcommand{\sg}{\sigma}
+\newcommand{\Sg}{\Sigma}
+\newcommand{\pr}{\partial}
+\newcommand{\tSg}{\tilde{\Sigma}}
+\newcommand{\hr}{\hat{r}}
+\newcommand{\hq}{\hat{q}}
+\newcommand{\hk}{\hat{K}}
+\newcommand{\ho}{\hat{\omega}}
+\newcommand{\del}{\partial}
+\newcommand{\ka}{ e}
+\newcommand{\co}{{\mathcal O}}
+\newcommand{\z}{\zeta}
+\newcommand{\upa}{\uparrow}
+\newcommand{\doa}{\downarrow}
+\newcommand{\ZZ}{{\mathcal Z}}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main.tex"
+%%% End: 

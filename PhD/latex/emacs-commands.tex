@@ -1,0 +1,198 @@
+\documentclass[11pt, a4paper]{article}
+
+\begin{document}
+\section{Emacs Reference Sheet}
+
+% Commands designated by C-[letter] are called Control commands. To
+% execute Control commands, hold down the Control key while typing the
+% letter indicated. M-[letter] commands are called Meta commands and are
+% similar to Control commands, but use the Meta key instead of
+% Control. The Meta key should be obvious on a UNIX keyboard (often a
+% `$\diamond$' symbol), but is the Alt key on a PC.
+
+% Commands designated by ESC [letter] are Escape commands. Execute these
+% by pressing the Escape key ONCE and then typing the letter indicated.
+
+% The buffer is the basic editing unit. One buffer corresponds to one
+% section of text being edited. You can have several buffers open at
+% once, but can only edit one at a time. Several buffers can be visible
+% at the same time when you are using multiple windows.
+
+% In Emacs, the word `kill' is like the more popular term `cut', and
+% `yank' is like `paste'. To move or copy a region of text in emacs, you
+% must first `mark' it, then kill or copy the marked text, move the
+% cursor to the desired location, and restore the killed or copied
+% text. A region of text is defined by marking one end of it, then
+% moving the cursor to the other end.
+
+\begin{table}[!ht]
+   \caption{Basic editing and help.}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command      & Description \\
+      \hline
+      C-x C-c      & Exit \\
+      Arrow keys   & Cursor movement \\
+      C-b, C-f     & Cursor back, forward \\
+      C-p, C-n     & Cursor Up, down one line \\
+      M-b, M-f     & Backward, forward one word at a time \\
+      C-a, C-e     & Go to beginning, end of the line \\
+      M-a, M-e     & Go to beginning, end of the sentence \\
+      M-[, M-]     & Go to beginning, end of the paragraph \\
+      M-$<$, M-$>$     & Go to beginning, end of the file \\
+      BACKSPACE    & Delete backwards \\
+      DEL          & Delete forward \\
+      C-h t        & Emacs Tutorial \\
+      C-h C-h      & General help \\
+      C-h i        & Advanced help (info) pages \\
+      C-g (ESC ESC ESC) & Cancel partially typed command \\
+      C-x u        & Undo the last major change \\
+      C-x C-e      & *scratch* evaluate lisp command \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{Basic buffer and file control.}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command        & Description \\
+      \hline
+      C-x C-f        & Open a file into a new buffer \\
+      C-x C-v        & Open a file into the current buffer (reload file)\\
+      C-x i          & Insert contents of a file into this buffer \\
+      C-x s          & Save the file \\
+      C-x C-w        & Save buffer to a new file \\
+      C-x k          & Kill the selected buffer (close the file) \\
+      C-x b [return] & Go to the default buffer \\
+      C-x b          & Select another buffer \\
+      C-x C-b        & List all buffers \\
+      C-x 0          & Collapse the selected buffer \\
+      C-x 1          & Expand the selected buffer \\
+      C-x 2          & Split the screen horizontally \\
+      C-x 3          & Split the screen vertically \\
+      C-x o          & Move cursor to another visible buffer \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{Basic text selection, pasting, searching and replacing.}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command        & Description \\
+      \hline
+      C-SPACE        & Set mark here \\
+      M-w            & Copy the marked region \\
+      C-w            & Kill (cut) the marked region \\
+      C-y            & Yank the text (paste) \\
+      M-d            & Kill the word forwards \\
+      C-k            & Kill the line forwards \\
+      M-0 C-k        & Kill the line backwards \\
+      M-k            & Kill the sentence \\
+      M-y            & Cycle through previously killed text \\
+      C-x C-x        & Exchange cursor and mark \\
+      M-h            & Mark current paragraph \\
+      C-x C-p        & Mark entire buffer \\
+      C-s, C-r       & Incremental search forward, backward \\
+      M-x replace-string & Global search and replace \\
+      M-x query-replace  & Global search and replace, prompt user \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{Formatting}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command        &  Description \\
+      \hline
+      M-q            &  Re-fill the paragraph \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{CVS}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command        &  Description \\
+      \hline
+      C-x v d        &  Mark files (with `m') for a bulk commit \\
+      C-x v v        &  Commit file(s) \\
+      C-c C-c        &  Save revision comment \\
+      M-x cvs-update &  CVS update on a directory \\
+      C-x v i        &  Register a file \\
+      C-x v =        &  See diff between buffer and last revision \\
+      C-u C-x v =    &  See diff between two revisions of a file \\
+      C-x v u        &  Revert a buffer to the last revision \\
+      C-x v $\sim$   &  Retrieve a given revision in another window \\
+      C-x v l        &  See revision history \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{\LaTeX (AUCTeX)}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command   &       Description \\
+      \hline
+      C-c \%    &       Comment paragraph \\
+      C-c ;     &       Comment region \\
+      C-u - C-c ;  &       Uncomment lines in the region \\
+      C-u - C-c \% &       Uncomment lines around point \\
+      C-c C-e   &       Insert environment (e.g. equation) \\
+      C-c C-s   &       Insert section \\
+      C-c C-c   &       Run LaTeX on master file (also view) \\
+      C-c C-b   &       Run LaTeX on current buffer (also view) \\
+      C-c C-r   &       Run LaTeX on selected region (also view) \\
+      C-c C-f C-[letter]
+                &       Set font to: n (\textnormal{Normal}), i
+                        (\textit{Italic}), b (\textbf{Bold}),\\
+                &       t (\texttt{Typewriter}), c (\textsc{Capitals}), d (Delete
+                        font) \\
+      M-TAB     &       Complete TeX symbol \\
+      C-c C-m   &       Insert macro \\
+      C-c C-p C-b &     Preview the buffer \\
+      C-c C-p C-c C-b & Clear the buffer of previews \\
+      C-c C-p C-p   &       Preview the cursor region \\
+      C-c C-p C-c C-p   & Clear the cursor region of previews \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\begin{table}[!ht]
+  \caption{Encryption/Decryption Commands (Mailcrypt)}
+  \begin{center}
+    \begin{tabular}{l l}
+      \hline
+      Command   &       Description \\
+      \hline
+      C-c / f   &       GPG Forget pass-phrase(s) \\
+      C-c / e   &       GPG Encrypt (and optionally sign) buffer \\
+      C-c / d   &       GPG Decrypt an encrypted buffer \\
+      C-c / s   &       GPG Sign a buffer \\
+      C-c / v   &       Verify GPG signature on a signed buffer \\
+      C-c / a   &       Add public key(s) in this buffer to your
+                        keyring \\
+      C-c / k   &       Fetch a GPG key from a keyserver \\
+      C-c / x   &       Insert GPG public key into the buffer \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\end{document}

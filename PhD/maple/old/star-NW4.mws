@@ -1,0 +1,50 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart;with(Commuta
+tor):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 46 "maxorder:=3:read \+
+\"/home/samuel/maple/BCH.txt\";" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 24 "constants:=constants, T:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 43 "c(J,P1):=I*P2;c(J,P2):=-I*P1;c(P1,P2):=I*T;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"JG%#P1G*&%#P2G\"\"\"^#F,F,
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"JG%#P2G*&^#!\"\"
+\"\"\"%#P1GF-" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%#P1G%
+#P2G*&%\"TG\"\"\"^#F,F," }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 18 "
+A:=-I*(J*k1+P1*k2+" }{MPLTEXT 1 0 42 "P2*k3+T*k4):B:=-I*(J*p1+P1*p2+P2
+*p3+T*p4):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "read \"/home/
+samuel/maple/star-routines.txt\";" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 113 "NWsubs:=\{lambda=1,k1=k[1],k2=k[2],k3=k[3],k4=k[4],p
+1=p[1],p2=p[2],p3=p[3],p4=p[4],J=x[1],P1=x[2],P2=x[3],T=x[4]\};" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'NWsubsG<//%#k1G&%\"kG6#\"\"\"/%#k2G
+&F)6#\"\"#/%#k3G&F)6#\"\"$/%#k4G&F)6#\"\"%/%#p1G&%\"pGF*/%#p2G&F>F//%#
+p3G&F>F4/%#p4G&F>F9/%\"JG&%\"xGF*/%#P1G&FKF//%#P2G&FKF4/%\"TG&FKF9/%'l
+ambdaGF+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "exponent:=simpl
+ify(subs(NWsubs,a)):" }}}{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 27 "#printallstars(exponent,4);" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 26 "#printallcoms(exponent,4);" }}}{EXCHG {PARA 0 "> " 0 
+"" {MPLTEXT 1 0 70 "phi:=proc(F,phiG)\n  (exp((F)*(phiG)*lambda)-1)/((
+F)*lambda);\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 194 "
+r:=proc(rk,rp,rG)\n  local temp;\n  temp:=(phi(k[1],rG)*k[rk]+phi(p[1]
+,rG)*exp(rG*lambda*k[1])*p[rp])/phi(k[1]+p[1],rG):\n  expand(subs(rG=1
+,convert(series(temp,rG,maxorder+1),polynom)));\nend proc:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "maple:=coeff(exponent,x[2]);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%&mapleG,2**^##!\"\"\"#7\"\"\"&%\"pG6
+#F+F+&%\"kGF.F+&F-6#\"\"#F+F+**F'F+F/F+&F0F2F+F,F+F+*&^#F)F+F5F+F+*&F7
+F+F1F+F+*(^##F+F3F+F/F+&F-6#\"\"$F+F+*(^##F)F3F+&F0F=F+F,F+F+*(^##F+F*
+F+)F/F3F+F1F+F+*(FDF+F5F+)F,F3F+F+" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 45 "analytic:=expand(-I*(subs(NWsubs,r(2,2,G))));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%)analyticG,2*&^#!\"\"\"\"\"&%\"kG6#
+\"\"#F)F)*&F'F)&%\"pGF,F)F)*(^##F(F-F)F/F)&F+6#F)F)F)*(^##F)F-F)F*F)&F
+0F5F)F)*(^##F(\"#7F))F4F-F)F/F)F)**^##F)F=F)F9F)F4F)F/F)F)**F@F)F4F)F*
+F)F9F)F)*(F;F)F*F))F9F-F)F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+15 "maple-analytic;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,2**^##!\"\"\"
+\"'\"\"\"&%\"pG6#F)F)&%\"kGF,F)&F+6#\"\"#F)F)*(^##F)F(F)&F.F0F))F*F1F)
+F)**F%F)F-F)F5F)F*F)F)*(^##F)F1F)F-F)&F+6#\"\"$F)F)*(^##F'F1F)F5F)F*F)
+F)*(F3F))F-F1F)F/F)F)*(F?F)&F.F<F)F*F)F)*(F9F)F/F)F-F)F)" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "16 0 0" 0 }{VIEWOPTS 1 
+1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

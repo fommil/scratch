@@ -1,0 +1,28 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart;with(Commuta
+tor):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 47 "maxorder:=12:read \+
+\"/home/samuel/maple/BCH.txt\":" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 24 "constants:=constants, T:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 39 "c(y,z):=I*2*T:c(x,y):=I*y:c(x,z):=-I*z:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "A:=-I*(x*k1):B:=-I*(y*p2+z*p3):" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "read \"/home/samuel/maple/s
+tar-routines.txt\";" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 119 "exp
+onent:=subs(\{k1=k[1],k2=k[2],k3=k[3],k4=k[4],p1=p[1],p2=p[2],p3=p[3],
+p4=p[4],x=x[1],y=x[2],z=x[3],T=x[4]\},exponent):" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 10 "xindex:=4:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 69 "sort(expand(simplify(I*coeff(exponent,x[xindex])/(p[2
+]*p[3]))),k[1]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,,*&#\"\"\"\"(3]R#
+F&*$)&%\"kG6#F&\"\"*F&F&F&*&#F&\"&+c(F&*$)F*\"\"(F&F&!\"\"*&#F&\"%?DF&
+*$)F*\"\"&F&F&F&*&#F&\"#!*F&*$)F*\"\"$F&F&F4*&#F&F@F&F*F&F&" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 63 "sam:=proc(x,n)\n2*bernoulli(
+n+1)*x^(n)/(factorial(n));\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 9 "sam(x,9);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&\"(3]
+R#!\"\"%\"xG\"\"*\"\"\"" }}}{EXCHG }{EXCHG }{EXCHG }}{MARK "10 1 0" 0 
+}{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

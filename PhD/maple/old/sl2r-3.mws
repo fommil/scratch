@@ -1,0 +1,74 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" 0 3 1 
+{CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 4 0 0 
+0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "x1(x1,x2,x3) := x1 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "x2(x1,x2,x3) := x2 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "x3(x1,x2,x3) := x3 :" }}}{SECT 0 
+{PARA 3 "" 0 "" {TEXT -1 24 "Define the Star Products" }}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 412 "x1_star := f -> (x1,x2,x3) -> x1 * f(x1,
+x2,x3)\n                              + diff(f(x1,x2,x3),x1)\n        \+
+                      - x1^2 * diff(f(x1,x2,x3),x1)\n                 \+
+             - I * x3 * diff(f(x1,x2,x3),x2)\n                        \+
+      - x1 * x2 * diff(f(x1,x2,x3),x2)\n                              \+
++ I * x2 * diff(f(x1,x2,x3),x3)\n                              - x1 * \+
+x3 * diff(f(x1,x2,x3),x3):  " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 410 "x2_star := f -> (x1,x2,x3) -> x2 * f(x1,x2,x3)\n               \+
+               + I * x3 * diff(f(x1,x2,x3),x1)\n                      \+
+        - x1 * x2 * diff(f(x1,x2,x3),x1)\n                            \+
+  - x2^2 * diff(f(x1,x2,x3),x2)\n                              - diff(
+f(x1,x2,x3),x2)\n                              + I * x1 * diff(f(x1,x2
+,x3),x3)\n                              - x2 * x3 * diff(f(x1,x2,x3),x
+3):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 409 "x3_star := f -> (x1
+,x2,x3) -> x3 * f(x1,x2,x3)\n                              - x1 * x3 *
+ diff(f(x1,x2,x3),x1)\n                              - I * x2 * diff(f
+(x1,x2,x3),x1)\n                              - I * x1 * diff(f(x1,x2,
+x3),x2)\n                              - x2 * x3 * diff(f(x1,x2,x3),x2
+)\n                              - x3^2 * diff(f(x1,x2,x3),x3)\n      \+
+                        - diff(f(x1,x2,x3),x3)" }{MPLTEXT 1 0 1 ":" }}
+}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 41 "Function to Show All Non-Zero C
+ommutators" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 459 "showallcommut
+ators := proc( )\n    description \"Return the Star Product Commutator
+s of the Algebra\";\n    local a:\n    a := simplify(x1_star(x2) - x2_
+star(x1))(x1,x2,x3):\n     if ( a <> 0 ) then print([x[1],x[2]] = a) e
+nd if:\n    a := simplify(x1_star(x3) - x3_star(x1))(x1,x2,x3):\n     \+
+if ( a <> 0 ) then print([x[1],x[3]] = a) end if:\n    a := simplify(x
+2_star(x3) - x3_star(x2))(x1,x2,x3):\n     if ( a <> 0 ) then print([x
+[2],x[3]] = a) end if:\n    end proc:" }}}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 21 "showallcommutators();" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#/7$&%\"xG6#\"\"\"&F&6#\"\"#*&^#!\"#F(%#x3GF(" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#/7$&%\"xG6#\"\"\"&F&6#\"\"$*&^#\"\"#F(%#x2GF(" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$&%\"xG6#\"\"#&F&6#\"\"$*&^#F(\"\"\"
+%#x1GF." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "left:=simplify(x
+2_star(x1_star(f))(x1,x2,x3)-x1_star(x2_star(f))(x1,x2,x3)):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 52 "expand(simplify(x2_star(x1)-
+x1_star(x2)))(x1,x2,x3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#*&^#\"\"#
+\"\"\"%#x3GF&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "# Insert l
+ast result here" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 50 "right:=e
+xpand(simplify(2*I*x3_star(f)(x1,x2,x3))):" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 31 "expand(simplify(left - right));" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "l
+eft:=simplify(x3_star(x1_star(f))(x1,x2,x3)-x1_star(x3_star(f))(x1,x2,
+x3)):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 52 "expand(simplify(x3
+_star(x1)-x1_star(x3)))(x1,x2,x3);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+*&^#!\"#\"\"\"%#x2GF&" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "# \+
+Insert last result here" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "
+right:=expand(simplify(-2*I*x2_star(f)(x1,x2,x3))):" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 31 "expand(simplify(left - right));" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 76 "left:=simplify(x3_star(x2_star(f))(x1,x2,x3)-x2_star(x3_star(f
+))(x1,x2,x3)):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 52 "expand(si
+mplify(x3_star(x2)-x2_star(x3)))(x1,x2,x3);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#*&^#!\"#\"\"\"%#x1GF&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 25 "# Insert last result here" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 51 "right:=expand(simplify(-2*I*x1_star(f)(x1,x2,x3))):
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "expand(simplify(left - \+
+right));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "
+> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "23" 0 }{VIEWOPTS 1 1 0 1 1 1803 
+1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

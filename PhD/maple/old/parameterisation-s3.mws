@@ -1,0 +1,80 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 24 "X0:=sin(theta)*cos(phi);" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%#X0G*&-%$sinG6#%&thetaG\"\"\"-%$cosG6#%$ph
+iGF*" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "X2:=sqrt(1-chi^2)*s
+in(phi);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#X2G*&,&\"\"\"F'*$)%$chi
+G\"\"#F'!\"\"#F'F+-%$sinG6#%$phiGF'" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 17 "X1:=chi*sin(phi);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+>%#X1G*&%$chiG\"\"\"-%$sinG6#%$phiGF'" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 24 "X3:=cos(phi)*cos(theta);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%#X3G*&-%$cosG6#%$phiG\"\"\"-F'6#%&thetaGF*" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "simplify(X0^2+X1^2+X2^2+X3^2
+);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"\"" }}}{EXCHG }{EXCHG }
+{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 63 "dX0:=diff(X0
+,theta)*dtheta+diff(X0,chi)*dchi+diff(X0,phi)*dphi;" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%$dX0G,&*(-%$cosG6#%$phiG\"\"\"-F(6#%&thetaGF+%'dthe
+taGF+F+*(-%$sinGF-F+-F2F)F+%%dphiGF+!\"\"" }}}{EXCHG }{EXCHG }{EXCHG }
+{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 63 "dX1:=diff(X1,theta)*dtheta+diff(X1,chi)*d
+chi+diff(X1,phi)*dphi;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$dX1G,&*&-
+%$sinG6#%$phiG\"\"\"%%dchiGF+F+*(%$chiGF+-%$cosGF)F+%%dphiGF+F+" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 63 "dX2:=diff(X2,theta)*dtheta+d
+iff(X2,chi)*dchi+diff(X2,phi)*dphi;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#>%$dX2G,&**,&\"\"\"F(*$)%$chiG\"\"#F(!\"\"#F-F,-%$sinG6#%$phiGF(F+F(%
+%dchiGF(F-*(F'#F(F,-%$cosGF1F(%%dphiGF(F(" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 63 "dX3:=diff(X3,theta)*dtheta+diff(X3,chi)*dchi+diff(X
+3,phi)*dphi;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$dX3G,&*(-%$sinG6#%&
+thetaG\"\"\"-%$cosG6#%$phiGF+%'dthetaGF+!\"\"*(-F(F.F+-F-F)F+%%dphiGF+
+F1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "simplify(dX0^2+dX1^2+
+dX2^2+dX3^2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#*&,.*$)%%dphiG\"\"#\"
+\"\"!\"\"*&F&F))%$chiGF(F)F)*$)%%dchiGF(F)F**&F/F))-%$cosG6#%$phiGF(F)
+F)*&F2F))%'dthetaGF(F)F**(F2F)F8F)F,F)F)F),&F)F**$F,F)F)F*" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "a:=cosh(phi1/2)*cos((phi2+phi3)/2);
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"aG*&-%%coshG6#,$*&\"\"#!\"\"%%
+phi1G\"\"\"F.F.-%$cosG6#,&*&F+F,%%phi2GF.F.*&F+F,%%phi3GF.F.F." }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "b:=cosh(phi1/2)*sin((phi2+ph
+i3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"bG*&-%%coshG6#,$*&\"\"#
+!\"\"%%phi1G\"\"\"F.F.-%$sinG6#,&*&F+F,%%phi2GF.F.*&F+F,%%phi3GF.F.F.
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "c:=sinh(phi1/2)*sin((ph
+i2-phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"cG*&-%%sinhG6#,$*&
+\"\"#!\"\"%%phi1G\"\"\"F.F.-%$sinG6#,&*&F+F,%%phi2GF.F.*&F+F,%%phi3GF.
+F,F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "d:=sinh(phi1/2)*cos
+((phi2-phi3)/2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"dG*&-%%sinhG6#
+,$*&\"\"#!\"\"%%phi1G\"\"\"F.F.-%$cosG6#,&*&F+F,%%phi2GF.F.*&F+F,%%phi
+3GF.F,F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "simplify(a^2+b^
+2-c^2-d^2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"\"" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "da:=diff(a,phi1)*dphi1+diff(a,phi2)
+*dphi2+diff(a,phi3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#daG,(
+*&#\"\"\"\"\"#F(*(-%%sinhG6#,$*&F)!\"\"%%phi1GF(F(F(-%$cosG6#,&*&F)F0%
+%phi2GF(F(*&F)F0%%phi3GF(F(F(%&dphi1GF(F(F(*&#F(F)F(*(-%%coshGF-F(-%$s
+inGF4F(%&dphi2GF(F(F0*&#F(F)F(*(F>F(F@F(%&dphi3GF(F(F0" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "db:=diff(b,phi1)*dphi1+diff(b,phi2)
+*dphi2+diff(b,phi3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#dbG,(
+*&#\"\"\"\"\"#F(*(-%%sinhG6#,$*&F)!\"\"%%phi1GF(F(F(-%$sinG6#,&*&F)F0%
+%phi2GF(F(*&F)F0%%phi3GF(F(F(%&dphi1GF(F(F(*&F'F(*(-%%coshGF-F(-%$cosG
+F4F(%&dphi2GF(F(F(*&F'F(*(F=F(F?F(%&dphi3GF(F(F(" }}}{EXCHG {PARA 0 ">
+ " 0 "" {MPLTEXT 1 0 61 "dc:=diff(c,phi1)*dphi1+diff(c,phi2)*dphi2+dif
+f(c,phi3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#dcG,(*&#\"\"\"
+\"\"#F(*(-%%coshG6#,$*&F)!\"\"%%phi1GF(F(F(-%$sinG6#,&*&F)F0%%phi2GF(F
+(*&F)F0%%phi3GF(F0F(%&dphi1GF(F(F(*&F'F(*(-%%sinhGF-F(-%$cosGF4F(%&dph
+i2GF(F(F(*&#F(F)F(*(F=F(F?F(%&dphi3GF(F(F0" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 61 "dd:=diff(d,phi1)*dphi1+diff(d,phi2)*dphi2+diff(d,ph
+i3)*dphi3;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#ddG,(*&#\"\"\"\"\"#F(
+*(-%%coshG6#,$*&F)!\"\"%%phi1GF(F(F(-%$cosG6#,&*&F)F0%%phi2GF(F(*&F)F0
+%%phi3GF(F0F(%&dphi1GF(F(F(*&#F(F)F(*(-%%sinhGF-F(-%$sinGF4F(%&dphi2GF
+(F(F0*&F'F(*(F>F(F@F(%&dphi3GF(F(F(" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 32 "4*simplify(da^2+db^2-dc^2-dd^2);" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,,*$)%&dphi3G\"\"#\"\"\"F(*(F'F(%&dphi2GF(F&F(!\"\"*$)F
+*F'F(F(*$)%&dphi1GF'F(F+**\"\"%F()-%%coshG6#,$*&F'F+%%phi1GF(F(F'F(F*F
+(F&F(F(" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "simplify(a^2+b^2
+-c^2-d^2);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"\"" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "25 0 0" 0 }{VIEWOPTS 1 1 0 1 
+1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

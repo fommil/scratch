@@ -1,0 +1,8 @@
+constants:=constants, k1, k2, k3, k4, p1, p2, p3, p4:
+for i from 1 to maxorder do
+   C[i];
+end do:
+a:=0:for i from 1 to maxorder do
+   a:=a+C[i]:
+end do:
+a:=expand(a):

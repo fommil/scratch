@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Worksheet><Version major="6" minor="1"/><View-Properties><Zoom percentage="100"/></View-Properties><Styles><Layout alignment="left" bullet="none" name="Error"/><Layout alignment="left" bullet="none" firstindent="0.0" leftmargin="0.0" linebreak="space" linespacing="0.0" name="Normal" rightmargin="0.0" spaceabove="0.0" spacebelow="0.0"/><Layout alignment="centred" bullet="none" linespacing="0.5" name="Maple Output"/><Font background="[0,0,0]" bold="true" executable="true" family="Monospaced" foreground="[255,0,0]" name="Maple Input" opaque="false" size="12"/><Font background="[0,0,0]" family="Monospaced" foreground="[255,0,255]" name="Error" opaque="false" readonly="true" size="12"/><Font background="[0,0,0]" family="Times New Roman" foreground="[0,0,255]" name="2D Output" opaque="false" readonly="true" size="12"/></Styles><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">restart;</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">with(tensor):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">blanktensor3 := proc(min, max, tensor)
+  local i, j, k;
+  description "zero all components of a skew23 3D tensor/array":
+  for i from min to max do
+    for j from min to max do
+      for k from min to max do
+         if (tensor[i,j,k] &lt;&gt; 0) then
+           tensor[i,j,k]:=0;
+         end if;
+       end do;
+     end do;
+  end do;
+end proc: </Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">printtensor3 := proc(min, max, tensor)
+  local i, j, k;
+  description "print non-zero components of a 3D tensor/array":
+  for i from min to max do
+    for j from min to max do
+      for k from min to max do
+         if (tensor[i,j,k] &lt;&gt; 0) then
+           print([i,j,k]= tensor[i,j,k]);
+         end if;
+       end do;
+     end do;
+  end do;
+end proc: </Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C_c:=array(skew23,1..4,1..4,1..4);</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+SSRDX2NHNiItSSZhcnJheUdJKnByb3RlY3RlZEdGKDYnSSdza2V3MjNHRiU7IiIiIiIlRitGKzci</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">blanktensor3(1,4,C_c);</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C_c[1,1,3]:=-I;C_c[2,2,3]:=I;C_c[4,1,2]:=2*I;</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkkQ19jRzYiNiUiIiJGKCIiJF4jISIi</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkkQ19jRzYiNiUiIiNGKCIiJF4jIiIi</Equation></Text-field></Output><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiM+JkkkQ19jRzYiNiUiIiUiIiIiIiNeI0Yq</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">printtensor3(1,4,C_c);</Text-field></Input><Output><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiJGJSIiJF4jISIi</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiIiIiRGJV4jRiU=</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiNGJSIiJF4jIiIi</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiMiIiRGJV4jISIi</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiUiIiIiIiNeI0Yn</Equation></Text-field><Text-field layout="Maple Output" style="2D Output"><Equation>NiMvNyUiIiUiIiMiIiJeIyEiIw==</Equation></Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">C:=create([-1,1,1], eval(C_c)):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">rho:=create([-1,1,1],eval(array(1..4,1..4,1..4))):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">eqn1:=rho-permute_indices(rho,[1,3,2])=C:</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">eqn2:=prod(rho,rho,[3,1])-prod(rho,rho,[3,1])=prod(C,rho,[1,2]):</Text-field></Input></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input">solve({eqn1,eqn2},rho);</Text-field></Input><Output><Text-field layout="Error" style="Error">Error, (in solve) invalid arguments</Text-field></Output></Group><Group><Input><Text-field layout="Normal" prompt="&gt; " style="Maple Input"/></Input></Group><Text-field/></Worksheet>

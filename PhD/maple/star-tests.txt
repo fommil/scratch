@@ -1,0 +1,35 @@
+star:=proc(b,x1,x2)
+  local temp;
+  limit(
+       subs({k[1]=temp,k[2]=temp,k[3]=temp,k[4]=temp,
+       p[1]=temp,p[2]=temp,p[3]=temp,p[4]=temp},
+           diff(diff(-exp(b),k[x1]),p[x2])),temp=0);
+  end proc:
+printstar:=proc(b,x1,x2)
+  print(subs(algnames,x[x1]) &* subs(algnames,x[x2])=subs(algnames,star(b,x1,x2)));
+end proc:
+printcom:=proc(b,x1,x2)
+  local com;
+  com := simplify(star(b,x1,x2)-star(b,x2,x1)):
+  if ( com <> 0 ) then
+    print([ subs(algnames,x[x1]),  subs(algnames,x[x2]) ] = subs(algnames,com));
+  end if:
+end proc:
+printallstars:=proc(b,N)
+  local P, Q;
+  for P from 1 to N do
+    for Q from 1 to N do
+      if ( P <> Q  ) then
+        printstar(b,P,Q);
+      end if:
+    end do:
+  end do:
+end proc:
+printallcoms:=proc(b,N)
+  local P, Q;
+  for P from 1 to N do
+    for Q from P to N do
+      printcom(b,P,Q);
+    end do:
+  end do:
+end proc:

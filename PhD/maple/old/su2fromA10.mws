@@ -1,0 +1,35 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 5 "a:=1:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 5 "b:=1:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 5 "c:=
+1:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 5 "d:=1:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 61 "B:=Matrix(4,[[0,a,b,c],[-a,0,c,d],[
+-b,-c,0,a],[-c,-d,-a,0]]):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+57 "J:=Matrix(4,[[0,0,1,0],[0,0,0,1],[-1,0,0,0],[0,-1,0,0]]):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 4 "B.J;" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#-%'RTABLEG6%\"*_`CQ\"-%'MATRIXG6#7&7&!\"\"F,\"\"!\"\"\"
+7&F,F,F,F-7&F-F,F,F,7&F.F-F,F,%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 44 "# I Don't know if this Hess call is correct:" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 34 "M:=Matrix((B.J),shape=Hessen
+berg);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"MG-%'RTABLEG6%\"*#>>$Q\"
+-%'MATRIXG6#7&7&!\"\"F.\"\"!\"\"\"7&F.F.F.F/7&F/F.F.F.7&F/F/F.F.%'Matr
+ixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "10 0 0" 
+0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
+{RTABLE_HANDLES 138245352 138319192 }{RTABLE 
+M7R0
+I6RTABLE_SAVE/138245352X,%)anythingG6"6"[gl!"%!!!#1"%"%!""F'""!"""F'F'F'F(F(F'F
+'F'F)F(F'F'F&
+}
+{RTABLE 
+M7R0
+I6RTABLE_SAVE/138319192X,%)anythingG6#&%+HessenbergG6#%&upperG6"[gl!"(!!!#."%"%
+!""F+F+F+F+""!F+F+F+"""F,F+F+F*
+}
+

@@ -1,0 +1,265 @@
+\documentclass[a4,12pt,titlepage]{seminar}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold}
+\setlength{\parindent}{0pt}
+\setlength\arraycolsep{2pt}
+
+\input{seminar.bug}
+\usepackage{epsf,semhelv}
+
+%% Local defines
+\def\P{{\sf P}} \def\K{{\sf K}} \def\J{{\sf J}} \def\T{{\sf FIXME}}
+\def\d{\partial}
+\DeclareMathOperator{\AdS}{AdS}                         %% \AdS = Anti deSitter
+\DeclareMathOperator{\Sphere}{S}                        %% \S = Sphere
+\let\S\Sphere                                           %% (workaround to allow \S use)
+\DeclareMathOperator{\NW}{NW}                           %% \NW = Nappi-Witten Space
+\DeclareMathOperator{\CW}{CW}                           %% \NW = Cahen-Wallach Space
+\DeclareMathOperator{\weyl}{{\cal W}}                   %% \weyl = Weyl operator
+\DeclareMathOperator{\real}{{\mathbb R}}                %% \real = Real numbers
+\newcommand{\comp}{\boxplus}                            %% \comp = composition
+\newcommand{\compa}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\ast$}}\mkern+5mu}}       %% \compa = composition style a
+\newcommand{\compb}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\bullet$}}\mkern+5mu}}    %% \compb = composition style b
+\newcommand{\compc}{\mkern+4mu\square\mkern-17.4mu{\mbox{
+    \protect\raisebox{0.2ex}{$\star$}}\mkern+5mu}}      %% \compc = composition style c
+\newcommand{\cb}[2]{\left[#1,#2\right]}                 %% \cb{a}{b} = [ a, b ]
+\newcommand{\scb}[2]{\left[#1,#2\right]_\star}          %% \scb{a}{b} = [ a, b ]_star
+\newcommand{\NO}{\mbox{$\substack{\circ\\\circ}$}}      %% Normal ordering
+\newcommand{\NOa}{\mbox{$\substack{\ast\\\ast}$}}       %% Normal ordering alt A
+\newcommand{\NOb}{\mbox{$\substack{\bullet\\\bullet}$}} %% Normal ordering alt B
+
+\begin{document}
+\title{End of Second Year Report}
+\author{Sam Halliday}
+\maketitle
+
+\section{Commutative D-Branes}
+
+In SF03\footnote{S. Stanciu, J. Figueroa-O'Farrill, \textit{JHEP} \textbf{0306} (2003)
+  025, \textit{hep-th/0303212}} the following diagram was postulated
+\begin{equation*}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2             @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation*}
+We have already assessed that this is incorrect, and that the embedded space is
+$\CW_4$, not $\NW_4$. In the same paper, all the twisted conjugacy classes of
+$\NW_6$ are investigated
+\begin{equation*}
+  C^r(g_0)=\{\omega(g)g_0g^{-1}|g\in {\cal N}\}
+\end{equation*}
+several are postulated to be $\NW_4$ and one a space-filling $\NW_6$, we find
+that even these twisted conjugacy classes are Cahen-Wallach spaces, not
+Nappi-Witten.
+
+We have also investigated the geometry of these twisted conjugacy classes and
+found only commutative geometries. The SUGRA fields are all zero, hinting from
+standard techniques that the geometry is commutative. A technique outlined in
+AFQS02\footnote{A.~Y.~Alekseev, S.~Fredenhagen, T.~Quella and V.~Schomerus,
+  Nucl.\ Phys.\ B {\bf 646} (2002) 127 [arXiv:hep-th/0205123]} allows us to
+further confirm our conclusions, which is easily achieved by showing that the
+group $G^\omega$ is Euclidean.
+\begin{equation*}
+  G^\omega:=\{g\in G|\omega(g)=g\}
+\end{equation*}
+
+Noting that $\AdS_2 \times \S^2$ is a \textit{symmetric brane} (as is $\CW_4$),
+whereas $\NW_4$ is a \textit{non-symmetric brane}, this has led us to the
+postulate that these Penrose-G\"{u}ven Isometric Embedding diagrams preserve the
+maximal symmetry of the embedded spaces.
+
+\clearpage
+\section{$\star$-Products}
+
+The Weyl operator ${\hat\Omega}[f]$ can be thought of as a one-to-one map from local
+coordinates $x^i$ (an algebra of fields on $\real^D$) to Hermitian operators
+$\hat{x}^i$ (on an appropriate Hilbert space) exhibiting the algebra
+\begin{equation*}
+  \cb{\hat{x}^i}{\hat{x}^j}=i\theta^{ij}
+\end{equation*}
+we can define $\star$-commutator brackets for the functions
+\begin{equation*}
+  \scb{x^i}{x^j}=x^i\star x^j-x^j\star x^i
+\end{equation*}
+which allows us to replicate the operator algebra
+\begin{equation*}
+  \scb{x^i}{x^j}=i\theta^{ij}
+\end{equation*}
+
+The $\star$-product is a deformation of pointwise multiplication of functions on
+$\real^D$ to an associative but non-commutative algebra
+\begin{eqnarray*}
+  {\hat\Omega}[f]{\hat\Omega}[g]&=&{\hat\Omega}[f\star g]\\
+  f\star g &=& \iint
+  \frac{\widetilde{f}(k)\widetilde{g}(k')}{(2\pi)^{2D}}{\hat\Omega}^{-1}[
+  e^{ik_i\hat{x}^i}e^{ik'_i\hat{x}^i}]d^Dkd^Dk'
+\end{eqnarray*}
+For $\theta=0$, the $\star$-product reduces to the ordinary product of functions
+and if $\theta$ is constant we get the Groenewold-Moyal $\star$-product
+\begin{eqnarray*}
+  f(x)\star g(x)&=&f(x)\exp\left(\frac{i}{2}\overleftarrow\partial_i
+    \theta^{ij}\overrightarrow\partial_j\right)g(x)\\ \nonumber
+  &=& f(x)g(x)+
+  \sum_{n=1}^\infty
+  \frac{i^n}{2^nn!}\theta^{i_1j_1}\ldots\theta^{i_nj_n}
+  \partial_{i_1}\ldots\partial_{i_n}f(x)\partial_{j_1}\ldots\partial_{j_n}g(x)
+\end{eqnarray*}
+There is a standard form for Lie Algebras
+\begin{equation*}
+  f\star g(z)=f(z)\exp\left(-x^i\left[F_i-k_i-k_i'\right]\right)g(z)
+\end{equation*}
+where $F_i$ arises from the BCH formula
+\begin{eqnarray*}
+  (n+1)\mathrm{C}_{n+1}(X:Y)&&=\frac 12 \cb{X-Y}{\mathrm{C}_n(X:Y)}
+  \\ \nonumber + \sum_{p \ge 1, 2p \le n} K_{2p}\!\!\!\!\!
+  \sum_{\substack{k_1,\ldots,k_{2p}> 0 \\ k_1+\ldots+k_{2p}=n }}&&
+  \!\!\!\!\!\!\!\!\!\!\cb{\mathrm{C}_{k_1}(X:Y)}
+  {\left[\ldots,\cb{\mathrm{C}_{k_{2p}}(X:Y)}{X+Y}\ldots\right]}
+\end{eqnarray*}
+
+\clearpage
+\section{$\NW_4$ $\star$-Products}
+
+The $\NW_4$ algebra can be rewritten like so
+\begin{eqnarray*}
+  \cb{\hat{\P}^+}{\hat{\P}^-} &=& -2 \hat{\K} \\ \nonumber
+  \cb{\hat{\J}}{\hat{\P}^\pm} &=& \mp\hat{\P}^\pm
+% \\ \cb{\hat{\K}}{\Diamond} &=& 0
+\end{eqnarray*}
+which is an extension of the $\kappa$-Minkowski algebra. Using the
+parameterisation (where $u$ and $v$ are real numbers, $w$ is a complex with
+conjugate $\bar w$)
+\begin{eqnarray*}
+  R(u) &=& e^{i u\hat{\J}} \\
+  T(w) &=& e^{i\bar w\hat\P^++iw\hat\P^-} \\
+  Z(v) &=& e^{iv\hat\K}
+\end{eqnarray*}
+$R(u)$ is the rotation by an angle $u$ in the complex plane, $T(w)$ is the
+translation by $w$ and $Z(v)$ is a one-parameter subgroup.
+
+The group multiplication law tells us
+\begin{eqnarray*}
+  R(u_1)R(u_2)&=&R(u_1+u_2) \\
+  R(u)T(w)&=&T(we^{iu})R(u) \\
+  T(w_1)T(w_2)&=&T(w_1+w_2)Z(iw\bar w'-i\bar w w')
+\end{eqnarray*}
+which is invaluable when attempting to calculate exponential products such as
+\begin{eqnarray*}
+  e^{iu\hat\J}e^{i\bar w\hat\P^++iw\hat\P^-}&=&e^{i\bar w e^{-i
+      u}\hat\P^+ +iwe^{i u}\hat\P^-}e^{iu\hat\J} \\
+  e^{i\bar w\hat\P^++iw\hat\P^-}e^{iu\hat\J}&=&e^{iu\hat\J}e^{i\bar w e^{i
+      u}\hat\P^+ +iwe^{-i u}\hat\P^-} \\
+  e^{i\bar w\hat\P^++iw\P^-}e^{i\bar w'\hat\P^++iw'\hat\P^-}&=&
+  e^{i(\bar w+\bar w')\hat\P^++i(w+w')\hat\P^-}e^{\left(\bar ww'-w\bar
+      w'\right)\hat\K}
+\end{eqnarray*}
+
+\clearpage
+\section{Orderings}
+
+There is still an element of freedom in the $\star$-product with regards to the
+ordering choice in the exponential, this is the reason why there are,
+technically speaking, infinitely many $\star$-products associated with any
+algebra. It is therefore important that we choose important orderings. We
+investigate \textit{time ordering}
+\begin{equation*}
+  \NOa e^{ik_i\hat x^i}\NOa=e^{i\bar w\hat\P^++iw\hat\P^-}e^{iu\hat\J}e^{iv\hat\K}
+\end{equation*}
+which is the simplest ordering and generates the metric in Nappi-Witten
+coordinates.
+\textit{symmetric time ordering}
+\begin{equation*}
+  \NOb e^{ik_i\hat x^i}\NOb=e^{i\frac u2\hat\J}e^{i\bar w\hat\P^++iw\hat\P^-}
+  e^{i\frac u2\hat\J}e^{iv\hat\K}
+\end{equation*}
+which generates the metric in plane wave coordinates
+and \textit{Weyl ordering}
+\begin{equation*}
+  \NO e^{ik_i\hat x^i}\NO=e^{i\bar{w}\hat \P^++iw\hat \P^-+iu\hat \J+iv\hat\K}
+\end{equation*}
+which is considered the most obvious ordering, despite having the least physical
+interpretation. Luckily it is possible to use the group multiplication law in
+order to find the exponential product for the first two orderings, which allows
+us to obtain the star products
+\begin{eqnarray*}
+  f\ast g&=&\frac{1}{(2\pi)^{8}}\iint e^{F_i(k,k')x^i}d^Dkd^Dk'\\ \nonumber
+  F_1&=& i(\bar w+\bar w'e^{-i u})\\ \nonumber
+  F_2&=& i(w + w'e^{i u})\\ \nonumber
+  F_3&=& i(u+u')\\ \nonumber
+  F_4&=& i(v+v')+\bar ww'e^{i u}-w\bar w'e^{-i u}
+\end{eqnarray*}
+and
+\begin{eqnarray*}
+  f\bullet g&=&\frac{1}{(2\pi)^{8}}\iint e^{F_i(k,k')x^i}d^Dkd^Dk'\\ \nonumber
+  F_1&=&i\bar we^{\frac i2 u'}+i\bar w'e^{-\frac i2 u}\\ \nonumber
+  F_2&=&iwe^{-\frac i2 u'}+iw'e^{\frac i2 u}\\ \nonumber
+  F_3&=&i(u+u')\\ \nonumber
+  F_4&=&i(v+v')+\bar ww'e^{\frac i2(u+u')}-w\bar w'e^{-\frac
+    i2(u+u')}
+\end{eqnarray*}
+but for the Weyl ordering case, it was necessary to calculate several terms
+explicitly using the BCH formula arriving at
+\begin{eqnarray*}
+  f\star g&=&\frac{1}{(2\pi)^{8}}\iint
+  e^{F_i(k,k')x^i}d^Dkd^Dk'\\ \nonumber
+  F_1&=&i\frac{\bar{w}\Phi(-iu)+\bar{w}'\Phi(-iu')e^{-i u}}{\Phi(-iu-iu')}\\
+  \nonumber
+  F_2&=&i\frac{w\Phi(iu)+w'\Phi(iu')e^{i u}}{\Phi(iu-iu')}\\
+  \nonumber
+  F_3&=&i(u+u')\\ \nonumber
+  F_4&=&2\bar{w}w\Phi(iu)\Phi(-iu)\Upsilon(iu)
+  +2\bar{w}'w'\Phi(iu')\Phi(-iu')\Upsilon(iu')\\ \nonumber
+  &&-w\bar{w}'\Phi(iu)\Phi(-iu')e^{-i u}
+  +\bar{w}w'\Phi(-iu)\Phi(iu')e^{i u}\\ \nonumber
+  &&-2\left(\bar{w}\Phi(-iu)+\bar{w}'\Phi(-iu')e^{-i u}\right)\\ \nonumber
+  &&\quad\!\!\!\times\left(w\Phi(iu)+w'\Phi(iu')e^{i
+      u}\right)\Upsilon(iu+iu')+i(v+v')\\\\
+  \Phi(a)&=&\frac{e^{ a}-1}a
+  \qquad
+  \Upsilon(a)=\frac 12 +\frac{e^{ a}-1- a
+    e^{ a}}
+  {\left(e^{ a}-1\right)^2}
+\end{eqnarray*}
+
+\clearpage
+\section{Generalised Weyl Systems}
+
+A \textit{generalised Weyl system} is a map in the set of operators $\weyl$ with
+composition rule
+\begin{equation*}
+  \weyl(k)\weyl(k')=e^{\frac i2\omega(k,k')}\weyl(k\comp k')
+\end{equation*}
+$\comp$ forms a group on $\real^n$ satisfying
+\begin{eqnarray*}
+  (k\comp k')\comp k'' &=& k\comp(k'\comp k'') \\
+  k\comp \underline k &=& 0
+\end{eqnarray*}
+where $\underline k$ is the inverse of $k$ and $0$ is the neutral element. The
+original motivation for Weyl systems was to avoid the presence of unbounded
+operators in the Q.M. formalism. Standard Weyl systems correspond to the
+generalised Weyl system when $\comp$ is the normal addition on $\real^n$ but
+does not hold for constant $\theta$. The generalised Weyl systems follow
+trivially from the $\star$-products.
+
+\clearpage
+\section{Future Work}
+
+We intend to submit the Penrose-G\"{u}ven Isometric Embedding diagram work
+(which includes my 1st year work) in November. The $\star$-product and
+Generalised Weyl System work will be expanded by calculating differentiability
+and integrability conditions allowing for field theories to be pursued. This
+work should not take long and we intend to submit by March.
+
+At that stage we will decide upon either creating a field theory with this
+algebra, or generalising the work people have done on $\kappa$-Minkowski.
+
+It is clear that we will not find the originally sought after Time-Dependent
+Non-Commutative Geometry which Dolan-Nappi\footnote{L.~Dolan and C.R.~Nappi,
+  Phys. Lett. {\bf B551} (2003) 369--377 [{\tt hep-th/0210030}].} found on this
+space, so i need a new title.
+\end{document}

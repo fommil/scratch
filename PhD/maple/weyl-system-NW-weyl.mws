@@ -1,0 +1,88 @@
+{VERSION 6 0 "SUN SPARC SOLARIS" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 2 
+1 2 0 0 0 1 }{CSTYLE "2D Output" -1 20 "Times" 0 1 0 0 255 1 0 0 2 2 
+2 2 0 0 0 1 }{CSTYLE "_cstyle4" -1 208 "Courier" 0 1 255 0 0 1 0 1 0 
+2 1 2 0 0 0 1 }{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 
+0 0 0 1 2 2 2 2 2 2 0 0 0 1 }1 1 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "Ma
+ple Output" -1 11 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 2 2 2 0 0 0 
+1 }3 3 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle9" -1 209 1 {CSTYLE "
+" -1 -1 "Courier" 0 1 255 0 0 1 0 1 0 2 1 2 0 0 0 1 }0 0 0 -1 -1 -1 2 
+0 2 0 2 2 -1 1 }{PSTYLE "_pstyle10" -1 210 1 {CSTYLE "" -1 -1 "Courier
+" 0 1 255 0 0 1 0 1 0 2 1 2 0 0 0 1 }0 0 0 -1 -1 -1 2 0 2 0 2 2 -1 1 }
+{PSTYLE "_pstyle11" -1 211 1 {CSTYLE "" -1 -1 "Courier" 0 1 255 0 0 1 
+0 1 0 2 1 2 0 0 0 1 }1 1 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle15
+" -1 214 1 {CSTYLE "" -1 -1 "Courier" 0 1 255 0 0 1 0 1 0 2 1 2 1 0 0 
+1 }1 1 0 0 0 0 2 0 2 0 2 2 -1 1 }{PSTYLE "_pstyle16" -1 215 1 {CSTYLE 
+"" -1 -1 "" 0 1 0 0 0 0 0 0 0 2 2 2 0 0 0 1 }0 0 0 -1 -1 -1 2 0 2 0 2 
+2 -1 1 }}
+{SECT 0 {EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 8 "restart;" }}}
+{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 12 "Phi:=proc(x)" }{MPLTEXT 
+1 -1 26 "\nif (simplify(x)=0) then 1" }{MPLTEXT 1 -1 7 "\n  else" }
+{MPLTEXT 1 -1 18 "\n  (exp(x)-1)/(x);" }{MPLTEXT 1 -1 8 "\nend if:" }
+{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 210 "> " 0 "" {MPLTEXT 
+1 -1 14 "Theta:=proc(x)" }{MPLTEXT 1 -1 28 "\n  if (simplify(x)=0) the
+n 0" }{MPLTEXT 1 -1 7 "\n  else" }{MPLTEXT 1 -1 40 "\n  1/2+(exp(x)-1-
+x*exp(x))/(exp(x)-1)^2;" }{MPLTEXT 1 -1 10 "\n  end if:" }{MPLTEXT 1 
+-1 10 "\nend proc:" }}}{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 35 "f[
+1]:=proc(k1,k2,k3,k4,p1,p2,p3,p4)" }{MPLTEXT 1 -1 17 "\n  (k1*Phi(-I*k
+3)" }{MPLTEXT 1 -1 48 "\n    +p1*Phi(-I*p3)*exp(-I*k3))/Phi(-I*(k3+p3)
+):" }{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 209 "> " 0 "" 
+{MPLTEXT 1 -1 35 "f[2]:=proc(k1,k2,k3,k4,p1,p2,p3,p4)" }{MPLTEXT 1 -1 
+17 "\n   (k2*Phi(I*k3)" }{MPLTEXT 1 -1 46 "\n     +p2*Phi(I*p3)*exp(I*
+k3))/Phi(I*(k3+p3)):" }{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 
+209 "> " 0 "" {MPLTEXT 1 -1 35 "f[3]:=proc(k1,k2,k3,k4,p1,p2,p3,p4)" }
+{MPLTEXT 1 -1 11 "\n  (k3+p3):" }{MPLTEXT 1 -1 10 "\nend proc:" }}}
+{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 35 "f[4]:=proc(k1,k2,k3,k4,p1
+,p2,p3,p4)" }{MPLTEXT 1 -1 8 "\n  k4+p4" }{MPLTEXT 1 -1 48 "\n- I*2*(k
+1*k2*(Phi(I*k3)*Phi(-I*k3))*Theta(I*k3)" }{MPLTEXT 1 -1 47 "\n    +p1*
+p2*(Phi(I*p3)*Phi(-I*p3))*Theta(I*p3))" }{MPLTEXT 1 -1 44 "\n+ I*k2*p1
+*exp(-I*k3)*(Phi(I*k3)*Phi(-I*p3))" }{MPLTEXT 1 -1 43 "\n- I*k1*p2*exp
+(I*k3)*(Phi(-I*k3)*Phi(I*p3))" }{MPLTEXT 1 -1 47 "\n+ I*2*(k1*Phi(-I*k
+3)+p1*Phi(-I*p3)*exp(-I*k3))" }{MPLTEXT 1 -1 39 "\n*(k2*Phi(I*k3)+p2*P
+hi(I*p3)*exp(I*k3))" }{MPLTEXT 1 -1 19 "\n*Theta(I*(k3+p3)):" }
+{MPLTEXT 1 -1 10 "\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 40 "# check that we have the inverse correct" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 163 "for i from 1 to 4 do\n if (simplify(expand(f[
+i](k[1],k[2],k[3],k[4],-k[1],-k[2],-k[3],-k[4])))<>0) then\n    print(
+\"fail\");\n else\n    print(\"pass\");\n end if;\nend do;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#Q%pass6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG 
+{PARA 209 "> " 0 "" {MPLTEXT 1 -1 52 "K[1]:=f[1](k[1],k[2],k[3],k[4],p
+[1],p[2],p[3],p[4]):" }}}{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 52 "
+K[2]:=f[2](k[1],k[2],k[3],k[4],p[1],p[2],p[3],p[4]):" }}}{EXCHG {PARA 
+209 "> " 0 "" {MPLTEXT 1 -1 52 "K[3]:=f[3](k[1],k[2],k[3],k[4],p[1],p[
+2],p[3],p[4]):" }}}{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 52 "K[4]:=
+f[4](k[1],k[2],k[3],k[4],p[1],p[2],p[3],p[4]):" }}}{EXCHG {PARA 209 ">
+ " 0 "" {MPLTEXT 1 -1 60 "P[1]:=f[1](-p[1],-p[2],-p[3],-p[4],-k[1],-k[
+2],-k[3],-k[4]):" }}}{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 1 -1 60 "P[2]
+:=f[2](-p[1],-p[2],-p[3],-p[4],-k[1],-k[2],-k[3],-k[4]):" }}}{EXCHG 
+{PARA 209 "> " 0 "" {MPLTEXT 1 -1 60 "P[3]:=f[3](-p[1],-p[2],-p[3],-p[
+4],-k[1],-k[2],-k[3],-k[4]):" }}}{EXCHG {PARA 209 "> " 0 "" {MPLTEXT 
+1 -1 60 "P[4]:=f[4](-p[1],-p[2],-p[3],-p[4],-k[1],-k[2],-k[3],-k[4]):
+" }}}{EXCHG {PARA 211 "> " 0 "" {MPLTEXT 1 0 27 "# check the group con
+dition" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 159 "for i from 1 to \+
+4 do\n if (simplify(expand(f[i](K[1],K[2],K[3],K[4],P[1],P[2],P[3],P[4
+])))<>0) then\n    print(\"fail\");\n else\n    print(\"pass\");\n end
+ if;\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#Q%pass6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}}{EXCHG 
+{PARA 214 "> " 0 "" {MPLTEXT 1 208 108 "# check the associativity cond
+ition (even though i am pretty sure groups have to be associative... a
+ah well)" }}}{EXCHG {PARA 211 "> " 0 "" {MPLTEXT 1 0 52 "Q[1]:=f[1](p[
+1],p[2],p[3],p[4],q[1],q[2],q[3],q[4]):" }}}{EXCHG {PARA 211 "> " 0 "
+" {MPLTEXT 1 0 52 "Q[2]:=f[2](p[1],p[2],p[3],p[4],q[1],q[2],q[3],q[4])
+:" }}}{EXCHG {PARA 211 "> " 0 "" {MPLTEXT 1 0 52 "Q[3]:=f[3](p[1],p[2]
+,p[3],p[4],q[1],q[2],q[3],q[4]):" }}}{EXCHG {PARA 211 "> " 0 "" 
+{MPLTEXT 1 0 52 "Q[4]:=f[4](p[1],p[2],p[3],p[4],q[1],q[2],q[3],q[4]):
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 64 "# WARNING!! these all f
+ail, and for i=4, it actually hangs maple" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 205 "for i from 1 to 4 do\n if (simplify(expand(f[i](K[
+1],K[2],K[3],K[4],q[1],q[2],q[3],q[4])-f[i](k[1],k[2],k[3],k[4],Q[1],Q
+[2],Q[3],Q[4])))<>0) then\n    print(\"fail\");\n else\n    print(\"pa
+ss\");\n end if;\nend do;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#Q%pass6\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#Q%pass6\"
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{PARA 215 "" 0 "" 
+{TEXT -1 0 "" }}}{MARK "17 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }
+{PAGENUMBERS 0 1 2 33 1 1 }

@@ -1,0 +1,83 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }{PSTYLE "" 11 12 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 
+0 0 0 0 0 0 0 0 0 }1 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "maxorder:=3:" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 42 "read(\"/home/samuel/maple/star-tests.txt\");" 
+}}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "algnames:=\{x[3]=x[0],I=i
+\}:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 82 "this is just to prettify t
+he output. the imaginary unit is also printed lower case" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 46 "Phi:=proc(x,y)\n  (exp(y*x)-1)/(y*x
+);\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 123 "F[1]:=I*(
+k[1]*Phi(I*k[3]*lambda,beta)+p[1]*exp(I*beta*lambda*k[3])*Phi(I*p[3]*l
+ambda,beta))/Phi(I*lambda*(k[3]+p[3]),beta):" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 123 "F[2]:=I*(k[2]*Phi(I*k[3]*lambda,beta)+p[2]*exp(
+I*beta*lambda*k[3])*Phi(I*p[3]*lambda,beta))/Phi(I*lambda*(k[3]+p[3]),
+beta):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "F[3]:=I*(k[3]+p[3
+]):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 40 "exponent:=x[1]*F[1]+
+x[2]*F[2]+x[3]*F[3]:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "#su
+bs(algnames,exponent):" }}{PARA 0 "" 0 "" {TEXT -1 122 "this is a bit \+
+of a cheat... maple cannot handle the whole exponent as there are term
+s on the bottom which get set to zero." }}{PARA 0 "" 0 "" {TEXT -1 
+111 "they are also on the top... so we would just cancel them before s
+etting to zero; but try telling that to maple!" }}{PARA 0 "" 0 "" 
+{TEXT -1 112 "what we do here is take a taylor series of the exponent,
+ simplify it (so nothing is on the bottom line) and then" }}{PARA 0 "
+" 0 "" {TEXT -1 41 "pass that to the *-product test function." }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 90 "printallstars(simplify(subs(
+beta=1,convert(series(exponent,beta,maxorder+1),polynom))),3);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/-%#&*G6$&%\"xG6#\"\"\"&F(6#\"\"#*&F'F
+*F+F*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/-%#&*G6$&%\"xG6#\"\"\"&F(6#
+\"\"!,&*&#F*\"\"#F**&%'lambdaGF*F'F*F*!\"\"*&F+F*F'F*F*" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#/-%#&*G6$&%\"xG6#\"\"#&F(6#\"\"\"*&F+F-F'F-" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/-%#&*G6$&%\"xG6#\"\"#&F(6#\"\"!,&*&#
+\"\"\"F*F1*&%'lambdaGF1F'F1F1!\"\"*&F+F1F'F1F1" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#/-%#&*G6$&%\"xG6#\"\"!&F(6#\"\"\",&*&#F-\"\"#F-*&%'lamb
+daGF-F+F-F-F-*&F'F-F+F-F-" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/-%#&*G6$
+&%\"xG6#\"\"!&F(6#\"\"#,&*&#\"\"\"F-F1*&%'lambdaGF1F+F1F1F1*&F'F1F+F1F
+1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 89 "printallcoms(simplify(
+subs(beta=1,convert(series(exponent,beta,maxorder+1),polynom))),3);" }
+}{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$&%\"xG6#\"\"\"&F&6#\"\"!,$*&%'lamb
+daGF(F%F(!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$&%\"xG6#\"\"#&F&6
+#\"\"!,$*&%'lambdaG\"\"\"F%F/!\"\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 77 "exponentx:=exponent-I*x[1]*(k[1]+p[1])-I*x[2]*(k[2]+p
+[2])-I*x[3]*(k[3]+p[3]):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 69 
+"momentumspace:=subs(beta=1,series(exp(exponentx),lambda,maxorder+1)):
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 39 "subs(algnames,simplify(
+momentumspace));" }}{PARA 12 "" 1 "" {XPPMATH 20 "6#++%'lambdaG\"\"\"
+\"\"!,**&#F%\"\"#F%*(&%\"xG6#F%F%&%\"pGF.F%&%\"kG6#\"\"$F%F%!\"\"*&#F%
+F*F%*(F,F%&F2F.F%&F0F3F%F%F%*&#F%F*F%*(&F-6#F*F%&F0F?F%F1F%F%F5*&F7F%*
+(F>F%&F2F?F%F:F%F%F%F%,$*&#F%\"#CF%*&%\"iGF%,F**F*F%F,F%F/F%)F1F*F%F%*
+,F*F%F,F%F/F%F1F%F:F%F5*,F*F%F,F%F9F%F1F%F:F%F5**F*F%F,F%F9F%)F:F*F%F%
+**F*F%F>F%F@F%FLF%F%*,F*F%F>F%F@F%F1F%F:F%F5*,F*F%F>F%FCF%F1F%F:F%F5**
+F*F%F>F%FCF%FPF%F%*2\"\"'F%FIF%F,F%F/F%F1F%F>F%FCF%F:F%F5*0FVF%FIF%F,F
+%F9F%FPF%F>F%FCF%F%*0FVF%FIF%)F>F*F%F@F%F1F%FCF%F:F%F5*0FVF%FIF%F,F%F/
+F%FLF%F>F%F@F%F%*2FVF%FIF%F,F%F9F%F:F%F>F%F@F%F1F%F5*,F4F%FIF%)F,F*F%)
+F/F*F%FLF%F%*,F4F%FIF%FgnF%)F9F*F%FPF%F%*,F4F%FIF%FYF%)F@F*F%FLF%F%*,F
+4F%FIF%FYF%)FCF*F%FPF%F%*0FVF%FIF%FgnF%F/F%F1F%F9F%F:F%F5F%F%F5F*-%\"O
+GF.F4" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 141 "positionspace:=si
+mplify(subs(\{k[1]=-I*f[1],k[2]=-I*f[2],k[3]=-I*f[3],\n               \+
+p[1]=-I*g[1],p[2]=-I*g[2],p[3]=-I*g[3]\},momentumspace)):" }{TEXT -1 
+0 "" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 76 "in the next equation f_i m
+eans df/dx_i and similarly for g_i meaning dg/dx_i" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 29 "subs(algnames,positionspace);" }}{PARA 12 "
+" 1 "" {XPPMATH 20 "6#++%'lambdaG\"\"\"\"\"!,**&#F%\"\"#F%*(&%\"xG6#F%
+F%&%\"gGF.F%&%\"fG6#\"\"$F%F%F%*&#F%F*F%*(F,F%&F2F.F%&F0F3F%F%!\"\"*&F
+)F%*(&F-6#F*F%&F0F>F%F1F%F%F%*&#F%F*F%*(F=F%&F2F>F%F9F%F%F:F%,F*&#F%\"
+#7F%**F,F%F8F%F1F%F9F%F%F:*&#F%\"\")F%*()F=F*F%)FCF*F%)F9F*F%F%F%*&#F%
+FGF%*(F,F%F8F%FOF%F%F%*&#F%\"\"%F%*,FMF%F?F%F1F%FCF%F9F%F%F:*&#F%FGF%*
+*F=F%F?F%F1F%F9F%F%F:*&#F%FUF%*.F,F%F8F%F9F%F=F%F?F%F1F%F%F:*&#F%FGF%*
+*F,F%F/F%F1F%F9F%F%F:*&#F%FGF%**F=F%FCF%F1F%F9F%F%F:*&#F%FUF%*,F,F%F8F
+%FOF%F=F%FCF%F%F%*&FQF%*(F,F%F/F%)F1F*F%F%F%*&#F%FUF%*,)F,F*F%F/F%F1F%
+F8F%F9F%F%F:*&FQF%*(F=F%FCF%FOF%F%F%*&#F%FUF%*.F,F%F/F%F1F%F=F%FCF%F9F
+%F%F:*&FJF%*(FfoF%)F/F*F%FboF%F%F%*&FQF%*(F=F%F?F%FboF%F%F%*&F^oF%*,F,
+F%F/F%FboF%F=F%F?F%F%F%*&FJF%*(FMF%)F?F*F%FboF%F%F%*&FJF%*(FfoF%)F8F*F
+%FOF%F%F%F*-%\"OGF.F4" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }
+}}}{MARK "19 0 0" 0 }{VIEWOPTS 1 1 0 3 2 1804 1 1 1 1 }{PAGENUMBERS 0 
+1 2 33 1 1 }

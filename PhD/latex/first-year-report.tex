@@ -1,0 +1,312 @@
+\documentclass[11pt, a4paper, titlepage]{article}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,amstext,amscd,array,bbold}
+\usepackage[latin1]{inputenc}
+\DeclareMathOperator{\AdS}{AdS}
+\DeclareMathOperator{\Sphere}{S}
+\DeclareMathOperator{\NW}{NW}
+\DeclareMathOperator{\CW}{CW}
+\let\S\Sphere
+
+\begin{document}
+\title{End of First Year Report}
+\author{Sam Halliday}
+\maketitle
+\section{General Outline}
+The original target of my thesis was to study an exact quantum (field) theory on
+a time dependent non-commutative background. The stages which I have done so far
+can be summarised as follows:
+\begin{itemize}
+\item Study exactly solvable techniques for doing time dependent quantum
+  mechanics and generalise to the type of system we expect
+\item Study time dependent QM/QFT models which incorporate a (constant)
+  non-commutative background
+\item Find a suitable background (Nappi-Witten) which generates a time dependent
+  non-commutative geometry. Find the commutative geometry limit QFT
+\item Attempt to find the non-commutativity parameter ($\Theta$) and the star
+  products exactly, as previous calculations have only been approximate
+\end{itemize}
+However, step 4 has been a lot harder than expected and has led to some
+interesting research in unexpected areas; Penrose-G\"{u}ven limits and
+commutative isometric embedding diagrams in particular.
+
+\section{The Nappi-Witten WZW Model ($NW_4$)}
+The Nappi-Witten WZW model \cite{nw} is a very interesting background for
+several reasons:
+\begin{itemize}
+\item Algebraically it is a central extension of the Poincar\'{e} algebra, with
+  $T$ being the central generator
+  \begin{equation}
+    \label{eq:nw:poincare}
+    \left[J,P_i\right]=\epsilon_{ij}P_j \qquad
+    \left[P_i,P_j\right]=\epsilon_{ij}T
+  \end{equation}
+\item It is a 4-dimensional Lorentz signature background, just like the
+  universe we see around us
+\item Expressible as a plane wave
+\item Exact solution to string equations of motion
+\end{itemize}
+In the NS-NS sector, we can write the metric and field strength $H$ in Brinkman
+coordinates $(x^-,x^+,z^i)$ as
+\begin{eqnarray}
+  \label{eq:nw:G}
+  G&=&2dx^-dx^+ +\frac{\vec{z}^2}{4}\left(d
+    x^-\right)^2 + \left(d\vec{z}\right)^2 \\
+  \label{eq:nw:H}
+  H&=&dB=-dx^-\wedge dz^1\wedge dz^2
+\end{eqnarray}
+
+\section{So what is $\Theta$ and Why is it so Complicated in this Case?}
+The simple answer is that in QM, $\Theta$ is the matrix defining the
+non-commutativity of the coordinates
+\begin{equation}
+  \label{eq:theta}
+  \left[q^i,q^j\right]=i\Theta^{ij}
+\end{equation}
+Seiberg and Witten \cite{stncg} showed how to derive the value of $\Theta$ from
+string theory in a very easy manner. For $H=0$ (this includes most flat spaces)
+the calculation to obtain $\Theta$ is trivial
+\begin{equation}
+  \label{eq:constantB}
+  \Theta=B^{-1}
+\end{equation}
+If $H\neq 0$, this equation breaks down. We can see it breaking explicitly for
+$\NW_4$ by comparing with the approximate result given by Dolan and Nappi
+\cite{dn}. Using \eqref{eq:nw:H} and \eqref{eq:theta} we would get
+$\Theta^{12}=-\frac{1}{x^-}$, but Dolan and Nappi's calculation hints that for
+small $x^-$, we would expect to see something more like $\Theta^{12}=-x^-$.
+
+Several authors have attempted to generalise the calculation of $\Theta$ to
+$H\neq 0$ backgrounds, such as \cite{ho} and \cite{lbcb}, the former using an
+approximation which results in non-commuting momentum (at best), the latter
+approach failing for non-compact spaces. It is also possible to get $\Theta$
+from the Moyal star product of a space, which is a deformation of pointwise
+multiplication of functions. We hoped to get the star product of a doubly
+extended Poincar\'{e} algebra as a group contraction of the star products on
+$\mathrm{SU}(2)\oplus \mathrm{Sl}(2,\mathbb{R})$ and use this to get the star
+product on the centrally extended Poincar\'{e} algebra, but we found curious
+infinities when performing the limit, hinting us to try something else.
+
+The particular group contraction which we were using is also closely related to
+the Penrose limit of a spacetime, as the target space in this case is a plane
+wave. The Penrose limit with $\NW_4$ as the target space was recently studied
+\cite{pllbnwb} where it was shown that 2 such paths existed from the well
+studied $\AdS_3\times\S^3$ space
+\begin{equation}
+  \label{eq:jose}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3    @>\text{PGL}>>          \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \AdS_2 \times \S^2    @>\text{PGL}>>          \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+where the vertical lines are embeddings and the horizontal lines
+Penrose-G\"{u}ven limits. $\NW_6$ is a six dimensional analogy of the $\NW_4$
+spacetime. Luckily $H=0$ on $\AdS_2\times\S^2$, which allows for standard
+techniques on that space; the intention was to use the Penrose limit directly on
+$\Theta$ and get the non-commutativity on $\NW_4$. Unfortunately, although it
+was claimed that this diagram commuted, it does not for supergravity fields such
+as $B$ and $H$, thus $\Theta$ does not map as expected. We then spent some time
+trying to find out why the diagram was broken and this led to generalising
+commutative isometric embedding diagrams with Penrose-G\"{u}ven limits.
+
+\section{Penrose-G\"{u}ven Limits}
+In \cite{pl}, Penrose showed that any Lorentzian spacetime has a limiting
+spacetime which is a plane wave. This limit can be thought of as a ``first order
+approximation'' along a null geodesic. The limiting spacetime depends on the
+choice of null geodesic, and hence any spacetime can have more than one Penrose
+limit. More recently, G\"{u}ven extended Penrose's argument to show that any
+solution of a supergravity theory has plane wave limits which are also
+solutions.
+
+Let $(M,G)$ be a $D$-dimensional Lorentzian spacetime. By \cite{penrose} we can
+always introduce local coordinates $(U,V,Y^i)$ in the neighbourhood of a portion
+of a null geodesic $\gamma$ which contains no conjugate points. Such a metric
+takes the form
+\begin{equation}
+  \label{eq:bpg:initial:G}
+  G = \left(dU + \alpha dV + \beta_i dY^i \right)dV + C_{ij} dY^i dY^j
+\end{equation}
+where $\alpha$, $\beta_i$ and $C_{ij}$ are functions of the coordinates and
+$C_{ij}$ is a symmetric positive-definite matrix, $i,j=1,2,\ldots,D-2$. The
+coordinate system breaks down when $\det{C}=0$, signalling the existence of a
+conjugate point. This coordinate system has the advantage that a null geodesic
+congruence is singled out by $V,Y^i\rightarrow$ constant, with $U$ being an
+affine parameter along these geodesics. The geodesic $\gamma$ is the one for
+which $V=Y^i=0$.
+
+In supergravity theories there are also general $p$-form potentials $A$ with
+$(p+1)$-form field strengths $F=dA$. The potentials are defined up to gauge
+transformations $A\mapsto A+d\Lambda$ in such a way that $F$ is gauge invariant.
+G\"{u}ven extended the Penrose limit to supergravity theories by noting that in
+order to ensure well defined potentials in the target space, a gauge must be
+chosen for the potentials such that
+\begin{equation}
+  \label{eq:bpg:guven}
+  A_{U(i_1\ldots i_{p-1})}=0
+\end{equation}
+By imposing this condition on $A$, we can now write general potential and
+associated field strengths on $M$
+\begin{eqnarray}
+  \label{eq:bpg:initial:A}
+  A &=& a_{i_1 \ldots i_p} dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+b_{i_1\ldots i_p} dY^{i_1}\wedge\ldots\wedge dY^{i_p}\\ \nonumber
+  &&+c_{i_1\ldots i_p} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-2}} \\
+  \label{eq:bpg:initial:F}
+  F &=& \left( \frac{\partial b_{i_1 \ldots i_{p+1}}}{\partial U}
+  \right) dU\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}} \\ \nonumber
+  &&+ d_{i_1 \ldots i_{p+1}} dY^{i_1}\wedge\ldots\wedge dY^{i_{p+1}} \\ \nonumber
+  &&+ e_{i_1 \ldots i_{p+1}} dU\wedge dV\wedge dY^{i_1}\wedge\ldots\wedge
+  dY^{i_{p-1}} \\ \nonumber
+  &&+ f_{i_1 \ldots i_{p+1}} dV\wedge dY^{i_1}\wedge\ldots\wedge dY^{i_{p}}  
+\end{eqnarray}
+Where $a$, $b$, $c$, $d$, $e$ and $f$ are functions of the coordinates. The
+Penrose limit is in practise the rescaling of the coordinates
+\begin{equation}
+  \label{eq:bpg:rescale}
+  U\rightarrow u\qquad V\rightarrow\Omega^2v\qquad Y^i\rightarrow\Omega y^i
+\end{equation}
+where $\Omega\rightarrow 0$. Let us define the new fields on the target space as
+\begin{eqnarray}
+  \label{eq:bpg:tildefields}
+  \widetilde{G}=\lim_{\Omega\rightarrow 0} \Omega^{-2}G(u,\Omega^2v,\Omega y^i) \\ \nonumber
+  \widetilde{A}=\lim_{\Omega\rightarrow 0} \Omega^{-p}A(u,\Omega^2v,\Omega y^i) \\ \nonumber
+  \widetilde{F}=\lim_{\Omega\rightarrow 0} \Omega^{-p}F(u,\Omega^2v,\Omega y^i)
+\end{eqnarray}
+these new fields are related to the original ones by a rescaling and (in the
+case of the potentials) possibly a gauge transformation. We obtain the metric
+and fields in Rosen \cite{rosen} coordinates $(u,v,y^i)$
+\begin{eqnarray}
+  \label{eq:bpg:target:G}
+  \widetilde{G}&=& dudv + C(u)_{ij}dy^i dy^j \\
+  \label{eq:bpg:target:A}
+  \widetilde{A}&=& b(u)_{i_1\ldots i_p}dy^{i_1}
+  \wedge\ldots\wedge dy^{i_p} \\ \nonumber
+  &&+c(u)_{i_1\ldots i_p} du\wedge
+  dv\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_{p-2}}\\
+  \label{eq:bpg:target:F}
+  \widetilde{F}&=&\frac{\partial b(u)_{i_1\ldots i_{p+1}}}{\partial u}
+  du\wedge dy^{i_1}\wedge\ldots\wedge dy^{i_p}
+\end{eqnarray}
+Due to \eqref{eq:bpg:rescale}, we can see that $C(u)_{ij}=C(U,0,0)_{ij}$ which
+is just the value of $C$ along the geodesic $\gamma$. This is also true of
+$b(u)$ and $c(u)$.
+
+\subsection{Isometric Embedding Diagrams}
+If we wish to generate a commutative isometric embedding diagram, whereby the
+embeddings of $N$'s into the $M$'s are denoted by vertical arrows and
+Penrose-G\"{u}ven limits (PGL) by horizontal arrows, we would have the following
+picture:
+\begin{equation}
+  \label{eq:bpg:ie:generic}
+  \begin{CD}
+    @.\\
+    M @>\text{PGL}>>                      \widetilde{M}\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    N @>\text{PGL}>>                      \widetilde{N}\\
+    @.
+  \end{CD}
+\end{equation}
+In order to ensure that the metric and fields commute in such a diagram (i.e.
+that $M\rightarrow \widetilde{M} \rightarrow \widetilde{N}$ yields the same
+result as $M\rightarrow N\rightarrow\widetilde{N}$), we must place some
+restrictions on the kind of projections $\imath^*$, $\widetilde{\imath}^*$ we
+can use. If we choose to set $m$ coordinates to zero\footnote{We require the
+  coordinates to go to zero in order that the PGL is along the same null
+  geodesic in each case, but requiring the coordinates to go constant rather
+  than zero is often sufficient.} in each projection, then we can define
+\begin{eqnarray}
+  \label{eq:bpg:ie:i1}
+  \imath^*&:& Y^{q_1},\ldots,Y^{q_m} \rightarrow 0\\
+  \label{eq:bpg:ie:i2}
+  \widetilde{\imath}^*&:& y^{r_1},\ldots,y^{r_m} \rightarrow 0
+\end{eqnarray}
+If $I=\{1,2,\ldots,D-2\}$ is the set of all indices and the sets of indices of
+the coordinates set to zero are $Q=\{q_1,\ldots,q_m\}$ and
+$R=\{r_1,\ldots,r_m\}$, then $Q,R\subset I$. We can now define two new sets of
+indices, which are the indices of the coordinates which are not set to zero;
+$S=I\backslash Q=\{s_1,\ldots,s_{D-2-m}\}$ and $T=I\backslash
+R=\{t_1,\ldots,t_{D-2-m}\}$.
+
+The following condition is required for the metric to be commutative in such a
+diagram
+\begin{equation}
+  \label{eq:bpg:ie:metriccond}
+  C(U,0,0)_{is} = C(U,0,0)_{it}
+\end{equation}
+where every $s$ is paired with a $t$ such that all the $t$'s are used. A similar
+condition exists for field strengths
+\begin{equation}
+  \label{eq:bpg:ie:fieldcond}
+  b(U,0,0)_{(i_1\ldots i_{p+1})s} = b(U,0,0)_{(i_1\ldots i_{p+1})t}
+\end{equation}
+For potentials we require the condition \eqref{eq:bpg:ie:fieldcond} (with
+indexes up to $i_p$ rather than $i_{p+1}$) and also a second condition
+\begin{equation}
+  \label{eq:bpg:ie:potcond}
+  c(U,0,0)_{(i_1\ldots i_{p})s} = c(U,0,0)_{(i_1\ldots i_{p})t}
+\end{equation}
+It is the particular pairing of $S$ and $T$ which we must choose carefully in
+order to satisfy \eqref{eq:bpg:ie:metriccond}, \eqref{eq:bpg:ie:fieldcond} and
+\eqref{eq:bpg:ie:potcond}. It may even be possible that no such choice exists,
+in which case such a commutative diagram cannot be constructed. If we wish the
+metric and fields to both commute simultaneously, we require the pairing of $S$
+and $T$ to be the same in all the conditions.
+
+These conditions are essentially just a trivial statement that $\imath^*$ and
+$\widetilde{\imath}^*$ must be equivalent along the null geodesic. We found that
+in the case of \eqref{eq:jose}, $\imath^*\neq\widetilde{\imath}^*$.
+
+\section{Future Work}
+The generalisation of the PGL's under isometric embeddings led to a solution for
+the diagram we originally studied, in the form of
+\begin{equation}
+  \label{eq:bpg:ex:fixed1}
+  \begin{CD}
+    @.\\
+    \AdS_3 \times \S^3             @>\text{PGL}>> \NW_6\\
+    \text{$\imath$}@AAA @AAA\text{$\widetilde{\imath}$}\\
+    \mathbb{R}^1\times\S^3         @>\text{PGL}>> \NW_4\\
+    @.
+  \end{CD}
+\end{equation}
+which is also quite interesting as the PGL on the bottom line has been recently
+studied \cite{kiritsis}, and the vertex operators calculated explicitly. A
+technique has already been outlined in \cite{lbcb} for calculating $\Theta$ on a
+curved background (without the problems associated with it being a non-compact
+space), if the vertex operators of a space are known. It is hoped that the
+technique holds for $\NW_4$.
+
+\bibliographystyle{unsrt}
+\begin{thebibliography}{100}
+\bibitem{nw} C. R. Nappi, E. Witten, ``A WZW model based on a non-semi-simple
+  group'', \textit{Phys. Rev. Lett.} \textbf{71} (1993) 3751,
+  \textit{hep-th/9310112}
+\bibitem{stncg} N. Seiberg, E. Witten, ``String Theory and Noncommutative
+  Geometry'', \textit{JHEP} \textbf{9909} (1999) 032, \textit{hep-th/9908142}
+\bibitem{dn} L. Dolan, C. R. Nappi, ``Noncommutativity in a Time-Dependent
+  Background'', \textit{Phys. Lett.} \textbf{B551} (2003) 369-377,
+  \textit{hep-th/0210030}
+\bibitem{ho} Pei-Ming Ho, Yu-Ting Yeh, ``Noncommutative D-Brane in
+  Non-Constant NS-NS B Field Background'', \textit{Phys. Rev. Lett.}
+  \textbf{85} (2000) 5523, \textit{hep-th/0005159}
+\bibitem{lbcb} V. Schomerus, ``Lectures on Branes in Curved Backgrounds'',
+  \textit{Class. Quant. Grav.}, \textbf{19} (2002) 5781, \textit{hep-th/0209241}
+\bibitem{pllbnwb} S. Stanciu, J. Figueroa-O'Farrill, ``Penrose limits of Lie
+  Branes and a Nappi-Witten braneworld'', \textit{JHEP} \textbf{0306} (2003)
+  025, \textit{hep-th/0303212}
+\bibitem{pl} R. Penrose, ``Any Space-Time has a Plane Wave as a Limit'',
+  \textit{Differential Geometry and Relativity}, Reidel, Dordrecht (1976)
+  271-275
+\bibitem{penrose} D. Lerner, R. Penrose, ``Technique of Differential Topology in
+  Relativity'', \textit{SIAM}, Philadelphia (1971)
+\bibitem{guven} R. G\"{u}ven, ``Plane Wave Limits and T-Duality'', \textit{Phys.
+    Lett.} \textbf{B482} (2000) 255-263, \textit{hep-th/0005061}
+\bibitem{rosen} N. Rosen, \textit{Phys. Z. Sowjetunion} \textbf{12} (1937) 366
+\bibitem{kiritsis} G. D'Appollonio, E. Kiritsis, ``String interactions in
+  gravitational wave backgrounds'', \textit{hep-th/0305081}
+\end{thebibliography}
+\end{document}

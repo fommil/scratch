@@ -1,0 +1,20 @@
+{VERSION 5 0 "SUN SPARC SOLARIS" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 30 "eqn1:=-sinh(psi)^2=cos(tau)^2;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%eqn1G/,$*$)-%%sinhG6#%$psiG\"\"#\"
+\"\"!\"\"*$)-%$cosG6#%$tauGF-F." }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 56 "eqn2:=cosh(psi)^2*sinh(omega)^2=sinh(beta)^2*sin(tau)^2;" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%eqn2G/*&)-%%coshG6#%$psiG\"\"#\"\"
+\")-%%sinhG6#%&omegaGF,F-*&)-F06#%%betaGF,F-)-%$sinG6#%$tauGF,F-" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "eqn3:=cosh(psi)^2*cosh(omega
+)^2=cosh(beta)^2*sin(tau)^2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%eqn
+3G/*&)-%%coshG6#%$psiG\"\"#\"\"\")-F)6#%&omegaGF,F-*&)-F)6#%%betaGF,F-
+)-%$sinG6#%$tauGF,F-" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG }}{MARK "8" 0 
+}{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

@@ -1,0 +1,45 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "restart;with(Commuta
+tor):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 46 "maxorder:=8:read \+
+\"/home/samuel/maple/BCH.txt\";" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 24 "constants:=constants, T:" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 39 "c(y,z):=I*2*T;c(x,y):=I*y;c(x,z):=-I*z;" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"yG%\"zG*&^#\"\"#\"\"\"%\"TGF-
+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"xG%\"yG*&F)\"\"
+\"^#F+F+" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>-%'VECTORG6#7$%\"xG%\"zG*
+&^#!\"\"\"\"\"F)F-" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 36 "A:=-I
+*(y*k2+z*k3):B:=-I*(x*p1+T*p4):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 44 "read \"/home/samuel/maple/star-routines.txt\";" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 102 "NWsubs:=\{k1=k[1],k2=k[2],k3=k[3],
+k4=k[4],p1=p[1],p2=p[2],p3=p[3],p4=p[4],x=x[1],y=x[2],z=x[3],T=x[4]\}:
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "exponent:=simplify(subs
+(NWsubs,a)):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 27 "#printallst
+ars(exponent,4);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 26 "#printa
+llcoms(exponent,4);" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 56 "phi:
+=proc(F,phiG)\n  (exp((F)*(phiG))-1)/((F));\nend proc:" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "xindex:=4:" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 33 "maple:=coeff(exponent,x[xindex]);" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#>%&mapleG,**&^#!\"\"\"\"\"&%\"pG6#\"\"%F)F)**^##
+F(\"\"$F)&F+6#F)F)&%\"kG6#\"\"#F)&F56#F1F)F)**^##F)\"#!*F))F2F1F)F4F)F
+8F)F)**^##F(\"%?DF))F2\"\"&F)F4F)F8F)F)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 79 "#analytic:=expand(-I*k[3]*subs(G=1,convert(series(x/(
+exp(G*x)-1),G),polynom)));" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+63 "sam:=proc(x,n)\n-bernoulli(n)*(-x)^(n)/(factorial(n));\nend proc:
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 9 "sam(x,4);" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#,$*&\"$?(!\"\"%\"xG\"\"%\"\"\"" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 16 "#maple-analytic;" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 30 "coeff(coeff(maple,k[2]),k[3]);" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#,(*&^##!\"\"\"\"$\"\"\"&%\"pG6#F)F)F)*&^##F)\"#!*F))
+F*F(F)F)*&^##F'\"%?DF))F*\"\"&F)F)" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 62 "sam2:=proc(n)\n2*bernoulli(n+1)*x^(n)/(factorial(n));
+\nend proc:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "sam2(5);" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&\"%?D!\"\"%\"xG\"\"&\"\"\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "20 0 0" 0 }
+{VIEWOPTS 1 1 0 3 2 1804 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

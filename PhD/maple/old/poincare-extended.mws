@@ -1,0 +1,109 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Heading 1" 0 3 1 
+{CSTYLE "" -1 -1 "" 1 18 0 0 0 0 0 1 0 0 0 0 0 0 0 0 }1 0 0 0 8 4 0 0 
+0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 {CSTYLE "" -1 -1 "" 0 1 0 
+0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "J(J,P1,P2,T)  := J  :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "P1(J,P1,P2,T) := P1 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "P2(J,P1,P2,T) := P2 :" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "T(J,P1,P2,T)  := T  :" }}}{SECT 0 
+{PARA 3 "" 0 "" {TEXT -1 24 "Define the Star Products" }}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 194 "J_star  := f -> (J,P1,P2,T) ->   J * f(J
+,P1,P2,T)\n                               - I * theta * P1 * diff(f(J,
+P1,P2,T),P2)\n                               + I * theta * P2 * diff(f
+(J,P1,P2,T),P1):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 127 "P1_sta
+r := f -> (J,P1,P2,T) ->   P1 * f(J,P1,P2,T)\n                        \+
+       + I * (theta/2) * T  * diff(f(J,P1,P2,T),P2):" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 127 "P2_star := f -> (J,P1,P2,T) ->   P2 * f(
+J,P1,P2,T)\n                               - I * (theta/2) * T  * diff
+(f(J,P1,P2,T),P1):" }{TEXT -1 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 50 "T_star  := f -> (J,P1,P2,T) ->   T * f(J,P1,P2,T):" }
+}}}{SECT 0 {PARA 3 "" 0 "" {TEXT -1 41 "Function to Show All Non-Zero \+
+Commutators" }}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 756 "showallcommu
+tators := proc( )\n    description \"Return the Star Product Commutato
+rs of the Algebra\";\n    local a:\n    a := simplify(J_star(P1) - P1_
+star(J))(J,P1,P2,T):\n     if ( a <> 0 ) then print([J,P1] = a) end if
+:\n    a := simplify(J_star(P2) - P2_star(J))(J,P1,P2,T):\n     if ( a
+ <> 0 ) then print([J,P2] = a) end if:\n    a := simplify(J_star(T) - \+
+T_star(J))(J,P1,P2,T):\n     if ( a <> 0 ) then print([J,T] = a) end i
+f:\n    a := simplify(P1_star(P2) - P2_star(P1))(J,P1,P2,T):\n     if \+
+( a <> 0 ) then print([P1,P2] = a) end if:\n    a := simplify(P1_star(
+T) - T_star(P1))(J,P1,P2,T):\n     if ( a <> 0 ) then print([P1,T] = a
+) end if:\n    a := simplify(P2_star(T) - T_star(P2))(J,P1,P2,T):\n   \+
+  if ( a <> 0 ) then print([P2,T] = a) end if:\n    end proc:" }}}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 21 "showallcommutators():" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$%\"JG%#P1G*(%&thetaG\"\"\"%#P2GF)^#
+F)F)" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$%\"JG%#P2G*(^#!\"\"\"\"\"%&
+thetaGF*%#P1GF*" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#/7$%#P1G%#P2G*(%&th
+etaG\"\"\"%\"TGF)^#F)F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 87 "
+left1 := expand(simplify(J_star(P1_star(f))(J,P1,P2,T)-P1_star(J_star(
+f))(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "J_star
+(P1)(J,P1,P2,T)-P1_star(J)(J,P1,P2,T);" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#*(%&thetaG\"\"\"%#P2GF%^#F%F%" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 105 "# WARNING!!!\n# User interaction required... insert \+
+value from above, converting products to star-products" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 58 "right1 := expand(simplify(I*theta*P
+2_star(f)(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 78 "
+print(\"J*(P1*f)-J*(P1*f)-(J*P1)*f+(J*P1)*f=\", expand(simplify(left1-
+right1)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QEJ*(P1*f)-J*(P1*f)-(J*P
+1)*f+(J*P1)*f=6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 87 "l
+eft2 := expand(simplify(J_star(P2_star(f))(J,P1,P2,T)-P2_star(J_star(f
+))(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "J_star(
+P2)(J,P1,P2,T)-P2_star(J)(J,P1,P2,T);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#*(^#!\"\"\"\"\"%&thetaGF&%#P1GF&" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 105 "# WARNING!!!\n# User interaction required... insert \+
+value from above, converting products to star-products" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 59 "right2 := expand(simplify(-I*theta*
+P1_star(f)(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 78 
+"print(\"J*(P2*f)-J*(P2*f)-(J*P2)*f+(J*P2)*f=\", expand(simplify(left2
+-right2)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QEJ*(P2*f)-J*(P2*f)-(J*
+P2)*f+(J*P2)*f=6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 85 "
+left3 := expand(simplify(J_star(T_star(f))(J,P1,P2,T)-T_star(J_star(f)
+)(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 42 "J_star(T
+)(J,P1,P2,T)-T_star(J)(J,P1,P2,T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#
+\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 105 "# WARNING!!!\n# U
+ser interaction required... insert value from above, converting produc
+ts to star-products" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "righ
+t3 := expand(simplify(0*f(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 74 "print(\"J*(T*f)-J*(T*f)-(J*T)*f+(J*T)*f=\", expand(si
+mplify(left3-right3)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QAJ*(T*f)-J
+*(T*f)-(J*T)*f+(J*T)*f=6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 89 "left4 := expand(simplify(P1_star(P2_star(f))(J,P1,P2,T)-P2_sta
+r(P1_star(f))(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+46 "P1_star(P2)(J,P1,P2,T)-P2_star(P1)(J,P1,P2,T);" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#*(%&thetaG\"\"\"%\"TGF%^#F%F%" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 105 "# WARNING!!!\n# User interaction required... \+
+insert value from above, converting products to star-products" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 57 "right4 := expand(simplify(th
+eta*I*T_star(f)(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 82 "print(\"P1*(P2*f)-P2*(P1*f)-(P1*P2)*f+(P2*P1)*f=\", expand(simpl
+ify(left4-right4)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QIP1*(P2*f)-P2
+*(P1*f)-(P1*P2)*f+(P2*P1)*f=6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 87 "left5 := expand(simplify(P1_star(T_star(f))(J,P1,P2,T
+)-T_star(P1_star(f))(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 45 "P1_star(T)(J,P1,P2,T)-T_star(P1)(J,P1,P2,T);\n" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 105 "# WARNING!!!\n# User interaction required... insert \+
+value from above, converting products to star-products" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "right5 := expand(simplify(0*f(J,P1,
+P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 78 "print(\"P1*(T*f
+)-T*(P1*f)-(P1*T)*f+(T*P1)*f=\", expand(simplify(left5-right5)));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6$QEP1*(T*f)-T*(P1*f)-(P1*T)*f+(T*P1)*f=
+6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 87 "left6 := expand
+(simplify(P2_star(T_star(f))(J,P1,P2,T)-T_star(P2_star(f))(J,P1,P2,T))
+):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 44 "P2_star(T)(J,P1,P2,T)
+-T_star(P2)(J,P1,P2,T);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 105 "# WARNING!!!\n# User intera
+ction required... insert value from above, converting products to star
+-products" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "right6 := expa
+nd(simplify(0*f(J,P1,P2,T))):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 78 "print(\"P2*(T*f)-T*(P2*f)-(P2*T)*f+(T*P2)*f=\", expand(simplify(
+left6-right6)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6$QEP2*(T*f)-T*(P2*f
+)-(P2*T)*f+(T*P2)*f=6\"\"\"!" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 0 "" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG }{EXCHG }}{MARK "38 0 0" 0 }
+{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }

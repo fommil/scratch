@@ -1,0 +1,46 @@
+{VERSION 5 0 "IBM INTEL LINUX" "5.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "with(LinearAlgebra):" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 69 "G:=Matrix(4,[\n[0,1,0,0],\n[1,0,0,0
+],\n[0,0,1,cos(u)],\n[0,0,cos(u),1]]);" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%\"GG-%'RTABLEG6%\"*!)y7N\"-%'MATRIXG6#7&7&\"\"!\"\"\"F.F.7&F/F
+.F.F.7&F.F.F/-%$cosG6#%\"uG7&F.F.F2F/%'MatrixG" }}}{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 107 "calF:=simplify(1/8*Matrix(4,[\n[0,0,-4*sin(u)
+,4*sin(u)],\n[0,0,0,0],\n[4*sin(u),0,0,u],\n[-4*sin(u),0,-u,0]]));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%calFG-%'RTABLEG6%\"*;&3(Q\"-%'MATRI
+XG6#7&7&\"\"!F.,$*&#\"\"\"\"\"#F2-%$sinG6#%\"uGF2!\"\",$*&#F2F3F2F4F2F
+27&F.F.F.F.7&F9F.F.,$*&\"\")F8F7F2F27&F/F.,$*&F@F8F7F2F8F.%'MatrixG" }
+}}{EXCHG }{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 76 "temp:=Matrix(2,[\n
+[calF['3, 3'],calF['3, 4']],\n[calF['4, 3'],calF['4, 4']]]):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 20 "MatrixInverse(temp):" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 105 "calFinv:=Matrix(4,[\n[0,0,0
+,0],\n[0,0,0,0],\n[0,0,temp['1,1'],temp['1,2']],\n[0,0,temp['2,1'],tem
+p['2,2']]]):" }}}{EXCHG }{EXCHG }{EXCHG }{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 47 "calFhat:=simplify(1/(2*Pi)*(calF-G.calFinv.G));" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%(calFhatG-%'RTABLEG6%\"*#>2'Q\"-%'MA
+TRIXG6#7&7&\"\"!F.,$*(\"\"#\"\"\"%#PiG!\"\"-%$sinG6#%\"uGF2F4,$*(F1F2F
+3F4F5F2F27&F.F.F.F.7&F9F.F.,$*&#F2F1F2*(F3F4-%$cosGF7F1F8F2F2F27&F/F.,
+$*&#F2F1F2F@F2F4F.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+104 "calFhatsub:=simplify(Matrix(2,[\n[calFhat['3, 3'],calFhat['3, 4']
+],\n[calFhat['4, 3'],calFhat['4, 4']]]));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%+calFhatsubG-%'RTABLEG6%\"*_6MQ\"-%'MATRIXG6#7$7$\"\"
+!,$*&#\"\"\"\"\"#F2*(%#PiG!\"\"-%$cosG6#%\"uGF3F:F2F2F27$,$*&#F2F3F2F4
+F2F6F.%'MatrixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 41 "calFhats
+ubinv:=MatrixInverse(calFhatsub);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>
+%.calFhatsubinvG-%'RTABLEG6%\"*WeOQ\"-%'MATRIXG6#7$7$\"\"!,$**\"\"#\"
+\"\"%#PiGF2-%$cosG6#%\"uG!\"#F7!\"\"F97$,$**F1F2F3F2F4F8F7F9F2F.%'Matr
+ixG" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 137 "calFhatinv:=simplif
+y(Matrix(3,[\n[0,0,0],\n[0,calFhatsubinv['1,1'],calFhatsubinv['1,2']],
+\n[0,calFhatsubinv['2,1'],calFhatsubinv['2,2']]]));" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%+calFhatinvG-%'RTABLEG6%\"*?\"p$Q\"-%'MATRIXG6#7%7%
+\"\"!F.F.7%F.F.,$**\"\"#\"\"\"%#PiGF3-%$cosG6#%\"uG!\"#F8!\"\"F:7%F.,$
+**F2F3F4F3F5F9F8F:F3F.%'MatrixG" }}}{EXCHG }{EXCHG }{EXCHG {PARA 0 "> \+
+" 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG }}{MARK "3 0 0" 15 }{VIEWOPTS 1 1 
+0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
