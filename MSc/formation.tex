@@ -1,0 +1,108 @@
+\section{Formation of a Fermion Ball}
+\begin{quotation}
+	\raggedleft \it
+	We are all agreed that your theory is crazy.\\
+	The question which divides us is whether it is\\
+	crazy enough to have a chance of being correct.\\
+	-- Niels Bohr
+\end{quotation}
+Thus far, we have argued that a fermion ball is possible, provided a 16keV fermion exists in nature. Candidates for such a fermion
+and their origins have also been briefly mentioned. Another requirement of the theory is that such a fermion ball may be formed. This
+section aims to show that it is possible to create such an object by closely following the work of \cite{ref_formation}.
+
+\subsection{Analogy to a Boson Star}
+To understand the formation of a fermion ball, we first study the analysis of self-interacting scalar fields, often called boson stars
+\cite{ref_bosonform}.
+We then use scaling arguments to make an equivalence to a certain type of cold boson star.
+
+Consider a complex scalar field $\Psi$ with a repulsive Lagrangian interaction term $U(|\Psi|^2)$. By introducing the dimensionless
+parameter $\Lambda$, we define the length and mass scales as
+\begin{equation}
+	R_*=\frac{\Lambda}{m}=\frac{\lambda m_{pl}}{m^2} \qquad \qquad M_*=R_*m^2_{pl}
+	\label{eqn_formscales}
+\end{equation}
+where $m_{pl}=\sqrt{G}^{-1}$ is the Planck mass. In the Newtonian limit, a self-gravitating boson star is governed by the
+dimensionless Gross-Pitaevskii like equations
+\begin{eqnarray}
+	\Delta \phi &=& |\Psi|^2 \label{eqn_formpoisson} \\
+	\frac{i}{\Lambda} \frac{\partial \Psi}{\partial t} &=& \left[ -\frac{\Delta}{2\Lambda^2} + \phi + V(|\Psi|^2) \right]
+		\Psi \label{eqn_formbig} \\
+	\rho &=& \frac{m^4}{4\pi \lambda^2} |\Psi|^2 \label{eqn_formrho}
+\end{eqnarray}
+where we have introduced the dimensionless potential
+\begin{equation}
+	V(|\Psi|^2) = \frac{4\pi \lambda^2}{m^4}\frac{dU}{d|\Psi|^2}
+	\label{eqn_formv}
+\end{equation}
+The pressure tensor in these dimensionless units is given by
+\begin{equation}
+	P_{ij}= \frac{m^4}{4\pi\lambda^2 \Lambda^2}
+		\left( \rm{Re}\frac{\partial\Psi}{\partial x_i} \frac{\partial\Psi^*}{\partial x_j}
+			-\delta_{ij}\frac{\Delta|\Psi|^2}{4} \right)
+		+\delta_{ij}\left(|\Psi|^2\frac{d U}{d |\Psi|^2} -U \right)
+	\label{eqn_formpressuretensor}
+\end{equation}
+A static, spherically symmetric solution is obtained with the ansatz
+\begin{equation}
+	\Psi = e^{- i \epsilon R_* t} \Phi(r)
+	\label{eqn_formpsiphi}
+\end{equation}
+where $\Phi(r)$ is a real function. It is clear that for large $\Lambda$, (\ref{eqn_formbig}) and (\ref{eqn_formpsiphi}) reduce to
+\begin{equation}
+	\frac{\epsilon}{m} - \phi - V = 0
+	\label{eqn_formereduce}
+\end{equation}
+This solution is exact in the limit $\Lambda \rightarrow \infty$, which is the Thomas-Fermi limit \cite{ref_bosonformtf}. In this limit,
+(\ref{eqn_formpressuretensor}) becomes diagonal with $P = P_{ii}$. We obtain an equation of state given by (\ref{eqn_formrho}) and
+\begin{equation}
+	P=\rho V(\rho) - U(\rho)
+	\label{eqn_formpressure}
+\end{equation}
+Equations (\ref{eqn_formereduce}) and (\ref{eqn_formpressure}) yield the equation of hydrostatic equilibrium
+\begin{equation}
+	\frac{dP}{\rho}=-d\phi
+	\label{eqn_formpressurephi}
+\end{equation}
+If the equation of state is given as the polytropic type
+\begin{equation}
+	P(\rho)=K\rho^{1+\frac{1}{n}}
+	\label{eqn_formpolytropic}
+\end{equation}
+we can determine the potential $U$ and $V$ by integrating (\ref{eqn_formpressurephi}). It can therefore be shown that
+Equation (\ref{eqn_formpressurephi}) is equal to $V$, which yields
+\begin{equation}
+	V=(n+1)K\rho^{\frac{1}{n}}
+	\label{eqn_formvrho}
+\end{equation}
+If we fix $\lambda$ in a convenient manner, we get the potential
+\begin{equation}
+	V=|\Psi|^{\frac{n}{2}}
+	\label{eqn_formpotential}
+\end{equation}
+The polytropic equation of state with $n=\frac{3}{2}$, together with (\ref{eqn_formpressurephi}) and (\ref{eqn_formpoisson}) (the dimensionless
+Poisson equation), describe a fermion ball. This has demonstrated that a fermion ball is equivalent to a boson star in the limit
+$\Lambda \rightarrow \infty$. It has been shown numerically \cite{ref_bosonform} that even for moderate values of $\Lambda$, the static
+solutions are almost degenerate and are quite well approximated by the static solution for an infinite $\Lambda$.
+
+\subsection{Time Evolution of the Collapse}
+The basic regulating mechanism is the kinetic part of (\ref{eqn_formbig}), which penalises density spikes. The criterion for simulation
+is that the ratio of kinetic and pressure contributions to the static energy functional should be small. Great care must be taken during
+numeric simulation to ensure that the self-interaction term $V$ is not dominated by the other terms. If this occurs, there is a
+crossover to mini boson star behaviour.
+
+An evolution plot for collapsing fermionic matter ball is shown in Figure \ref{fig_robert}.
+To prevent matter from being artificially reflected by the radius boundary, an $r$-dependant imaginary `sponge' has been introduced.
+This sponge removes the ejected fermionic matter.
+\begin{figure}[t]
+	\begin{center}
+	\includegraphics[angle=-90,width=0.9\textwidth]{eps/robert.eps}
+	\caption{Combined contour-density plot for the evolution of $|r \Psi |^{2}$. Green contour lines denote levels from
+	$10^{-5}$ to $10^{-4}$ while red lines denote levels below $10^{-5}$.
+	Gravitational collapse is followed by an ejection of excess matter leaving a fermion ball at the centre
+	\cite{ref_formation}.}
+	\label{fig_robert}
+	\end{center}
+\end{figure}
+
+In summary, using a bosonic representation of the dynamical Thomas-Fermi theory for a self-gravitating gas, it can be shown that
+non-relativistic, degenerate fermionic matter will form a super-massive fermion ball through gravitational collapse accompanied by ejection.

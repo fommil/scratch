@@ -1,0 +1,28 @@
+\section{Reduction of Terms in \ref{sec_fermionballtempdist}}
+\label{app_solnoffermiontempdist}
+Equation (\ref{eqn_fbeffectivetemp}) contains the problem in $x$ and $\mu(x)$
+\begin{eqnarray*}
+	x\sqrt{\frac{\mu(x)}{x^3}}\frac{d}{dx}\sqrt{\frac{\mu(x)}{x^3}}
+\end{eqnarray*}
+using
+\begin{eqnarray*}
+	\frac{d}{dx}\left(\frac{u}{v}\right) = \frac{v\dot{u}-u\dot{v}}{v^2} \\
+	\frac{d}{dx}\left(u^n\right) = nu^{n-1}\dot{u}
+\end{eqnarray*}
+where we assign
+\begin{eqnarray*}
+	\begin{array}{ll}
+	u=\mu(x)^{\frac{1}{2}} & v=x^{\frac{3}{2}} \\
+	\dot{u}=\frac{1}{2}\mu^{-\frac{1}{2}}\mu '(x)\qquad\quad & \dot{v}=\frac{3}{2}x^{\frac{1}{2}} 
+	\end{array}
+\end{eqnarray*}
+it follows that
+\begin{eqnarray*}
+	\frac{d}{dx}\left(\frac{\mu(x)}{x^3}\right)^{\frac{1}{2}}
+	&=&\frac{\sqrt{x}}{2}\frac{x\mu(x)^{-\frac{1}{2}}\mu '(x)-3\mu(x)^{\frac{1}{2}}}{x^3} \\
+	&\times& x\sqrt{\frac{\mu(x)}{x^3}} = \frac{1}{2}\frac{x\mu '(x)-3\mu(x)}{x^3}
+\end{eqnarray*}
+so that we can make the reduction
+\begin{eqnarray*}
+	x\sqrt{\frac{\mu(x)}{x^3}}\frac{d}{dx}\sqrt{\frac{\mu(x)}{x^3}} = \frac{1}{2}\frac{x\mu '(x)-3\mu(x)}{x^3}
+\end{eqnarray*}

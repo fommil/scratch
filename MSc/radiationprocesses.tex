@@ -1,0 +1,70 @@
+\section{Radiation Processes}
+\label{app_opticallythickapprox}
+An (unpolarised) radiation field is defined by the {\it specific intensity} ($I_\nu$), which gives the flux of energy per second per unit area
+per solid angle per unit frequency interval
+\begin{eqnarray*}
+	dE=I_\nu dA \cos\theta d\nu d\Omega dt
+\end{eqnarray*}
+The {\it radiation flux} ($F_\nu$) is the rate at which energy crosses a unit area independent of direction and is obtained by integrating
+over a solid angle
+\begin{eqnarray*}
+	F_\nu=\int I_\nu \cos\theta d\Omega
+\end{eqnarray*}
+The {\it specific luminosity} ($L_\nu$) of a source is the flux integrated over an area enclosing the source
+\begin{eqnarray*}
+	L_\nu = \int F_\nu dA
+\end{eqnarray*}
+the variation of $I_\nu$ in a medium which is emitting and absorbing is given by the {\it radiative transfer equation} which simply expresses
+energy conservation for the radiation field. In the time independent case in a direction ${\bf n}$
+\begin{eqnarray*}
+	{\bf n}\cdot \nabla I_\nu = -\mu_\nu I_\nu + j_\nu
+\end{eqnarray*}
+where $\mu_\nu$ is the absorption coefficient and $j_\nu$ the emission coefficient, effectively the properties and state of the medium. It is
+customary to characterise the medium by the {\it source function} ($S_\nu$)
+\begin{eqnarray*}
+	S_\nu = \frac{j_\nu}{\mu_\nu}
+\end{eqnarray*}
+The {\it optical depth} ($\tau_\nu$) along a path from source to observer is defined by
+\begin{eqnarray*}
+	d\tau_\nu=\mu_\nu ds
+\end{eqnarray*}
+Giving total specific intensity over an optical depth
+\begin{eqnarray*}
+	\frac{dI_\nu}{d\tau_\nu} = -I_\nu + S_\nu
+\end{eqnarray*}
+If the radiation field corresponds to thermal equilibrium at a temperature $T$, we know that $I_\nu=B_\nu(T)$, the black body spectrum.
+Irrespective of the radiation mechanism, we can relate
+\begin{eqnarray*}
+	S_\nu=B_\nu(T)=\frac{2h\nu^3}{c^2\left(e^{\frac{h\nu}{kT}}-1\right)}
+\end{eqnarray*}
+If the medium can be characterised by a temperature $T$ (i.e. thermal emission) then we have Kirchhoff's law, independent of whether the
+radiation field is Planckian.
+\begin{eqnarray*}
+	S_\nu = \frac{j_\nu}{\mu_\nu} = B_\nu(T)
+\end{eqnarray*}
+In general the source function is determined by the state populations in the medium. A necessary condition for a thermal radiation spectrum
+is that the optical depth $\tau_\nu \rightarrow \infty$. In this case we say that the medium is {\it optically thick}, which in general,
+means that $I_\nu=S_\nu$. On the other hand if $\tau_\nu \rightarrow 0$ we can neglect absorption and we get
+\begin{eqnarray*}
+	I_\nu=\int j_\nu ds
+\end{eqnarray*}
+Such a medium is said to be {\it optically thin}. Returning to the optically thick case, once we have a source function, we make the
+following relations (as explained) to give us the observables $F_\nu$ or $L_\nu$, depending upon the preference of the experimentalist.
+\begin{eqnarray*}
+	I_\nu &=& S_\nu = \frac{2h\nu^3}{c^2\left(e^{\frac{h\nu}{KT}}-1\right)} \\
+	F_\nu &=& \frac{4\pi h \nu^3\cos{i}}{c^2D^2} \int\frac{R}{e^{\frac{h\nu}{KT}}-1}dR \\
+	L_\nu &=& 4\pi D^2 F_\nu = \frac{16\pi^2 h \nu^3\cos{i}}{c^2} \int\frac{R}{e^{\frac{h\nu}{KT}}-1}dR
+\end{eqnarray*}
+
+In the text, we have assumed an optically thick medium so that we may simply use a black body as our radiative mechanism. The absorption
+coefficient is $\mu_\nu \propto \kappa \rho$, which decreases for a low density gas, and thus optical depth decreases.
+$\kappa$ is the opacity, and is calculated from the radiative transfer equation
+\begin{eqnarray*}
+	\kappa(\nu ,T)=\frac{c^2}{8\pi \nu^2}A_{21}\frac{g_2}{g_1}n_1\left[1-e^{\frac{h\nu_0}{kT}}\right]\phi(\nu)
+\end{eqnarray*}
+As temperatures are generally low in the fermion ball case, the gas will not be ionised and therefore $\kappa$ will also aid in
+decreasing the optical depth. The gas density is low under both scenarios.
+
+This goes to show that an optically thin approximation may be more appropriate for the fermion ball scenario.
+In an optically thin accretion disk, a different radiative mechanism must be used as the black body approximation is
+no longer appropriate, such a valid mechanism could be a thermal bremsstrahlung spectrum.

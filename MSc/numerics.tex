@@ -1,0 +1,32 @@
+\section{Numerical Techniques}
+The numerical problems in this thesis are Ordinary Differential Equations (ODE's). The first step to solve such a problem is to reduce
+the system to a series of first order differentials. e.g. for the Lan\'e-Emden Equation (\ref{eqn_laneemden})
+\begin{eqnarray*}
+	\frac{d^2v(x)}{dx^2} = -\frac{v(x)^\frac{3}{2}}{x^\frac{1}{2}}
+\end{eqnarray*}
+we may write as two, first order equations
+\begin{eqnarray*}
+	z = \frac{dv}{dx} \qquad \qquad \frac{dz}{dx} = -\frac{v^\frac{3}{2}}{x^\frac{1}{2}}
+\end{eqnarray*}
+The simplest way to solve such an equation is to use Euler's method ($f$ is the known derivative of a function, with specified parameters)
+\begin{eqnarray*}
+	b_{n+1}=b_n + h f\left(a_n, b_n\right)
+\end{eqnarray*}
+which advances a solution from $a_n$ to $a_{n+1} \equiv a_n + h$. It advances the solution through an interval $h$, but uses derivative
+information only at the beginning of that interval, meaning the error is only one power of $h$ lower than the correction $O(h^2)$.
+e.g. In the Lan\'e-Emden example, if we solve with a numerical step size of $10^{-2}$, then the error in each value will be
+$(10^{-2})^2=10^{-4}$ of the correction, which is rather high. Small step sizes must be used for accuracy, but this results in
+incredibly long run times of programs.
+
+Another technique is the Runge-Kutta method, which takes a `trial' step to the midpoint of the interval, then uses the value of both $a$
+and $b$ at that midpoint to compute a more accurate step across the whole interval.
+\begin{eqnarray*}
+	k_1 &=& h f\left(a_n, b_n\right) \\
+	k_2 &=& h f\left(a_n + \frac{1}{2}h, b_n + \frac{1}{2} k_1\right) \\
+	b_{n+1} &=& b_n + k_2 + O\left(h^3\right)
+\end{eqnarray*}
+This is a third order Runge-Kutta as the error is of that order. In this thesis, a fourth order Runge-Kutta was employed in mass
+distribution solutions, with a step size of $10^{-6}$, giving an error of $10^{-24}$ times the correction for each step.
+
+All code was written in C and is available\footnote{http://neutrino.phy.uct.ac.za} under the GNU Public Licence, requiring the
+GNU Science Library\footnote{http://sources.redhat.com/gsl} for compilation.
