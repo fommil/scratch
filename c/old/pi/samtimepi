@@ -1,0 +1,137 @@
+#----------
+CCPREFIX=kg
+OPTLEVEL=0
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=1
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=2
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=3
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=s
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+#----------
+CCPREFIX=sg
+OPTLEVEL=0
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=1
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=2
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=3
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=s
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+#----------
+CCPREFIX=g
+OPTLEVEL=0
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=1
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=2
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=3
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+OPTLEVEL=s
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" pi.c $OPT -o pi-${CCPREFIX}cc${OPT}.sam
+
+#----------
+CCPREFIX=g
+CCSUFFIX=-3.0.1
+OPTLEVEL=0
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc${CCSUFFIX} to compile with $OPT:"
+time -f %e "${CCPREFIX}cc${CCSUFFIX}" pi.c $OPT -o pi-${CCPREFIX}cc${CCSUFFIX}${OPT}.sam
+
+OPTLEVEL=1
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc${CCSUFFIX} to compile with $OPT:"
+time -f %e "${CCPREFIX}cc${CCSUFFIX}" pi.c $OPT -o pi-${CCPREFIX}cc${CCSUFFIX}${OPT}.sam
+
+OPTLEVEL=2
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc${CCSUFFIX} to compile with $OPT:"
+time -f %e "${CCPREFIX}cc${CCSUFFIX}" pi.c $OPT -o pi-${CCPREFIX}cc${CCSUFFIX}${OPT}.sam
+
+OPTLEVEL=3
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc${CCSUFFIX} to compile with $OPT:"
+time -f %e "${CCPREFIX}cc${CCSUFFIX}" pi.c $OPT -o pi-${CCPREFIX}cc${CCSUFFIX}${OPT}.sam
+
+OPTLEVEL=s
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc${CCSUFFIX} to compile with $OPT:"
+time -f %e "${CCPREFIX}cc${CCSUFFIX}" pi.c $OPT -o pi-${CCPREFIX}cc${CCSUFFIX}${OPT}.sam
+
+#----------
+CCPREFIX=/opt/intel/compiler50/ia32/bin/i
+PREFIX=i
+OPTLEVEL=0
+OPT=-O${OPTLEVEL}
+ADDITIONALINCLUDES='-I/opt/intel/compiler50/ia32/include -i_dynamic'
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" $ADDITIONALINCLUDES pi.c $OPT -o pi-${PREFIX}cc${OPT}.sam
+
+OPTLEVEL=1
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" $ADDITIONALINCLUDES pi.c $OPT -o pi-${PREFIX}cc${OPT}.sam
+
+OPTLEVEL=2
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" $ADDITIONALINCLUDES pi.c $OPT -o pi-${PREFIX}cc${OPT}.sam
+
+OPTLEVEL=3
+OPT=-O${OPTLEVEL}
+echo "Timing ${CCPREFIX}cc to compile with $OPT:"
+time -f %e "${CCPREFIX}cc" $ADDITIONALINCLUDES $OPT pi.c -o pi-${PREFIX}cc${OPT}.sam
+
+#for A in *.sam;do echo "Timing $A"
+#(time -f %e "./$A" > samtemp);
+#rm -f samtemp
+#done

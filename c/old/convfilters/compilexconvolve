@@ -1,0 +1,11 @@
+echo "
+Compiling conv library"
+gcc -c conv.c -o conv.o
+echo "Compiling X Components"
+gcc -L/usr/X11R6/lib/ -lforms -lXpm -lXext -lm xconvolve.c conv.o -o xconv
+rm -f conv.o
+echo "Finished
+If the compile worked, then type:
+./xconv
+to run the program
+"

@@ -1,0 +1,9 @@
+To build a library of math functions compatible to any ANSI C compiler
+which add, subtract, multiply, divide, raise to the power and root
+values which are positive or negative or decimal with a limitation
+of digits given only in the memory given to the library (ie. not an
+incomplete 10 digits like in 32 bit or to 6 digits in floating point
+notation).
+
+Sam Halliday
+December 16th, 2000
