@@ -33,10 +33,26 @@ object Anagrams {
    *  Note: the uppercase and lowercase version of the character are treated as the
    *  same character, and are represented as a lowercase character in the occurrence list.
    */
-  def wordOccurrences(w: Word): Occurrences = ???
+  def wordOccurrences(w: Word): Occurrences = times(w.toLowerCase.toList).sortWith((a, b) => a._1 < b._1)
+
+  // wrote this in patmat...
+  def times(chars: List[Char]): List[(Char, Int)] = {
+    def combine[T](map1: Map[T, Int], map2: Map[T, Int]) = {
+      // using scalaz semigroups: Map(chars.head -> 1) |+| rec(chars.tail)
+      map1 ++ map2.map {
+        case (k, v) => k -> (v + map1.getOrElse(k, 0))
+      }
+    }
+    def rec(chars: List[Char]): Map[Char, Int] = chars match {
+      case Nil => Map.empty
+      case head :: Nil => Map(head -> 1)
+      case head :: tail => combine(rec(head :: Nil), rec(tail))
+    }
+    rec(chars).toList
+  }
 
   /** Converts a sentence into its character occurrence list. */
-  def sentenceOccurrences(s: Sentence): Occurrences = ???
+  def sentenceOccurrences(s: Sentence): Occurrences = wordOccurrences((s :\ "")(_ ++ _))
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
    *  the words that have that occurrence count.
@@ -53,7 +69,11 @@ object Anagrams {
    *    List(('a', 1), ('e', 1), ('t', 1)) -> Seq("ate", "eat", "tea")
    *
    */
-  lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = ???
+  lazy val dictionaryByOccurrences: Map[Occurrences, List[Word]] = toMultimap(loadDictionary.map(word => (wordOccurrences(word), word)))
+
+  /** Like `toMap` but combines multiple (key, value) pairs into a (key, List(value)). */
+  def toMultimap[K, V](list: List[(K, V)]) = list.groupBy(_._1).map(f => (f._1, f._2.map(_._2)))
+
 
   /** Returns all the anagrams of a given word. */
   def wordAnagrams(word: Word): List[Word] = ???
