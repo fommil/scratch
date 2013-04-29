@@ -102,7 +102,11 @@ object Anagrams {
    */
   def subtract(x: Occurrences, y: Occurrences): Occurrences = {
     val ys = y.toMap.withDefaultValue(0)
-    x.toMap.map{xx => (xx._1, xx._2 - ys(xx._1))}.filterNot(_._2 == 0).toList
+    for {
+      (xk, xv) <- x
+      v = xv - ys(xk)
+      if v > 0
+    } yield (xk, v)
   }
 
 
