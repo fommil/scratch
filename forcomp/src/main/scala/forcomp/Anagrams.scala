@@ -82,15 +82,13 @@ object Anagrams {
    *  in the example above could have been displayed in some other order.
    */
   def combinations(occurrences: Occurrences): List[Occurrences] =
-    {
-    {
+    occurrences :: {
       for {
         (k, _) <- occurrences
         sub = subtract(occurrences, (k, 1) :: Nil)
         more <- combinations(sub)
       } yield more
-    }.toSet + occurrences
-  }.toList
+    }.distinct
 
   /** Subtracts occurrence list `y` from occurrence list `x`.
    * 
