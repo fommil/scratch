@@ -82,13 +82,15 @@ object Anagrams {
    *  in the example above could have been displayed in some other order.
    */
   def combinations(occurrences: Occurrences): List[Occurrences] =
-    if (occurrences.isEmpty) List(List())
-    else occurrences :: {
+    {
+    {
       for {
         (k, _) <- occurrences
-        comb <- combinations(subtract(occurrences, (k, 1) :: Nil))
-      } yield comb
-    }
+        sub = subtract(occurrences, (k, 1) :: Nil)
+        more <- combinations(sub)
+      } yield more
+    }.toSet + occurrences
+  }.toList
 
   /** Subtracts occurrence list `y` from occurrence list `x`.
    * 
@@ -104,8 +106,7 @@ object Anagrams {
     val ys = y.toMap.withDefaultValue(0)
     for {
       (xk, xv) <- x
-      v = xv - ys(xk)
-      if v > 0
+      v = xv - ys(xk) if v > 0
     } yield (xk, v)
   }
 
@@ -151,6 +152,21 @@ object Anagrams {
    *
    *  Note: There is only one anagram of an empty sentence.
    */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] = ???
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] =
+  {
+    val dict = dictionaryByOccurrences.withDefaultValue(Nil)
+    val occurrences = sentenceOccurrences(sentence)
+
+    def subwords(occurrences: Occurrences): List[Sentence] =
+    for {
+      o <- combinations(occurrences)
+      w <- dict(o) if w != Nil
+      sub <- subwords(subtract(occurrences, o))
+    } yield (w :: sub)
+
+    subwords(occurrences)
+
+  }
 
 }
+
