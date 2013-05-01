@@ -155,15 +155,15 @@ object Anagrams {
     val dict = dictionaryByOccurrences.withDefaultValue(Nil)
     val occurrences = sentenceOccurrences(sentence)
 
-    def subwords(occurrences: Occurrences): List[Sentence] =
-    for {
-      o <- combinations(occurrences)
-      w <- dict(o) if w != Nil
-      sub <- subwords(subtract(occurrences, o))
+    def subwords(o: Occurrences): List[Sentence] =
+      if (o.isEmpty) List(List())
+      else for {
+      i <- combinations(o) if i != Nil
+      w <- dict(i) if w != Nil
+      sub <- subwords(subtract(o, i))
     } yield (w :: sub)
 
     subwords(occurrences)
-
   }
 
 }
