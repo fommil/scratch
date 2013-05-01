@@ -150,20 +150,18 @@ object Anagrams {
    *
    *  Note: There is only one anagram of an empty sentence.
    */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] =
-  {
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
     val dict = dictionaryByOccurrences.withDefaultValue(Nil)
-    val occurrences = sentenceOccurrences(sentence)
 
     def subwords(o: Occurrences): List[Sentence] =
       if (o.isEmpty) List(List())
       else for {
-      i <- combinations(o) if i != Nil
-      w <- dict(i) if w != Nil
-      sub <- subwords(subtract(o, i))
-    } yield (w :: sub)
+        i <- combinations(o) if i != Nil
+        w <- dict(i) if w != Nil
+        sub <- subwords(subtract(o, i))
+      } yield (w :: sub)
 
-    subwords(occurrences)
+    subwords(sentenceOccurrences(sentence))
   }
 
 }
