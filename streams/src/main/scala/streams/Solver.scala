@@ -51,7 +51,7 @@ trait Solver extends GameDef {
    * been visited before, on the path to any of the blocks in the
    * stream `initial`. When search reaches a block that has already
    * been explored before, that position should not be included a
-   * second time to avoid circles.
+   * second time to avoid cycles.
    * 
    * The resulting stream should be sorted by ascending path length,
    * i.e. the block positions that can be reached with the fewest

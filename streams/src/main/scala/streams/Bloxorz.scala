@@ -7,7 +7,7 @@ object Bloxorz extends App {
 
   /**
    * A level constructed using the `InfiniteTerrain` trait which defines
-   * the terraint to be valid at every position.
+   * the terrain to be valid at every position.
    */
   object InfiniteLevel extends Solver with InfiniteTerrain {
     val startPos = Pos(1,3)

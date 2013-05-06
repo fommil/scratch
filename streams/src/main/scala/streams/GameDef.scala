@@ -4,6 +4,9 @@ import common._
 
 /**
  * This trait represents the layout and building blocks of the game
+ *
+ * @TODO: SHOULD RENAME `x` and `y` in class Pos to `row` and `col`. It's
+ * confusing to have `x` being the vertical axis.
  */
 trait GameDef {
 
@@ -29,11 +32,11 @@ trait GameDef {
    *   x axis
    */
   case class Pos(x: Int, y: Int) {
-    /** The position obtained by changing the `x` coordiante by `d` */
-    def dx(d: Int) = copy(x = x + d, y)
+    /** The position obtained by changing the `x` coordinate by `d` */
+    def dx(d: Int) = copy(x = x + d)
 
-    /** The position obtained by changing the `y` coordiante by `d` */
-    def dy(d: Int) = copy(x, y = y + d)
+    /** The position obtained by changing the `y` coordinate by `d` */
+    def dy(d: Int) = copy(y = y + d)
   }
 
   /**
