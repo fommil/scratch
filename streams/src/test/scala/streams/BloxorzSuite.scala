@@ -6,11 +6,13 @@ import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
 import Bloxorz._
+import scala._
 
 @RunWith(classOf[JUnitRunner])
 class BloxorzSuite extends FunSuite {
 
   trait SolutionChecker extends GameDef with Solver with StringParserTerrain {
+
     /**
      * This method applies a list of moves `ls` to the block at position
      * `startPos`. This can be used to verify if a certain list of moves
@@ -38,6 +40,18 @@ class BloxorzSuite extends FunSuite {
       |------ooo-""".stripMargin
 
     val optsolution = List(Right, Right, Down, Right, Right, Right, Down)
+  }
+
+  test("finding neighbours") {
+    new Level1 {
+      val res = neighborsWithHistory(Block(Pos(1, 1), Pos(1, 1)), List(Left, Up)).toList
+      assert(
+          List(
+            (Block(Pos(1, 2), Pos(1, 3)), List(Right, Left, Up)),
+            (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
+          ) == res, res
+      )
+    }
   }
 
   test("terrain function level 1") {
