@@ -44,12 +44,27 @@ class BloxorzSuite extends FunSuite {
 
   test("finding neighbours") {
     new Level1 {
-      val res = neighborsWithHistory(Block(Pos(1, 1), Pos(1, 1)), List(Left, Up)).toList
       assert(
+        neighborsWithHistory(Block(Pos(1, 1), Pos(1, 1)), List(Left, Up)).toList ===
           List(
             (Block(Pos(1, 2), Pos(1, 3)), List(Right, Left, Up)),
             (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
-          ) == res, res
+          )
+      )
+    }
+  }
+
+  test("new neighbours") {
+    new Level1 {
+      assert(newNeighborsOnly(
+        Set(
+          (Block(Pos(1, 2), Pos(1, 3)), List(Right, Left, Up)),
+          (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
+        ).toStream,
+        Set(Block(Pos(1, 2), Pos(1, 3)), Block(Pos(1, 1), Pos(1, 1)))
+      ) === Set(
+        (Block(Pos(2, 1), Pos(3, 1)), List(Down, Left, Up))
+      ).toStream
       )
     }
   }
