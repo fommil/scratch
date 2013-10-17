@@ -1,5 +1,7 @@
 package com.github.fommil.trafigura
 
+import akka.contrib.jul.JavaLogging
+
 
 /** Find all unique configurations of chess pieces on a board of dimension `M × N`,
   * where none of the pieces can capture any of the others, ignoring colour.
@@ -20,8 +22,8 @@ case class Bishop() extends Piece
 
 case class Horsey() extends Piece
 
-object Chess extends App {
-
+object Chess extends App with JavaLogging {
+  log.info("hello world")
 }
 
 
