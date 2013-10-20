@@ -86,7 +86,28 @@ class PiecesSpecs extends Specs {
           (3, 2) ::(5, 2) :: Nil
       }
     }
+
+    "have four moves in a restricted board" in {
+      Horsey().moves((2, 2), Board(4, 4)) must containTheSameElementsAs {
+        (1, 0) ::(3, 0) ::(0, 1) ::(0, 3) :: Nil
+      }
+    }
   }
+
+  "available" should {
+    "produce one result" in {
+      GameState(Board(4, 4),
+        Map(
+          (0, 0) -> Rook(),
+          (2, 2) -> Rook(),
+          (1, 1) -> Horsey(),
+          (3, 1) -> Horsey()
+        )
+      ).available.size must beGreaterThan(0)
+    }
+  }
+
+
 
   "wookie" should {
     "always win" in {

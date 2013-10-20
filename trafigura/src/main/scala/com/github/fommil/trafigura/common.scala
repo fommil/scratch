@@ -19,11 +19,34 @@ case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
     if !canBeTaken(p)
   } yield p
 
-  private def canBeTaken(p: Position) = !{
-    pieces.values.map {
-      _.canTake(p, this)
+  private def canBeTaken(p: Position) = ! {
+    pieces.map { case (position, piece) =>
+      piece.canTake(position, p, board)
     } filter (identity)
   }.isEmpty
+
+  def canBeTakenBy(p: Position, piece: Piece) =
+    !piece.moves(p, board).toSet.intersect(pieces.keySet).isEmpty
+
+  override def toString = {
+    for {
+      y <- 0 until board.height
+      x <- 0 until board.width
+    } yield {
+      (if (x == 0) "\n" else "") + {
+        pieces.get((x, y)) match {
+          case None => "."
+          case Some(s) => s match {
+            case King() => "K"
+            case Queen() => "Q"
+            case Rook() => "R"
+            case Bishop() => "B"
+            case Horsey() => "N"
+          }
+        }
+      }
+    }
+  }.mkString("")
 
 }
 
@@ -41,9 +64,8 @@ sealed trait Piece {
 
   def moves(from: Position, board: Board): Seq[Position]
 
-  def canTake(p: Position, state: GameState) = {
-    !state.pieces.keySet.intersect(moves(p, state.board).toSet).isEmpty
-  }
+  def canTake(from: Position, to: Position, board: Board) =
+    moves(from, board).contains(to)
 
   // all valid diagonal moves to a range.
   // could be optimised (code complexity)
