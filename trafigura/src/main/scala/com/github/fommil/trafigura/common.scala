@@ -1,24 +1,30 @@
 package com.github.fommil.trafigura
 
-import akka.contrib.jul.JavaLogging
-
 object `package` {
   // zero-indexed (x, y)
   type Position = (Int, Int)
 }
-
-/** Find all unique configurations of chess pieces on a board of dimension `M × N`,
-  * where none of the pieces can capture any of the others, ignoring colour.
-  *
-  * @author Sam Halliday
-  */
-trait ChessSolver
 
 case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
   def withPiece(pos: Position, piece: Piece) = {
     require(board.isValid(pos))
     copy(pieces = pieces + (pos -> piece))
   }
+
+  def available: Seq[Position] = for {
+    x <- 0 until board.width
+    y <- 0 until board.height
+    if !pieces.contains((x, y))
+    p = (x, y)
+    if !canBeTaken(p)
+  } yield p
+
+  private def canBeTaken(p: Position) = !{
+    pieces.values.map {
+      _.canTake(p, this)
+    } filter (identity)
+  }.isEmpty
+
 }
 
 
@@ -35,26 +41,33 @@ sealed trait Piece {
 
   def moves(from: Position, board: Board): Seq[Position]
 
+  def canTake(p: Position, state: GameState) = {
+    !state.pieces.keySet.intersect(moves(p, state.board).toSet).isEmpty
+  }
+
   // all valid diagonal moves to a range.
   // could be optimised (code complexity)
   // to avoid the filter: benefits negligible
   protected def diag(p: Position, range: Int, board: Board) = {
     assert(range > 0)
-    for (x <- 1 to range) yield
-      (p._1 - x, p._2 - x) ::
+    for {
+      x <- 1 to range
+      m <- (p._1 - x, p._2 - x) ::
         (p._1 + x, p._2 - x) ::
         (p._1 - x, p._2 + x) ::
         (p._1 + x, p._2 + x) :: Nil
-  }.flatten filter board.isValid
+    } yield m
+  } filter board.isValid
 
   protected def xy(p: Position, range: Int, board: Board) = {
     assert(range > 0)
-    for (x <- 1 to range) yield
-      (p._1, p._2 - x) ::
-        (p._1, p._2 + x) ::
-        (p._1 - x, p._2) ::
-        (p._1 + x, p._2) :: Nil
-  }.flatten filter board.isValid
+    for {x <- 1 to range
+         m <- (p._1, p._2 - x) ::
+           (p._1, p._2 + x) ::
+           (p._1 - x, p._2) ::
+           (p._1 + x, p._2) :: Nil
+    } yield m
+  } filter board.isValid
 
   // largest distance to any side of the board
   protected def toSide(p: Position, board: Board) =
@@ -88,9 +101,4 @@ case class Horsey() extends Piece {
       (p._1 - 1, p._2 + 2) ::(p._1 + 1, p._2 + 2) ::
       (p._1 - 1, p._2 - 2) ::(p._1 + 1, p._2 - 2) :: Nil
   } filter board.isValid
-}
-
-
-object Chess extends App with JavaLogging {
-  log.info("hello world")
 }

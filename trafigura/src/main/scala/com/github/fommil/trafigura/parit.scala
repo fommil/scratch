@@ -35,12 +35,23 @@ class ParMapIterator[T](it: Iterator[T], buffered: Int = 100)
   }
 }
 
+class ParMapIterable[T](col: Iterable[T], buffered: Int = 100)
+                       (implicit context: ExecutionContext) extends Iterable[T] {
+  def iterator = new ParMapIterator(col.iterator)
+}
+
 object ParMapIterator {
 
   implicit class ParPimpedIterator[T](it: Iterator[T]) {
-    def par(buffered: Int)(implicit context: ExecutionContext) = new ParMapIterator[T](it, buffered)
+    def par(buffered: Int)(implicit context: ExecutionContext) = new ParMapIterator(it, buffered)
 
-    def par(implicit context: ExecutionContext) = new ParMapIterator[T](it)
+    def par(implicit context: ExecutionContext) = new ParMapIterator(it)
+  }
+
+  implicit class ParPimpedIterable[T](it: Iterable[T]) {
+    def par(buffered: Int)(implicit context: ExecutionContext) = new ParMapIterable(it, buffered)
+
+    def par(implicit context: ExecutionContext) = new ParMapIterable(it)
   }
 
 }
