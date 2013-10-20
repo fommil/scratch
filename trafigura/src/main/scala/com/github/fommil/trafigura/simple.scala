@@ -18,7 +18,7 @@ object SimpleSolverApp extends SimpleSolver with App {
   println(s"calculating the ${solutions.size} solutions took ${watch.stop()} for $board $pieces")
 }
 
-class SimpleSolver extends BruteForceArrangements {
+class SimpleSolver extends ChessSolver with BruteForceArrangements {
   def solve(board: Board, pieces: List[Piece]): List[GameState] = {
     arrangements(GameState(board), pieces).toList.distinct
   }

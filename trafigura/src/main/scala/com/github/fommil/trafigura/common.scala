@@ -5,6 +5,10 @@ object `package` {
   type Position = (Int, Int)
 }
 
+trait ChessSolver {
+  def solve(board: Board, pieces: List[Piece]): List[GameState]
+}
+
 case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
   def withPiece(pos: Position, piece: Piece) = {
     require(board.isValid(pos))

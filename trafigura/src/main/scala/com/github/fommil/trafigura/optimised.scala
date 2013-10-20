@@ -1,6 +1,7 @@
 package com.github.fommil.trafigura
 
-/** This solver employs three optimisations:
+/** This solver addressing bottlenecks discovered during profiling of SimpleSolver
+  * (which clearly showed that the CPU spent most of its time in `Piece.moves`).
   *
   * 1. Organising the placement of pieces to minimise the search space.
   *
@@ -13,14 +14,14 @@ package com.github.fommil.trafigura
   *
   * 3. All entries in the search space may be checked simultaneously as this is an
   *    [[http://en.wikipedia.org/wiki/Embarrassingly_parallel embarrassingly parallel problem]].
-  *    Scala has no general mechanism for parallel mappings to [[scala.collection.Iterable]],
-  *    without retaining the entire data structure (which would result in an
-  *    explosion of memory usage), so we use Akka to perform pull-based
-  *    generation of trials, and distribute the checking to an actor system
-  *    that may live on a distributed computing cluster.
+  *    We use Akka to send the validity checking to an actor system,
+  *    which may live on a distributed computing cluster. So long as the network
+  *    time is lower than the computational cost, there will be an advantage.
   *
   * @author Sam Halliday
   */
-class OptimisedSolver {
+class AkkaSolver extends ChessSolver {
+
+  def solve(board: Board, pieces: List[Piece]) = ???
 
 }
