@@ -9,7 +9,7 @@ import com.google.common.base.Stopwatch
   * @author Sam Halliday
   */
 object SimpleSolverApp extends SimpleSolver with App {
-  val board = Board(4, 4)
+  val board = Board(6, 6)
   val pieces = Rook() :: Rook() :: Horsey() :: Horsey() :: Horsey() :: Horsey() :: Nil
 
   val watch = Stopwatch.createStarted()
@@ -24,17 +24,32 @@ class SimpleSolver extends ChessSolver with BruteForceArrangements {
   }
 }
 
-trait BruteForceArrangements {
+trait BruteForceArrangements extends PrefilteredPositions {
   protected def arrangements(state: GameState, pieces: List[Piece]): GenIterable[GameState] = pieces match {
     case Nil => state :: Nil
     case piece :: tail =>
       for {
-        p <- state.available.par
-        // 6x6 RRNNNN serial took 2.265 min
-        // 6x6 RRNNNN parallel took 1.411 min
-        if !state.canBeTakenBy(p, piece)
+        p <- available(state)
+        if !piece.canTakeAny(p, state.pieces.keys)
         s = state.withPiece(p, piece)
         n <- arrangements(s, tail)
       } yield n
   }
+}
+
+trait PrefilteredPositions {
+  protected def available(state: GameState): Seq[Position] = for {
+    x <- 0 until state.board.width
+    y <- 0 until state.board.height
+    p = (x, y)
+    if !state.pieces.contains(p)
+    if !canBeTaken(state, p)
+  } yield p
+
+  private def canBeTaken(state: GameState, to: Position) = {
+    state.pieces.map {
+      case (from, piece) => piece.canTake(from, to)
+    } find (identity)
+  }.isDefined
+
 }

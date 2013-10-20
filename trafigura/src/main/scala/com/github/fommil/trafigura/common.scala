@@ -10,27 +10,8 @@ trait ChessSolver {
 }
 
 case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
-  def withPiece(pos: Position, piece: Piece) = {
-    require(board.isValid(pos))
+  def withPiece(pos: Position, piece: Piece) =
     copy(pieces = pieces + (pos -> piece))
-  }
-
-  def available: Seq[Position] = for {
-    x <- 0 until board.width
-    y <- 0 until board.height
-    if !pieces.contains((x, y))
-    p = (x, y)
-    if !canBeTaken(p)
-  } yield p
-
-  private def canBeTaken(p: Position) = ! {
-    pieces.map { case (position, piece) =>
-      piece.canTake(position, p, board)
-    } filter (identity)
-  }.isEmpty
-
-  def canBeTakenBy(p: Position, piece: Piece) =
-    !piece.moves(p, board).toSet.intersect(pieces.keySet).isEmpty
 
   override def toString = {
     for {
@@ -51,80 +32,44 @@ case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
       }
     }
   }.mkString("")
-
 }
 
-
-case class Board(width: Int, height: Int) {
-  require(width > 0 && height > 0)
-
-  def isValid(p: Position) = {
-    p._1 >= 0 && p._2 >= 0 && p._1 < width && p._2 < height
-  }
-}
+case class Board(width: Int, height: Int)
 
 sealed trait Piece {
-  def canTake(from: Position, board: Board)(to: Position) = moves(from, board).contains(to)
+  def canTakeAny(from: Position, ps: Iterable[Position]) =
+    ps.find(canTake(from, _)).isDefined
 
-  def moves(from: Position, board: Board): Seq[Position]
+  def canTake(from: Position, to: Position): Boolean =
+    canTake(to._1 - from._1, to._2 - from._2)
 
-  def canTake(from: Position, to: Position, board: Board) =
-    moves(from, board).contains(to)
+  protected def canTake(x: Int, y: Int): Boolean
 
-  // all valid diagonal moves to a range.
-  // could be optimised (code complexity)
-  // to avoid the filter: benefits negligible
-  protected def diag(p: Position, range: Int, board: Board) = {
-    assert(range > 0)
-    for {
-      x <- 1 to range
-      m <- (p._1 - x, p._2 - x) ::
-        (p._1 + x, p._2 - x) ::
-        (p._1 - x, p._2 + x) ::
-        (p._1 + x, p._2 + x) :: Nil
-    } yield m
-  } filter board.isValid
+  protected def diag(x: Int, y: Int) = math.abs(x) == math.abs(y)
 
-  protected def xy(p: Position, range: Int, board: Board) = {
-    assert(range > 0)
-    for {x <- 1 to range
-         m <- (p._1, p._2 - x) ::
-           (p._1, p._2 + x) ::
-           (p._1 - x, p._2) ::
-           (p._1 + x, p._2) :: Nil
-    } yield m
-  } filter board.isValid
-
-  // largest distance to any side of the board
-  protected def toSide(p: Position, board: Board) =
-    (p._1 :: board.width - p._1 :: p._2 :: board.height - p._2 :: Nil).max
-
+  protected def xy(x: Int, y: Int) = x == 0 || y == 0
 }
 
 case class King() extends Piece {
-  def moves(p: Position, board: Board) = xy(p, 1, board) ++ diag(p, 1, board)
+  protected def canTake(x: Int, y: Int) = math.abs(x) <= 1 && math.abs(y) <= 1
 }
 
 case class Queen() extends Piece {
-  def moves(p: Position, board: Board) = {
-    val range = toSide(p, board)
-    xy(p, range, board) ++ diag(p, range, board)
-  }
+  protected def canTake(x: Int, y: Int) = diag(x, y) || xy(x, y)
 }
 
 case class Rook() extends Piece {
-  def moves(p: Position, board: Board) = xy(p, toSide(p, board), board)
+  protected def canTake(x: Int, y: Int) = xy(x, y)
 }
 
 case class Bishop() extends Piece {
-  def moves(p: Position, board: Board) = diag(p, toSide(p, board), board)
+  protected def canTake(x: Int, y: Int) = diag(x, y)
 }
 
 case class Horsey() extends Piece {
-  def moves(p: Position, board: Board) = {
-    (p._1 + 2, p._2 + 1) ::(p._1 + 2, p._2 - 1) ::
-      (p._1 - 2, p._2 + 1) ::(p._1 - 2, p._2 - 1) ::
-      (p._1 - 1, p._2 + 2) ::(p._1 + 1, p._2 + 2) ::
-      (p._1 - 1, p._2 - 2) ::(p._1 + 1, p._2 - 2) :: Nil
-  } filter board.isValid
+  protected def canTake(x: Int, y: Int) = (math.abs(x), math.abs(y)) match {
+    case (1, 2) => true
+    case (2, 1) => true
+    case _ => false
+  }
 }
