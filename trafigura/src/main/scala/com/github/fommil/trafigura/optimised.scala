@@ -11,19 +11,16 @@ import com.google.common.base.Stopwatch
 
 /** This solver addressing bottlenecks discovered by profiling SimpleSolver.
   *
-  * 1. The board displays symmetry in the horizontal and vertical,
+  * In comparison: SimpleSolver solves 6x6 RRNNNN in 1 minute (seq) and
+  * 33 seconds (par). AkkaSolver solves the same problem in 20 seconds
+  * on the same machine and (most importantly) can be distributed
+  * by following the [[http://doc.akka.io/docs/akka/snapshot/java/cluster-usage.html cluster tutorial]].
+  *
+  * The board displays symmetry in the horizontal and vertical,
   * the search space is reduced by an order of 2^2^=4 (2^3^=8 for a square
   * board, which also displays rotational symmetry).
-  * The code is increased in complexity in two parts:
-  * first the search space must be modified in an unintuitive manner,
-  * second a post-processing stage must be applied to recover the symmetries.
-  * We also order the pieces to minimise the search space: this is achieved in
-  * ChessOptimisations.
-  *
-  * 2. We hit the CPU bounds of a single machine in SimpleSolver, but this problem
-  * is appropriate for distributed computing. We use Akka, which refactors
-  * concurrency, parallel strategies and distribution to runtime
-  * configuration.
+  * We also reorder the placement of pieces to minimise the search space: these
+  * optimisations are implemented in ChessOptimisations.
   *
   * Note that this implementation would need to be significantly hardened
   * for a production solution: it currently has no support for lost messages
@@ -157,15 +154,12 @@ class ChessSearch extends Actor with ActorLogging {
 }
 
 trait ChessOptimisations {
-  // starting with the highest coverage piece reduces the search space
   def order(pieces: List[Piece]) = pieces.sortBy {
     case Queen() => 0
     case Rook() | Bishop() => 1
     case Horsey() => 2
     case King() => 3
   }
-
-  // TODO: rotational symmetry of square board
 
   def init(board: Board, piece: Piece): List[CachedGameState] =
     board.positions.filterNot { p =>
