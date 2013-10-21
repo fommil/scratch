@@ -1,5 +1,7 @@
 package com.github.fommil.trafigura
 
+import math.abs
+
 object `package` {
   // zero-indexed (x, y)
   type Position = (Int, Int)
@@ -40,33 +42,33 @@ sealed trait Piece {
     ps.find(canTake(from, _)).isDefined
 
   def canTake(from: Position, to: Position): Boolean =
-    canTake(to._1 - from._1, to._2 - from._2)
+    canTake((to._1 - from._1, to._2 - from._2))
 
-  protected def canTake(x: Int, y: Int): Boolean
+  protected def canTake(p: Position): Boolean
 
-  protected def diag(x: Int, y: Int) = math.abs(x) == math.abs(y)
+  protected def diag(p: Position) = abs(p._1) == abs(p._2)
 
-  protected def xy(x: Int, y: Int) = x == 0 || y == 0
+  protected def xy(p: Position) = p._1 == 0 || p._2 == 0
 }
 
 case class King() extends Piece {
-  protected def canTake(x: Int, y: Int) = math.abs(x) <= 1 && math.abs(y) <= 1
+  protected def canTake(p: Position) = abs(p._1) <= 1 && abs(p._2) <= 1
 }
 
 case class Queen() extends Piece {
-  protected def canTake(x: Int, y: Int) = diag(x, y) || xy(x, y)
+  protected def canTake(p: Position) = diag(p._1, p._2) || xy(p._1, p._2)
 }
 
 case class Rook() extends Piece {
-  protected def canTake(x: Int, y: Int) = xy(x, y)
+  protected def canTake(p: Position) = xy(p._1, p._2)
 }
 
 case class Bishop() extends Piece {
-  protected def canTake(x: Int, y: Int) = diag(x, y)
+  protected def canTake(p: Position) = diag(p._1, p._2)
 }
 
 case class Horsey() extends Piece {
-  protected def canTake(x: Int, y: Int) = (math.abs(x), math.abs(y)) match {
+  protected def canTake(p: Position) = (abs(p._1), abs(p._2)) match {
     case (1, 2) => true
     case (2, 1) => true
     case _ => false

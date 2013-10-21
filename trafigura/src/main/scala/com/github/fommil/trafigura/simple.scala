@@ -19,9 +19,8 @@ object SimpleSolverApp extends SimpleSolver with App {
 }
 
 class SimpleSolver extends ChessSolver with BruteForceArrangements {
-  def solve(board: Board, pieces: List[Piece]): List[GameState] = {
+  def solve(board: Board, pieces: List[Piece]) =
     arrangements(board, pieces).toList.distinct
-  }
 }
 
 
@@ -37,7 +36,7 @@ object CachedGameState {
 }
 
 trait BruteForceArrangements {
-  protected def arrangements(board: Board, pieces: List[Piece]) = {
+  protected def arrangements(board: Board, pieces: List[Piece]): GenIterable[GameState] = {
     val start = CachedGameState(GameState(board), board.positions.toList)
     arrangements(start, pieces).map { _.state }
   }
