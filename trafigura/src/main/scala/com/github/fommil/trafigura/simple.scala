@@ -20,36 +20,37 @@ object SimpleSolverApp extends SimpleSolver with App {
 
 class SimpleSolver extends ChessSolver with BruteForceArrangements {
   def solve(board: Board, pieces: List[Piece]): List[GameState] = {
-    arrangements(GameState(board), pieces).toList.distinct
+    arrangements(board, pieces).toList.distinct
   }
 }
 
-trait BruteForceArrangements extends PrefilteredPositions {
-  protected def arrangements(state: GameState, pieces: List[Piece]): GenIterable[GameState] = pieces match {
-    case Nil => state :: Nil
+
+// avoids recomputing available spaces for derived states
+case class CachedGameState(state: GameState, available: List[Position])
+
+object CachedGameState {
+  def apply(cached: CachedGameState, position: Position, piece: Piece): CachedGameState = {
+    val gone = Set(position) ++ cached.available.filter(piece.canTake(position, _))
+    val nowAvail = cached.available.toSet.diff(gone).toList
+    CachedGameState(cached.state.withPiece(position, piece), nowAvail)
+  }
+}
+
+trait BruteForceArrangements {
+  protected def arrangements(board: Board, pieces: List[Piece]) = {
+    val start = CachedGameState(GameState(board), board.positions.toList)
+    arrangements(start, pieces).map { _.state }
+  }
+
+  protected def arrangements(cache: CachedGameState, pieces: List[Piece]): GenIterable[CachedGameState] = pieces match {
+    case Nil => cache :: Nil
     case piece :: tail =>
       for {
-        p <- available(state)
-        if !piece.canTakeAny(p, state.pieces.keys)
-        s = state.withPiece(p, piece)
-        n <- arrangements(s, tail)
+        p <- cache.available.par
+        // serial 6x6 RRHHHH takes 1 min
+        // parallel 6x6 RRHHHH takes 33 secs
+        if !piece.canTakeAny(p, cache.state.pieces.keys)
+        n <- arrangements(CachedGameState(cache, p, piece), tail)
       } yield n
   }
-}
-
-trait PrefilteredPositions {
-  protected def available(state: GameState): Seq[Position] = for {
-    x <- 0 until state.board.width
-    y <- 0 until state.board.height
-    p = (x, y)
-    if !state.pieces.contains(p)
-    if !canBeTaken(state, p)
-  } yield p
-
-  private def canBeTaken(state: GameState, to: Position) = {
-    state.pieces.map {
-      case (from, piece) => piece.canTake(from, to)
-    } find (identity)
-  }.isDefined
-
 }

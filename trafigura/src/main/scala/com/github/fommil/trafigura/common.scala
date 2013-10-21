@@ -18,23 +18,22 @@ case class GameState(board: Board, pieces: Map[Position, Piece] = Map()) {
       y <- 0 until board.height
       x <- 0 until board.width
     } yield {
-      (if (x == 0) "\n" else "") + {
+      {
         pieces.get((x, y)) match {
           case None => "."
-          case Some(s) => s match {
-            case King() => "K"
-            case Queen() => "Q"
-            case Rook() => "R"
-            case Bishop() => "B"
-            case Horsey() => "N"
-          }
+          case Some(s) => s.toString.substring(0, 1)
         }
-      }
+      } + (if (x + 1 == board.width) "\n" else "")
     }
-  }.mkString("")
+  }.mkString("\n", "", "")
 }
 
-case class Board(width: Int, height: Int)
+case class Board(width: Int, height: Int) {
+  def positions = for {
+    x <- 0 until width
+    y <- 0 until height
+  } yield (x, y)
+}
 
 sealed trait Piece {
   def canTakeAny(from: Position, ps: Iterable[Position]) =
