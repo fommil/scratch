@@ -25,14 +25,16 @@ class SimpleSolver extends ChessSolver with BruteForceArrangements {
 
 
 // avoids recomputing available spaces for derived states
-case class CachedGameState(state: GameState, available: List[Position])
+case class CachedGameState(state: GameState, available: List[Position]) {
+  def withPiece(position: Position, piece: Piece) = {
+    val gone = Set(position) ++ available.filter(piece.canTake(position, _))
+    val nowAvail = available.toSet.diff(gone).toList
+    CachedGameState(state.withPiece(position, piece), nowAvail)
+  }
+}
 
 object CachedGameState {
-  def apply(cached: CachedGameState, position: Position, piece: Piece): CachedGameState = {
-    val gone = Set(position) ++ cached.available.filter(piece.canTake(position, _))
-    val nowAvail = cached.available.toSet.diff(gone).toList
-    CachedGameState(cached.state.withPiece(position, piece), nowAvail)
-  }
+  def apply(board: Board): CachedGameState = CachedGameState(GameState(board), board.positions.toList)
 }
 
 trait BruteForceArrangements {
@@ -49,7 +51,7 @@ trait BruteForceArrangements {
         // serial 6x6 RRHHHH takes 1 min
         // parallel 6x6 RRHHHH takes 33 secs
         if !piece.canTakeAny(p, cache.state.pieces.keys)
-        n <- arrangements(CachedGameState(cache, p, piece), tail)
+        n <- arrangements(cache.withPiece(p, piece), tail)
       } yield n
   }
 }
