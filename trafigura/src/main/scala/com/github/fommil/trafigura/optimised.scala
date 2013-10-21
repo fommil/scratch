@@ -16,16 +16,14 @@ import scala.concurrent.duration.Duration
   * first the search space must be modified in an unintuitive manner,
   * second a post-processing stage must be applied to recover the symmetries.
   *
-  * 2. All entries in the search space may be checked simultaneously as this is an
-  * [[http://en.wikipedia.org/wiki/Embarrassingly_parallel embarrassingly parallel problem]].
-  * We use Akka to send the validity checking to an actor system,
-  * which may live on a distributed computing cluster. So long as the network
-  * time is lower than the computational cost, there will be an advantage.
+  * 2. We hit the CPU bounds of a single machine in SimpleSolver, but this problem
+  * is appropriate for distributed computing. We use Akka, which refactors
+  * concurrency, parallel strategies and distribution to runtime
+  * configuration.
   *
-  * Note that this Akka implementation would need to be significantly hardened
-  * for a network distributed solution, and also for large search spaces, as
-  * it currently has no support for lost messages and doesn't care about
-  * the memory build-up in queues.
+  * Note that this implementation would need to be significantly hardened
+  * for a production solution: it currently has no support for lost messages
+  * and doesn't care about the memory build-up in queues.
   *
   * @author Sam Halliday
   */
@@ -35,7 +33,7 @@ class AkkaSolver extends ChessSolver {
   implicit private val timeout = Timeout(1, DAYS)
 
   def solve(board: Board, pieces: List[Piece]) = {
-    val actor = system.actorOf(Props[ChessSearchActor])
+    val actor = system.actorOf(Props[ChessSearch])
     val solutions = (actor ?(board, pieces)).mapTo[List[GameState]]
     Await.result(solutions, Duration.Inf)
   }
@@ -46,24 +44,84 @@ case class Solution(state: GameState)
 
 case class Invalid(state: GameState)
 
-class ChessSearchActor extends Actor with ActorLogging {
+// these must arrive first or we can exit early
+case class Created(count: Int)
+
+class Aggregator(searchers: ActorRef) extends Actor with ActorLogging with ChessOptimisations {
 
   var solutions = Set[GameState]()
-  var created = 0
-  var received = 0
+  var outstanding = 0
   var caller: ActorRef = _
 
   def receive = {
     case (board: Board, pieces: List[Piece]) =>
+      require(!pieces.isEmpty)
       caller = sender
-      caller ! List()
 
-    case Solution(state) => ???
+      val ordered = order(pieces)
+      init(board, ordered.head) foreach {s =>
+        outstanding += 1
+        searchers ! Search(self, s, ordered.tail)
+      }
 
-    case Invalid(state) => ???
+    case Created(count) =>
+      // parent is already counted
+      outstanding += (count - 1)
+
+    case Solution(state) =>
+      solutions = solutions + state
+      outstanding -= 1
+      checkComplete()
+
+    case Invalid(state) =>
+      outstanding -= 1
+      checkComplete()
+  }
+
+  private def checkComplete() {
+    if (outstanding == 0)
+      caller ! symm(solutions.toList)
   }
 }
 
-class ChessValidatorActor extends Actor with ActorLogging {
-  def receive = ???
+case class Search(agg: ActorRef, game: CachedGameState, pieces: List[Piece])
+
+class ChessSearch(searchers: ActorRef) extends Actor with ActorLogging {
+
+  def receive = {
+    case Search(agg, cache, Nil) =>
+      agg ! Solution(cache.state)
+
+    case Search(agg, cache, piece :: tail) =>
+      val next = for {
+        p <- cache.available
+        if !piece.canTakeAny(p, cache.state.pieces.keys)
+      } yield CachedGameState(cache, p, piece)
+
+      if (next.isEmpty)
+        agg ! Invalid(cache.state)
+      else {
+        agg ! Created(next.size)
+        next foreach { n =>
+          if (tail == Nil)
+            agg ! Solution(n.state)
+          else
+            searchers ! Search(agg, n, tail)
+        }
+      }
+  }
+}
+
+trait ChessOptimisations {
+  // starting with the highest coverage piece reduces the search space
+  def order(pieces: List[Piece]) = pieces.sortBy {
+    case Queen() => 0
+    case Rook() | Bishop() => 1
+    case Horsey() => 2
+    case King() => 3
+  }
+
+  def init(board: Board, piece: Piece): List[CachedGameState] = ???
+
+  def symm(states: List[GameState]): List[GameState] = ???
 }
