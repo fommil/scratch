@@ -12,7 +12,7 @@ import com.google.common.base.Stopwatch
 /** This solver addressing bottlenecks discovered by profiling SimpleSolver.
   *
   * In comparison: SimpleSolver solves 6x6 RRNNNN in 1 minute (seq) and
-  * 33 seconds (par). AkkaSolver solves the same problem in 20 seconds
+  * 33 seconds (par). AkkaSolver solves the same problem in 13 seconds
   * on the same machine and (most importantly) can be distributed
   * by following the [[http://doc.akka.io/docs/akka/snapshot/java/cluster-usage.html cluster tutorial]].
   *
@@ -28,6 +28,22 @@ import com.google.common.base.Stopwatch
   * would be faster if we didn't have to send `Invalid` messages back to
   * the aggregator: but without knowing the size of the search space in
   * advance we are scuppered.
+  *
+  * Thoughts:
+  *
+  * 1. A possible solution to the `Invalid` network problem is to batch.
+  *
+  * 2. A possible solution to the lost messages problem would be to represent
+  * the search space as a BitSet, and every time a `Created` is produced,
+  * the `BitSet` for all the excluded states is included in the message.
+  * A scheduler could then check - when idle - outstanding states and then
+  * send a message to recalculate them: the worst that can happen is
+  * duplicated work.
+  *
+  * 3. There doesn't seem to be an abvious solution to the memory limit problem
+  * in this approach without introducing a system-wide pipe that limits the
+  * number of `Search` instances in existence and prioritising the most
+  * recent `Created` messages... i.e. depth first.
   *
   * @author Sam Halliday
   */
@@ -46,7 +62,7 @@ object AkkaSolverApp extends App {
 
   val watch = Stopwatch.createStarted()
   val solutions = solver.solve(board, pieces)
-  println(solutions.mkString("\n\n"))
+  //  println(solutions.mkString("\n\n"))
   println(s"calculating the ${solutions.size} solutions took ${watch.stop()} for $board $pieces")
 
   system.shutdown()
@@ -162,9 +178,9 @@ trait ChessOptimisations {
   }
 
   def init(board: Board, piece: Piece): List[CachedGameState] =
-    board.positions.filterNot { p =>
-      p._1 > board.width / 2 || p._2 > board.height / 2 ||
-        (board.width == board.height && p._1 < p._2)
+    board.positions.filter { p =>
+      p._1 < (board.width + 1) / 2 && p._2 < (board.height + 1) / 2 &&
+        (board.width != board.height || p._1 <= p._2)
     }.map { p =>
       CachedGameState(board).withPiece(p, piece)
     }.toList
@@ -173,9 +189,7 @@ trait ChessOptimisations {
     for {
       s <- states
       h = flipH(s)
-      v = flipV(s)
-      vh = flipV(h)
-      xy <- s :: h :: v :: vh :: Nil
+      xy <- s :: h :: flipV(s) :: flipV(h) :: Nil
       r <- xy :: flipD(xy)
     } yield r
   }.distinct

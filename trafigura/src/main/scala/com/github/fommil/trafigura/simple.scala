@@ -4,7 +4,7 @@ import scala.collection.GenIterable
 import scala.Predef._
 import com.google.common.base.Stopwatch
 
-/** Uses brute-force search demonstrating algorithmic simplicity.
+/** Uses selective search demonstrating algorithmic simplicity.
   *
   * @author Sam Halliday
   */
