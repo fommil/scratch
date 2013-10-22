@@ -1,4 +1,4 @@
-package com.github.fommil.trafigura
+package com.github.fommil.chess
 
 import org.specs2.mutable.Specification
 import akka.contrib.jul.JavaLogging

@@ -1,4 +1,4 @@
-package com.github.fommil.trafigura
+package com.github.fommil.chess
 
 import math.abs
 

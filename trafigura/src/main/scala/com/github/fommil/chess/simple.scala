@@ -1,4 +1,4 @@
-package com.github.fommil.trafigura
+package com.github.fommil.chess
 
 import scala.collection.GenIterable
 import scala.Predef._

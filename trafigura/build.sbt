@@ -1,8 +1,8 @@
-// mkdir -p src/{main,test}/{java,scala}/com/github/fommil/trafigura
+// mkdir -p src/{main,test}/{java,scala}/com/github/fommil/chess
 
 organization := "com.github.fommil"
 
-name := "trafigura"
+name := "chess"
 
 version := "1.0-SNAPSHOT"
 
@@ -18,6 +18,6 @@ libraryDependencies ++= Seq(
 
 javaOptions += "-Djava.awt.headless=true -XX:MaxPermSize=128M -Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -Djava.util.logging.config.file=logging.properties"
 
-mainClass := Some("com.github.fommil.trafigura.Chess")
+mainClass in (Compile, run) := Some("com.github.fommil.trafigura.AkkaSolver")
 
 fork := true

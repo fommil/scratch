@@ -1,4 +1,4 @@
-package com.github.fommil.trafigura
+package com.github.fommil.chess
 
 class SimpleSolverSpecs extends ChessSolverSpecs {
   val solver = new SimpleSolver

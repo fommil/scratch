@@ -1,4 +1,4 @@
-package com.github.fommil.trafigura
+package com.github.fommil.chess
 
 import akka.actor.{Props, ActorSystem}
 import org.specs2.specification.{Fragments, Step}
