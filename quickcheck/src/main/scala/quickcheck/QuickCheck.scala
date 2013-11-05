@@ -1,6 +1,5 @@
 package quickcheck
 
-import common._
 
 import org.scalacheck._
 import Arbitrary._
@@ -9,14 +8,28 @@ import Prop._
 
 abstract class QuickCheckHeap extends Properties("Heap") with IntHeap {
 
-  /*
-   * As an example of what you should do, here is a property that ensures that if you insert an
-   * element into an empty heap, then find the minimum of the resulting heap, you get the element back
-   */
   property("min1") = forAll { a: Int =>
-    val h = insert(a, empty)
-    findMin(h) == a
+    findMin(insert(a, empty)) == a
   }
+
+  // insert any two elements into an empty heap, finding the minimum of the resulting heap
+  // should get the smallest of the two elements back.
+  property("min2") = forAll { (a: Int, b: Int) =>
+    findMin(insert(b, insert(a, empty))) == (a min b)
+  }
+
+  // insert an element into an empty heap, then delete the minimum, the resulting heap should be empty.
+  property("insert delete") = forAll { a: Int =>
+    deleteMin(insert(a, empty)) == empty
+  }
+
+
+  lazy val genHeap: Gen[H] = for {
+    k <- arbitrary[Int]
+    m <- oneOf(value(empty), genHeap)
+  } yield insert(k, m)
+
+  implicit lazy val arbHeap: Arbitrary[H] = Arbitrary(genHeap)
 
   /*
    * We also recommend you write a generator of heaps, of abstract type H, so that you can write
@@ -24,28 +37,33 @@ abstract class QuickCheckHeap extends Properties("Heap") with IntHeap {
    */
   property("gen1") = forAll { (h: H) =>
     val m = if (isEmpty(h)) 0 else findMin(h)
-    findMin(insert(m, h))==m
+    findMin(insert(m, h)) == m
   }
 
-  /*
-   * To get you in shape, here is an example of a generator for maps of type Map[Int,Int].
-   */
-  lazy val genMap: Gen[Map[Int,Int]] = for {
-    k <- arbitrary[Int]
-    v <- arbitrary[Int]
-    m <- oneOf(value(Map.empty[Int,Int]), genMap)
-  } yield m.updated(k, v)
+//  // Given any heap, you should get a sorted sequence of elements when continually finding and deleting minima.
+//  // (Hint: recursion and helper functions are your friends.)
+//  property("recover sorted") = forAll { (h: H) =>
+//    def checkOrder(h: H, last: A): Boolean =
+//      if (isEmpty(h)) true
+//      else if (findMin(h) < last) false
+//      else checkOrder(deleteMin(h), findMin(h))
+//    checkOrder(h, Int.MinValue)
+//  }
 
-  lazy val genHeap: Gen[H] = ???
+  // Finding a minimum of the melding of any two heaps should return a minimum of one or the other.
+  property("minimum of meld") = forAll { (h1: H, h2: H) =>
+    findMin(meld(h1, h2)) == (findMin(h1) min findMin(h2))
+  }
 
-  implicit lazy val arbHeap: Arbitrary[H] = Arbitrary(genHeap)
-
-  /* HINTS
-   *
-   * 1. If you insert any two elements into an empty heap, finding the minimum of the resulting heap should get the smallest of the two elements back.
-   * 2. If you insert an element into an empty heap, then delete the minimum, the resulting heap should be empty.
-   * 3. Given any heap, you should get a sorted sequence of elements when continually finding and deleting minima. (Hint: recursion and helper functions are your friends.)
-   * 4. Finding a minimum of the melding of any two heaps should return a minimum of one or the other.
-   */
+  // creating a heap from a list of numbers and repeatedly removing values, should return a sorted version of the list
+  property("recover sorted list") = forAll { as: List[A] =>
+    def pop(h: H, acc: List[A]): List[A] =
+      if (isEmpty(h)) acc
+      else pop(deleteMin(h), findMin(h) :: acc)
+    def push(h: H, as: List[A]): H =
+      if (as.isEmpty) h
+      else push(insert(as.head, h), as.tail)
+    pop(push(empty, as), Nil) == as.sorted.reverse
+  }
 
 }
