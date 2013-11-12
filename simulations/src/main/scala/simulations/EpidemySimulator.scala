@@ -16,9 +16,9 @@ class EpidemySimulator extends Simulator {
     val deathRate = 0.25
 
     // extensions
-    val airTravel = 0.01
-    val chosenFew = 0.05
-    val reducedMobility = true
+    val airTravel = 0
+    val chosenFew = 0
+    val reducedMobility = false
   }
 
   import SimConfig._
@@ -81,10 +81,7 @@ class EpidemySimulator extends Simulator {
           }
         }
       }
-
-      afterDelay(1) {
-        mode
-      }
+      mode
     }
 
     private def chooseRoom = {
