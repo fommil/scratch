@@ -14,6 +14,11 @@ class EpidemySimulator extends Simulator {
     val transmissibility = 0.4
     val prevalence = 0.01
     val deathRate = 0.25
+
+    // extensions
+    val airTravel = 0.01
+    val chosenFew = 0.05
+    val reducedMobility = true
   }
 
   import SimConfig._
@@ -27,10 +32,12 @@ class EpidemySimulator extends Simulator {
       p.row == r._1 && p.col == r._2
   }
 
+  def isInfected(room: (Int, Int)) = inRoom(room).count(_.infected) > 0
+
   class Person(val id: Int) {
     var infected = id < population * prevalence
     var sick = false
-    var immune = false
+    var immune = random < chosenFew
     var dead = false
     var row: Int = randomBelow(roomRows)
     var col: Int = randomBelow(roomColumns)
@@ -45,8 +52,9 @@ class EpidemySimulator extends Simulator {
       val choice = chooseRoom
       afterDelay(wait) {
         choice match {
-          case None => mode
+          case _ if reducedMobility & sick => mode
           case Some(room) => move(room)
+          case _ => mode
         }
       }
     }
@@ -55,7 +63,7 @@ class EpidemySimulator extends Simulator {
       if (dead) return
       row = room._1
       col = room._2
-      if (inRoom(room).count(_.infected) > 0 && random < transmissibility) {
+      if (!immune && isInfected(room) && random < transmissibility) {
         infected = true
         afterDelay(6) {
           sick = true
@@ -80,9 +88,13 @@ class EpidemySimulator extends Simulator {
     }
 
     private def chooseRoom = {
-      val ns = neighbours.toList
-      if (ns.isEmpty) None
-      else Some(ns(randomBelow(ns.size)))
+      if (random < airTravel)
+        Some(randomBelow(roomRows), randomBelow(roomColumns))
+      else {
+        val ns = neighbours.toList
+        if (ns.isEmpty) None
+        else Some(ns(randomBelow(ns.size)))
+      }
     }
 
     private def neighbours = for {
