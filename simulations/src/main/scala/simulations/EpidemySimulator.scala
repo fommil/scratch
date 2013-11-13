@@ -51,8 +51,8 @@ class EpidemySimulator extends Simulator {
 
     def mode {
       if (dead) return
-      // "within the next 5 days" interpreted as [1...4]
-      val wait = 1 + randomBelow(4)
+      // "within the next 5 days" interpreted as [1...5]
+      val wait = 1 + randomBelow(5)
       val choice = chooseRoom
       debug = choice.toString
       afterDelay(wait) {
@@ -62,9 +62,9 @@ class EpidemySimulator extends Simulator {
           case _ =>
         }
       }
-      // this is a bit of a hack, the assignment is
-      // completely ambiguous about when a "mode" recurs
-      afterDelay(4) {
+
+      // ambiguous interpretation
+      afterDelay(5) {
         mode
       }
     }
