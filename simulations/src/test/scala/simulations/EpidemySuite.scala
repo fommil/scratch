@@ -117,7 +117,7 @@ class EpidemySuite extends FunSuite {
       }
       val start = last.toMap
 
-      while (es.agenda.head.time < 6) {
+      while (es.agenda.head.time < 5) {
         es.persons foreach { p =>
           last.get(p) match {
             case Some(room) if (room !=(p.row, p.col)) =>

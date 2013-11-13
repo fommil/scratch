@@ -18,6 +18,7 @@ class EpidemySimulator extends Simulator {
     // extensions
     val airTravel = 0
     val chosenFew = 0
+    // the assignment is very ambiguous about what "reduced mobility" means
     val reducedMobility = false
   }
 
