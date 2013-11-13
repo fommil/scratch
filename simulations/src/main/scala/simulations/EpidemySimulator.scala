@@ -27,8 +27,11 @@ class EpidemySimulator extends Simulator {
     new Person(_)
   }.toList
 
-  def inRoom(r: (Int, Int)) = persons.filter {
-    p =>
+  persons foreach {
+    _.mode
+  }
+
+  def inRoom(r: (Int, Int)) = persons.filter { p =>
       p.row == r._1 && p.col == r._2
   }
 
@@ -42,20 +45,27 @@ class EpidemySimulator extends Simulator {
     var row: Int = randomBelow(roomRows)
     var col: Int = randomBelow(roomColumns)
 
-    afterDelay(0) {
-      mode
-    }
+    var debug = ""
 
-    private def mode {
+    override def toString() = s"#$id@($row, $col) $debug"
+
+    def mode {
       if (dead) return
-      val wait = randomBelow(5)
+      // "within the next 5 days" interpreted as [1...4]
+      val wait = 1 + randomBelow(4)
       val choice = chooseRoom
+      debug = choice.toString
       afterDelay(wait) {
         choice match {
-          case _ if reducedMobility & sick => mode
+          case _ if reducedMobility & sick =>
           case Some(room) => move(room)
-          case _ => mode
+          case _ =>
         }
+      }
+      // this is a bit of a hack, the assignment is
+      // completely ambiguous about when a "mode" recurs
+      afterDelay(4) {
+        mode
       }
     }
 
@@ -81,7 +91,6 @@ class EpidemySimulator extends Simulator {
           }
         }
       }
-      mode
     }
 
     private def chooseRoom = {
