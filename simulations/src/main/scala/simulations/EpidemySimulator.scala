@@ -33,10 +33,12 @@ class EpidemySimulator extends Simulator {
   }
 
   def inRoom(r: (Int, Int)) = persons.filter { p =>
-      p.row == r._1 && p.col == r._2
+    p.row == r._1 && p.col == r._2
   }
 
   def isInfected(room: (Int, Int)) = inRoom(room).count(_.infected) > 0
+
+  def isVisiblyInfected(room: (Int, Int)) = inRoom(room).count(_.sick) > 0
 
   class Person(val id: Int) {
     var infected = false
@@ -59,7 +61,9 @@ class EpidemySimulator extends Simulator {
       afterDelay(wait) {
         chooseRoom match {
           case _ if reducedMobility & sick =>
-          case Some(room) => move(room)
+          case Some(room) =>
+            assert(!isVisiblyInfected(room))
+            move(room)
           case _ =>
         }
         mode
@@ -75,20 +79,27 @@ class EpidemySimulator extends Simulator {
     }
 
     private def lurgy {
+      if (infected | immune | dead) return
       infected = true
       afterDelay(6) {
         sick = true
         afterDelay(8) {
           if (random < deathRate)
             dead = true
-          else afterDelay(2) {
-            immune = true
-            afterDelay(2) {
-              infected = false
-              sick = false
-              immune = false
-            }
-          }
+          else immunise
+        }
+      }
+    }
+
+    private def immunise {
+      // check is only incase outsider fiddles var
+      if (dead) return
+      afterDelay(2) {
+        immune = true
+        afterDelay(2) {
+          infected = false
+          sick = false
+          immune = false
         }
       }
     }
@@ -109,7 +120,7 @@ class EpidemySimulator extends Simulator {
         (roomRows + move._1 + row) % roomRows,
         (roomColumns + move._2 + col) % roomColumns
         )
-      if inRoom(room).count(_.sick) == 0
+      if !isVisiblyInfected(room)
     } yield room
   }
 
