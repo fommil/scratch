@@ -45,27 +45,19 @@ class EpidemySimulator extends Simulator {
     var row: Int = randomBelow(roomRows)
     var col: Int = randomBelow(roomColumns)
 
-    var debug = ""
-
-    override def toString() = s"#$id@($row, $col) $debug"
+    override def toString() = s"#$id@($row, $col)"
 
     def mode {
       if (dead) return
       // "within the next 5 days" interpreted as [1...5]
       val wait = 1 + randomBelow(5)
-      val choice = chooseRoom
-      debug = choice.toString
       afterDelay(wait) {
-        choice match {
+        chooseRoom match {
           case _ if reducedMobility & sick =>
           case Some(room) => move(room)
           case _ =>
         }
-      }
-
-      // ambiguous interpretation
-      afterDelay(5) {
-        mode
+        if (!dead) mode
       }
     }
 
