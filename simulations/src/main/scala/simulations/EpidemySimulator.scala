@@ -38,7 +38,7 @@ class EpidemySimulator extends Simulator {
 
   def isInfected(room: (Int, Int)) = inRoom(room).count(_.infected) > 0
 
-  def isVisiblyInfected(room: (Int, Int)) = inRoom(room).count(_.sick) > 0
+  def isVisiblyInfected(room: (Int, Int)) = inRoom(room).count(p => p.sick | p.immune | p.dead) > 0
 
   class Person(val id: Int) {
     var infected = false
