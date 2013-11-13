@@ -38,7 +38,7 @@ class EpidemySimulator extends Simulator {
   def isInfected(room: (Int, Int)) = inRoom(room).count(_.infected) > 0
 
   class Person(val id: Int) {
-    var infected = id < population * prevalence
+    var infected = false
     var sick = false
     var immune = random < chosenFew
     var dead = false
@@ -47,17 +47,21 @@ class EpidemySimulator extends Simulator {
 
     override def toString() = s"#$id@($row, $col)"
 
+    // init
+    if (id < population * prevalence) {
+      lurgy
+    }
+
     def mode {
       if (dead) return
-      // "within the next 5 days" interpreted as [1...5]
-      val wait = 1 + randomBelow(5)
+      val wait = randomBelow(5)
       afterDelay(wait) {
         chooseRoom match {
           case _ if reducedMobility & sick =>
           case Some(room) => move(room)
           case _ =>
         }
-        if (!dead) mode
+        mode
       }
     }
 
@@ -65,20 +69,23 @@ class EpidemySimulator extends Simulator {
       if (dead) return
       row = room._1
       col = room._2
-      if (!immune && isInfected(room) && random < transmissibility) {
-        infected = true
-        afterDelay(6) {
-          sick = true
-          afterDelay(8) {
-            if (random < deathRate)
-              dead = true
-            else afterDelay(2) {
-              immune = true
-              afterDelay(2) {
-                infected = false
-                sick = false
-                immune = false
-              }
+      if (!immune && isInfected(room) && random < transmissibility)
+        lurgy
+    }
+
+    private def lurgy {
+      infected = true
+      afterDelay(6) {
+        sick = true
+        afterDelay(8) {
+          if (random < deathRate)
+            dead = true
+          else afterDelay(2) {
+            immune = true
+            afterDelay(2) {
+              infected = false
+              sick = false
+              immune = false
             }
           }
         }
