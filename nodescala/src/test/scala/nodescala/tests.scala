@@ -25,13 +25,33 @@ class NodeScalaSuite extends FunSuite {
 
   test("A Future should never be created") {
     val never = Future.never[Int]
-
     try {
       Await.result(never, 1 second)
       assert(false)
     } catch {
       case t: TimeoutException => // ok!
     }
+  }
+
+  test("All Futures should succeed") {
+    val futures = Future.always(1) :: Future.always(2) :: Future.always(3) :: Nil
+    assert(Await.result(Future.all(futures), 1 seconds) == 1 :: 2 :: 3 :: Nil)
+  }
+
+  test("first completed") {
+    val any = Future.any(List(Future { 1 }, Future { 2 }, Future { throw new Exception }))
+    try {
+      val res = Await.result(any, 1 second)
+      assert( res == 1 || res == 2)
+    } catch {
+      case t: Exception => // ok
+    }
+  }
+
+  test("delay") {
+    val start = System.currentTimeMillis()
+    Await.result(Future.delay(1 second), 2 seconds)
+    assert(System.currentTimeMillis() - start > 1000)
   }
 
   test("CancellationTokenSource should allow stopping the computation") {
