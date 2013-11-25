@@ -50,8 +50,16 @@ class NodeScalaSuite extends FunSuite {
 
   test("delay") {
     val start = System.currentTimeMillis()
-    Await.result(Future.delay(1 second), 2 seconds)
-    assert(System.currentTimeMillis() - start > 1000)
+    Await.result(Future.delay(3 seconds), 4 seconds)
+    val took = System.currentTimeMillis() - start
+    assert(took > 3000 && took < 3100)
+  }
+
+  test("delay broken early") {
+    intercept[TimeoutException] {
+      val fut = Future.delay(3 seconds)
+      Await.result(fut, 1 second)
+    }
   }
 
   test("CancellationTokenSource should allow stopping the computation") {
