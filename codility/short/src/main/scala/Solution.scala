@@ -22,15 +22,15 @@ object Solution {
     require(roads != Nil, "no roads")
     val neighbours = roads.asSetMultiMap
 
-    // NOTE: if we could generate neighbours such that
-    //       it was directed away from the capital, then
-    //       we wouldn't need to pass the ignore list
-    def distances(start: Set[City], ignore: Set[City]): List[Int] =
-      (start.flatMap(neighbours) -- ignore) match {
+    // NOTE: because the graph is a tree, we only need to keep
+    //       track of the last 'from' step, not the full set
+    //       of cities to ignore.
+    def distances(start: Set[City], from: Set[City]): List[Int] =
+      (start.flatMap(neighbours) -- from) match {
         case cities if cities.isEmpty => Nil
-        case cities => cities.size :: distances(cities, ignore ++ cities)
+        case cities => cities.size :: distances(cities, start)
     }
 
-    distances(Set(capital), Set(capital)).padTo(a.length - 1, 0).toArray
+    distances(Set(capital), Set()).toArray.padTo(a.length - 1, 0)
   }
 }
