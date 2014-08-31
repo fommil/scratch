@@ -22,6 +22,9 @@ object Solution {
     require(roads != Nil, "no roads")
     val neighbours = roads.asSetMultiMap
 
+    // NOTE: if we could generate neighbours such that
+    //       it was directed away from the capital, then
+    //       we wouldn't need to pass the ignore list
     def distances(start: Set[City], ignore: Set[City]): List[Int] =
       (start.flatMap(neighbours) -- ignore) match {
         case cities if cities.isEmpty => Nil
