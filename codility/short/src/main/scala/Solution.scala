@@ -1,46 +1,33 @@
-import scala.collection.JavaConversions._
-
-// NOTE: I lost internet connection and quite a bit of time
-//       from working on this, so it is hastily
-//       constructed and missing review / refinement.
 object Solution {
+  // self-contained alternative to
+  // import pimpathon.list._
+  implicit class RichTupleList[K, V](a: List[(K, V)]) {
+    def asSetMultiMap: Map[K, Set[V]] = a.groupBy(_._1).map {
+      case (k, e) => (k, e.map(_._2).toSet)
+    }
+  }
+
+  type City = Int
+  type Road = (Int, Int)
+
   def solution(a: Array[Int]): Array[Int] = {
-    type City = Int
-    type Road = (Int, Int)
+    require(a.nonEmpty, "no data")
+    val (capital, roads) = (0 until a.length).foldLeft(
+      (-1: Int, Nil: List[Road]) // non-sensical defaults
+    ) {
+      case ((_, r), i) if i == a(i) => (i, r)
+      case ((c, r), i) => (c, (a(i), i) :: (i, a(i)) :: r)
+    }
+    require(capital != -1, "no capital")
+    require(roads != Nil, "no roads")
+    val neighbours = roads.asSetMultiMap
 
-    // I'm ridiculously sorry for the amount of mutable
-    // state in this solution. If I had time I'd refactor
-    // to be entirely immutable. I may as well have written
-    // this in fortran
-
-    // TODO: foldLeft and don't be mutable
-    var capital: City = -1
-    var roads: List[Road] = Nil
-    (0 until a.length) foreach {
-      case i if i == a(i) => capital = i
-      case i =>
-        roads = (a(i), i) :: (i, a(i)) :: roads
+    def distances(start: Set[City], ignore: Set[City]): List[Int] =
+      (start.flatMap(neighbours) -- ignore) match {
+        case cities if cities.isEmpty => Nil
+        case cities => cities.size :: distances(cities, ignore ++ cities)
     }
 
-    // 3rd party libs make .toMultiMap easy
-    // and never use mapValues, it is lazy
-    val lookup = roads.groupBy(_._1).map {
-      case (k, e) => (k, e.map(v => v._2).toSet)
-    }
-
-    var visited = Set.empty[City]
-    var distances = Array.fill[Set[City]](a.length - 1)(Set.empty)
-
-    // yuck, really I'm sorry you have to see this
-    distances(0) = lookup(capital)
-    visited ++= distances(0) + capital
-    (1 until distances.length) foreach { i =>
-      val last = distances(i - 1)
-      val now = last.flatMap(lookup) -- visited
-      distances(i) = now
-      visited ++= now
-    }
-
-    distances.map(_.size)
+    distances(Set(capital), Set(capital)).padTo(a.length - 1, 0).toArray
   }
 }
