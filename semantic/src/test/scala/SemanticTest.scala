@@ -1,3 +1,5 @@
+package com.github.fommil.semantic
+
 import org.scalatest.FunSuite
 
 class SemanticTest extends FunSuite {
