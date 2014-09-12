@@ -6,6 +6,7 @@ to pass.
 
 Please use Scala or Java and http://dbpedia.org  to make the following tests pass:
 
+```
   test("How old is Tony Blair") {
     val answer = Question.ask("How old is Tony Blair?")
     assert("61" === answer)
@@ -14,6 +15,7 @@ Please use Scala or Java and http://dbpedia.org  to make the following tests pas
     val answer = Question.ask("What is the birth place of David Cameron?")
     assert("London, United Kingdom" === answer)
   }
+```
 
 Feel free to use any external libraries that you like but make sure
 the solution will build when you send it back to us. You may find the
