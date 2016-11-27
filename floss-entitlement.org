@@ -3,7 +3,7 @@
 
 * Introduction
 
-or "why I don't spend my free time doing what some dude on the internet wants"
+or /"why I don't spend my free time doing what some random dude on the internet wants"/
 
 * Free Libre and Open Source Software
 
@@ -38,21 +38,53 @@ Most of the FLOSS developers I know subscribe to what I call the /OSS developer 
 
 Such developers take great pride in what they are creating and they get a buzz out of people using the software that they've written. Entire ecosystems emerge out of projects that become really successful, with the emergence of a /community/ often being seen as an indicator of success.
 
-These developers often feel a compulsion to fix bug reports that come in, or implement features that users request, because they are addicted to doing a great job and want even more people to use the software. The ticket tracker fills up, it never gets completed.
+These developers often feel a compulsion to fix bug reports that come in, or implement features that users request, because they are addicted to doing a great job and want even more people to use the software.
 
-I know almost nobody who writes software for personal exposure, the complete opposite to what most users think!
+Or the project dies, nobody uses it, and all motivation goes away.
+
+Most OSS developers use the Apache 2, MIT or BSD licenses because they want their software to be used by as many people as possible and these /pushover licenses/ have the lowest barrier to entry for companies. Many OSS developers don't even care about licensing but what they typically *do* care about is attribution. It is unfortunate that such developers don't realise that the license gives them the legal power to demand attribution for their works through the license text and =NOTICE= files.
+
+I don't know anybody who writes OSS for personal exposure, the complete opposite to what most users think! Although I do know some companies who use it as a PR exercise.
 
 * Why do people write Libre Software?
 
-Libre Software is a political movement. Richard Stallman created the FSF as a way to ensure that /the people/ will always have full control over their computers. He's a paranoid sort, so he might even believe that this is necessary for when the government turns on us. He's usually annoyingly prophetic in these matters.
+Libre Software is a political movement. Richard Stallman created the FSF as a way to ensure that /the people/ will always have full control over their computers. He's a paranoid sort, so he believes that it is necessary for when the government turns on us. Unfortunately, he's depressingly prophetic about these things.
 
+Libre developers care more about making their software hackable than how many users they get. They care more about liberating a downstream developer who receive the software. There is even an element of selfishness in the Libre motivations: I never want to receive a modified binary of my own project without the rights to the source code changes.
 
+The Libre developer is willing to take seemingly nonsense political decisions that harms users. A recent example of this is when [[http://www.lunaryorn.com/posts/bye-bye-emojis-emacs-hates-macos.html][GNU Emacs disabled features on proprietary systems]]. A more visible consequence is that Libre developers prefer [[https://www.gnu.org/licenses/copyleft.en.html][copyleft]] licenses like the GPL, even though it might mean that less people will want to use their software, especially if it is a library.
 
-
+Unfortunately, Libre software communities tend to come off sounding a bit rude. That's because their developers don't really care so much about you as a user. They are building the software in - as Sebastian puts it - an /ivory tower/.
 
 * Why do I write FLOSS software?
 
+I started my FLOSS contributions very much in the OSS developer mindset. My first big success was [[https://github.com/fommil/netlib-java][netlib-java]]. I was totally obsessed with making it the most technically superior solution, responding to all bug reports, and evangelising companies to use it. And I was doing it to get my name out there. When it got included in Apache Spark I was delighted: it is downloaded by ~10,000 unique IP addresses *every month*.
+
+A few years ago, I resurrected [[http://ensime.org][ENSIME]] the instant I found out about it (thanks =@bodil=!). I *love* GNU Emacs and IDEs never quite did it for me, even when I was contributing to NetBeans. But I still had the OSS mindset: I wanted everybody to use ENSIME! Rory joined in the fun and we put together a solid CI with as much coverage as we could write, contributors started flowing in, and we were hosting hack days in London with satellite groups popping up in Poland sending us wonderful PRs.
+
+But our userbase was growing and growing, with more and more demanding users, yet the contributor base kind of stayed the same.
+
+I was implementing features I didn't need, hunting down bugs I didn't see, and it was burning me out - stealing away from my personal life.
+
+I don't want users, I want contributors! That might sound very selfish, and maybe it is, but the truth is that I have shifted to the Libre Software mindset. I want to do a great engineering job, so testing and good design is critical to me, I want to anticipate where scala and dotty are going and be prepared for them, but I don't want to spend any time on anything that doesn't directly benefit my use of ENSIME anymore. That's obviously not sustainable unless:
+
+0. our [[http://ensime.github.io/sponsor/][community sponsors]] developers to take on the bigger tasks
+0. the [[http://ensime.github.io/contributing/][contributor]] to user ratio gets higher
+
+The community response to the sponsorship programme has been exceptional. Thank you especially to 47 Degrees, Scalanator and all our [[https://salt.bountysource.com/teams/ensime/supporters][individual supporters]]! I honestly didn't believe we'd hit our target, but we did. I hope we can hit our next target and fund a second part time student developer. So if you love ENSIME, please contribute some code or sponsor a developer!
 
 * The Entitlement Complex
 
-Unfortunately, the OSS developer mindset is easily exploited by random dudes on the internet who want to be treated like customers.
+When I get support emails for =netlib-java=, they read like customer emails to their supplier: "I need a response within 12 hours", "when can you do X?". I came up with [[https://github.com/fommil/netlib-java/issues/114#issuecomment-242422265][a template response on github]], but what I really want to do is tell the sender: *you are not my customer, pay me or GTFO*. Nobody ever pays. When I put together a [[https://twitter.com/fommil/status/747922953954824192][Call for Funding]], I got cold responses from every major player that I know in the Big Data space: I haven't made a penny or won a single consultancy contract as a direct result of my work on =netlib-java=.
+
+Unfortunately, the OSS developer mindset is easily exploited by random dudes on the internet who want to be treated like customers. People feel the need to declare [[https://twitter.com/monnef/status/794286281048096768]["until it has X I don't see a reason why to even try it"]] or [[https://m.reddit.com/r/scala/comments/5eu9if/comment/dag231l]["I call your development method lazy, because you tell people to implement your project themselves"]] (just this weekend's batch...). These kinds of communications can be upsetting if you subscribe to the OSS mindset. But if you take the Libre mindset, it is a kind of psychological shield and you're glad that these people move on.
+
+* How we could be better
+
+Libre projects could do a better job of being helpful, yet firm, with users who are confused. Better documentation is a good way to distract users from bothering developers.
+
+Users could do a better job of reading the documentation. This last week I've pulled out of lurking on the [[https://gitter.im/ensime/ensime-emacs][gitter.im/ensime/ensime-emacs]] channel because it was clear that people don't read the documentation, even though a link pops up on first use and we have bots that respond to keywords. People swear blind that they follow the troubleshooting guide, but it is very very clear that they haven't in 99% of cases. So I'm trying a bit of tough love to see if it results in people helping themselves more.
+
+And when reporting bug reports and feature requests, on any project. Let's try to be more respectful of the author's time: start with a minimal reproduction, and offer to help fix the problem.
+
+And let's not be so mean to FLOSS developers when they our bugs rot on their issue tracker, or our amazing feature requests are not implemented. In scala, I think we should probably start by being nicer to the =scalac= and =sbt= authors... they bare the worst of it and they are trying their best (often in their own personal time)!
