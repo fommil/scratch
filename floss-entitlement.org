@@ -1,0 +1,58 @@
+#+TITLE: The Open Source Entitlement Complex
+#+AUTHOR: Sam Halliday
+
+* Introduction
+
+or "why I don't spend my free time doing what some dude on the internet wants"
+
+* Free Libre and Open Source Software
+
+FLOSS is a combination of two concepts: Free / Libre Software and Open Source Software.
+
+[[https://www.gnu.org/philosophy/free-sw.en.html][Free / Libre]] (I just say Libre Software) is a political movement and a formally defined set of freedoms (paraphrased):
+
+0. run the program as you wish, for any purpose
+0. study how the program works, and change it
+0. redistribute copies
+0. distribute copies of your modified versions to others
+
+[[https://en.wikipedia.org/wiki/Open-source_software][Open Source]] (OSS) means different things to different people, but most people agree on:
+
+0. a technical community writes and maintains the software
+0. there is no charge to use the software
+0. the source code is available
+
+Naturally, with a reputation like this, businesses love OSS because it saves them money, and engineers love OSS because it saves them time and because they can look under the hood when it breaks.
+
+* Why do people think FLOSS exists?
+
+Before reading this section, think about a FLOSS library or application that you use and ask yourself why you think it exists. It'll be genuinely interesting to hear your stories in the comments. Do this before reading any further, lest you bias yourself by hearing what I think!
+
+In my experience, business people tend to believe that FLOSS projects exist as a way for developers to [[https://twitter.com/forexposure_txt][get some exposure]], and are deeply suspicious about the quality of such projects: equating gratis with cheap.
+
+Engineers often assume that FLOSS is about sharing knowledge. You're written something great, of course you want to share it with the world. There is also a suspicion that it's about fame: that the authors are doing it for attention or to feel part of a larger movement like the Apache Foundation. Typically there is an assumption that the authors are dedicated to maintaining the project and fixing bug reports.
+
+* Why do people write Open Source software?
+
+Most of the FLOSS developers I know subscribe to what I call the /OSS developer mindset/.
+
+Such developers take great pride in what they are creating and they get a buzz out of people using the software that they've written. Entire ecosystems emerge out of projects that become really successful, with the emergence of a /community/ often being seen as an indicator of success.
+
+These developers often feel a compulsion to fix bug reports that come in, or implement features that users request, because they are addicted to doing a great job and want even more people to use the software. The ticket tracker fills up, it never gets completed.
+
+I know almost nobody who writes software for personal exposure, the complete opposite to what most users think!
+
+* Why do people write Libre Software?
+
+Libre Software is a political movement. Richard Stallman created the FSF as a way to ensure that /the people/ will always have full control over their computers. He's a paranoid sort, so he might even believe that this is necessary for when the government turns on us. He's usually annoyingly prophetic in these matters.
+
+
+
+
+
+* Why do I write FLOSS software?
+
+
+* The Entitlement Complex
+
+Unfortunately, the OSS developer mindset is easily exploited by random dudes on the internet who want to be treated like customers.
