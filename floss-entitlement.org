@@ -9,7 +9,7 @@ or /"why I don't spend my free time doing what some random dude on the internet 
 
 FLOSS is a combination of two concepts: Free / Libre Software and Open Source Software.
 
-[[https://www.gnu.org/philosophy/free-sw.en.html][Free / Libre]] (I just say Libre Software) is a political movement and a formally defined set of freedoms (paraphrased):
+[[https://www.gnu.org/philosophy/free-sw.en.html][Free / Libre]] (I just say "Libre Software") is a political movement and a formally defined set of freedoms (paraphrased):
 
 0. run the program as you wish, for any purpose
 0. study how the program works, and change it
@@ -28,7 +28,7 @@ Naturally, with a reputation like this, businesses love OSS because it saves the
 
 Before reading this section, think about a FLOSS library or application that you use and ask yourself why you think it exists. It'll be genuinely interesting to hear your stories in the comments. Do this before reading any further, lest you bias yourself by hearing what I think!
 
-In my experience, business people tend to believe that FLOSS projects exist as a way for developers to [[https://twitter.com/forexposure_txt][get some exposure]], and are deeply suspicious about the quality of such projects: equating gratis with cheap.
+In my experience, business people tend to believe that FLOSS projects exist as a way for developers to [[https://twitter.com/forexposure_txt][get some exposure]], and are deeply suspicious about the quality of such projects: equating gratis with cheap. But they are more than happy to take cheap over expensive!
 
 Engineers often assume that FLOSS is about sharing knowledge. You're written something great, of course you want to share it with the world. There is also a suspicion that it's about fame: that the authors are doing it for attention or to feel part of a larger movement like the Apache Foundation. Typically there is an assumption that the authors are dedicated to maintaining the project and fixing bug reports.
 
@@ -42,15 +42,15 @@ These developers often feel a compulsion to fix bug reports that come in, or imp
 
 Or the project dies, nobody uses it, and all motivation goes away.
 
-Most OSS developers use the Apache 2, MIT or BSD licenses because they want their software to be used by as many people as possible and these /pushover licenses/ have the lowest barrier to entry for companies. Many OSS developers don't even care about licensing but what they typically *do* care about is attribution. It is unfortunate that such developers don't realise that the license gives them the legal power to demand attribution for their works through the license text and =NOTICE= files.
+Most OSS developers use the Apache 2, MIT or BSD licenses because they want their software to be used by as many people as possible and these /pushover licenses/ have the lowest barrier to entry for companies. Many OSS developers don't even care about licensing but what they typically *do* care about is attribution. It is unfortunate that some developers don't appreciate that the license gives them the legal power to demand attribution for their works through the license text and =NOTICE= files.
 
-I don't know anybody who writes OSS for personal exposure, the complete opposite to what most users think! Although I do know some companies who use it as a PR exercise.
+I don't know anybody who writes OSS for personal exposure (or they don't admit to it!), the complete opposite to what most users think! Although I do know some companies who use it as a way to attract talent: I applaud that!
 
 * Why do people write Libre Software?
 
 Libre Software is a political movement. Richard Stallman created the FSF as a way to ensure that /the people/ will always have full control over their computers. He's a paranoid sort, so he believes that it is necessary for when the government turns on us. Unfortunately, he's depressingly prophetic about these things.
 
-Libre developers care more about making their software hackable than how many users they get. They care more about liberating a downstream developer who receive the software. There is even an element of selfishness in the Libre motivations: I never want to receive a modified binary of my own project without the rights to the source code changes.
+Libre developers care more about their software's freedoms than how many users they get. There is even an element of fairness: I never want to receive a modified binary of something I wrote without the same rights I gave you.
 
 The Libre developer is willing to take seemingly nonsense political decisions that harms users. A recent example of this is when [[http://www.lunaryorn.com/posts/bye-bye-emojis-emacs-hates-macos.html][GNU Emacs disabled features on proprietary systems]]. A more visible consequence is that Libre developers prefer [[https://www.gnu.org/licenses/copyleft.en.html][copyleft]] licenses like the GPL, even though it might mean that less people will want to use their software, especially if it is a library.
 
@@ -75,16 +75,16 @@ The community response to the sponsorship programme has been exceptional. Thank 
 
 * The Entitlement Complex
 
-When I get support emails for =netlib-java=, they read like customer emails to their supplier: "I need a response within 12 hours", "when can you do X?". I came up with [[https://github.com/fommil/netlib-java/issues/114#issuecomment-242422265][a template response on github]], but what I really want to do is tell the sender: *you are not my customer, pay me or GTFO*. Nobody ever pays. When I put together a [[https://twitter.com/fommil/status/747922953954824192][Call for Funding]], I got cold responses from every major player that I know in the Big Data space: I haven't made a penny or won a single consultancy contract as a direct result of my work on =netlib-java=.
+When I get support emails for =netlib-java=, they read like customer emails to their supplier: "I need a response within 12 hours", "when can you do X?". I came up with [[https://github.com/fommil/netlib-java/issues/114#issuecomment-242422265][a template response on github]], but what I really want to do is tell the sender: *you are not my customer, pay me or GTFO*. Nobody ever pays. When I put together a [[https://twitter.com/fommil/status/747922953954824192][Call for Funding]], I got cold responses from every major player that I know in the Big Data space: I haven't made a penny or won a single consultancy contract as a direct result of my work on =netlib-java= and that's including when I was bending over backwards to help people.
 
 Unfortunately, the OSS developer mindset is easily exploited by random dudes on the internet who want to be treated like customers. People feel the need to declare [[https://twitter.com/monnef/status/794286281048096768]["until it has X I don't see a reason why to even try it"]] or [[https://m.reddit.com/r/scala/comments/5eu9if/comment/dag231l]["I call your development method lazy, because you tell people to implement your project themselves"]] (just this weekend's batch...). These kinds of communications can be upsetting if you subscribe to the OSS mindset. But if you take the Libre mindset, it is a kind of psychological shield and you're glad that these people move on.
 
 * How we could be better
 
-Libre projects could do a better job of being helpful, yet firm, with users who are confused. Better documentation is a good way to distract users from bothering developers.
+Libre projects could do a better job of being helpful, yet firm, with users who are confused. Better documentation is a good way to keep new users from distracting developers. Users who can educate themselves are always welcome, even if they never contribute or sponsor a project!
 
 Users could do a better job of reading the documentation. This last week I've pulled out of lurking on the [[https://gitter.im/ensime/ensime-emacs][gitter.im/ensime/ensime-emacs]] channel because it was clear that people don't read the documentation, even though a link pops up on first use and we have bots that respond to keywords. People swear blind that they follow the troubleshooting guide, but it is very very clear that they haven't in 99% of cases. So I'm trying a bit of tough love to see if it results in people helping themselves more.
 
-And when reporting bug reports and feature requests, on any project. Let's try to be more respectful of the author's time: start with a minimal reproduction, and offer to help fix the problem.
+And when reporting bug reports and feature requests, on any project, let's try to be more respectful of the author's time. Give a minimal reproduction, and offer to help fix the problem yourself, it is a lot more empowering than hoping somebody else will do it!
 
-And let's not be so mean to FLOSS developers when they our bugs rot on their issue tracker, or our amazing feature requests are not implemented. In scala, I think we should probably start by being nicer to the =scalac= and =sbt= authors... they bare the worst of it and they are trying their best (often in their own personal time)!
+And let's not be so mean to FLOSS developers when our bugs rot on their issue tracker, or our amazing feature requests are not implemented. In scala particularly, I think we should start by being nicer to the =scalac= and =sbt= authors... they bare the worst of it and they are trying their best (often in their own personal time)!
