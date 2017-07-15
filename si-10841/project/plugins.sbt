@@ -1,0 +1,3 @@
+// cleared by a jury...
+addSbtPlugin("ch.epfl.scala" % "sbt-scalafix" % "0.5.9")
+addSbtPlugin("org.wartremover" % "sbt-wartremover" % "2.2.0")
